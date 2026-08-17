@@ -24,6 +24,7 @@ async function calculatePrice(params: any, prices: CalcPriceSettings) {
     const clength = Number(params.clength) || 100;
     const islandlength = Number(params.islandlength) || 0;
     const openlength = Number(params.openlength) || 0;
+    const openDepth = Number(params.openDepth) || 60;
     const tallWidth = Number(params.tallWidth) || 0;
     const ceilHeight = Number(params.ceilHeight) || 70;
     const refrigeratorWidth = Number(params.refrigeratorWidth) || 0;
@@ -37,7 +38,7 @@ async function calculatePrice(params: any, prices: CalcPriceSettings) {
 
     let totalCabinetMeter = totalWallLength;
     totalCabinetMeter += islandMeter * 0.8;
-    totalCabinetMeter += openMeter * 0.6;
+    totalCabinetMeter += openMeter * (openDepth / 100);
 
     const heightFactor = ceilHeight / 70;
     const widthFactor = 1 + (tallWidth / 1000);
@@ -93,14 +94,14 @@ async function calculatePrice(params: any, prices: CalcPriceSettings) {
 export async function getCalculateResult(params: any) {
     const requiredParams = [
         'alength', 'blength', 'clength', 'islandlength', 'openlength',
-        'tallWidth', 'ceilHeight', 'refrigeratorWidth',
+        'tallWidth', 'ceilHeight', 'refrigeratorWidth', 'openDepth',
         'hasDishwasher', 'hasLaundry', 'layoutno'
     ];
 
     const defaultValues: Record<string, any> = {
         'alength': 100, 'blength': 100, 'clength': 100,
         'islandlength': 0, 'openlength': 0, 'tallWidth': 0,
-        'ceilHeight': 70, 'refrigeratorWidth': 0,
+        'ceilHeight': 70, 'refrigeratorWidth': 0, 'openDepth': 60,
         'hasDishwasher': false, 'hasLaundry': false, 'layoutno': 1
     };
 

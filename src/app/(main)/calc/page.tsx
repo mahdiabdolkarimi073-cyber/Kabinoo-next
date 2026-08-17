@@ -250,7 +250,7 @@ const defaultPresets = [
             clength: 200,
             islandlength: 0,
             openlength: 0,
-            tallWidth: 80,
+            tallWidth: 35,
             ceilHeight: 70,
             refrigeratorWidth: 80,
             hasDishwasher: true,
@@ -268,7 +268,7 @@ const defaultPresets = [
             clength: 300,
             islandlength: 0,
             openlength: 150,
-            tallWidth: 100,
+            tallWidth: 35,
             ceilHeight: 80,
             refrigeratorWidth: 80,
             hasDishwasher: true,
@@ -286,7 +286,7 @@ const defaultPresets = [
             clength: 400,
             islandlength: 150,
             openlength: 0,
-            tallWidth: 120,
+            tallWidth: 35,
             ceilHeight: 80,
             refrigeratorWidth: 95,
             hasDishwasher: true,
@@ -304,7 +304,7 @@ const defaultPresets = [
             clength: 500,
             islandlength: 200,
             openlength: 200,
-            tallWidth: 140,
+            tallWidth: 35,
             ceilHeight: 90,
             refrigeratorWidth: 95,
             hasDishwasher: true,
@@ -322,7 +322,7 @@ const defaultPresets = [
             clength: 0,
             islandlength: 0,
             openlength: 0,
-            tallWidth: 100,
+            tallWidth: 35,
             ceilHeight: 70,
             refrigeratorWidth: 0,
             hasDishwasher: false,
@@ -340,7 +340,7 @@ const defaultPresets = [
             clength: 350,
             islandlength: 250,
             openlength: 0,
-            tallWidth: 110,
+            tallWidth: 35,
             ceilHeight: 80,
             refrigeratorWidth: 80,
             hasDishwasher: true,
@@ -388,6 +388,7 @@ export default function Page() {
         newParams.tallWidth = preset.values.tallWidth;
         newParams.islandlength = preset.values.islandlength || 0;
         newParams.openlength = preset.values.openlength || 0;
+        newParams.openDepth = 60;
         
         // اطمینان از وجود همه پارامترها
         if (!('alength' in newParams)) newParams.alength = 100;
@@ -429,13 +430,15 @@ export default function Page() {
         initial.hasDishwasher = false;
         initial.hasLaundry = false;
         initial.layoutno = fields.findIndex(o => o.id === field.id) + 1;
-        initial.tallWidth = 0;
+        initial.tallWidth = 35;
+        initial.openDepth = 60;
         
         if (!('alength' in initial)) initial.alength = 100;
         if (!('blength' in initial)) initial.blength = 100;
         if (!('clength' in initial)) initial.clength = 100;
         if (!('islandlength' in initial)) initial.islandlength = 0;
         if (!('openlength' in initial)) initial.openlength = 0;
+        initial.openDepth = 60;
         
         setParams(initial);
         setSelectedPreset(null);
@@ -458,7 +461,7 @@ export default function Page() {
                 'clength': 100,
                 'islandlength': 0,
                 'openlength': 0,
-                'tallWidth': 0,
+                'tallWidth': 35,
                 'ceilHeight': 70,
                 'refrigeratorWidth': 0,
                 'hasDishwasher': false,
@@ -573,29 +576,36 @@ export default function Page() {
                             );
                         })}
 
+                        {'openlength' in item.parameter && (
+                            <div>
+                                <label className="font-bold mb-2 block">عمق اپن</label>
+                                <small className="block mb-2 text-gray-400">عمق کانتر اپن را انتخاب کنید</small>
+                                <SegmentedControl
+                                    value={params.openDepth?.toString() || "60"}
+                                    onChange={val => setParams(p => ({ ...p, openDepth: Number(val) }))}
+                                    data={[
+                                        { value: "60", label: "60 سانت" },
+                                        { value: "80", label: "80 سانت" },
+                                        { value: "90", label: "90 سانت" },
+                                        { value: "100", label: "100 سانت" }
+                                    ]}
+                                    fullWidth
+                                />
+                            </div>
+                        )}
                         <div>
-                            <label className="font-bold mb-1 block">عرض کمد
-                                <small className="mx-2 text-gray-500">(سانتی‌متر)</small>
-                            </label>
-
-                            <Slider
-                                min={0}
-                                max={+params?.alength || 100}
-                                value={+params['tallWidth'] || 0}
-                                onChange={v => setParams(p => ({ ...p, tallWidth: v }))}
-                                mb={8}
+                            <label className="font-bold mb-2 block">عمق کمد دیواری</label>
+                            <small className="block mb-2 text-gray-400">عمق کابینت دیواری را انتخاب کنید</small>
+                            <SegmentedControl
+                                value={params.tallWidth?.toString() || "35"}
+                                onChange={val => setParams(p => ({ ...p, tallWidth: Number(val) }))}
+                                data={[
+                                    { value: "30", label: "30 سانت" },
+                                    { value: "35", label: "35 سانت" }
+                                ]}
+                                fullWidth
                             />
-                            <NumberInput
-                                value={+params['tallWidth'] || 0}
-                                min={0}
-                                max={+params?.alength || 100}
-                                onChange={(e) => {
-                                    const v = Number(e);
-                                    if (!isNaN(v) && v >= 0 && v <= (+params?.alength || 100)) {
-                                        setParams(p => ({ ...p, tallWidth: v }));
-                                    }
-                                }}
-                            />
+                            <small className="block mt-2 text-gray-500">عمق کمد زمینی ۶۰ سانتی‌متر است</small>
                         </div>
                         <div>
                             <label className="font-bold mb-2 block">ارتفاع هوایی</label>

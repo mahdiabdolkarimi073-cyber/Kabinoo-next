@@ -46,6 +46,7 @@ async function calculatePrice(params, prices) {
     const clength = Number(params.clength) || 100;
     const islandlength = Number(params.islandlength) || 0;
     const openlength = Number(params.openlength) || 0;
+    const openDepth = Number(params.openDepth) || 60;
     const tallWidth = Number(params.tallWidth) || 0;
     const ceilHeight = Number(params.ceilHeight) || 70;
     const refrigeratorWidth = Number(params.refrigeratorWidth) || 0;
@@ -57,7 +58,7 @@ async function calculatePrice(params, prices) {
     const openMeter = openlength / 100;
     let totalCabinetMeter = totalWallLength;
     totalCabinetMeter += islandMeter * 0.8;
-    totalCabinetMeter += openMeter * 0.6;
+    totalCabinetMeter += openMeter * (openDepth / 100);
     const heightFactor = ceilHeight / 70;
     const widthFactor = 1 + tallWidth / 1000;
     let mdfPrice = totalCabinetMeter * prices.mdfPrice * heightFactor * widthFactor;
@@ -119,6 +120,7 @@ async function getCalculateResult(params) {
         'tallWidth',
         'ceilHeight',
         'refrigeratorWidth',
+        'openDepth',
         'hasDishwasher',
         'hasLaundry',
         'layoutno'
@@ -132,6 +134,7 @@ async function getCalculateResult(params) {
         'tallWidth': 0,
         'ceilHeight': 70,
         'refrigeratorWidth': 0,
+        'openDepth': 60,
         'hasDishwasher': false,
         'hasLaundry': false,
         'layoutno': 1
