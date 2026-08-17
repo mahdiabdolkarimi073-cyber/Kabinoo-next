@@ -2,5 +2,5 @@
   "version": 3,
   "sources": [],
   "sections": [
-    {"offset": {"line": 3, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/User01/Desktop/project/%DA%A9%D8%A7%D8%A8%DB%8C%D9%86%D9%882/project/frontend/node_modules/next/image.js"],"sourcesContent":["module.exports = require('./dist/shared/lib/image-external')\n"],"names":[],"mappings":"AAAA,OAAO,OAAO","ignoreList":[0],"debugId":null}}]
+    {"offset": {"line": 3, "column": 0}, "map": {"version":3,"sources":["file:///D:/PROJECT_ABDOLKARIMI/DOWNLOADS/kabinoo/project/frontend/node_modules/next/image.js"],"sourcesContent":["module.exports = require('./dist/shared/lib/image-external')\n"],"names":[],"mappings":"AAAA,OAAO,OAAO","ignoreList":[0],"debugId":null}}]
 }

@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///D:/PROJECT_ABDOLKARIMI/DOWNLOADS/kabinoo/project/frontend/src/app/%28main%29/auth/layout.tsx"],"sourcesContent":["function Layout(props: any) {\n    if (!!props.children)\n\n    return props.children;\n}\n\nexport default Layout;"],"names":[],"mappings":";;;;AAAA,SAAS,OAAO,KAAU;IACtB,IAAI,CAAC,CAAC,MAAM,QAAQ,EAEpB,OAAO,MAAM,QAAQ;AACzB;uCAEe","debugId":null}}]
+}

@@ -177,9 +177,8 @@ export default function HelpComponent({ checkAmount, onDone, onCancel, check }: 
                         <h4 className="font-bold text-lg mb-4 text-center">نام گیرنده چک</h4>
                         <div className="text-center">
                             <p className="text-2xl font-bold text-primary mb-2">
-                                کابینو
+                                مرتضی عسکری 2993963971
                             </p>
-                            <p className="text-gray-600">شرکت</p>
                         </div>
                     </div>
                 </div>
@@ -201,6 +200,16 @@ export default function HelpComponent({ checkAmount, onDone, onCancel, check }: 
                                     <li>شناسه صیادی کاملاً مشخص باشد</li>
                                     <li>مبلغ و امضا قابل رویت باشند</li>
                                 </ul>
+                                <figure className="mt-4 overflow-hidden rounded-lg border border-primary/20 bg-white p-2">
+                                    <img
+                                        src="/assets/images/help/check.svg"
+                                        alt="راهنمای بخش‌های مهم تصویر چک"
+                                        className="h-auto w-full rounded-md object-contain"
+                                    />
+                                    <figcaption className="mt-2 text-center text-xs text-gray-600">
+                                        راهنمای بخش‌های مهم چک
+                                    </figcaption>
+                                </figure>
                             </div>
                         </div>
                     </div>
