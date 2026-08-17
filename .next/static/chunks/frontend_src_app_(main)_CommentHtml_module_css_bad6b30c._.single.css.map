@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/frontend/src/app/(main)/CommentHtml.module.css"],"sourcesContent":[".comment {\n    padding: var(--mantine-spacing-lg) var(--mantine-spacing-xl);\n}\n\n.body {\n    padding-left: 54px;\n    padding-top: var(--mantine-spacing-sm);\n    font-size: var(--mantine-font-size-sm);\n}\n\n.content > p:last-child {\n        margin-bottom: 0;\n    }"],"names":[],"mappings":"AAAA;;;;AAIA;;;;;;AAMA"}}]
+}

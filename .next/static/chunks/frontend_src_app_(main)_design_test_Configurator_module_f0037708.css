@@ -1,0 +1,18 @@
+/* [project]/frontend/src/app/(main)/design/test/Configurator.module.css [app-client] (css) */
+.Configurator-module__XHtkWW__container {
+  display: flex;
+}
+
+.Configurator-module__XHtkWW__iframe {
+  border: none;
+  flex: 1;
+}
+
+.Configurator-module__XHtkWW__controls {
+  background: #f5f5f5;
+  width: 300px;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/*# sourceMappingURL=frontend_src_app_%28main%29_design_test_Configurator_module_f0037708.css.map*/

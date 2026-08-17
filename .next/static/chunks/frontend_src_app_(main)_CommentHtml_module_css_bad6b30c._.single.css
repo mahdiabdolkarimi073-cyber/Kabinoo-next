@@ -1,0 +1,16 @@
+/* [project]/frontend/src/app/(main)/CommentHtml.module.css [app-client] (css) */
+.CommentHtml-module__m7RHBa__comment {
+  padding: var(--mantine-spacing-lg) var(--mantine-spacing-xl);
+}
+
+.CommentHtml-module__m7RHBa__body {
+  padding-left: 54px;
+  padding-top: var(--mantine-spacing-sm);
+  font-size: var(--mantine-font-size-sm);
+}
+
+.CommentHtml-module__m7RHBa__content > p:last-child {
+  margin-bottom: 0;
+}
+
+/*# sourceMappingURL=frontend_src_app_%28main%29_CommentHtml_module_css_bad6b30c._.single.css.map*/

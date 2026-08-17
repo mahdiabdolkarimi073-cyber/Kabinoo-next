@@ -1,0 +1,277 @@
+/* [project]/frontend/node_modules/@mantine/carousel/styles.css [app-client] (css) */
+.m_17884d0f {
+  --carousel-height: auto;
+  position: relative;
+}
+
+.m_a2dae653 {
+  height: var(--carousel-height);
+  overflow: hidden;
+}
+
+.m_a2dae653[data-type="container"] {
+  container: carousel / inline-size;
+}
+
+.m_fcd81474 {
+  height: var(--carousel-height);
+  flex-direction: row;
+  display: flex;
+}
+
+:where([data-include-gap-in-size]) .m_fcd81474:where([data-orientation="vertical"]) {
+  margin-bottom: calc(var(--carousel-slide-gap) * -1);
+}
+
+:where([data-include-gap-in-size]) .m_fcd81474:where([data-orientation="horizontal"]):not(:-webkit-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  margin-right: calc(var(--carousel-slide-gap) * -1);
+}
+
+:where([data-include-gap-in-size]) .m_fcd81474:where([data-orientation="horizontal"]):not(:-moz-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  margin-right: calc(var(--carousel-slide-gap) * -1);
+}
+
+:where([data-include-gap-in-size]) .m_fcd81474:where([data-orientation="horizontal"]):not(:is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  margin-right: calc(var(--carousel-slide-gap) * -1);
+}
+
+:where([data-include-gap-in-size]) .m_fcd81474:where([data-orientation="horizontal"]):-webkit-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  margin-left: calc(var(--carousel-slide-gap) * -1);
+}
+
+:where([data-include-gap-in-size]) .m_fcd81474:where([data-orientation="horizontal"]):-moz-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  margin-left: calc(var(--carousel-slide-gap) * -1);
+}
+
+:where([data-include-gap-in-size]) .m_fcd81474:where([data-orientation="horizontal"]):is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  margin-left: calc(var(--carousel-slide-gap) * -1);
+}
+
+.m_fcd81474:where([data-orientation="vertical"]) {
+  flex-direction: column;
+}
+
+.m_39bc3463 {
+  z-index: 1;
+  pointer-events: none;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  position: absolute;
+}
+
+.m_39bc3463:where([data-orientation="vertical"]) {
+  padding: var(--carousel-controls-offset) 0;
+  flex-direction: column;
+  top: 0;
+  bottom: 0;
+}
+
+.m_39bc3463:where([data-orientation="vertical"]):not(:-webkit-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  left: calc(50% - var(--carousel-control-size) / 2);
+}
+
+.m_39bc3463:where([data-orientation="vertical"]):not(:-moz-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  left: calc(50% - var(--carousel-control-size) / 2);
+}
+
+.m_39bc3463:where([data-orientation="vertical"]):not(:is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  left: calc(50% - var(--carousel-control-size) / 2);
+}
+
+.m_39bc3463:where([data-orientation="vertical"]):-webkit-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  right: calc(50% - var(--carousel-control-size) / 2);
+}
+
+.m_39bc3463:where([data-orientation="vertical"]):-moz-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  right: calc(50% - var(--carousel-control-size) / 2);
+}
+
+.m_39bc3463:where([data-orientation="vertical"]):is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  right: calc(50% - var(--carousel-control-size) / 2);
+}
+
+.m_39bc3463:where([data-orientation="horizontal"]) {
+  left: 0;
+  right: 0;
+  top: calc(50% - var(--carousel-control-size) / 2);
+  padding: 0 var(--carousel-controls-offset);
+  flex-direction: row;
+}
+
+.m_64f58e10 {
+  min-width: var(--carousel-control-size);
+  min-height: var(--carousel-control-size);
+  border-radius: var(--carousel-control-size);
+  pointer-events: all;
+  background-color: var(--mantine-color-white);
+  color: var(--mantine-color-black);
+  box-shadow: var(--mantine-shadow-md);
+  border: 1px solid var(--mantine-color-gray-3);
+  justify-content: center;
+  align-items: center;
+  transition: opacity .1s;
+  display: flex;
+}
+
+:where([data-mantine-color-scheme="light"]) .m_64f58e10 {
+  opacity: .85;
+}
+
+:where([data-mantine-color-scheme="dark"]) .m_64f58e10 {
+  opacity: .65;
+}
+
+@media (hover: hover) {
+  .m_64f58e10:hover {
+    opacity: 1;
+  }
+}
+
+@media (hover: none) {
+  .m_64f58e10:active {
+    opacity: 1;
+  }
+}
+
+.m_71ea3ab1 {
+  justify-content: center;
+  gap: calc(.5rem * var(--mantine-scale));
+  pointer-events: none;
+  display: flex;
+  position: absolute;
+}
+
+.m_71ea3ab1:where([data-orientation="vertical"]) {
+  top: 0;
+  bottom: 0;
+  flex-direction: column;
+}
+
+.m_71ea3ab1:where([data-orientation="vertical"]):not(:-webkit-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  right: var(--mantine-spacing-md);
+}
+
+.m_71ea3ab1:where([data-orientation="vertical"]):not(:-moz-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  right: var(--mantine-spacing-md);
+}
+
+.m_71ea3ab1:where([data-orientation="vertical"]):not(:is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  right: var(--mantine-spacing-md);
+}
+
+.m_71ea3ab1:where([data-orientation="vertical"]):-webkit-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  left: var(--mantine-spacing-md);
+}
+
+.m_71ea3ab1:where([data-orientation="vertical"]):-moz-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  left: var(--mantine-spacing-md);
+}
+
+.m_71ea3ab1:where([data-orientation="vertical"]):is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  left: var(--mantine-spacing-md);
+}
+
+.m_71ea3ab1:where([data-orientation="horizontal"]) {
+  bottom: var(--mantine-spacing-md);
+  flex-direction: row;
+  left: 0;
+  right: 0;
+}
+
+.m_eae68602 {
+  pointer-events: all;
+  border-radius: var(--mantine-radius-xl);
+  box-shadow: var(--mantine-shadow-sm);
+  opacity: .6;
+  background-color: var(--mantine-color-white);
+}
+
+@media (hover: hover) {
+  .m_eae68602:hover {
+    opacity: 1;
+  }
+}
+
+@media (hover: none) {
+  .m_eae68602:active {
+    opacity: 1;
+  }
+}
+
+.m_eae68602:where([data-active]) {
+  opacity: 1;
+}
+
+.m_eae68602:where([data-orientation="vertical"]) {
+  width: calc(.3125rem * var(--mantine-scale));
+  height: calc(1.5625rem * var(--mantine-scale));
+}
+
+.m_eae68602:where([data-orientation="horizontal"]) {
+  width: calc(1.5625rem * var(--mantine-scale));
+  height: calc(.3125rem * var(--mantine-scale));
+}
+
+.m_d98df724 {
+  flex: 0 0 var(--carousel-slide-size, 100%);
+  position: relative;
+}
+
+.m_17884d0f:where([data-include-gap-in-size]) .m_d98df724:where([data-orientation="vertical"]) {
+  padding-bottom: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where([data-include-gap-in-size]) .m_d98df724:where([data-orientation="horizontal"]):not(:-webkit-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  padding-right: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where([data-include-gap-in-size]) .m_d98df724:where([data-orientation="horizontal"]):not(:-moz-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  padding-right: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where([data-include-gap-in-size]) .m_d98df724:where([data-orientation="horizontal"]):not(:is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  padding-right: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where([data-include-gap-in-size]) .m_d98df724:where([data-orientation="horizontal"]):-webkit-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  padding-left: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where([data-include-gap-in-size]) .m_d98df724:where([data-orientation="horizontal"]):-moz-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  padding-left: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where([data-include-gap-in-size]) .m_d98df724:where([data-orientation="horizontal"]):is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  padding-left: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where(:not([data-include-gap-in-size])) .m_d98df724:where([data-orientation="vertical"]) {
+  margin-bottom: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where(:not([data-include-gap-in-size])) .m_d98df724:where([data-orientation="horizontal"]):not(:-webkit-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  margin-right: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where(:not([data-include-gap-in-size])) .m_d98df724:where([data-orientation="horizontal"]):not(:-moz-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  margin-right: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where(:not([data-include-gap-in-size])) .m_d98df724:where([data-orientation="horizontal"]):not(:is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  margin-right: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where(:not([data-include-gap-in-size])) .m_d98df724:where([data-orientation="horizontal"]):-webkit-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  margin-left: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where(:not([data-include-gap-in-size])) .m_d98df724:where([data-orientation="horizontal"]):-moz-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  margin-left: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where(:not([data-include-gap-in-size])) .m_d98df724:where([data-orientation="horizontal"]):is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  margin-left: var(--carousel-slide-gap);
+}
+
+/*# sourceMappingURL=9e883_%40mantine_carousel_styles_css_bad6b30c._.single.css.map*/

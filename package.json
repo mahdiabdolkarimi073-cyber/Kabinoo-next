@@ -1,0 +1,42 @@
+{
+  "name": "agrin-wood",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "dev:domain": "next dev -H kabinoo.ir -p 80 --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@mantine/carousel": "^7.17.0",
+    "@mantine/core": "^7.17.0",
+    "@mantine/hooks": "^7.17.0",
+    "@mantine/modals": "^7.17.0",
+    "@mantine/notifications": "^7.17.0",
+    "@supabase/supabase-js": "^2.112.3",
+    "@tabler/icons-react": "^3.34.0",
+    "date-fns": "^4.1.0",
+    "embla-carousel": "^8.6.0",
+    "embla-carousel-autoplay": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
+    "moment-jalaali": "^0.10.4",
+    "next": "^15.4.10",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/moment-jalaali": "^0.7.9",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "postcss": "^8.5.6",
+    "postcss-preset-mantine": "^1.17.0",
+    "postcss-simple-vars": "^7.0.1",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

@@ -1,0 +1,78 @@
+/* [project]/frontend/src/app/(main)/EmailBanner.module.css [app-client] (css) */
+.EmailBanner-module__B_STiq__wrapper {
+  padding: calc(var(--mantine-spacing-xl) * 2);
+  border-radius: var(--mantine-radius-md);
+  background-color: var(--mantine-color-white);
+  align-items: center;
+  display: flex;
+}
+
+[data-mantine-color-scheme="dark"] .EmailBanner-module__B_STiq__wrapper {
+  background-color: var(--mantine-color-dark-8);
+}
+
+@media (max-width: 48em) {
+  .EmailBanner-module__B_STiq__wrapper {
+    padding: var(--mantine-spacing-xl);
+    flex-direction: column-reverse;
+  }
+}
+
+.EmailBanner-module__B_STiq__image {
+  max-width: 40%;
+}
+
+@media (max-width: 48em) {
+  .EmailBanner-module__B_STiq__image {
+    max-width: 100%;
+  }
+}
+
+.EmailBanner-module__B_STiq__body {
+  padding-right: calc(var(--mantine-spacing-xl) * 4);
+}
+
+@media (max-width: 48em) {
+  .EmailBanner-module__B_STiq__body {
+    margin-top: var(--mantine-spacing-xl);
+    padding-right: 0;
+  }
+}
+
+.EmailBanner-module__B_STiq__title {
+  color: var(--mantine-color-black);
+}
+
+[data-mantine-color-scheme="dark"] .EmailBanner-module__B_STiq__title {
+  color: var(--mantine-color-white);
+}
+
+.EmailBanner-module__B_STiq__title {
+  font-family: Outfit, var(--mantine-font-family);
+  margin-bottom: var(--mantine-spacing-md);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.EmailBanner-module__B_STiq__controls {
+  margin-top: var(--mantine-spacing-xl);
+  display: flex;
+}
+
+.EmailBanner-module__B_STiq__inputWrapper {
+  flex: 1;
+  width: 100%;
+}
+
+.EmailBanner-module__B_STiq__input {
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.EmailBanner-module__B_STiq__control {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/*# sourceMappingURL=frontend_src_app_%28main%29_EmailBanner_module_css_bad6b30c._.single.css.map*/

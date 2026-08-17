@@ -1,0 +1,150 @@
+
+.grid-items {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4
+}
+
+h1 {
+
+    @apply text-xl lg:text-3xl font-black ;
+}
+
+h2 {
+    @apply text-lg lg:text-2xl font-bold ;
+}
+
+h3 {
+    @apply text-base lg:text-xl font-bold ;
+}
+
+h4 {
+    @apply text-sm font-bold ;
+}
+
+h5 {
+    @apply text-sm font-bold ;
+}
+
+h6 {
+    @apply text-sm font-bold;
+}
+
+
+a {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+a:focus {
+    outline: none !important;
+}
+
+:root {
+    touch-action: pan-x pan-y;
+    height: 100%;
+    --red-primary: #E90934;
+}
+
+.container {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+}
+
+.safe {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+p:empty {
+    height: 30px;
+}
+
+.mantine-Modal-title {
+    font-family: "Moraba", "Yekan Bakh", serif !important;
+    font-weight: bold !important;
+    font-size: 20px !important
+}
+
+
+.ltr {
+    direction: ltr;
+    text-align: left !important;
+}
+
+/**
+  Wrap Flex
+  Centered Items
+   */
+.inline-center {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.overlay {
+    @apply absolute w-full h-full left-0 top-0
+}
+
+.mantine-Table-tr {
+    position: relative;
+}
+
+.mantine-Table-td:empty,.mantine-Table-tr:empty  {
+    display: none;
+}
+
+small {
+    opacity: 0.6;
+    line-height: 0.1;
+}
+
+p {
+    line-height: 22px;
+}
+
+:root {
+    --yekan-bakh: "Yekan Bakh", serif, sans;
+    --moraba: Moraba, "Yekan Bakh", serif, sans;
+}
+
+/* Font Family */
+body {
+    font-family: var(--yekan-bakh);
+    font-weight: 500;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: var(--moraba);
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.moraba {
+    font-family: var(--moraba) !important;
+}
+.yekanBakh {
+    font-family: var(--yekan-bakh) !important;
+}

@@ -1,0 +1,369 @@
+/* [project]/frontend/src/app/(main)/EmailBanner.module.css [app-client] (css) */
+.EmailBanner-module__B_STiq__wrapper {
+  padding: calc(var(--mantine-spacing-xl) * 2);
+  border-radius: var(--mantine-radius-md);
+  background-color: var(--mantine-color-white);
+  align-items: center;
+  display: flex;
+}
+
+[data-mantine-color-scheme="dark"] .EmailBanner-module__B_STiq__wrapper {
+  background-color: var(--mantine-color-dark-8);
+}
+
+@media (max-width: 48em) {
+  .EmailBanner-module__B_STiq__wrapper {
+    padding: var(--mantine-spacing-xl);
+    flex-direction: column-reverse;
+  }
+}
+
+.EmailBanner-module__B_STiq__image {
+  max-width: 40%;
+}
+
+@media (max-width: 48em) {
+  .EmailBanner-module__B_STiq__image {
+    max-width: 100%;
+  }
+}
+
+.EmailBanner-module__B_STiq__body {
+  padding-right: calc(var(--mantine-spacing-xl) * 4);
+}
+
+@media (max-width: 48em) {
+  .EmailBanner-module__B_STiq__body {
+    margin-top: var(--mantine-spacing-xl);
+    padding-right: 0;
+  }
+}
+
+.EmailBanner-module__B_STiq__title {
+  color: var(--mantine-color-black);
+}
+
+[data-mantine-color-scheme="dark"] .EmailBanner-module__B_STiq__title {
+  color: var(--mantine-color-white);
+}
+
+.EmailBanner-module__B_STiq__title {
+  font-family: Outfit, var(--mantine-font-family);
+  margin-bottom: var(--mantine-spacing-md);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.EmailBanner-module__B_STiq__controls {
+  margin-top: var(--mantine-spacing-xl);
+  display: flex;
+}
+
+.EmailBanner-module__B_STiq__inputWrapper {
+  flex: 1;
+  width: 100%;
+}
+
+.EmailBanner-module__B_STiq__input {
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.EmailBanner-module__B_STiq__control {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* [project]/frontend/node_modules/@mantine/carousel/styles.css [app-client] (css) */
+.m_17884d0f {
+  --carousel-height: auto;
+  position: relative;
+}
+
+.m_a2dae653 {
+  height: var(--carousel-height);
+  overflow: hidden;
+}
+
+.m_a2dae653[data-type="container"] {
+  container: carousel / inline-size;
+}
+
+.m_fcd81474 {
+  height: var(--carousel-height);
+  flex-direction: row;
+  display: flex;
+}
+
+:where([data-include-gap-in-size]) .m_fcd81474:where([data-orientation="vertical"]) {
+  margin-bottom: calc(var(--carousel-slide-gap) * -1);
+}
+
+:where([data-include-gap-in-size]) .m_fcd81474:where([data-orientation="horizontal"]):not(:-webkit-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  margin-right: calc(var(--carousel-slide-gap) * -1);
+}
+
+:where([data-include-gap-in-size]) .m_fcd81474:where([data-orientation="horizontal"]):not(:-moz-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  margin-right: calc(var(--carousel-slide-gap) * -1);
+}
+
+:where([data-include-gap-in-size]) .m_fcd81474:where([data-orientation="horizontal"]):not(:is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  margin-right: calc(var(--carousel-slide-gap) * -1);
+}
+
+:where([data-include-gap-in-size]) .m_fcd81474:where([data-orientation="horizontal"]):-webkit-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  margin-left: calc(var(--carousel-slide-gap) * -1);
+}
+
+:where([data-include-gap-in-size]) .m_fcd81474:where([data-orientation="horizontal"]):-moz-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  margin-left: calc(var(--carousel-slide-gap) * -1);
+}
+
+:where([data-include-gap-in-size]) .m_fcd81474:where([data-orientation="horizontal"]):is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  margin-left: calc(var(--carousel-slide-gap) * -1);
+}
+
+.m_fcd81474:where([data-orientation="vertical"]) {
+  flex-direction: column;
+}
+
+.m_39bc3463 {
+  z-index: 1;
+  pointer-events: none;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  position: absolute;
+}
+
+.m_39bc3463:where([data-orientation="vertical"]) {
+  padding: var(--carousel-controls-offset) 0;
+  flex-direction: column;
+  top: 0;
+  bottom: 0;
+}
+
+.m_39bc3463:where([data-orientation="vertical"]):not(:-webkit-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  left: calc(50% - var(--carousel-control-size) / 2);
+}
+
+.m_39bc3463:where([data-orientation="vertical"]):not(:-moz-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  left: calc(50% - var(--carousel-control-size) / 2);
+}
+
+.m_39bc3463:where([data-orientation="vertical"]):not(:is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  left: calc(50% - var(--carousel-control-size) / 2);
+}
+
+.m_39bc3463:where([data-orientation="vertical"]):-webkit-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  right: calc(50% - var(--carousel-control-size) / 2);
+}
+
+.m_39bc3463:where([data-orientation="vertical"]):-moz-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  right: calc(50% - var(--carousel-control-size) / 2);
+}
+
+.m_39bc3463:where([data-orientation="vertical"]):is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  right: calc(50% - var(--carousel-control-size) / 2);
+}
+
+.m_39bc3463:where([data-orientation="horizontal"]) {
+  left: 0;
+  right: 0;
+  top: calc(50% - var(--carousel-control-size) / 2);
+  padding: 0 var(--carousel-controls-offset);
+  flex-direction: row;
+}
+
+.m_64f58e10 {
+  min-width: var(--carousel-control-size);
+  min-height: var(--carousel-control-size);
+  border-radius: var(--carousel-control-size);
+  pointer-events: all;
+  background-color: var(--mantine-color-white);
+  color: var(--mantine-color-black);
+  box-shadow: var(--mantine-shadow-md);
+  border: 1px solid var(--mantine-color-gray-3);
+  justify-content: center;
+  align-items: center;
+  transition: opacity .1s;
+  display: flex;
+}
+
+:where([data-mantine-color-scheme="light"]) .m_64f58e10 {
+  opacity: .85;
+}
+
+:where([data-mantine-color-scheme="dark"]) .m_64f58e10 {
+  opacity: .65;
+}
+
+@media (hover: hover) {
+  .m_64f58e10:hover {
+    opacity: 1;
+  }
+}
+
+@media (hover: none) {
+  .m_64f58e10:active {
+    opacity: 1;
+  }
+}
+
+.m_71ea3ab1 {
+  justify-content: center;
+  gap: calc(.5rem * var(--mantine-scale));
+  pointer-events: none;
+  display: flex;
+  position: absolute;
+}
+
+.m_71ea3ab1:where([data-orientation="vertical"]) {
+  top: 0;
+  bottom: 0;
+  flex-direction: column;
+}
+
+.m_71ea3ab1:where([data-orientation="vertical"]):not(:-webkit-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  right: var(--mantine-spacing-md);
+}
+
+.m_71ea3ab1:where([data-orientation="vertical"]):not(:-moz-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  right: var(--mantine-spacing-md);
+}
+
+.m_71ea3ab1:where([data-orientation="vertical"]):not(:is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  right: var(--mantine-spacing-md);
+}
+
+.m_71ea3ab1:where([data-orientation="vertical"]):-webkit-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  left: var(--mantine-spacing-md);
+}
+
+.m_71ea3ab1:where([data-orientation="vertical"]):-moz-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  left: var(--mantine-spacing-md);
+}
+
+.m_71ea3ab1:where([data-orientation="vertical"]):is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  left: var(--mantine-spacing-md);
+}
+
+.m_71ea3ab1:where([data-orientation="horizontal"]) {
+  bottom: var(--mantine-spacing-md);
+  flex-direction: row;
+  left: 0;
+  right: 0;
+}
+
+.m_eae68602 {
+  pointer-events: all;
+  border-radius: var(--mantine-radius-xl);
+  box-shadow: var(--mantine-shadow-sm);
+  opacity: .6;
+  background-color: var(--mantine-color-white);
+}
+
+@media (hover: hover) {
+  .m_eae68602:hover {
+    opacity: 1;
+  }
+}
+
+@media (hover: none) {
+  .m_eae68602:active {
+    opacity: 1;
+  }
+}
+
+.m_eae68602:where([data-active]) {
+  opacity: 1;
+}
+
+.m_eae68602:where([data-orientation="vertical"]) {
+  width: calc(.3125rem * var(--mantine-scale));
+  height: calc(1.5625rem * var(--mantine-scale));
+}
+
+.m_eae68602:where([data-orientation="horizontal"]) {
+  width: calc(1.5625rem * var(--mantine-scale));
+  height: calc(.3125rem * var(--mantine-scale));
+}
+
+.m_d98df724 {
+  flex: 0 0 var(--carousel-slide-size, 100%);
+  position: relative;
+}
+
+.m_17884d0f:where([data-include-gap-in-size]) .m_d98df724:where([data-orientation="vertical"]) {
+  padding-bottom: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where([data-include-gap-in-size]) .m_d98df724:where([data-orientation="horizontal"]):not(:-webkit-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  padding-right: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where([data-include-gap-in-size]) .m_d98df724:where([data-orientation="horizontal"]):not(:-moz-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  padding-right: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where([data-include-gap-in-size]) .m_d98df724:where([data-orientation="horizontal"]):not(:is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  padding-right: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where([data-include-gap-in-size]) .m_d98df724:where([data-orientation="horizontal"]):-webkit-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  padding-left: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where([data-include-gap-in-size]) .m_d98df724:where([data-orientation="horizontal"]):-moz-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  padding-left: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where([data-include-gap-in-size]) .m_d98df724:where([data-orientation="horizontal"]):is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  padding-left: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where(:not([data-include-gap-in-size])) .m_d98df724:where([data-orientation="vertical"]) {
+  margin-bottom: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where(:not([data-include-gap-in-size])) .m_d98df724:where([data-orientation="horizontal"]):not(:-webkit-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  margin-right: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where(:not([data-include-gap-in-size])) .m_d98df724:where([data-orientation="horizontal"]):not(:-moz-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  margin-right: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where(:not([data-include-gap-in-size])) .m_d98df724:where([data-orientation="horizontal"]):not(:is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi))) {
+  margin-right: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where(:not([data-include-gap-in-size])) .m_d98df724:where([data-orientation="horizontal"]):-webkit-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  margin-left: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where(:not([data-include-gap-in-size])) .m_d98df724:where([data-orientation="horizontal"]):-moz-any(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  margin-left: var(--carousel-slide-gap);
+}
+
+.m_17884d0f:where(:not([data-include-gap-in-size])) .m_d98df724:where([data-orientation="horizontal"]):is(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+  margin-left: var(--carousel-slide-gap);
+}
+
+/* [project]/frontend/src/app/(main)/CommentHtml.module.css [app-client] (css) */
+.CommentHtml-module__m7RHBa__comment {
+  padding: var(--mantine-spacing-lg) var(--mantine-spacing-xl);
+}
+
+.CommentHtml-module__m7RHBa__body {
+  padding-left: 54px;
+  padding-top: var(--mantine-spacing-sm);
+  font-size: var(--mantine-font-size-sm);
+}
+
+.CommentHtml-module__m7RHBa__content > p:last-child {
+  margin-bottom: 0;
+}
+
+/*# sourceMappingURL=frontend_baae530f._.css.map*/

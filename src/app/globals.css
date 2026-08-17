@@ -1,0 +1,37 @@
+@import "../style-stuff/font/YekanBakh.css";
+@import "../style-stuff/font/Moraba.css";
+@import "../style-stuff/custom.css";
+@import "@mantine/notifications/styles.css";
+@import "@mantine/core/styles.css";
+@import "tailwindcss";
+
+
+@theme {
+    --color-primary: var(--primary);
+    --color-secondary: var(--secondary);
+    --color-accent: var(--accent);
+    --default-font-family: var(--yekan-bakh);
+}
+
+.bg-gradient-primary {
+    @apply bg-gradient-to-bl from-primary to-primary/70
+}
+
+:root {
+    --primary: #D1987B;
+    --secondary: #637570;
+    --accent: #67a898;
+    --text: #282828;
+}
+
+.center {
+    @apply flex items-center justify-center
+}
+
+.together {
+    @apply flex items-center
+}
+
+.list {
+    @apply flex flex-col gap-2
+}
