@@ -143,34 +143,35 @@ function DashboardButton() {
     const user = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$utils$2f$hooks$2f$useUser$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])();
     return !user ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
         href: '/auth',
+        className: "block w-full",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Button$2f$Button$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
             rightSection: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$tabler$2f$icons$2d$react$2f$dist$2f$esm$2f$icons$2f$IconLogin$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__IconLogin$3e$__["IconLogin"], {
                 className: 'mr-2 opacity-60'
             }, void 0, false, {
                 fileName: "[project]/frontend/src/components/theme/elements/DashboardButton.tsx",
-                lineNumber: 30,
+                lineNumber: 25,
                 columnNumber: 35
             }, void 0),
             color: 'secondary',
-            className: 'md:block hidden font-normal!',
+            className: 'w-full font-normal!',
             children: "ورود"
         }, void 0, false, {
             fileName: "[project]/frontend/src/components/theme/elements/DashboardButton.tsx",
-            lineNumber: 30,
+            lineNumber: 25,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "[project]/frontend/src/components/theme/elements/DashboardButton.tsx",
-        lineNumber: 29,
+        lineNumber: 24,
         columnNumber: 9
     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: 'flex items-stretch justify-center',
+        className: 'flex items-stretch justify-center w-full',
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$ActionIcon$2f$ActionIcon$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ActionIcon"], {
                 component: __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"],
                 href: '/user/cart',
                 color: 'accent',
-                className: 'md:block hidden rounded-l-none! font-normal! w-10!',
+                className: 'rounded-l-none! font-normal! w-12!',
                 classNames: {
                     root: "h-auto!"
                 },
@@ -178,12 +179,12 @@ function DashboardButton() {
                     className: 'mr-2'
                 }, void 0, false, {
                     fileName: "[project]/frontend/src/components/theme/elements/DashboardButton.tsx",
-                    lineNumber: 40,
+                    lineNumber: 34,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/frontend/src/components/theme/elements/DashboardButton.tsx",
-                lineNumber: 37,
+                lineNumber: 31,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Menu$2f$Menu$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Menu"], {
@@ -195,27 +196,27 @@ function DashboardButton() {
                                 className: 'mr-2 opacity-60'
                             }, void 0, false, {
                                 fileName: "[project]/frontend/src/components/theme/elements/DashboardButton.tsx",
-                                lineNumber: 44,
+                                lineNumber: 38,
                                 columnNumber: 43
                             }, void 0),
                             color: 'secondary',
-                            className: 'md:block hidden  rounded-r-none! font-normal! max-w-30',
+                            className: 'flex-1 rounded-r-none! font-normal! max-w-none',
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: 'truncate',
                                 children: user.name
                             }, void 0, false, {
                                 fileName: "[project]/frontend/src/components/theme/elements/DashboardButton.tsx",
-                                lineNumber: 45,
+                                lineNumber: 39,
                                 columnNumber: 25
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/frontend/src/components/theme/elements/DashboardButton.tsx",
-                            lineNumber: 44,
+                            lineNumber: 38,
                             columnNumber: 21
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/frontend/src/components/theme/elements/DashboardButton.tsx",
-                        lineNumber: 43,
+                        lineNumber: 37,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Menu$2f$MenuDropdown$2f$MenuDropdown$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MenuDropdown"], {
@@ -228,13 +229,13 @@ function DashboardButton() {
                                     size: 20
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/src/components/theme/elements/DashboardButton.tsx",
-                                    lineNumber: 49,
+                                    lineNumber: 43,
                                     columnNumber: 74
                                 }, void 0),
                                 children: "حساب کاربری"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/src/components/theme/elements/DashboardButton.tsx",
-                                lineNumber: 49,
+                                lineNumber: 43,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Menu$2f$MenuItem$2f$MenuItem$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MenuItem"], {
@@ -244,13 +245,13 @@ function DashboardButton() {
                                     size: 20
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/src/components/theme/elements/DashboardButton.tsx",
-                                    lineNumber: 52,
+                                    lineNumber: 46,
                                     columnNumber: 83
                                 }, void 0),
                                 children: "تغییر رمزعبور"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/src/components/theme/elements/DashboardButton.tsx",
-                                lineNumber: 52,
+                                lineNumber: 46,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Menu$2f$MenuItem$2f$MenuItem$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MenuItem"], {
@@ -260,31 +261,31 @@ function DashboardButton() {
                                     size: 20
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/src/components/theme/elements/DashboardButton.tsx",
-                                    lineNumber: 55,
+                                    lineNumber: 49,
                                     columnNumber: 90
                                 }, void 0),
                                 children: "خروج"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/src/components/theme/elements/DashboardButton.tsx",
-                                lineNumber: 55,
+                                lineNumber: 49,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/frontend/src/components/theme/elements/DashboardButton.tsx",
-                        lineNumber: 48,
+                        lineNumber: 42,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/frontend/src/components/theme/elements/DashboardButton.tsx",
-                lineNumber: 42,
+                lineNumber: 36,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/frontend/src/components/theme/elements/DashboardButton.tsx",
-        lineNumber: 36,
+        lineNumber: 30,
         columnNumber: 9
     }, this);
 }
@@ -312,6 +313,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Burger$2f$Burger$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/@mantine/core/esm/components/Burger/Burger.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Drawer$2f$Drawer$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/@mantine/core/esm/components/Drawer/Drawer.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$ScrollArea$2f$ScrollArea$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/@mantine/core/esm/components/ScrollArea/ScrollArea.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$components$2f$theme$2f$elements$2f$DashboardButton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/src/components/theme/elements/DashboardButton.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$hooks$2f$esm$2f$use$2d$disclosure$2f$use$2d$disclosure$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/@mantine/hooks/esm/use-disclosure/use-disclosure.mjs [app-client] (ecmascript)");
@@ -371,86 +373,88 @@ function Header(props) {
         pathname
     ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
-        className: "max-w-[95%] md:max-w-5xl header bg-gradient-primary backdrop-blur p-4 px-5! lg:px-10! flex items-center transition-all justify-between rounded-2xl lg:rounded-4xl shadow-lg mx-auto mt-4 relative lg:top-4 z-10",
+        className: "max-w-[100%] md:max-w-5xl header bg-gradient-primary backdrop-blur p-3 md:p-4 px-4! md:px-5! lg:px-10! flex items-center transition-all justify-between rounded-none md:rounded-2xl lg:rounded-4xl shadow-lg mx-auto mt-0 md:mt-4 relative lg:top-4 z-50",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex items-center",
+                className: "md:hidden flex items-center",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Burger$2f$Burger$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Burger"], {
+                    onClick: toggle,
+                    opened: open,
+                    size: "sm",
+                    color: "white"
+                }, void 0, false, {
+                    fileName: "[project]/frontend/src/components/theme/Header.tsx",
+                    lineNumber: 33,
+                    columnNumber: 17
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/frontend/src/components/theme/Header.tsx",
+                lineNumber: 32,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "flex items-center flex-1 md:flex-none justify-center md:justify-start",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                     href: '/',
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                         src: "/logo.png",
                         alt: "Company Logo",
-                        className: "h-13 lg:h-20 w-auto ml-4"
+                        className: "h-10 md:h-13 lg:h-20 w-auto"
                     }, void 0, false, {
                         fileName: "[project]/frontend/src/components/theme/Header.tsx",
-                        lineNumber: 35,
+                        lineNumber: 39,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/frontend/src/components/theme/Header.tsx",
-                    lineNumber: 34,
+                    lineNumber: 38,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/frontend/src/components/theme/Header.tsx",
-                lineNumber: 33,
+                lineNumber: 37,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex items-center justify-center flex-grow",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-                    className: "hidden md:flex items-center gap-5 text-white text-lg font-medium",
+                    className: "hidden md:flex items-center gap-3 lg:gap-5 text-white text-sm lg:text-lg font-medium",
                     children: menuItems.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                             href: item.link,
-                            className: "relative text-base pb-1 border-b-2 border-transparent hover:border-white transition-colors duration-200",
+                            className: "relative text-sm lg:text-base pb-1 border-b-2 border-transparent hover:border-white transition-colors duration-200 whitespace-nowrap",
                             children: item.name
                         }, index, false, {
                             fileName: "[project]/frontend/src/components/theme/Header.tsx",
-                            lineNumber: 46,
+                            lineNumber: 51,
                             columnNumber: 25
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/frontend/src/components/theme/Header.tsx",
-                    lineNumber: 44,
+                    lineNumber: 49,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/frontend/src/components/theme/Header.tsx",
-                lineNumber: 43,
+                lineNumber: 48,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "hidden md:block",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$components$2f$theme$2f$elements$2f$DashboardButton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                     fileName: "[project]/frontend/src/components/theme/Header.tsx",
-                    lineNumber: 58,
+                    lineNumber: 64,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/frontend/src/components/theme/Header.tsx",
-                lineNumber: 57,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "md:hidden",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Burger$2f$Burger$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Burger"], {
-                    onClick: toggle,
-                    opened: open
-                }, void 0, false, {
-                    fileName: "[project]/frontend/src/components/theme/Header.tsx",
-                    lineNumber: 62,
-                    columnNumber: 17
-                }, this)
-            }, void 0, false, {
-                fileName: "[project]/frontend/src/components/theme/Header.tsx",
-                lineNumber: 61,
+                lineNumber: 63,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Drawer$2f$Drawer$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Drawer"], {
                 opened: open,
                 onClose: close,
                 position: "right",
-                size: "xs",
+                size: "85%",
                 padding: "md",
                 classNames: {
                     body: "p-0",
@@ -460,45 +464,86 @@ function Header(props) {
                     className: "backdrop-blur-sm"
                 },
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "flex flex-col gap-4 p-4",
+                    className: "flex flex-col h-full",
                     children: [
-                        menuItems.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                href: item.link,
-                                className: "text-gray-800 text-base lg:text-lg font-medium py-2 px-2 rounded hover:bg-primary/10 transition",
-                                onClick: close,
-                                children: item.name
-                            }, index, false, {
-                                fileName: "[project]/frontend/src/components/theme/Header.tsx",
-                                lineNumber: 79,
-                                columnNumber: 25
-                            }, this)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "mt-4",
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$components$2f$theme$2f$elements$2f$DashboardButton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                            className: "flex items-center justify-between p-4 border-b border-gray-200",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                    src: "/logo.png",
+                                    alt: "Logo",
+                                    className: "h-10 w-auto"
+                                }, void 0, false, {
+                                    fileName: "[project]/frontend/src/components/theme/Header.tsx",
+                                    lineNumber: 82,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Burger$2f$Burger$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Burger"], {
+                                    onClick: close,
+                                    opened: false,
+                                    size: "sm"
+                                }, void 0, false, {
+                                    fileName: "[project]/frontend/src/components/theme/Header.tsx",
+                                    lineNumber: 87,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/frontend/src/components/theme/Header.tsx",
+                            lineNumber: 81,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$ScrollArea$2f$ScrollArea$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ScrollArea"], {
+                            className: "flex-1",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex flex-col gap-1 p-4",
+                                children: menuItems.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                        href: item.link,
+                                        className: "text-gray-800 text-base font-medium py-3 px-4 rounded-lg hover:bg-primary/10 transition ".concat(pathname === item.link ? 'bg-primary/10 text-primary font-bold' : ''),
+                                        onClick: close,
+                                        children: item.name
+                                    }, index, false, {
+                                        fileName: "[project]/frontend/src/components/theme/Header.tsx",
+                                        lineNumber: 92,
+                                        columnNumber: 33
+                                    }, this))
+                            }, void 0, false, {
                                 fileName: "[project]/frontend/src/components/theme/Header.tsx",
-                                lineNumber: 89,
+                                lineNumber: 90,
                                 columnNumber: 25
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/frontend/src/components/theme/Header.tsx",
-                            lineNumber: 88,
+                            lineNumber: 89,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "p-4 border-t border-gray-200",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$components$2f$theme$2f$elements$2f$DashboardButton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                                fileName: "[project]/frontend/src/components/theme/Header.tsx",
+                                lineNumber: 106,
+                                columnNumber: 25
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/frontend/src/components/theme/Header.tsx",
+                            lineNumber: 105,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/frontend/src/components/theme/Header.tsx",
-                    lineNumber: 77,
+                    lineNumber: 80,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/frontend/src/components/theme/Header.tsx",
-                lineNumber: 65,
+                lineNumber: 68,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/frontend/src/components/theme/Header.tsx",
-        lineNumber: 32,
+        lineNumber: 30,
         columnNumber: 9
     }, this);
 }
@@ -556,10 +601,10 @@ function Footer(props) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: 'bg-black',
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
-            className: "bg-accent/40 text-gray-300 py-10 px-4 md:px-8 lg:px-16 font-inter mt-16",
+            className: "bg-accent/40 text-gray-300 py-8 md:py-10 px-4 md:px-8 lg:px-16 font-inter mt-8 md:mt-16",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center justify-between",
+                    className: "max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center justify-between",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "flex justify-center md:justify-start",
@@ -617,7 +662,7 @@ function Footer(props) {
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex space-x-4 mb-4",
+                                    className: "flex flex-wrap justify-center gap-3 mb-4",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                             href: "https://wa.me/989133448865",
@@ -991,9 +1036,9 @@ function Footer(props) {
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "border-t border-gray-600 mt-8 pt-4text-sm text-gray-400",
+                    className: "border-t border-gray-600 mt-6 md:mt-8 pt-4 text-sm text-gray-400",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: " flex items-center justify-between gap-4 flex-col lg:flex-row lg:px-20 p-5 mx-auto",
+                        className: " flex items-center justify-between gap-4 flex-col lg:flex-row lg:px-20 p-3 md:p-5 mx-auto",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                 href: "https://novinbin.com",

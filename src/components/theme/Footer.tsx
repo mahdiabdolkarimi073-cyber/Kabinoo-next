@@ -8,8 +8,8 @@ import {IconBrandInstagram, IconBrandWhatsapp, IconBrandYoutube, IconMail, IconP
 function Footer(props: any) {
     return (
         <div className={'bg-black'}>
-            <footer className="bg-accent/40 text-gray-300 py-10 px-4 md:px-8 lg:px-16 font-inter mt-16">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center justify-between">
+            <footer className="bg-accent/40 text-gray-300 py-8 md:py-10 px-4 md:px-8 lg:px-16 font-inter mt-8 md:mt-16">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center justify-between">
                     <div className="flex justify-center md:justify-start">
                         <Image
                             src={'/logo.png'}
@@ -30,7 +30,7 @@ function Footer(props: any) {
                         </p>
                         <p className="mb-2">انواع کابینت و کمد دیواری و دکوراسیون منزل و مغازه</p>
                         <p className="mb-4">اقساط 36 ماهه</p>
-                        <div className="flex space-x-4 mb-4">
+                        <div className="flex flex-wrap justify-center gap-3 mb-4">
                             <a href="https://wa.me/989133448865" target="_blank" rel="noopener noreferrer"
                                className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-500 transition-colors">
                                 {/* WhatsApp icon SVG */}
@@ -136,8 +136,8 @@ function Footer(props: any) {
                 </div>
 
                 {/* Copyright Section */}
-                <div className="border-t border-gray-600 mt-8 pt-4text-sm text-gray-400">
-                    <div className=" flex items-center justify-between gap-4 flex-col lg:flex-row lg:px-20 p-5 mx-auto">
+                <div className="border-t border-gray-600 mt-6 md:mt-8 pt-4 text-sm text-gray-400">
+                    <div className=" flex items-center justify-between gap-4 flex-col lg:flex-row lg:px-20 p-3 md:p-5 mx-auto">
                         <a href="https://novinbin.com" target='_blank'>
                             <p>طراحی سایت توسط مهندسی نوآوران نوین بین</p>
                         </a>

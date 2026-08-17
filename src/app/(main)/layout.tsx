@@ -13,17 +13,17 @@ function Layout(props: any) {
             <Footer />
             <div style={{
                 position: "fixed"
-            }} className='bottom-5 left-5 lg:left-10 lg:bottom-10 z-20'>
+            }} className='bottom-4 left-4 lg:left-10 lg:bottom-10 z-20'>
                 <Popover position='top-start' closeOnEscape closeOnClickOutside>
                     <PopoverTarget>
-                        <ActionIcon size='input-xl' radius={'xl'}>
-                            <IconMessage size={30} />
+                        <ActionIcon size='lg' radius={'xl'} className="shadow-lg">
+                            <IconMessage size={24} />
                         </ActionIcon>
                     </PopoverTarget>
-                    <PopoverDropdown className='shadow border'>
-                        <div className='w-[300px]'>
+                    <PopoverDropdown className='shadow border w-[90vw] max-w-[340px]'>
+                        <div className='w-full'>
                             <h3 className='mb-1'>چت آنلاین</h3>
-                            <div className='h-96'>
+                            <div className='h-80 md:h-96'>
                                 <UserChatComponent />
                             </div>
                         </div>

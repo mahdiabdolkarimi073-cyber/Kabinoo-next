@@ -8,16 +8,11 @@ import {
     MenuDropdown,
     MenuItem,
     MenuTarget,
-    Popover,
-    PopoverDropdown,
-    PopoverTarget
 } from "@mantine/core";
 import {
     IconKey,
     IconLogin,
     IconLogout,
-    IconPassword,
-    IconSettings,
     IconShoppingCart,
     IconUser
 } from "@tabler/icons-react";
@@ -26,22 +21,21 @@ import Link from "next/link";
 function DashboardButton() {
     const user = useUser();
     return !user ? (
-        <Link href={'/auth'}>
-            <Button rightSection={<IconLogin className={'mr-2 opacity-60'} />} color={'secondary'} className={'md:block hidden font-normal!'}>
+        <Link href={'/auth'} className="block w-full">
+            <Button rightSection={<IconLogin className={'mr-2 opacity-60'} />} color={'secondary'} className={'w-full font-normal!'}>
                 ورود
             </Button>
-            {/*a*/}
         </Link>
     ) : (
-        <div className={'flex items-stretch justify-center'}>
-            <ActionIcon component={Link} href={'/user/cart'} color={'accent'} className={'md:block hidden rounded-l-none! font-normal! w-10!'} classNames={{
+        <div className={'flex items-stretch justify-center w-full'}>
+            <ActionIcon component={Link} href={'/user/cart'} color={'accent'} className={'rounded-l-none! font-normal! w-12!'} classNames={{
                 root: "h-auto!"
             }}>
                 <IconShoppingCart className={'mr-2'} />
             </ActionIcon>
             <Menu width={200} >
                 <MenuTarget>
-                    <Button rightSection={<IconLogin className={'mr-2 opacity-60'} />} color={'secondary'} className={'md:block hidden  rounded-r-none! font-normal! max-w-30'}>
+                    <Button rightSection={<IconLogin className={'mr-2 opacity-60'} />} color={'secondary'} className={'flex-1 rounded-r-none! font-normal! max-w-none'}>
                         <p className={'truncate'}>{user.name}</p>
                     </Button>
                 </MenuTarget>

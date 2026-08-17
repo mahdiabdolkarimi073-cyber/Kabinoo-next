@@ -486,7 +486,7 @@ export default function Page() {
     };
 
     return (
-        <div className='container mx-auto my-6 md:my-10 max-w-4xl px-3 md:px-4'>
+        <div className='container mx-auto my-4 md:my-10 max-w-4xl px-3 md:px-4'>
             {/* دکمه‌های انتخاب پریست */}
             <div className="mb-6">
                 <div className="flex flex-wrap gap-2 justify-center">

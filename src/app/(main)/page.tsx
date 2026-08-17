@@ -27,24 +27,23 @@ async function Page(props: any) {
         <div className={'container mx-auto'}>
             <HSticky />
             <br />
-            <br />
-            <br />
-            <div className={'relative'}>
+            <div className={'relative mt-2'}>
                 <img
                     src={'/design/sliders/lg-00.jpg'}
-                    className={'w-full rounded-3xl min-h-[40vh] sm:min-h-[50vh] md:min-h-[60vh] object-cover'}
+                    className={'w-full rounded-2xl md:rounded-3xl min-h-[35vh] sm:min-h-[45vh] md:min-h-[55vh] lg:min-h-[60vh] object-cover'}
                     alt={'خانه'}
                 />
-                <div className={'overlay center lg:justify-start!'}>
-                    <div className={'bg-secondary/70 backdrop-blur-lg rounded-4xl lg:rounded-r-none! p-4 md:p-6 w-full md:min-w-md'}>
-                        <div className={' flex items-end flex-col mb-4'}>
+                <div className={'overlay center lg:justify-start! p-2 md:p-0'}>
+                    <div className={'bg-secondary/70 backdrop-blur-lg rounded-2xl md:rounded-4xl lg:rounded-r-none! p-3 md:p-6 w-full md:min-w-md'}>
+                        <div className={' flex items-end flex-col mb-2 md:mb-4'}>
                             <div className="center items-end! gap-2 md:gap-4">
-                                <h1 className="text-2xl md:text-4xl">Kabinoo</h1>
+                                <h1 className="text-xl md:text-4xl">Kabinoo</h1>
                                 <Image
                                     alt={AppConfig.title}
-                                    width={70}
-                                    height={70}
+                                    width={50}
+                                    height={50}
                                     src={'/logo.png'}
+                                    className="md:!w-[70px] md:!h-[70px]"
                                 />
                             </div>
                         </div>
@@ -82,9 +81,8 @@ async function Page(props: any) {
                 )}
                 image={'/design/sliders/sm-02.jpg'}
             />
-            <br />
-            <br />
-            <h2 className={'text-center lg:text-4xl! mb-4'}>محبوب ترین محصولات</h2>
+            <div className="mt-6 md:mt-10" />
+            <h2 className={'text-center text-lg! md:text-2xl! lg:text-4xl! mb-3 md:mb-4'}>محبوب ترین محصولات</h2>
             <Carousel>
                 {products.map((p, i) => (
                     <CarouselSlide key={i}>
@@ -92,11 +90,8 @@ async function Page(props: any) {
                     </CarouselSlide>
                 ))}
             </Carousel>
-            <br />
-            <br />
-            <br />
-            <br />
-            <h2 className={'text-center lg:text-4xl! mb-4'}>دسته بندی ها</h2>
+            <div className="mt-6 md:mt-12" />
+            <h2 className={'text-center text-lg! md:text-2xl! lg:text-4xl! mb-3 md:mb-4'}>دسته بندی ها</h2>
             <Carousel slidePerView={4}>
                 {categories.map((o, i) => {
                     const image = o?.image || `/design/sliders/sm-0${i % 8}.jpg`;
@@ -130,10 +125,8 @@ async function Page(props: any) {
                     );
                 })}
             </Carousel>
-            <br />
-            <br />
-            <br />
-            <h2 className={'text-center lg:text-4xl! mb-5'}>نظرات کاربران</h2>
+            <div className="mt-6 md:mt-12" />
+            <h2 className={'text-center text-lg! md:text-2xl! lg:text-4xl! mb-3 md:mb-5'}>نظرات کاربران</h2>
             <Carousel>
                 {comments.map((o, i) => (
                     <CarouselSlide key={i}>
@@ -142,10 +135,8 @@ async function Page(props: any) {
                     </CarouselSlide>
                 ))}
             </Carousel>
-            <br />
-            <br />
-            <br />
-            <h2 className={'text-center lg:text-4xl! mb-5'}>سوالات متداول</h2>
+            <div className="mt-6 md:mt-12" />
+            <h2 className={'text-center text-lg! md:text-2xl! lg:text-4xl! mb-3 md:mb-5'}>سوالات متداول</h2>
 
             <Accordion variant="separated" className={'grid grid-cols-1 lg:grid-cols-2 gap-5'}>
                 <AccordionItem value={`q-`} className={'hidden'}></AccordionItem>
