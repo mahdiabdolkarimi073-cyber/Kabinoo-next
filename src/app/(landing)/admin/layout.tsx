@@ -1,7 +1,7 @@
 'use client';;
 import Dashboard from "@/components/Dashboard";
 import useUser from "@/utils/hooks/useUser";
-import { IconCategory, IconColorFilter, IconCube, IconCash, IconDashboard, IconDiscount, IconList, IconListCheck, IconListDetails, IconListLetters, IconListNumbers, IconMenuOrder, IconMessage, IconUserHeart, IconUsers, IconUserShield, IconVariable } from "@tabler/icons-react";
+import { IconCategory, IconColorFilter, IconCube, IconCash, IconDashboard, IconDiscount, IconList, IconListCheck, IconListDetails, IconListLetters, IconListNumbers, IconMenuOrder, IconMessage, IconUserHeart, IconUsers, IconUserShield, IconVariable, IconNotebook } from "@tabler/icons-react";
 import { redirect } from "next/navigation";
 
 
@@ -51,6 +51,7 @@ function Layout(props: any) {
                     icon: IconUsers,
                     children: [
                         { label: "کاربران", href: "user", icon: IconUsers },
+                        { label: "نویسندگان", href: "author", icon: IconNotebook },
                         { label: "تیکت ها", href: "ticket", icon: IconUserShield },
                         { label: "مشاوره ها", href: "advice", icon: IconUserHeart },
                         { label: "چت آنلاین", href: "chat", icon: IconMessage },

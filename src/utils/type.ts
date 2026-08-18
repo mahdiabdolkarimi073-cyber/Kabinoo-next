@@ -8,6 +8,7 @@ export type UserType = {
     wallet: number
     joined_at: string
     isAdmin: boolean
+    isAuthor: boolean
     refId: any
     refCode: string
 }

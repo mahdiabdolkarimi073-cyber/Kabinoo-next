@@ -323,8 +323,8 @@ const menuItems = [
         link: '/design/request'
     },
     {
-        name: 'بلاگ',
-        link: '/blog'
+        name: 'مقالات',
+        link: '/articles'
     }
 ];
 function Header(props) {

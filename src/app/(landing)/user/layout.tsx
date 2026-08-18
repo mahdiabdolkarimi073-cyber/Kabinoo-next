@@ -5,6 +5,7 @@ import {
     IconKey,
     IconListCheck,
     IconMessage,
+    IconNotebook,
     IconShoppingBag,
     IconShoppingCart,
     IconUser,
@@ -63,6 +64,11 @@ export default function DashboardLayout({children}: DashboardLayoutProps) {
     return <Dashboard
         navItems={[
             ...navigationItems,
+            user?.isAuthor ? {
+                label: "پنل نویسنده",
+                icon: IconNotebook,
+                href: '../author'
+            } : undefined,
             user?.isAdmin ? {
                 label: "پنل ادمین",
                 icon: IconKey,
