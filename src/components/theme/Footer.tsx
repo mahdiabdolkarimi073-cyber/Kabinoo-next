@@ -41,7 +41,7 @@ function Footer(props: any) {
                                 {/* Phone icon SVG */}
                                 <IconPhone/>
                             </a>
-                            <a href="mailto:kabinoo5960@gmail.com" target="_blank" rel="noopener noreferrer"
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kabinoo5960@gmail.com" target="_blank" rel="noopener noreferrer"
                                className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-500 transition-colors">
                                 {/* Envelope icon SVG */}
                                 <IconMail/>
@@ -103,7 +103,7 @@ function Footer(props: any) {
                                     <span className="ml-2 text-lg">Ebtekar.5960</span>
                                     <IconBrandInstagram/>
                                 </a>
-                                <a href="mailto:kabinoo5960@gmail.com" target="_blank" rel="noopener noreferrer"
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kabinoo5960@gmail.com" target="_blank" rel="noopener noreferrer"
                                    className="flex items-center hover:underline">
                                     <span className="ml-2 text-lg" dir="ltr">kabinoo5960@gmail.com</span>
                                     <IconMail/>

@@ -194,6 +194,7 @@ const Configurator = (props: {
                             {['dot', 'line'].map((o, i) => (
                                 <div
                                     onClick={() => {
+                                        sendCommand('setControlValue', { id: 'handleModeInput', value: false });
                                         sendCommand("Click", {
                                             path: `[data-handleobject-id="${i + 1}"]`
                                         });
@@ -212,10 +213,26 @@ const Configurator = (props: {
                                     <img
                                         src={`/design/configure/door-${o}.png`}
                                         alt={o}
-                                        className={'w-full j-full object-cover'}
+                                        className={'w-full h-full object-cover'}
                                     />
                                 </div>
                             ))}
+                            <div
+                                onClick={() => {
+                                    sendCommand('setControlValue', { id: 'handleModeInput', value: true });
+                                    setData(prev => ({
+                                        ...prev,
+                                        ol: "hidden"
+                                    }))
+                                }}
+                                style={{
+                                    width: "40px",
+                                    height: "40px"
+                                }}
+                                className={`rounded-xl overflow-hidden border flex items-center justify-center bg-gray-100 cursor-pointer ${data['ol'] === "hidden" ? "border-primary" : "border-gray-300"}`}
+                            >
+                                <span className="text-[10px] text-center font-medium leading-tight">دستگیره مخفی</span>
+                            </div>
                         </div>
                     )}
                 </>
@@ -288,7 +305,7 @@ const Configurator = (props: {
             {!loading && (
                 <Container className={'min-w-[300px]'}>
                     <div className='flex-col gap-4 hidden md:flex'>
-                        {controls.map((e, i) => {
+                        {controls.filter(e => e.id !== 'handleModeInput').map((e, i) => {
                             const node = renderControl(e) as ReactNode;
                             if (!node) return;
                             return (
@@ -358,7 +375,7 @@ const Configurator = (props: {
                             minWidth: "100%",
                             width: 0
                         }}>
-                            {controls.filter(o => !!o.label).map(o => {
+                            {controls.filter(o => !!o.label && o.id !== 'handleModeInput').map(o => {
                                 const selected = activeControl?.id === o.id;
                                 return (
                                     <Button variant={selected ? "filled" : 'outline'} onClick={() => {

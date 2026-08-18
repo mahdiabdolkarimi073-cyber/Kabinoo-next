@@ -7,10 +7,24 @@
           "async": false,
           "exportedName": "logout",
           "filename": "frontend/src/ssr/actions/user.ts"
+        },
+        "app/(main)/design/page": {
+          "moduleId": "[project]/frontend/.next-internal/server/app/(main)/design/page/actions.js { ACTIONS_MODULE0 => \"[project]/frontend/src/ssr/actions/user.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "logout",
+          "filename": "frontend/src/ssr/actions/user.ts"
+        },
+        "app/(main)/page": {
+          "moduleId": "[project]/frontend/.next-internal/server/app/(main)/page/actions.js { ACTIONS_MODULE0 => \"[project]/frontend/src/ssr/actions/user.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "logout",
+          "filename": "frontend/src/ssr/actions/user.ts"
         }
       },
       "layer": {
-        "app/(main)/calc/page": "action-browser"
+        "app/(main)/calc/page": "action-browser",
+        "app/(main)/design/page": "action-browser",
+        "app/(main)/page": "action-browser"
       },
       "filename": "frontend/src/ssr/actions/user.ts",
       "exportedName": "logout"

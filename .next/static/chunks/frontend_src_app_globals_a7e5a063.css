@@ -13013,6 +13013,10 @@ fieldset:disabled .m_c9ade57f:where([data-inverted]) {
     background-color: var(--color-gray-50);
   }
 
+  .bg-gray-100 {
+    background-color: var(--color-gray-100);
+  }
+
   .bg-gray-200 {
     background-color: var(--color-gray-200);
   }
@@ -13498,6 +13502,10 @@ fieldset:disabled .m_c9ade57f:where([data-inverted]) {
   .text-xs {
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
+  }
+
+  .text-\[10px\] {
+    font-size: 10px;
   }
 
   .text-\[17px\] {

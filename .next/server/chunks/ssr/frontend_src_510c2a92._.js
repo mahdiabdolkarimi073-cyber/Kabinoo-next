@@ -223,38 +223,73 @@ const Configurator = (props)=>{
                     control.id === "handleInput" && data[control.id] === "true" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: 'flex items-center justify-end gap-3 mt-2',
                         children: [
-                            'dot',
-                            'line'
-                        ].map((o, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            [
+                                'dot',
+                                'line'
+                            ].map((o, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    onClick: ()=>{
+                                        sendCommand('setControlValue', {
+                                            id: 'handleModeInput',
+                                            value: false
+                                        });
+                                        sendCommand("Click", {
+                                            path: `[data-handleobject-id="${i + 1}"]`
+                                        });
+                                        setData((prev)=>({
+                                                ...prev,
+                                                ol: i + ""
+                                            }));
+                                    },
+                                    style: {
+                                        width: "40px",
+                                        height: "40px"
+                                    },
+                                    className: `rounded-xl overflow-hidden border ${data['ol'] === i + "" ? "border-primary" : "border-gray-300"}`,
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                        src: `/design/configure/door-${o}.png`,
+                                        alt: o,
+                                        className: 'w-full h-full object-cover'
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
+                                        lineNumber: 213,
+                                        columnNumber: 37
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                }, o + i, false, {
+                                    fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
+                                    lineNumber: 195,
+                                    columnNumber: 33
+                                }, ("TURBOPACK compile-time value", void 0))),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 onClick: ()=>{
-                                    sendCommand("Click", {
-                                        path: `[data-handleobject-id="${i + 1}"]`
+                                    sendCommand('setControlValue', {
+                                        id: 'handleModeInput',
+                                        value: true
                                     });
                                     setData((prev)=>({
                                             ...prev,
-                                            ol: i + ""
+                                            ol: "hidden"
                                         }));
                                 },
                                 style: {
                                     width: "40px",
                                     height: "40px"
                                 },
-                                className: `rounded-xl overflow-hidden border ${data['ol'] === i + "" ? "border-primary" : "border-gray-300"}`,
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                    src: `/design/configure/door-${o}.png`,
-                                    alt: o,
-                                    className: 'w-full j-full object-cover'
+                                className: `rounded-xl overflow-hidden border flex items-center justify-center bg-gray-100 cursor-pointer ${data['ol'] === "hidden" ? "border-primary" : "border-gray-300"}`,
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "text-[10px] text-center font-medium leading-tight",
+                                    children: "دستگیره مخفی"
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                    lineNumber: 212,
-                                    columnNumber: 37
+                                    lineNumber: 234,
+                                    columnNumber: 33
                                 }, ("TURBOPACK compile-time value", void 0))
-                            }, o + i, false, {
+                            }, void 0, false, {
                                 fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                lineNumber: 195,
-                                columnNumber: 33
-                            }, ("TURBOPACK compile-time value", void 0)))
-                    }, void 0, false, {
+                                lineNumber: 220,
+                                columnNumber: 29
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
                         fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
                         lineNumber: 193,
                         columnNumber: 25
@@ -272,7 +307,7 @@ const Configurator = (props)=>{
                         children: control.label
                     }, void 0, false, {
                         fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                        lineNumber: 227,
+                        lineNumber: 244,
                         columnNumber: 21
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Slider$2f$Slider$2f$Slider$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Slider"], {
@@ -287,7 +322,7 @@ const Configurator = (props)=>{
                         label: (value)=>`${control.marks?.find((o)=>o.value === value)?.label || value} ${control.prefix || "cm"}`
                     }, void 0, false, {
                         fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                        lineNumber: 230,
+                        lineNumber: 247,
                         columnNumber: 21
                     }, ("TURBOPACK compile-time value", void 0)),
                     control.marks?.length ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Select$2f$Select$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -305,7 +340,7 @@ const Configurator = (props)=>{
                             })
                     }, data[control.id]?.toString() || Number(control.value), false, {
                         fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                        lineNumber: 239,
+                        lineNumber: 256,
                         columnNumber: 25
                     }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$NumberInput$2f$NumberInput$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NumberInput"], {
                         size: "xs",
@@ -327,13 +362,13 @@ const Configurator = (props)=>{
                             })
                     }, data[control.id] || Number(control.value), false, {
                         fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                        lineNumber: 255,
+                        lineNumber: 272,
                         columnNumber: 25
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, control.id, true, {
                 fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                lineNumber: 226,
+                lineNumber: 243,
                 columnNumber: 17
             }, ("TURBOPACK compile-time value", void 0));
         }
@@ -345,12 +380,12 @@ const Configurator = (props)=>{
                 className: "w-full h-[3-vh] center mx-auto absolute left-0 right-0",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$no$2d$side$2f$Loading$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                     fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                    lineNumber: 285,
+                    lineNumber: 302,
                     columnNumber: 21
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                lineNumber: 284,
+                lineNumber: 301,
                 columnNumber: 17
             }, ("TURBOPACK compile-time value", void 0)),
             !loading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Container$2f$Container$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Container"], {
@@ -358,7 +393,7 @@ const Configurator = (props)=>{
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "flex-col gap-4 hidden md:flex",
                     children: [
-                        controls.map((e, i)=>{
+                        controls.filter((e)=>e.id !== 'handleModeInput').map((e, i)=>{
                             const node = renderControl(e);
                             if (!node) return;
                             return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Help, {
@@ -367,12 +402,12 @@ const Configurator = (props)=>{
                                     children: node
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                    lineNumber: 296,
+                                    lineNumber: 313,
                                     columnNumber: 37
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                lineNumber: 295,
+                                lineNumber: 312,
                                 columnNumber: 33
                             }, ("TURBOPACK compile-time value", void 0));
                         }),
@@ -388,12 +423,12 @@ const Configurator = (props)=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                lineNumber: 303,
+                                lineNumber: 320,
                                 columnNumber: 29
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                            lineNumber: 302,
+                            lineNumber: 319,
                             columnNumber: 25
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Help, {
@@ -403,12 +438,12 @@ const Configurator = (props)=>{
                                 children: "ذخیره"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                lineNumber: 306,
+                                lineNumber: 323,
                                 columnNumber: 29
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                            lineNumber: 305,
+                            lineNumber: 322,
                             columnNumber: 25
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -416,18 +451,18 @@ const Configurator = (props)=>{
                             children: "زمان تحویل 3 الی 6 هفته"
                         }, void 0, false, {
                             fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                            lineNumber: 310,
+                            lineNumber: 327,
                             columnNumber: 25
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                    lineNumber: 290,
+                    lineNumber: 307,
                     columnNumber: 21
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                lineNumber: 289,
+                lineNumber: 306,
                 columnNumber: 17
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -451,17 +486,17 @@ const Configurator = (props)=>{
                                         size: 20
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                        lineNumber: 326,
+                                        lineNumber: 343,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                    lineNumber: 318,
+                                    lineNumber: 335,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                lineNumber: 316,
+                                lineNumber: 333,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Help, {
@@ -476,17 +511,17 @@ const Configurator = (props)=>{
                                         size: 20
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                        lineNumber: 335,
+                                        lineNumber: 352,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                    lineNumber: 330,
+                                    lineNumber: 347,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                lineNumber: 329,
+                                lineNumber: 346,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Help, {
@@ -501,23 +536,23 @@ const Configurator = (props)=>{
                                         size: 20
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                        lineNumber: 344,
+                                        lineNumber: 361,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                    lineNumber: 339,
+                                    lineNumber: 356,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                lineNumber: 338,
+                                lineNumber: 355,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                        lineNumber: 315,
+                        lineNumber: 332,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("iframe", {
@@ -528,7 +563,7 @@ const Configurator = (props)=>{
                         onLoad: ()=>sendCommand('getControls', {})
                     }, void 0, false, {
                         fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                        lineNumber: 348,
+                        lineNumber: 365,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -542,7 +577,7 @@ const Configurator = (props)=>{
                                         minWidth: "100%",
                                         width: 0
                                     },
-                                    children: controls.filter((o)=>!!o.label).map((o)=>{
+                                    children: controls.filter((o)=>!!o.label && o.id !== 'handleModeInput').map((o)=>{
                                         const selected = activeControl?.id === o.id;
                                         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Button$2f$Button$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
                                             variant: selected ? "filled" : 'outline',
@@ -555,18 +590,18 @@ const Configurator = (props)=>{
                                             children: o.label
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                            lineNumber: 364,
+                                            lineNumber: 381,
                                             columnNumber: 37
                                         }, ("TURBOPACK compile-time value", void 0));
                                     })
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                    lineNumber: 357,
+                                    lineNumber: 374,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                lineNumber: 356,
+                                lineNumber: 373,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             activeControl && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Help, {
@@ -575,18 +610,18 @@ const Configurator = (props)=>{
                                     children: renderControl(activeControl)
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                    lineNumber: 375,
+                                    lineNumber: 392,
                                     columnNumber: 29
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                lineNumber: 374,
+                                lineNumber: 391,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                        lineNumber: 355,
+                        lineNumber: 372,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -603,7 +638,7 @@ const Configurator = (props)=>{
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                    lineNumber: 383,
+                                    lineNumber: 400,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -619,7 +654,7 @@ const Configurator = (props)=>{
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                            lineNumber: 387,
+                                            lineNumber: 404,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -630,28 +665,28 @@ const Configurator = (props)=>{
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                            lineNumber: 394,
+                                            lineNumber: 411,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             children: "برای تنظیمات دقیق‌تر، روی هر ستون کلیک کنید تا بتوانید عرض، ارتفاع و تعداد طبقات آن را به صورت جداگانه تنظیم کنید. همچنین با کلیک روی هر طبقه، امکان اضافه کردن درب، کشو یا فلپ و تغییر ارتفاع طبقه فراهم است. اگر می‌خواهید چندین طبقه دارای درب مشترک باشند، کلیک چپ را نگه داشته و روی طبقات مورد نظر بکشید."
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                            lineNumber: 400,
+                                            lineNumber: 417,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             children: "در تنظیمات عملکردی مشخص کنید که درب‌ها و کشوها درون چارچوب طبقه قرار گیرند یا روی چارچوب نصب شوند. همچنین تعیین کنید که آیا تمام قسمت‌ها مجهز به دستگیره باشند یا از سیستم فشاری استفاده کنید."
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                            lineNumber: 407,
+                                            lineNumber: 424,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             children: "ضخامت پشت محصول را بر اساس نیاز خود انتخاب کنید. ورق نازک برای استفاده معمولی و صرفه‌جویی در قیمت مناسب است، در حالی که ورق ضخیم مقاومت و دوام بیشتری دارد."
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                            lineNumber: 413,
+                                            lineNumber: 430,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -662,7 +697,7 @@ const Configurator = (props)=>{
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                            lineNumber: 418,
+                                            lineNumber: 435,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -673,36 +708,36 @@ const Configurator = (props)=>{
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                            lineNumber: 424,
+                                            lineNumber: 441,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                                    lineNumber: 386,
+                                    lineNumber: 403,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                            lineNumber: 382,
+                            lineNumber: 399,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                        lineNumber: 381,
+                        lineNumber: 398,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                lineNumber: 314,
+                lineNumber: 331,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-        lineNumber: 282,
+        lineNumber: 299,
         columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -725,7 +760,7 @@ function Help(props) {
                     children: help.title
                 }, void 0, false, {
                     fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                    lineNumber: 455,
+                    lineNumber: 472,
                     columnNumber: 21
                 }, void 0),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -733,13 +768,13 @@ function Help(props) {
                     children: help.description.replaceAll("%type%", type)
                 }, void 0, false, {
                     fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-                    lineNumber: 456,
+                    lineNumber: 473,
                     columnNumber: 21
                 }, void 0)
             ]
         }, void 0, true, {
             fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-            lineNumber: 454,
+            lineNumber: 471,
             columnNumber: 17
         }, void 0) : undefined,
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -747,12 +782,12 @@ function Help(props) {
             children: props.children
         }, void 0, false, {
             fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-            lineNumber: 460,
+            lineNumber: 477,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-        lineNumber: 445,
+        lineNumber: 462,
         columnNumber: 9
     }, this);
 }
@@ -760,7 +795,7 @@ const __TURBOPACK__default__export__ = (0, __TURBOPACK__imported__module__$5b$pr
     ssr: false,
     loading: ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$no$2d$side$2f$Loading$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
             fileName: "[project]/frontend/src/app/(main)/design/test/Configurator.tsx",
-            lineNumber: 467,
+            lineNumber: 484,
             columnNumber: 90
         }, ("TURBOPACK compile-time value", void 0))
 });

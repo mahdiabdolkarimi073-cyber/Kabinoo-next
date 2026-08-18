@@ -10,6 +10,12 @@ export interface CalcPriceSettings {
     fridgeCost: number;
     dishwasherCost: number;
     laundryCost: number;
+    wallCabinetCost: number;
+    wallCabinetSteppedCost: number;
+    hoodCost: number;
+    hoodHiddenCost: number;
+    ovenCost: number;
+    ovenBuiltInCost: number;
 }
 
 async function getPriceSettings(): Promise<CalcPriceSettings | null> {
@@ -31,6 +37,9 @@ async function calculatePrice(params: any, prices: CalcPriceSettings) {
     const hasDishwasher = params.hasDishwasher === '1' || params.hasDishwasher === true;
     const hasLaundry = params.hasLaundry === '1' || params.hasLaundry === true;
     const layoutno = Number(params.layoutno) || 1;
+    const wallCabinetType = params.wallCabinetType || 'none';
+    const hoodType = params.hoodType || 'none';
+    const ovenType = params.ovenType || 'none';
 
     const totalWallLength = (alength + blength + clength) / 100;
     const islandMeter = islandlength / 100;
@@ -70,6 +79,48 @@ async function calculatePrice(params: any, prices: CalcPriceSettings) {
         colorPrice += prices.laundryCost * 0.3;
     }
 
+    if (wallCabinetType === 'simple') {
+        const cost = prices.wallCabinetCost;
+        mdfPrice += cost * 0.35;
+        highGlassPrice += cost * 0.4;
+        vacuumPrice += cost * 0.4;
+        colorPrice += cost * 0.45;
+    } else if (wallCabinetType === 'stepped') {
+        const cost = prices.wallCabinetSteppedCost;
+        mdfPrice += cost * 0.35;
+        highGlassPrice += cost * 0.4;
+        vacuumPrice += cost * 0.4;
+        colorPrice += cost * 0.45;
+    }
+
+    if (hoodType === 'exposed') {
+        const cost = prices.hoodCost;
+        mdfPrice += cost * 0.3;
+        highGlassPrice += cost * 0.35;
+        vacuumPrice += cost * 0.35;
+        colorPrice += cost * 0.4;
+    } else if (hoodType === 'hidden') {
+        const cost = prices.hoodHiddenCost;
+        mdfPrice += cost * 0.3;
+        highGlassPrice += cost * 0.35;
+        vacuumPrice += cost * 0.35;
+        colorPrice += cost * 0.4;
+    }
+
+    if (ovenType === 'surface') {
+        const cost = prices.ovenCost;
+        mdfPrice += cost * 0.3;
+        highGlassPrice += cost * 0.35;
+        vacuumPrice += cost * 0.35;
+        colorPrice += cost * 0.4;
+    } else if (ovenType === 'builtIn') {
+        const cost = prices.ovenBuiltInCost;
+        mdfPrice += cost * 0.3;
+        highGlassPrice += cost * 0.35;
+        vacuumPrice += cost * 0.35;
+        colorPrice += cost * 0.4;
+    }
+
     const layoutComplexity: Record<number, number> = {
         1: 1.0, 2: 1.1, 3: 1.1, 4: 1.2, 5: 1.0,
         6: 1.2, 7: 1.2, 8: 1.3, 9: 1.2, 10: 1.4,
@@ -95,14 +146,16 @@ export async function getCalculateResult(params: any) {
     const requiredParams = [
         'alength', 'blength', 'clength', 'islandlength', 'openlength',
         'tallWidth', 'ceilHeight', 'refrigeratorWidth', 'openDepth',
-        'hasDishwasher', 'hasLaundry', 'layoutno'
+        'hasDishwasher', 'hasLaundry', 'layoutno',
+        'wallCabinetType', 'hoodType', 'ovenType'
     ];
 
     const defaultValues: Record<string, any> = {
         'alength': 100, 'blength': 100, 'clength': 100,
         'islandlength': 0, 'openlength': 0, 'tallWidth': 0,
         'ceilHeight': 70, 'refrigeratorWidth': 0, 'openDepth': 60,
-        'hasDishwasher': false, 'hasLaundry': false, 'layoutno': 1
+        'hasDishwasher': false, 'hasLaundry': false, 'layoutno': 1,
+        'wallCabinetType': 'none', 'hoodType': 'none', 'ovenType': 'none'
     };
 
     requiredParams.forEach(param => {
