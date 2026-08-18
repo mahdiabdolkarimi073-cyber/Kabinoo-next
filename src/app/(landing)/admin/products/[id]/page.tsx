@@ -30,17 +30,17 @@ export default function Page(props: any) {
 
     if (l5 || l1 || l2 || l3 || l4 || l0) return <Loading />;
 
-    const prop = (key: keyof FullProduct, label?: any,textarea = false) => {
-        const C = textarea ? Textarea:TextInput
+    const prop = (key: keyof FullProduct, label?: any, textarea = false) => {
+        const C = textarea ? Textarea : TextInput;
+        const extraProps = textarea ? { autosize: true, minRows: 3 } : {};
         return (
             <C
-                key={key}
-                autosize
-                minRows={3}
+                key={key as string}
                 label={label}
                 value={product?.[key]?.toString() || ""}
                 placeholder={label + "..."}
                 onChange={(e) => setProduct({ ...product, [key]: label.includes("عدد") ? +e.target.value || 0 : e.target.value } as any)}
+                {...extraProps}
             />
         );
     }
@@ -81,11 +81,12 @@ export default function Page(props: any) {
             <div className='flex flex-wrap gap-3'>
                 {product?.images && product.images.map((image, index) => image === "loading" ? (
                     <Skeleton
+                        key={`skeleton-${index}`}
                         width={128}
                         height={128}
                     />
                 ) : (
-                    <div className='relative!'>
+                    <div key={`image-${index}`} className='relative!'>
                         <ActionIcon size='sm' color='red' className="absolute! top-2 left-3" onClick={() => {
                             setProduct(prev => ({
                                 ...(prev || {}),
@@ -175,15 +176,15 @@ export default function Page(props: any) {
                 <Button loading={loading} size='lg' onClick={() => {
                     setLoading(true);
                     backend("/admin/product", isN ? "POST" : "PUT", product).then(e => {
+                        setLoading(false);
                         if (!e.ok) return;
                         if (isN) {
                             router.push(`./${e?.data?.id}`)
                         } else {
-                            setLoading(false);
                             setProduct(e?.data);
                             alert("ذخیره شد")
                         }
-                    })
+                    }).catch(() => setLoading(false))
                 }}>
                     ذخیره
                 </Button>

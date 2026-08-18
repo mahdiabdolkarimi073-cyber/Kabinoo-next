@@ -14,12 +14,6 @@ interface PriceSettings {
     fridgeCost: number;
     dishwasherCost: number;
     laundryCost: number;
-    wallCabinetCost: number;
-    wallCabinetSteppedCost: number;
-    hoodCost: number;
-    hoodHiddenCost: number;
-    ovenCost: number;
-    ovenBuiltInCost: number;
     updatedAt: string;
 }
 
@@ -58,12 +52,6 @@ export default function PriceSettingsPage() {
             fridgeCost: settings.fridgeCost,
             dishwasherCost: settings.dishwasherCost,
             laundryCost: settings.laundryCost,
-            wallCabinetCost: settings.wallCabinetCost,
-            wallCabinetSteppedCost: settings.wallCabinetSteppedCost,
-            hoodCost: settings.hoodCost,
-            hoodHiddenCost: settings.hoodHiddenCost,
-            ovenCost: settings.ovenCost,
-            ovenBuiltInCost: settings.ovenBuiltInCost,
         });
         if (res.ok) {
             setSuccess(true);
@@ -82,12 +70,6 @@ export default function PriceSettingsPage() {
         { key: 'fridgeCost', label: 'هزینه جای یخچال (تومان)', desc: 'هزینه اضافه برای هر ۸۰ سانتی‌متر فضای یخچال' },
         { key: 'dishwasherCost', label: 'هزینه جای ماشین ظرفشویی (تومان)', desc: 'هزینه اضافه برای فضای ماشین ظرفشویی' },
         { key: 'laundryCost', label: 'هزینه جای ماشین لباسشویی (تومان)', desc: 'هزینه اضافه برای فضای ماشین لباسشویی' },
-        { key: 'wallCabinetCost', label: 'هزینه کمد دیواری ساده (تومان)', desc: 'هزینه اضافه برای کمد دیواری ساده' },
-        { key: 'wallCabinetSteppedCost', label: 'هزینه کمد دیواری پله‌ای (تومان)', desc: 'هزینه اضافه برای کمد دیواری پله‌ای' },
-        { key: 'hoodCost', label: 'هزینه هود روکار (تومان)', desc: 'هزینه اضافه برای هود روکار' },
-        { key: 'hoodHiddenCost', label: 'هزینه هود مخفی (تومان)', desc: 'هزینه اضافه برای هود مخفی' },
-        { key: 'ovenCost', label: 'هزینه فر و ماکروفر روکار (تومان)', desc: 'هزینه اضافه برای فر و ماکروفر روکار' },
-        { key: 'ovenBuiltInCost', label: 'هزینه فر و ماکروفر توکار (تومان)', desc: 'هزینه اضافه برای فر و ماکروفر توکار' },
     ] as const;
 
     if (loading) {

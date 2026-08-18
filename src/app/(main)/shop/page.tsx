@@ -229,32 +229,7 @@ function Page(props: any) {
                     <div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 2xl:grid-cols-4 px-3'}>
                         {products.map((o, i) => (
                             <FullProductCard
-                                key={i}
-                                {...o}
-                            />
-                        ))}
-                        {products.map((o, i) => (
-                            <FullProductCard
-                                key={i}
-                                {...o}
-                            />
-                        ))}
-                        {products.map((o, i) => (
-                            <FullProductCard
-                                key={i}
-                                {...o}
-                            />
-                        ))}
-
-                        {products.map((o, i) => (
-                            <FullProductCard
-                                key={i}
-                                {...o}
-                            />
-                        ))}
-                        {products.map((o, i) => (
-                            <FullProductCard
-                                key={i}
+                                key={o.id ?? i}
                                 {...o}
                             />
                         ))}

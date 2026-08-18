@@ -1,8 +1,9 @@
 {
-  "/(main)/calc/page": "app/(main)/calc/page.js",
-  "/(main)/design/page": "app/(main)/design/page.js",
+  "/(landing)/admin/page": "app/(landing)/admin/page.js",
+  "/(landing)/admin/products/[id]/page": "app/(landing)/admin/products/[id]/page.js",
+  "/(landing)/admin/products/page": "app/(landing)/admin/products/page.js",
+  "/(landing)/user/page": "app/(landing)/user/page.js",
   "/(main)/page": "app/(main)/page.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/other/ruler/route": "app/other/ruler/route.js"
+  "/(main)/shop/page": "app/(main)/shop/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js"
 }

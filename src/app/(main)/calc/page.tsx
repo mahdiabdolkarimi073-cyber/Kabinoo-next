@@ -255,9 +255,6 @@ const defaultPresets = [
             refrigeratorWidth: 80,
             hasDishwasher: true,
             hasLaundry: false,
-            wallCabinetType: 'simple',
-            hoodType: 'exposed',
-            ovenType: 'none',
             layoutno: 5
         }
     },
@@ -276,9 +273,6 @@ const defaultPresets = [
             refrigeratorWidth: 80,
             hasDishwasher: true,
             hasLaundry: true,
-            wallCabinetType: 'simple',
-            hoodType: 'exposed',
-            ovenType: 'surface',
             layoutno: 6
         }
     },
@@ -297,9 +291,6 @@ const defaultPresets = [
             refrigeratorWidth: 95,
             hasDishwasher: true,
             hasLaundry: true,
-            wallCabinetType: 'stepped',
-            hoodType: 'hidden',
-            ovenType: 'builtIn',
             layoutno: 7
         }
     },
@@ -318,9 +309,6 @@ const defaultPresets = [
             refrigeratorWidth: 95,
             hasDishwasher: true,
             hasLaundry: true,
-            wallCabinetType: 'stepped',
-            hoodType: 'hidden',
-            ovenType: 'builtIn',
             layoutno: 12
         }
     },
@@ -339,9 +327,6 @@ const defaultPresets = [
             refrigeratorWidth: 0,
             hasDishwasher: false,
             hasLaundry: false,
-            wallCabinetType: 'none',
-            hoodType: 'none',
-            ovenType: 'none',
             layoutno: 1
         }
     },
@@ -360,9 +345,6 @@ const defaultPresets = [
             refrigeratorWidth: 80,
             hasDishwasher: true,
             hasLaundry: false,
-            wallCabinetType: 'stepped',
-            hoodType: 'hidden',
-            ovenType: 'surface',
             layoutno: 11
         }
     }
@@ -372,7 +354,7 @@ export default function Page() {
     const [result, setResult] = useState<{ Mdf: number; HighGlass: number; Vacuum: number; Color: number } | null>(null);
     const [item, setItem] = useState<typeof fields[number]>(fields[0]);
     const [loading, setLoading] = useState(false);
-    const [params, setParams] = useState<Record<string, number | boolean | string>>({});
+    const [params, setParams] = useState<Record<string, number | boolean>>({});
     const [presetIndex, setPresetIndex] = useState(0);
     const [selectedPreset, setSelectedPreset] = useState<typeof defaultPresets[0] | null>(null);
 
@@ -385,7 +367,7 @@ export default function Page() {
         setItem(field);
         
         // تنظیم پارامترها با مقادیر پریست
-        const newParams: Record<string, number | boolean | string> = {};
+        const newParams: Record<string, number | boolean> = {};
         
         // اضافه کردن پارامترهای دیوارها
         Object.entries(field.parameter).forEach(([key]) => {
@@ -407,9 +389,6 @@ export default function Page() {
         newParams.islandlength = preset.values.islandlength || 0;
         newParams.openlength = preset.values.openlength || 0;
         newParams.openDepth = 60;
-        newParams.wallCabinetType = preset.values.wallCabinetType || 'none';
-        newParams.hoodType = preset.values.hoodType || 'none';
-        newParams.ovenType = preset.values.ovenType || 'none';
         
         // اطمینان از وجود همه پارامترها
         if (!('alength' in newParams)) newParams.alength = 100;
@@ -453,9 +432,6 @@ export default function Page() {
         initial.layoutno = fields.findIndex(o => o.id === field.id) + 1;
         initial.tallWidth = 35;
         initial.openDepth = 60;
-        initial.wallCabinetType = 'none';
-        initial.hoodType = 'none';
-        initial.ovenType = 'none';
         
         if (!('alength' in initial)) initial.alength = 100;
         if (!('blength' in initial)) initial.blength = 100;
@@ -475,9 +451,8 @@ export default function Page() {
             
             const requiredFields = [
                 'alength', 'blength', 'clength', 'islandlength', 'openlength',
-                'tallWidth', 'ceilHeight', 'refrigeratorWidth',
-                'hasDishwasher', 'hasLaundry', 'layoutno',
-                'wallCabinetType', 'hoodType', 'ovenType'
+                'tallWidth', 'ceilHeight', 'refrigeratorWidth', 
+                'hasDishwasher', 'hasLaundry', 'layoutno'
             ];
             
             const defaults: Record<string, any> = {
@@ -491,10 +466,7 @@ export default function Page() {
                 'refrigeratorWidth': 0,
                 'hasDishwasher': false,
                 'hasLaundry': false,
-                'layoutno': 1,
-                'wallCabinetType': 'none',
-                'hoodType': 'none',
-                'ovenType': 'none'
+                'layoutno': 1
             };
             
             requiredFields.forEach(field => {
@@ -683,48 +655,6 @@ export default function Page() {
                                 data={[
                                     { value: "false", label: "ندارد" },
                                     { value: "true", label: "دارد" }
-                                ]}
-                                fullWidth
-                            />
-                        </div>
-                        <div>
-                            <label className="font-bold mb-2 block">کمد دیواری</label>
-                            <small className="block mb-2 text-gray-400">نوع کمد دیواری را انتخاب کنید</small>
-                            <SegmentedControl
-                                value={params.wallCabinetType?.toString() || "none"}
-                                onChange={val => setParams(p => ({ ...p, wallCabinetType: val }))}
-                                data={[
-                                    { value: "none", label: "ندارد" },
-                                    { value: "simple", label: "ساده" },
-                                    { value: "stepped", label: "پله‌ای" }
-                                ]}
-                                fullWidth
-                            />
-                        </div>
-                        <div>
-                            <label className="font-bold mb-2 block">هود</label>
-                            <small className="block mb-2 text-gray-400">نوع هود را انتخاب کنید</small>
-                            <SegmentedControl
-                                value={params.hoodType?.toString() || "none"}
-                                onChange={val => setParams(p => ({ ...p, hoodType: val }))}
-                                data={[
-                                    { value: "none", label: "ندارد" },
-                                    { value: "exposed", label: "روکار" },
-                                    { value: "hidden", label: "مخفی" }
-                                ]}
-                                fullWidth
-                            />
-                        </div>
-                        <div>
-                            <label className="font-bold mb-2 block">فر و ماکروفر</label>
-                            <small className="block mb-2 text-gray-400">نوع فر و ماکروفر را انتخاب کنید</small>
-                            <SegmentedControl
-                                value={params.ovenType?.toString() || "none"}
-                                onChange={val => setParams(p => ({ ...p, ovenType: val }))}
-                                data={[
-                                    { value: "none", label: "ندارد" },
-                                    { value: "surface", label: "روکار" },
-                                    { value: "builtIn", label: "توکار" }
                                 ]}
                                 fullWidth
                             />
