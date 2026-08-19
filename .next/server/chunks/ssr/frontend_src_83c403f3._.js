@@ -336,10 +336,10 @@ function Header(props) {
         pathname
     ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
-        className: "max-w-[100%] md:max-w-5xl header bg-gradient-primary backdrop-blur p-3 md:p-4 px-4! md:px-5! lg:px-10! flex items-center transition-all justify-between rounded-none md:rounded-2xl lg:rounded-4xl shadow-lg mx-auto mt-0 md:mt-4 relative lg:top-4 z-50",
+        className: "header w-[calc(100%-16px)] max-w-[980px] bg-gradient-primary backdrop-blur p-3 md:p-4 px-4! md:px-5! lg:px-7! flex items-center gap-3 transition-all justify-between rounded-none md:rounded-2xl lg:rounded-4xl shadow-lg mx-auto mt-0 md:mt-4 relative lg:top-4 z-50 lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto] [direction:ltr]",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "md:hidden flex items-center",
+                className: "mobile-menu-toggle lg:hidden flex items-center shrink-0 order-1 [direction:rtl]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Burger$2f$Burger$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Burger"], {
                     onClick: toggle,
                     opened: open,
@@ -356,13 +356,13 @@ function Header(props) {
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex items-center flex-1 md:flex-none justify-center md:justify-start",
+                className: "mobile-logo flex items-center min-w-0 flex-1 lg:flex-none justify-center lg:justify-start shrink-0 order-2 lg:order-none lg:col-start-3 [direction:rtl]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                     href: '/',
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                         src: "/logo.png",
                         alt: "Company Logo",
-                        className: "h-10 md:h-13 lg:h-20 w-auto"
+                        className: "h-10 md:h-12 lg:h-16 w-auto max-w-[150px]"
                     }, void 0, false, {
                         fileName: "[project]/frontend/src/components/theme/Header.tsx",
                         lineNumber: 39,
@@ -379,12 +379,12 @@ function Header(props) {
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex items-center justify-center flex-grow",
+                className: "flex items-center justify-center min-w-0 flex-1 lg:col-start-2 [direction:rtl]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-                    className: "hidden md:flex items-center gap-3 lg:gap-5 text-white text-sm lg:text-lg font-medium",
+                    className: "hidden lg:flex items-center justify-center gap-2 xl:gap-4 text-white text-sm xl:text-base font-medium min-w-0 [direction:rtl]",
                     children: menuItems.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                             href: item.link,
-                            className: "relative text-sm lg:text-base pb-1 border-b-2 border-transparent hover:border-white transition-colors duration-200 whitespace-nowrap",
+                            className: "relative text-sm xl:text-base pb-1 border-b-2 border-transparent hover:border-white transition-colors duration-200 whitespace-nowrap shrink-0",
                             children: item.name
                         }, index, false, {
                             fileName: "[project]/frontend/src/components/theme/Header.tsx",
@@ -402,7 +402,7 @@ function Header(props) {
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "hidden md:block",
+                className: "hidden lg:block shrink-0 min-w-[112px] lg:col-start-1 [direction:rtl]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$components$2f$theme$2f$elements$2f$DashboardButton$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                     fileName: "[project]/frontend/src/components/theme/Header.tsx",
                     lineNumber: 64,
@@ -416,12 +416,12 @@ function Header(props) {
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Drawer$2f$Drawer$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Drawer"], {
                 opened: open,
                 onClose: close,
-                position: "right",
+                position: "left",
                 size: "85%",
                 padding: "md",
                 classNames: {
                     body: "p-0",
-                    content: "bg-white"
+                    content: "bg-white mobile-drawer-content"
                 },
                 overlayProps: {
                     className: "backdrop-blur-sm"

@@ -1,14 +1,4 @@
 {
-  "/(landing)/admin/author/page": "app/(landing)/admin/author/page.js",
-  "/(landing)/admin/page": "app/(landing)/admin/page.js",
-  "/(landing)/admin/user/page": "app/(landing)/admin/user/page.js",
-  "/(landing)/user/chat/page": "app/(landing)/user/chat/page.js",
-  "/(landing)/user/info/page": "app/(landing)/user/info/page.js",
-  "/(landing)/user/page": "app/(landing)/user/page.js",
-  "/(main)/articles/page": "app/(main)/articles/page.js",
-  "/(main)/auth/page": "app/(main)/auth/page.js",
-  "/(main)/calc/page": "app/(main)/calc/page.js",
-  "/(main)/counseling/page": "app/(main)/counseling/page.js",
   "/(main)/page": "app/(main)/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js"
 }

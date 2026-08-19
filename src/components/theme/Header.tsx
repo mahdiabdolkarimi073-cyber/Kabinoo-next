@@ -27,31 +27,31 @@ function Header(props: any) {
     }, [pathname]);
 
     return (
-        <header className="max-w-[100%] md:max-w-5xl header bg-gradient-primary backdrop-blur p-3 md:p-4 px-4! md:px-5! lg:px-10! flex items-center transition-all justify-between rounded-none md:rounded-2xl lg:rounded-4xl shadow-lg mx-auto mt-0 md:mt-4 relative lg:top-4 z-50">
+        <header className="header w-[calc(100%-16px)] max-w-[980px] bg-gradient-primary backdrop-blur p-3 md:p-4 px-4! md:px-5! lg:px-7! flex items-center gap-3 transition-all justify-between rounded-none md:rounded-2xl lg:rounded-4xl shadow-lg mx-auto mt-0 md:mt-4 relative lg:top-4 z-50 lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto] [direction:ltr]">
             {/* Burger menu on the right (for RTL: visually right = start) */}
-            <div className="md:hidden flex items-center">
+            <div className="mobile-menu-toggle lg:hidden flex items-center shrink-0 order-1 [direction:rtl]">
                 <Burger onClick={toggle} opened={open} size="sm" color="white" />
             </div>
 
             {/* Logo centered on mobile, left on desktop */}
-            <div className="flex items-center flex-1 md:flex-none justify-center md:justify-start">
+            <div className="mobile-logo flex items-center min-w-0 flex-1 lg:flex-none justify-center lg:justify-start shrink-0 order-2 lg:order-none lg:col-start-3 [direction:rtl]">
                 <Link href={'/'}>
                     <img
                         src="/logo.png"
                         alt="Company Logo"
-                        className="h-10 md:h-13 lg:h-20 w-auto"
+                        className="h-10 md:h-12 lg:h-16 w-auto max-w-[150px]"
                     />
                 </Link>
             </div>
 
             {/* Desktop nav centered */}
-            <div className="flex items-center justify-center flex-grow">
-                <nav className="hidden md:flex items-center gap-3 lg:gap-5 text-white text-sm lg:text-lg font-medium">
+            <div className="flex items-center justify-center min-w-0 flex-1 lg:col-start-2 [direction:rtl]">
+                <nav className="hidden lg:flex items-center justify-center gap-2 xl:gap-4 text-white text-sm xl:text-base font-medium min-w-0 [direction:rtl]">
                     {menuItems.map((item, index) => (
                         <Link
                             key={index}
                             href={item.link}
-                            className="relative text-sm lg:text-base pb-1 border-b-2 border-transparent hover:border-white transition-colors duration-200 whitespace-nowrap"
+                            className="relative text-sm xl:text-base pb-1 border-b-2 border-transparent hover:border-white transition-colors duration-200 whitespace-nowrap shrink-0"
                         >
                             {item.name}
                         </Link>
@@ -60,7 +60,7 @@ function Header(props: any) {
             </div>
 
             {/* Desktop dashboard button */}
-            <div className="hidden md:block">
+            <div className="hidden lg:block shrink-0 min-w-[112px] lg:col-start-1 [direction:rtl]">
                 <DashboardButton />
             </div>
 
@@ -68,12 +68,12 @@ function Header(props: any) {
             <Drawer
                 opened={open}
                 onClose={close}
-                position="right"
+                position="left"
                 size="85%"
                 padding="md"
                 classNames={{
                     body: "p-0",
-                    content: "bg-white"
+                    content: "bg-white mobile-drawer-content"
                 }}
                 overlayProps={{ className: "backdrop-blur-sm" }}
             >

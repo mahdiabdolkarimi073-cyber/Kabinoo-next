@@ -197,25 +197,19 @@ function Dashboard({ children, navItems: navigationItems, title = "پنل کار
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: `
-        fixed lg:static inset-y-0 left-0 z-50 w-72 bg-white border-r border-gray-200 
+        fixed lg:static inset-y-0 right-0 z-50 w-72 bg-white border-l border-gray-200 
         transform transition-transform duration-300 ease-in-out lg:translate-x-0
         flex justify-between flex-col
-        ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
+        ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'}
       `,
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex items-center justify-start p-6 border-b border-gray-100",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                    src: "/logo.png",
-                                    alt: "Company Logo",
-                                    className: "h-10 ml-4"
-                                }, void 0, false, {
-                                    fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                    lineNumber: 101,
-                                    columnNumber: 13
-                                }, this)
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                src: "/logo.png",
+                                alt: "Company Logo",
+                                className: "h-10 ml-4"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/src/components/Dashboard.tsx",
                                 lineNumber: 100,
@@ -228,17 +222,7 @@ function Dashboard({ children, navItems: navigationItems, title = "پنل کار
                                 children: title
                             }, void 0, false, {
                                 fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                lineNumber: 107,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Burger$2f$Burger$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Burger"], {
-                                opened: sidebarOpen,
-                                onClick: toggle,
-                                size: "sm",
-                                className: "lg:hidden"
-                            }, void 0, false, {
-                                fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                lineNumber: 110,
+                                lineNumber: 105,
                                 columnNumber: 11
                             }, this)
                         ]
@@ -261,12 +245,12 @@ function Dashboard({ children, navItems: navigationItems, title = "پنل کار
                                             children: "منو"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                            lineNumber: 122,
+                                            lineNumber: 114,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                        lineNumber: 121,
+                                        lineNumber: 113,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -284,31 +268,31 @@ function Dashboard({ children, navItems: navigationItems, title = "پنل کار
                                                         stroke: 1.5
                                                     }, void 0, false, {
                                                         fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                                        lineNumber: 138,
+                                                        lineNumber: 130,
                                                         columnNumber: 32
                                                     }, void 0),
                                                     className: "rounded-lg transition-all duration-200",
                                                     color: "secondary"
                                                 }, void 0, false, {
                                                     fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                                    lineNumber: 135,
+                                                    lineNumber: 127,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                            lineNumber: 133,
+                                            lineNumber: 125,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                        lineNumber: 132,
+                                        lineNumber: 124,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                lineNumber: 120,
+                                lineNumber: 112,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -326,7 +310,7 @@ function Dashboard({ children, navItems: navigationItems, title = "پنل کار
                                         stroke: 1.5
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                        lineNumber: 153,
+                                        lineNumber: 145,
                                         columnNumber: 28
                                     }, void 0),
                                     className: "rounded-lg text-red-600 hover:bg-red-50 transition-all duration-200",
@@ -344,18 +328,18 @@ function Dashboard({ children, navItems: navigationItems, title = "پنل کار
                                     }
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                    lineNumber: 146,
+                                    lineNumber: 138,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                lineNumber: 145,
+                                lineNumber: 137,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                        lineNumber: 119,
+                        lineNumber: 111,
                         columnNumber: 9
                     }, this)
                 ]
@@ -375,40 +359,38 @@ function Dashboard({ children, navItems: navigationItems, title = "پنل کار
                             className: "justify-between!",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Group$2f$Group$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Group"], {
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Burger$2f$Burger$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Burger"], {
-                                            opened: sidebarOpen,
-                                            onClick: toggle,
-                                            size: "sm",
-                                            className: "lg:hidden"
-                                        }, void 0, false, {
-                                            fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                            lineNumber: 178,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Text$2f$Text$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Text"], {
-                                            size: "xl",
-                                            fw: 600,
-                                            className: "text-gray-800",
-                                            children: active.label
-                                        }, void 0, false, {
-                                            fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                            lineNumber: 184,
-                                            columnNumber: 15
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Text$2f$Text$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Text"], {
+                                        size: "xl",
+                                        fw: 600,
+                                        className: "text-gray-800",
+                                        children: active.label
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/src/components/Dashboard.tsx",
+                                        lineNumber: 170,
+                                        columnNumber: 15
+                                    }, this)
+                                }, void 0, false, {
                                     fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                    lineNumber: 177,
+                                    lineNumber: 169,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Group$2f$Group$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Group"], {
                                     children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                            src: "/logo.png",
+                                            alt: "Company Logo",
+                                            className: "h-8 lg:hidden"
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/src/components/Dashboard.tsx",
+                                            lineNumber: 176,
+                                            columnNumber: 15
+                                        }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "hidden lg:block",
                                             children: user?.name
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                            lineNumber: 190,
+                                            lineNumber: 181,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -420,29 +402,39 @@ function Dashboard({ children, navItems: navigationItems, title = "پنل کار
                                                 children: user?.name?.slice(0, 1)
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                                lineNumber: 192,
+                                                lineNumber: 183,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                            lineNumber: 191,
+                                            lineNumber: 182,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Burger$2f$Burger$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Burger"], {
+                                            opened: sidebarOpen,
+                                            onClick: toggle,
+                                            size: "sm",
+                                            className: "lg:hidden"
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/src/components/Dashboard.tsx",
+                                            lineNumber: 187,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                    lineNumber: 189,
+                                    lineNumber: 175,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                            lineNumber: 176,
+                            lineNumber: 168,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                        lineNumber: 175,
+                        lineNumber: 167,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -460,7 +452,7 @@ function Dashboard({ children, navItems: navigationItems, title = "پنل کار
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                        lineNumber: 205,
+                                        lineNumber: 202,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -476,20 +468,20 @@ function Dashboard({ children, navItems: navigationItems, title = "پنل کار
                                                             className: "text-primary"
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                                            lineNumber: 213,
+                                                            lineNumber: 210,
                                                             columnNumber: 27
                                                         }, void 0),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                             children: item.label
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                                            lineNumber: 214,
+                                                            lineNumber: 211,
                                                             columnNumber: 27
                                                         }, void 0)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                                    lineNumber: 212,
+                                                    lineNumber: 209,
                                                     columnNumber: 25
                                                 }, void 0),
                                                 className: `
@@ -501,34 +493,34 @@ function Dashboard({ children, navItems: navigationItems, title = "پنل کار
                                                 color: "primary"
                                             }, item.href, false, {
                                                 fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                                lineNumber: 208,
+                                                lineNumber: 205,
                                                 columnNumber: 21
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                        lineNumber: 206,
+                                        lineNumber: 203,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                lineNumber: 204,
+                                lineNumber: 201,
                                 columnNumber: 15
                             }, this) : children
                         }, void 0, false, {
                             fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                            lineNumber: 202,
+                            lineNumber: 199,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                        lineNumber: 201,
+                        lineNumber: 198,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                lineNumber: 173,
+                lineNumber: 165,
                 columnNumber: 7
             }, this)
         ]
