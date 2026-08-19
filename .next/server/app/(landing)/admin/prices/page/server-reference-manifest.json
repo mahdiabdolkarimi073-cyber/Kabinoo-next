@@ -1,0 +1,20 @@
+{
+  "node": {
+    "00765d2dd7f0bf57a7b85d268c3b5c7028e855a0e2": {
+      "workers": {
+        "app/(landing)/admin/prices/page": {
+          "moduleId": "[project]/frontend/.next-internal/server/app/(landing)/admin/prices/page/actions.js { ACTIONS_MODULE0 => \"[project]/frontend/src/ssr/actions/user.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "logout",
+          "filename": "frontend/src/ssr/actions/user.ts"
+        }
+      },
+      "layer": {
+        "app/(landing)/admin/prices/page": "action-browser"
+      },
+      "exportedName": "logout",
+      "filename": "frontend/src/ssr/actions/user.ts"
+    }
+  },
+  "edge": {}
+}
