@@ -21,7 +21,8 @@ export default function SinglePayment({ amount, ...order }: { amount: number }) 
     const [method, setMethod] = useState<"DIRECT" | "INSTALLMENT">("DIRECT");
     const [gate, setGate] = useState<string | null>(null);
     const [months, setMonths] = useState<number>(2);
-    const [prepayPercent, setPrepayPercent] = useState<number>(30);
+    const minPrepay = config?.['MIN_PREPAY_PERCENT'] || 30;
+    const [prepayPercent, setPrepayPercent] = useState<number>(minPrepay);
     const [loading, setLoading] = useState(false);
     const [checks, setChecks] = useState<{ id: string; file?: File }[]>([]);
     const maxMonth = config?.['MAX_VAM_CH_COUNT'] || 12;
@@ -88,6 +89,10 @@ export default function SinglePayment({ amount, ...order }: { amount: number }) 
     useEffect(() => {
         handleMonthsChange(months);
     }, []);
+
+    useEffect(() => {
+        if (prepayPercent < minPrepay) setPrepayPercent(minPrepay);
+    }, [minPrepay]);
 
     if (typeof currentUpload !== 'undefined') {
         const check = finalChecks[currentUpload];
@@ -158,16 +163,16 @@ export default function SinglePayment({ amount, ...order }: { amount: number }) 
                         />
                         <NumberInput
                             label="درصد پیش پرداخت"
-                            min={30}
+                            min={minPrepay}
                             suffix="%"
                             max={95}
-                            defaultValue={prepayPercent}
-                            onBlur={val => setPrepayPercent(Math.min(100, Math.max(30, Number(val) || 30)))}
+                            value={prepayPercent}
+                            onBlur={val => setPrepayPercent(Math.min(100, Math.max(minPrepay, Number(val) || minPrepay)))}
                             required
                             description={(
                                 <>
-                                    <Slider min={30} max={95} value={prepayPercent} onChange={setPrepayPercent} />
-                                    <p>حداقل درصد پیش پرداخت 30% میباشد</p>
+                                    <Slider min={minPrepay} max={95} value={prepayPercent} onChange={setPrepayPercent} />
+                                    <p>حداقل درصد پیش پرداخت {minPrepay}% میباشد</p>
                                 </>
                             )}
                             inputWrapperOrder={[

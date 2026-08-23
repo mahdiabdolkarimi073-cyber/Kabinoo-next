@@ -1415,11 +1415,13 @@ function SinglePayment(param) {
                                         for (const check of checks){
                                             if (!check.id) {
                                                 setLoading(false);
-                                                window.throw('لطفا شناسه چک های خود را وارد کنید');
+                                                window.alert('لطفا شناسه چک های خود را وارد کنید');
+                                                return;
                                             }
                                             if (!check.file) {
                                                 setLoading(false);
-                                                window.throw("لطفا عکس چک های خود را انتخاب کنید");
+                                                window.alert("لطفا عکس چک های خود را انتخاب کنید");
+                                                return;
                                             }
                                             const link = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$utils$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["uploadFile"])(check.file, "".concat(order.id, "-").concat(files.length, ".$EX"));
                                             files.push(link);
@@ -1438,8 +1440,13 @@ function SinglePayment(param) {
                                         }).then((e)=>{
                                             var _e_data;
                                             if (!e.ok) return;
+                                            const link = (_e_data = e.data) === null || _e_data === void 0 ? void 0 : _e_data.link;
+                                            if (!link) {
+                                                window.alert("خطا در دریافت لینک پرداخت!");
+                                                return;
+                                            }
                                             alert('درحال انتقال به درگاه پرداخت...');
-                                            window.location.href = ((_e_data = e.data) === null || _e_data === void 0 ? void 0 : _e_data.link) || window.throw("خطا در انتقال");
+                                            window.location.href = link;
                                         }).finally(()=>{
                                             setLoading(false);
                                         });
@@ -1474,7 +1481,7 @@ function SinglePayment(param) {
                                 src: "https://www.sep.ir/uploads/1/2022/Sep/06/SEP-NEW-LOGO-104x65.png"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/src/app/(landing)/user/order/[id]/SinglePayment.tsx",
-                                lineNumber: 275,
+                                lineNumber: 279,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
@@ -1482,20 +1489,20 @@ function SinglePayment(param) {
                                 children: finalPayAmount.toLocaleString('fa')
                             }, void 0, false, {
                                 fileName: "[project]/frontend/src/app/(landing)/user/order/[id]/SinglePayment.tsx",
-                                lineNumber: 278,
+                                lineNumber: 282,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h5", {
                                 children: "تومان"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/src/app/(landing)/user/order/[id]/SinglePayment.tsx",
-                                lineNumber: 279,
+                                lineNumber: 283,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/frontend/src/app/(landing)/user/order/[id]/SinglePayment.tsx",
-                        lineNumber: 274,
+                        lineNumber: 278,
                         columnNumber: 21
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1510,8 +1517,12 @@ function SinglePayment(param) {
                                     id: order.id,
                                     method: "DIRECT"
                                 }).then((e)=>{
-                                    const { payment, link } = e.data || {};
-                                    if (!link) window.throw("خطا در دریافت لینک پرداخت!");
+                                    if (!e.ok) return;
+                                    const { link } = e.data || {};
+                                    if (!link) {
+                                        window.alert("خطا در دریافت لینک پرداخت!");
+                                        return;
+                                    }
                                     alert("درحال انتقال به درگاه پرداخت...");
                                     window.location.href = link;
                                 }).finally(()=>{
@@ -1521,12 +1532,12 @@ function SinglePayment(param) {
                             children: "پرداخت و ثبت سفارش"
                         }, void 0, false, {
                             fileName: "[project]/frontend/src/app/(landing)/user/order/[id]/SinglePayment.tsx",
-                            lineNumber: 284,
+                            lineNumber: 288,
                             columnNumber: 25
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/frontend/src/app/(landing)/user/order/[id]/SinglePayment.tsx",
-                        lineNumber: 283,
+                        lineNumber: 287,
                         columnNumber: 21
                     }, this)
                 ]
@@ -1558,7 +1569,7 @@ function PaymentButton(param) {
                     amount: order.finalPrice
                 }, void 0, false, {
                     fileName: "[project]/frontend/src/app/(landing)/user/order/[id]/SinglePayment.tsx",
-                    lineNumber: 313,
+                    lineNumber: 318,
                     columnNumber: 27
                 }, void 0),
                 size: "xl"
@@ -1567,7 +1578,7 @@ function PaymentButton(param) {
         children: "پرداخت"
     }, void 0, false, {
         fileName: "[project]/frontend/src/app/(landing)/user/order/[id]/SinglePayment.tsx",
-        lineNumber: 310,
+        lineNumber: 315,
         columnNumber: 9
     }, this);
 }
@@ -1596,7 +1607,7 @@ function PaymentCancelBtn(param) {
         children: "لغو"
     }, void 0, false, {
         fileName: "[project]/frontend/src/app/(landing)/user/order/[id]/SinglePayment.tsx",
-        lineNumber: 324,
+        lineNumber: 329,
         columnNumber: 9
     }, this);
 }
@@ -1609,7 +1620,7 @@ _c2 = PaymentCancelBtn;
 function CheckUpload(props) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {}, void 0, false, {
         fileName: "[project]/frontend/src/app/(landing)/user/order/[id]/SinglePayment.tsx",
-        lineNumber: 352,
+        lineNumber: 357,
         columnNumber: 9
     }, this);
 }

@@ -3,12 +3,12 @@
 import Loading from "@/no-side/Loading";
 import useBackend from "@/utils/hooks/useBackend";
 import { useState } from "react";
-import { Table, TextInput, Button, Badge, Group, ActionIcon, Text } from "@mantine/core";
+import { Table, TextInput, Button, Badge, Group, ActionIcon, Text, Modal, Stack } from "@mantine/core";
 import Link from "next/link";
 import { useDebouncedState } from "@mantine/hooks";
 import { backend } from "@/utils/api";
 import { askConfirm } from "@/utils/ui/modalUtils/confirm";
-import { IconTrash, IconEye } from "@tabler/icons-react";
+import { IconTrash, IconEye, IconPlus } from "@tabler/icons-react";
 
 type Author = {
     id: string;
@@ -34,6 +34,29 @@ export default function Page() {
             )
         ).toString()
     );
+
+    const [createOpen, setCreateOpen] = useState(false);
+    const [creating, setCreating] = useState(false);
+    const [form, setForm] = useState({ name: "", phone: "", password: "", email: "", nationalCode: "" });
+
+    const handleCreateAuthor = async () => {
+        if (!form.name.trim()) return window.alert("نام را وارد کنید");
+        if (!form.phone.trim()) return window.alert("شماره تلفن را وارد کنید");
+        if (!form.password.trim()) return window.alert("رمزعبور را وارد کنید");
+        setCreating(true);
+        const res = await backend("/admin/author", "POST", {
+            name: form.name,
+            phone: form.phone,
+            password: form.password,
+            email: form.email || undefined,
+            nationalCode: form.nationalCode || undefined,
+        });
+        setCreating(false);
+        if (!res.ok) return;
+        setCreateOpen(false);
+        setForm({ name: "", phone: "", password: "", email: "", nationalCode: "" });
+        window.location.reload();
+    };
 
     const handleRemoveAuthor = async (authorId: string, authorName: string) => {
         try {
@@ -86,6 +109,12 @@ export default function Page() {
         <div className="w-full p-4">
             <Group justify="space-between" mb="md">
                 <Text size="xl" fw={600}>مدیریت نویسندگان</Text>
+                <Button
+                    leftSection={<IconPlus size={18} />}
+                    onClick={() => setCreateOpen(true)}
+                >
+                    افزودن نویسنده
+                </Button>
             </Group>
             <div className="flex flex-col md:flex-row gap-4 mb-4">
                 <TextInput
@@ -111,6 +140,58 @@ export default function Page() {
                     highlightOnHover
                 />
             </div>
+
+            <Modal
+                opened={createOpen}
+                onClose={() => setCreateOpen(false)}
+                title="افزودن نویسنده جدید"
+                centered
+            >
+                <Stack gap="sm">
+                    <TextInput
+                        label="نام و نام خانوادگی"
+                        placeholder="نام نویسنده"
+                        required
+                        value={form.name}
+                        onChange={(e) => setForm(f => ({ ...f, name: e.target.value }))}
+                    />
+                    <TextInput
+                        label="شماره تلفن"
+                        placeholder="مثال: 09123456789"
+                        required
+                        value={form.phone}
+                        onChange={(e) => setForm(f => ({ ...f, phone: e.target.value }))}
+                    />
+                    <TextInput
+                        label="رمزعبور"
+                        placeholder="رمزعبور نویسنده"
+                        required
+                        type="password"
+                        value={form.password}
+                        onChange={(e) => setForm(f => ({ ...f, password: e.target.value }))}
+                    />
+                    <TextInput
+                        label="ایمیل"
+                        placeholder="ایمیل (اختیاری)"
+                        value={form.email}
+                        onChange={(e) => setForm(f => ({ ...f, email: e.target.value }))}
+                    />
+                    <TextInput
+                        label="کد ملی"
+                        placeholder="کد ملی (اختیاری)"
+                        value={form.nationalCode}
+                        onChange={(e) => setForm(f => ({ ...f, nationalCode: e.target.value }))}
+                    />
+                    <Button
+                        loading={creating}
+                        onClick={handleCreateAuthor}
+                        color="green"
+                        fullWidth
+                    >
+                        ایجاد نویسنده
+                    </Button>
+                </Stack>
+            </Modal>
         </div>
     );
 }

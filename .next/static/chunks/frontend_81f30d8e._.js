@@ -230,15 +230,21 @@ function Dashboard(param) {
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "\n        fixed lg:static inset-y-0 right-0 z-50 w-72 bg-white border-l border-gray-200 \n        transform transition-transform duration-300 ease-in-out lg:translate-x-0\n        flex justify-between flex-col\n        ".concat(sidebarOpen ? 'translate-x-0' : 'translate-x-full', "\n      "),
+                className: "\n        fixed lg:static inset-y-0 left-0 z-50 w-72 bg-white border-r border-gray-200 \n        transform transition-transform duration-300 ease-in-out lg:translate-x-0\n        flex justify-between flex-col\n        ".concat(sidebarOpen ? 'translate-x-0' : '-translate-x-full', "\n      "),
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex items-center justify-start p-6 border-b border-gray-100",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                src: "/logo.png",
-                                alt: "Company Logo",
-                                className: "h-10 ml-4"
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                    src: "/logo.png",
+                                    alt: "Company Logo",
+                                    className: "h-10 ml-4"
+                                }, void 0, false, {
+                                    fileName: "[project]/frontend/src/components/Dashboard.tsx",
+                                    lineNumber: 101,
+                                    columnNumber: 13
+                                }, this)
                             }, void 0, false, {
                                 fileName: "[project]/frontend/src/components/Dashboard.tsx",
                                 lineNumber: 100,
@@ -251,7 +257,17 @@ function Dashboard(param) {
                                 children: title
                             }, void 0, false, {
                                 fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                lineNumber: 105,
+                                lineNumber: 107,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Burger$2f$Burger$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Burger"], {
+                                opened: sidebarOpen,
+                                onClick: toggle,
+                                size: "sm",
+                                className: "lg:hidden"
+                            }, void 0, false, {
+                                fileName: "[project]/frontend/src/components/Dashboard.tsx",
+                                lineNumber: 110,
                                 columnNumber: 11
                             }, this)
                         ]
@@ -274,12 +290,12 @@ function Dashboard(param) {
                                             children: "منو"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                            lineNumber: 114,
+                                            lineNumber: 122,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                        lineNumber: 113,
+                                        lineNumber: 121,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -297,31 +313,31 @@ function Dashboard(param) {
                                                         stroke: 1.5
                                                     }, void 0, false, {
                                                         fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                                        lineNumber: 130,
+                                                        lineNumber: 138,
                                                         columnNumber: 32
                                                     }, void 0),
                                                     className: "rounded-lg transition-all duration-200",
                                                     color: "secondary"
                                                 }, void 0, false, {
                                                     fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                                    lineNumber: 127,
+                                                    lineNumber: 135,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                            lineNumber: 125,
+                                            lineNumber: 133,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                        lineNumber: 124,
+                                        lineNumber: 132,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                lineNumber: 112,
+                                lineNumber: 120,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -339,7 +355,7 @@ function Dashboard(param) {
                                         stroke: 1.5
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                        lineNumber: 145,
+                                        lineNumber: 153,
                                         columnNumber: 28
                                     }, void 0),
                                     className: "rounded-lg text-red-600 hover:bg-red-50 transition-all duration-200",
@@ -357,18 +373,18 @@ function Dashboard(param) {
                                     }
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                    lineNumber: 138,
+                                    lineNumber: 146,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                lineNumber: 137,
+                                lineNumber: 145,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                        lineNumber: 111,
+                        lineNumber: 119,
                         columnNumber: 9
                     }, this)
                 ]
@@ -388,38 +404,40 @@ function Dashboard(param) {
                             className: "justify-between!",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Group$2f$Group$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Group"], {
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Text$2f$Text$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Text"], {
-                                        size: "xl",
-                                        fw: 600,
-                                        className: "text-gray-800",
-                                        children: active.label
-                                    }, void 0, false, {
-                                        fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                        lineNumber: 170,
-                                        columnNumber: 15
-                                    }, this)
-                                }, void 0, false, {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Burger$2f$Burger$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Burger"], {
+                                            opened: sidebarOpen,
+                                            onClick: toggle,
+                                            size: "sm",
+                                            className: "lg:hidden"
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/src/components/Dashboard.tsx",
+                                            lineNumber: 178,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Text$2f$Text$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Text"], {
+                                            size: "xl",
+                                            fw: 600,
+                                            className: "text-gray-800",
+                                            children: active.label
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/src/components/Dashboard.tsx",
+                                            lineNumber: 184,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                    lineNumber: 169,
+                                    lineNumber: 177,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Group$2f$Group$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Group"], {
                                     children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                            src: "/logo.png",
-                                            alt: "Company Logo",
-                                            className: "h-8 lg:hidden"
-                                        }, void 0, false, {
-                                            fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                            lineNumber: 176,
-                                            columnNumber: 15
-                                        }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "hidden lg:block",
                                             children: user === null || user === void 0 ? void 0 : user.name
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                            lineNumber: 181,
+                                            lineNumber: 190,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -431,39 +449,29 @@ function Dashboard(param) {
                                                 children: user === null || user === void 0 ? void 0 : (_user_name = user.name) === null || _user_name === void 0 ? void 0 : _user_name.slice(0, 1)
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                                lineNumber: 183,
+                                                lineNumber: 192,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                            lineNumber: 182,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Burger$2f$Burger$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Burger"], {
-                                            opened: sidebarOpen,
-                                            onClick: toggle,
-                                            size: "sm",
-                                            className: "lg:hidden"
-                                        }, void 0, false, {
-                                            fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                            lineNumber: 187,
+                                            lineNumber: 191,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                    lineNumber: 175,
+                                    lineNumber: 189,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                            lineNumber: 168,
+                            lineNumber: 176,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                        lineNumber: 167,
+                        lineNumber: 175,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -481,7 +489,7 @@ function Dashboard(param) {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                        lineNumber: 202,
+                                        lineNumber: 205,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -497,54 +505,54 @@ function Dashboard(param) {
                                                             className: "text-primary"
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                                            lineNumber: 210,
+                                                            lineNumber: 213,
                                                             columnNumber: 27
                                                         }, void 0),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                             children: item.label
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                                            lineNumber: 211,
+                                                            lineNumber: 214,
                                                             columnNumber: 27
                                                         }, void 0)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                                    lineNumber: 209,
+                                                    lineNumber: 212,
                                                     columnNumber: 25
                                                 }, void 0),
                                                 className: "\n                      rounded-xl shadow-md bg-white border border-gray-100\n                      hover:shadow-lg transition-all duration-200\n                      px-6 py-6 flex items-center justify-start\n                      ".concat(item.href === active.href ? "ring-2 ring-primary" : "", "\n                    "),
                                                 color: "primary"
                                             }, item.href, false, {
                                                 fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                                lineNumber: 205,
+                                                lineNumber: 208,
                                                 columnNumber: 21
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                        lineNumber: 203,
+                                        lineNumber: 206,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                                lineNumber: 201,
+                                lineNumber: 204,
                                 columnNumber: 15
                             }, this) : children
                         }, void 0, false, {
                             fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                            lineNumber: 199,
+                            lineNumber: 202,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                        lineNumber: 198,
+                        lineNumber: 201,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/frontend/src/components/Dashboard.tsx",
-                lineNumber: 165,
+                lineNumber: 173,
                 columnNumber: 7
             }, this)
         ]
