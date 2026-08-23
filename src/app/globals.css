@@ -66,3 +66,31 @@
 .list {
     @apply flex flex-col gap-2
 }
+
+@keyframes kabinoo-card-glow {
+    0%   { box-shadow: 0 0 0 0 rgba(103, 168, 152, 0.5); }
+    50%  { box-shadow: 0 0 24px 6px rgba(103, 168, 152, 0.35); }
+    100% { box-shadow: 0 0 0 0 rgba(103, 168, 152, 0); }
+}
+
+.kabinoo-service-card {
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+}
+
+.kabinoo-service-card:hover {
+    animation: kabinoo-card-glow 1.4s ease-in-out infinite;
+}
+
+.kabinoo-service-arrow {
+    display: inline-block;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.kabinoo-service-card:hover .kabinoo-service-arrow {
+    transform: translateX(-8px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .kabinoo-service-card:hover { animation: none; }
+    .kabinoo-service-card:hover .kabinoo-service-arrow { transform: none; }
+}

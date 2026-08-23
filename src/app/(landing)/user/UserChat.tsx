@@ -36,6 +36,17 @@ export default function UserChatComponent(props: { userId?: string }) {
                 const data = JSON.parse(event.data);
                 if (data.type === "message" && data.message) {
                     setMessages(prev => [data.message, ...prev]);
+                    if (data.message.isAdmin) {
+                        try {
+                            new Audio('data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=').play().catch(() => {});
+                        } catch {}
+                        if (typeof window !== 'undefined' && 'Notification' in window && Notification.permission === 'granted') {
+                            new Notification('پاسخ جدید از پشتیبانی', {
+                                body: (data.message.content || '').slice(0, 50),
+                                icon: '/logo.png',
+                            });
+                        }
+                    }
                 }
             } catch { }
         };
@@ -45,7 +56,7 @@ export default function UserChatComponent(props: { userId?: string }) {
     // WebSocket connection
     useEffect(() => {
         if (!chat?.id) return;
-        // init();
+        init();
         return () => ws?.current?.close();
     }, [chat?.id]);
 

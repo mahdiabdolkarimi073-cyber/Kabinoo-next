@@ -14,11 +14,13 @@ interface DashboardLayoutProps {
     icon: Icon;
     href: string;
     showList?: boolean;
+    badge?: React.ReactNode;
     children?: {
       label: string;
       icon: Icon;
       href: string;
       showList?: boolean;
+      badge?: React.ReactNode;
       children?: any[]; // recursive for deeper nesting if needed
     }[];
   }[];
@@ -55,6 +57,7 @@ export default function Dashboard({ children, navItems: navigationItems, title =
           label={item.label}
           href={item?.children?.[0]?.href}
           leftSection={<item.icon size="1.1rem" stroke={1.5} className="mx-2" />}
+          rightSection={item.badge}
           active={item.href === active.href}
           className="rounded-lg transition-all duration-200"
           color="secondary"
@@ -68,6 +71,7 @@ export default function Dashboard({ children, navItems: navigationItems, title =
           href={"/" + prefix + "/" + item.href}
           label={item.label}
           leftSection={<item.icon size="1.1rem" stroke={1.5} className="mx-2" />}
+          rightSection={item.badge}
           active={item.href === active.href}
           onClick={() => {
             if (window.innerWidth < 1024) toggle();

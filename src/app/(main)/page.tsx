@@ -14,13 +14,36 @@ import FullProductCard from "@/components/FullProductCard";
 import Link from "next/link";
 import { questions } from "@/hard-code";
 
+type HomepageContent = {
+    key: string;
+    title: string;
+    subtitle: string;
+    description: string;
+    image: string;
+    buttonLabel: string;
+    buttonHref: string;
+    enabled: boolean;
+};
+
+const fallbackContent: HomepageContent[] = [
+    { key: "hero", title: "Kabinoo", subtitle: "همراه شما هستیم", description: "تا فضایی شیک و کاربردی خلق کنیم!", image: "/design/sliders/lg-00.jpg", buttonLabel: "شروع طراحی", buttonHref: "/design", enabled: true },
+    { key: "about", title: "کابینو", subtitle: "فراتر از طراحی", description: "با تجربه و دقت، فضای کاربردی و زیبایی برای خانه شما می‌سازیم.", image: "/design/image1.png", buttonLabel: "آشنایی بیشتر", buttonHref: "/about", enabled: true },
+    { key: "design", title: "خودت طراحی کن!", subtitle: "قابلیت سفارشی‌سازی سفارش", description: "از ایده تا اجرا، جزئیات فضای اختصاصی خود را انتخاب کنید.", image: "/design/sliders/sm-02.jpg", buttonLabel: "طراحی کن", buttonHref: "/design", enabled: true },
+    { key: "calculator", title: "قبل از تصمیم، حسابش کن", subtitle: "برآورد هوشمند هزینه", description: "با چند انتخاب ساده، دید اولیه‌ای از هزینه پروژه‌تان به دست آورید.", image: "/design/calc-bg.png", buttonLabel: "محاسبه قیمت", buttonHref: "/calc", enabled: true },
+    { key: "shop", title: "برای خانه‌ات انتخاب کن", subtitle: "فروشگاه محصولات چوبی", description: "مدل‌های آماده را ببینید و برای فضای خودتان سفارش دهید.", image: "/design/image2.png", buttonLabel: "ورود به فروشگاه", buttonHref: "/shop", enabled: true },
+    { key: "counseling", title: "شروع یک فضای خوب با یک گفت‌وگو", subtitle: "مشاوره رایگان طراحی", description: "کارشناسان کابینو برای انتخاب بهتر کنار شما هستند.", image: "/design/sliders/sm-04.jpg", buttonLabel: "دریافت مشاوره", buttonHref: "/counseling", enabled: true },
+];
+
 async function Page(props: any) {
 
-    const [products = [], categories = [], comments = []] = await Promise.all([
+    const [products = [], categories = [], comments = [], homepageResponse] = await Promise.all([
         backend<FullProduct[]>("/public/products?_include=category,color,detail,material").then(e => e.data),
         backend<FullProduct['category'][]>("/public/categories?count=products").then(e => e.data),
-        backend<FullProduct['comments']>('/public/products/comments').then(e => e.data)
+        backend<FullProduct['comments']>('/public/products/comments').then(e => e.data),
+        backend<HomepageContent[]>('/public/homepage')
     ]);
+    const content = homepageResponse.ok && homepageResponse.data?.length ? homepageResponse.data : fallbackContent;
+    const byKey = (key: string) => content.find(item => item.key === key && item.enabled) || fallbackContent.find(item => item.key === key)!;
     
 
     return (
@@ -29,7 +52,7 @@ async function Page(props: any) {
             <br />
             <div className={'relative mt-2'}>
                 <img
-                    src={'/design/sliders/lg-00.jpg'}
+                    src={byKey("hero").image}
                     className={'w-full rounded-2xl md:rounded-3xl min-h-[35vh] sm:min-h-[45vh] md:min-h-[55vh] lg:min-h-[60vh] object-cover'}
                     alt={'خانه'}
                 />
@@ -48,39 +71,60 @@ async function Page(props: any) {
                             </div>
                         </div>
                         <div>
-                            <h2 className="text-lg md:text-2xl">همراه شما هستیم</h2>
-                            <p className={'text-base md:text-xl'}>تا فضایی شیک و کاربردی خلق کنیم!</p>
+                            <h2 className="text-lg md:text-2xl">{byKey("hero").subtitle}</h2>
+                            <p className={'text-base md:text-xl'}>{byKey("hero").description}</p>
                         </div>
                     </div>
                 </div>
             </div>
             <br />
             <TextCard
-                title={'کابینو'}
-                subtitle={'فراتر از طراحی'}
-                description={'شرکت ما با سالها تجربه در زمینه طراحی و ساخت انواع کابینت، کمد و میز، خدمات منحصر به فردی را برای مشتریان عزیز ارائه می‌دهد. تیم ما با استفاده از متریال باکیفیت و طراحی‌های مدرن، به شما کمک می‌کند تا فضای داخلی منزل یا محل کار خود را به شکلی شیک و انواع کابینت و کمد دیواری ودکوراسیون منزل و مغازه با اقساط 36 ماهه'}
+                title={byKey("about").title}
+                subtitle={byKey("about").subtitle}
+                description={byKey("about").description}
                 footer={(
                     <Link href='/about'>
                         <Button className={'mt-5!'}>
-                            باما بیشتر اشنا شوید
+                            {byKey("about").buttonLabel}
                         </Button>
                     </Link>
                 )}
                 reverse
             />
             <TextCard
-                title={'خودت طراحی کن!'}
-                subtitle={'قابلیت سفارشی سازی سفارش'}
-                description={'در مجموعه ما، شما می‌توانید دنیای طراحی خانه خود را به دست بگیرید؛ از ایده‌پردازی تا خلق یک فضای منحصر به فرد. همه چیز در اختیار شماست. میتونی نیاز و خواسته ات را با سلیقه خودت طراحی کنی.'}
+                title={byKey("design").title}
+                subtitle={byKey("design").subtitle}
+                description={byKey("design").description}
                 footer={(
                     <Link href='/design'>
                         <Button className={'mt-5!'}>
-                            طراحی کن
+                            {byKey("design").buttonLabel}
                         </Button>
                     </Link>
                 )}
-                image={'/design/sliders/sm-02.jpg'}
+                image={byKey("design").image}
             />
+            <div className="mt-6 md:mt-10" />
+            <section className="grid grid-cols-1 md:grid-cols-3 gap-4" aria-label="خدمات کابینو">
+                {(["calculator", "shop", "counseling"] as const).map((key) => {
+                    const item = byKey(key);
+                    return (
+                        <Link
+                            href={item.buttonHref}
+                            key={key}
+                            className="kabinoo-service-card group relative min-h-56 overflow-hidden rounded-3xl bg-primary text-white shadow-md transition-transform hover:-translate-y-1"
+                        >
+                            <img src={item.image} alt="" className="absolute inset-0 h-full w-full object-cover opacity-40 transition-transform duration-500 group-hover:scale-105" />
+                            <div className="relative flex h-full min-h-56 flex-col justify-end gap-2 bg-black/35 p-5">
+                                <span className="text-sm text-white/85">{item.subtitle}</span>
+                                <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                                <p className="text-sm leading-6 text-white/90">{item.description}</p>
+                                <span className="mt-2 font-bold text-white kabinoo-service-arrow">{item.buttonLabel} ←</span>
+                            </div>
+                        </Link>
+                    );
+                })}
+            </section>
             <div className="mt-6 md:mt-10" />
             <h2 className={'text-center text-lg! md:text-2xl! lg:text-4xl! mb-3 md:mb-4'}>محبوب ترین محصولات</h2>
             <Carousel>

@@ -7,6 +7,8 @@ import { useEffect, useMemo, useState } from 'react';
 import Configurator from './test/Configurator';
 import { useRouter } from 'next/navigation';
 import StyledDiv from '@/style-stuff/StyledDiv';
+import { parseDesignData, DesignSpecsTable } from '@/utils/designSpecs';
+import { Button, Modal } from '@mantine/core';
 
 const Categories = { Library: 1, TvStand: 2, Console: 3, Closet: 4, ShoesBox: 5, Drawer: 6, Open: 7, BedSideTable: 9 }
 export const CategoriesReverse = Object.fromEntries(
@@ -79,6 +81,7 @@ function Page(props: any) {
     const router = useRouter();
     const [loading, setLoading] = useState(true);
     const [design, setDesign] = useState<any>();
+    const [savedDesign, setSavedDesign] = useState<any>(null);
 
     useEffect(() => {
         if (params.has('id')) {
@@ -119,15 +122,52 @@ function Page(props: any) {
                         name: !!id ? undefined : `طراحی ${CategoriesLabels.find(o => o.id === category)?.name} ${generateRandomString()}`
                     }).then((e) => {
                         if (!e.ok) window.throw(e.message || "خطا");
-
-                        backend("/user/cart", "POST", {
-                            customDesignId: e?.data?.id
-                        }).finally(() => {
-                            window.location.href = "/user/cart"
-                        })
+                        setSavedDesign({ id: e?.data?.id, data: obj, price: finalPrice, image, name: e?.data?.name });
+                        setLoading(false);
                     })
                 }}
             />
+            <Modal
+                opened={!!savedDesign}
+                onClose={() => setSavedDesign(null)}
+                title="مشخصات فنی طراحی شما"
+                centered
+                size="lg"
+            >
+                {savedDesign && (() => {
+                    const specs = parseDesignData(savedDesign.data);
+                    return (
+                        <div className="space-y-4">
+                            {savedDesign.image && (
+                                <img src={savedDesign.image} alt={savedDesign.name} className="w-full max-h-64 object-contain rounded-lg border border-gray-200" />
+                            )}
+                            <h3 className="text-lg font-bold">{savedDesign.name}</h3>
+                            <div className="bg-gray-50 rounded-lg p-4">
+                                <DesignSpecsTable specs={specs?.specs || []} />
+                            </div>
+                            <div className="flex justify-between items-center pt-2 border-t border-gray-100">
+                                <span className="text-gray-600">قیمت نهایی:</span>
+                                <span className="text-lg font-bold text-primary">{(savedDesign.price || 0).toLocaleString("fa")} تومان</span>
+                            </div>
+                            <div className="flex gap-3 justify-end pt-2">
+                                <Button variant="light" onClick={() => setSavedDesign(null)}>
+                                    ویرایش طراحی
+                                </Button>
+                                <Button
+                                    onClick={() => {
+                                        setLoading(true);
+                                        backend("/user/cart", "POST", { customDesignId: savedDesign.id }).finally(() => {
+                                            window.location.href = "/user/cart";
+                                        });
+                                    }}
+                                >
+                                    تایید و افزودن به سبد خرید
+                                </Button>
+                            </div>
+                        </div>
+                    );
+                })()}
+            </Modal>
         </div>
     ) : (
         <div className={'flex flex-col gap-3 my-10 container mx-auto'}>

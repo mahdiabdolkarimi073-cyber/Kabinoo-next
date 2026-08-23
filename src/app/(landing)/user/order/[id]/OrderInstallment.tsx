@@ -35,6 +35,19 @@ export default function OrderInstallment({ order }: { order: any }) {
                 </div>
             )}
 
+            <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 mb-5 text-amber-950">
+                <div className="font-bold mb-1">راهنمای ارسال اطلاعات چک</div>
+                <p className="text-sm leading-6">تصویر چک باید کاملاً خوانا، کامل و بدون خط‌خوردگی باشد. اطلاعات چک، مبلغ و تاریخ‌ها را پیش از ارسال بررسی کنید.</p>
+            </div>
+            {(order.address?.receiver || order.user?.nationalCode) && (
+                <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 mb-5">
+                    <div className="text-sm text-slate-500 mb-2">هویت گیرنده سفارش</div>
+                    <div className="flex flex-wrap gap-x-8 gap-y-2 font-medium">
+                        {order.address?.receiver && <span>گیرنده: {order.address.receiver}</span>}
+                        {order.user?.nationalCode && <span>شناسه ملی گیرنده: {order.user.nationalCode}</span>}
+                    </div>
+                </div>
+            )}
             <h4 className="text-md font-bold mb-4">چک‌های ارسالی</h4>
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                 {order.checks.map((check: any) => {
@@ -46,7 +59,7 @@ export default function OrderInstallment({ order }: { order: any }) {
                     // Calculate remaining days until expiry
                     const expiryDate = new Date(check.expire_at);
                     const diffTime = expiryDate.getTime() - now.getTime();
-                    const remainingDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                    const remainingDays = Math.max(0, Math.ceil(diffTime / (1000 * 60 * 60 * 24)));
 
                     return (
                         <div key={check.id} className="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden">
