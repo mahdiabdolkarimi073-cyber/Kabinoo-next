@@ -109,8 +109,6 @@ export default function PriceSettingsPage() {
                                 min={0}
                                 step={50000}
                                 thousandSeparator=","
-                                parser={(value) => value?.replace(/[^\d]/g, '') || ''}
-                                formatter={(value) => Number(value).toLocaleString('en-US')}
                             />
                         </div>
                     ))}

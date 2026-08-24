@@ -269,7 +269,7 @@ __turbopack_context__.s([
     ()=>__TURBOPACK__default__export__
 ]);
 const VARS = {
-    BACKEND_URL: ("TURBOPACK compile-time value", "https://backend.kabinoo.ir") || process.env['BACKEND_URL'] || "https://backend.kabinoo.ir",
+    BACKEND_URL: process.env['NEXT_PUBLIC_BACKEND_URL'] || process.env['BACKEND_URL'] || "http://localhost:3080",
     FRONTEND_URL: process.env['FRONTEND_URL'] || "http://localhost:3000"
 };
 const __TURBOPACK__default__export__ = VARS;

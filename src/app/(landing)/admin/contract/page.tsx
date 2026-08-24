@@ -148,7 +148,7 @@ function UploadModal({ onDone }: { onDone: () => void }) {
                 label="کاربر (اختیاری)"
                 data={users.map((u: any) => ({ value: u.id, label: u.name + " - " + (u.phone?.() || u.phone || "") }))}
                 value={userId}
-                onChange={setUserId}
+                onChange={(value) => setUserId(value || "")}
                 searchable
                 clearable
             />

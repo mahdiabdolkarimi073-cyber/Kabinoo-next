@@ -1,5 +1,43 @@
 {
-  "node": {},
+  "node": {
+    "00765d2dd7f0bf57a7b85d268c3b5c7028e855a0e2": {
+      "workers": {
+        "app/(main)/auth/page": {
+          "moduleId": "[project]/frontend/.next-internal/server/app/(main)/auth/page/actions.js { ACTIONS_MODULE0 => \"[project]/frontend/src/ssr/actions/user.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/frontend/src/app/(main)/auth/action.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "logout",
+          "filename": "frontend/src/ssr/actions/user.ts"
+        },
+        "app/(main)/page": {
+          "moduleId": "[project]/frontend/.next-internal/server/app/(main)/page/actions.js { ACTIONS_MODULE0 => \"[project]/frontend/src/ssr/actions/user.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "logout",
+          "filename": "frontend/src/ssr/actions/user.ts"
+        }
+      },
+      "layer": {
+        "app/(main)/auth/page": "action-browser",
+        "app/(main)/page": "action-browser"
+      },
+      "filename": "frontend/src/ssr/actions/user.ts",
+      "exportedName": "logout"
+    },
+    "40add85f6935eb529456974a92bd558bbec0556800": {
+      "workers": {
+        "app/(main)/auth/page": {
+          "moduleId": "[project]/frontend/.next-internal/server/app/(main)/auth/page/actions.js { ACTIONS_MODULE0 => \"[project]/frontend/src/ssr/actions/user.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/frontend/src/app/(main)/auth/action.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "setUserCookie",
+          "filename": "frontend/src/app/(main)/auth/action.ts"
+        }
+      },
+      "layer": {
+        "app/(main)/auth/page": "action-browser"
+      },
+      "filename": "frontend/src/app/(main)/auth/action.ts",
+      "exportedName": "setUserCookie"
+    }
+  },
   "edge": {},
   "encryptionKey": "s7TUJqSCZTdoTvx5yor4a1f44Spzcv+HZl/6uC6d6vE="
 }

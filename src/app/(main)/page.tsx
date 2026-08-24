@@ -26,6 +26,7 @@ type HomepageContent = {
 };
 
 const fallbackContent: HomepageContent[] = [
+    { key: "announcement", title: "اطلاعیه کابینو", subtitle: "ثبت سفارش و مشاوره طراحی", description: "برای دریافت مشاوره رایگان و اطلاع از شرایط سفارش با ما در ارتباط باشید.", image: "", buttonLabel: "دریافت مشاوره", buttonHref: "/counseling", enabled: true },
     { key: "hero", title: "Kabinoo", subtitle: "همراه شما هستیم", description: "تا فضایی شیک و کاربردی خلق کنیم!", image: "/design/sliders/lg-00.jpg", buttonLabel: "شروع طراحی", buttonHref: "/design", enabled: true },
     { key: "about", title: "کابینو", subtitle: "فراتر از طراحی", description: "با تجربه و دقت، فضای کاربردی و زیبایی برای خانه شما می‌سازیم.", image: "/design/image1.png", buttonLabel: "آشنایی بیشتر", buttonHref: "/about", enabled: true },
     { key: "design", title: "خودت طراحی کن!", subtitle: "قابلیت سفارشی‌سازی سفارش", description: "از ایده تا اجرا، جزئیات فضای اختصاصی خود را انتخاب کنید.", image: "/design/sliders/sm-02.jpg", buttonLabel: "طراحی کن", buttonHref: "/design", enabled: true },
@@ -49,6 +50,12 @@ async function Page(props: any) {
     return (
         <div className={'container mx-auto'}>
             <HSticky />
+            {byKey("announcement").title && (
+                <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-primary px-5 py-4 text-white shadow-md" dir="rtl">
+                    <div><p className="font-bold">{byKey("announcement").title}</p><p className="mt-1 text-sm text-white/85">{byKey("announcement").description}</p></div>
+                    {byKey("announcement").buttonLabel && <Link href={byKey("announcement").buttonHref} className="rounded-full bg-white px-4 py-2 text-sm font-bold text-primary transition hover:bg-white/90">{byKey("announcement").buttonLabel}</Link>}
+                </div>
+            )}
             <br />
             <div className={'relative mt-2'}>
                 <img

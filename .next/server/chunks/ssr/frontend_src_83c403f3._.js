@@ -1309,6 +1309,13 @@ function UserChatComponent(props) {
                             data.message,
                             ...prev
                         ]);
+                    if (data.message.isAdmin) {
+                        try {
+                            new Audio('data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=').play().catch(()=>{});
+                        } catch  {}
+                        if ("undefined" !== 'undefined' && 'Notification' in window && Notification.permission === 'granted') //TURBOPACK unreachable
+                        ;
+                    }
                 }
             } catch  {}
         };
@@ -1317,7 +1324,7 @@ function UserChatComponent(props) {
     // WebSocket connection
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         if (!chat?.id) return;
-        // init();
+        init();
         return ()=>ws?.current?.close();
     }, [
         chat?.id
@@ -1333,7 +1340,7 @@ function UserChatComponent(props) {
                 children: "جهت ارتباط با پشتیبانی ابتدا وارد حساب خود شوید"
             }, void 0, false, {
                 fileName: "[project]/frontend/src/app/(landing)/user/UserChat.tsx",
-                lineNumber: 59,
+                lineNumber: 70,
                 columnNumber: 17
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -1344,23 +1351,23 @@ function UserChatComponent(props) {
                     children: "ورود به حساب کاربری"
                 }, void 0, false, {
                     fileName: "[project]/frontend/src/app/(landing)/user/UserChat.tsx",
-                    lineNumber: 61,
+                    lineNumber: 72,
                     columnNumber: 21
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/frontend/src/app/(landing)/user/UserChat.tsx",
-                lineNumber: 60,
+                lineNumber: 71,
                 columnNumber: 17
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/frontend/src/app/(landing)/user/UserChat.tsx",
-        lineNumber: 58,
+        lineNumber: 69,
         columnNumber: 13
     }, this);
     if (loading && !chat) return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$no$2d$side$2f$Loading$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
         fileName: "[project]/frontend/src/app/(landing)/user/UserChat.tsx",
-        lineNumber: 66,
+        lineNumber: 77,
         columnNumber: 34
     }, this);
     const handleSend = async ()=>{
@@ -1382,7 +1389,7 @@ function UserChatComponent(props) {
                 children: "گفتگو با پشتیبانی"
             }, void 0, false, {
                 fileName: "[project]/frontend/src/app/(landing)/user/UserChat.tsx",
-                lineNumber: 82,
+                lineNumber: 93,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1393,7 +1400,7 @@ function UserChatComponent(props) {
                         children: "هنوز پیامی ارسال نشده است."
                     }, void 0, false, {
                         fileName: "[project]/frontend/src/app/(landing)/user/UserChat.tsx",
-                        lineNumber: 85,
+                        lineNumber: 96,
                         columnNumber: 21
                     }, this),
                     messages.map((msg)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1407,7 +1414,7 @@ function UserChatComponent(props) {
                                             children: msg.isAdmin ? "پشتیبانی" : chat?.userId === user?.id && !user.isAdmin ? "شما" : chat?.user?.name || "شما"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/src/app/(landing)/user/UserChat.tsx",
-                                            lineNumber: 93,
+                                            lineNumber: 104,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1415,13 +1422,13 @@ function UserChatComponent(props) {
                                             children: new Date(msg.created_at).toLocaleString("fa-IR")
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/src/app/(landing)/user/UserChat.tsx",
-                                            lineNumber: 96,
+                                            lineNumber: 107,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/src/app/(landing)/user/UserChat.tsx",
-                                    lineNumber: 92,
+                                    lineNumber: 103,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1430,31 +1437,31 @@ function UserChatComponent(props) {
                                             children: o
                                         }, i, false, {
                                             fileName: "[project]/frontend/src/app/(landing)/user/UserChat.tsx",
-                                            lineNumber: 107,
+                                            lineNumber: 118,
                                             columnNumber: 33
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/src/app/(landing)/user/UserChat.tsx",
-                                    lineNumber: 100,
+                                    lineNumber: 111,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, msg.id, true, {
                             fileName: "[project]/frontend/src/app/(landing)/user/UserChat.tsx",
-                            lineNumber: 88,
+                            lineNumber: 99,
                             columnNumber: 21
                         }, this)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         ref: messagesEndRef
                     }, void 0, false, {
                         fileName: "[project]/frontend/src/app/(landing)/user/UserChat.tsx",
-                        lineNumber: 112,
+                        lineNumber: 123,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/frontend/src/app/(landing)/user/UserChat.tsx",
-                lineNumber: 83,
+                lineNumber: 94,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1470,7 +1477,7 @@ function UserChatComponent(props) {
                         maxLength: 100
                     }, void 0, false, {
                         fileName: "[project]/frontend/src/app/(landing)/user/UserChat.tsx",
-                        lineNumber: 115,
+                        lineNumber: 126,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1484,18 +1491,18 @@ function UserChatComponent(props) {
                             children: "ارسال پیام"
                         }, void 0, false, {
                             fileName: "[project]/frontend/src/app/(landing)/user/UserChat.tsx",
-                            lineNumber: 125,
+                            lineNumber: 136,
                             columnNumber: 21
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/frontend/src/app/(landing)/user/UserChat.tsx",
-                        lineNumber: 124,
+                        lineNumber: 135,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/frontend/src/app/(landing)/user/UserChat.tsx",
-                lineNumber: 114,
+                lineNumber: 125,
                 columnNumber: 13
             }, this),
             !!props.userId && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1514,18 +1521,18 @@ function UserChatComponent(props) {
                     children: "پایان مکالمه"
                 }, void 0, false, {
                     fileName: "[project]/frontend/src/app/(landing)/user/UserChat.tsx",
-                    lineNumber: 138,
+                    lineNumber: 149,
                     columnNumber: 21
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/frontend/src/app/(landing)/user/UserChat.tsx",
-                lineNumber: 137,
+                lineNumber: 148,
                 columnNumber: 17
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/frontend/src/app/(landing)/user/UserChat.tsx",
-        lineNumber: 81,
+        lineNumber: 92,
         columnNumber: 9
     }, this);
 }

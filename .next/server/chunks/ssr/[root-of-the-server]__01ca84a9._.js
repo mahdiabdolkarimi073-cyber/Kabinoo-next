@@ -779,35 +779,100 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$hard$2d$c
 ;
 ;
 ;
+const fallbackContent = [
+    {
+        key: "hero",
+        title: "Kabinoo",
+        subtitle: "همراه شما هستیم",
+        description: "تا فضایی شیک و کاربردی خلق کنیم!",
+        image: "/design/sliders/lg-00.jpg",
+        buttonLabel: "شروع طراحی",
+        buttonHref: "/design",
+        enabled: true
+    },
+    {
+        key: "about",
+        title: "کابینو",
+        subtitle: "فراتر از طراحی",
+        description: "با تجربه و دقت، فضای کاربردی و زیبایی برای خانه شما می‌سازیم.",
+        image: "/design/image1.png",
+        buttonLabel: "آشنایی بیشتر",
+        buttonHref: "/about",
+        enabled: true
+    },
+    {
+        key: "design",
+        title: "خودت طراحی کن!",
+        subtitle: "قابلیت سفارشی‌سازی سفارش",
+        description: "از ایده تا اجرا، جزئیات فضای اختصاصی خود را انتخاب کنید.",
+        image: "/design/sliders/sm-02.jpg",
+        buttonLabel: "طراحی کن",
+        buttonHref: "/design",
+        enabled: true
+    },
+    {
+        key: "calculator",
+        title: "قبل از تصمیم، حسابش کن",
+        subtitle: "برآورد هوشمند هزینه",
+        description: "با چند انتخاب ساده، دید اولیه‌ای از هزینه پروژه‌تان به دست آورید.",
+        image: "/design/calc-bg.png",
+        buttonLabel: "محاسبه قیمت",
+        buttonHref: "/calc",
+        enabled: true
+    },
+    {
+        key: "shop",
+        title: "برای خانه‌ات انتخاب کن",
+        subtitle: "فروشگاه محصولات چوبی",
+        description: "مدل‌های آماده را ببینید و برای فضای خودتان سفارش دهید.",
+        image: "/design/image2.png",
+        buttonLabel: "ورود به فروشگاه",
+        buttonHref: "/shop",
+        enabled: true
+    },
+    {
+        key: "counseling",
+        title: "شروع یک فضای خوب با یک گفت‌وگو",
+        subtitle: "مشاوره رایگان طراحی",
+        description: "کارشناسان کابینو برای انتخاب بهتر کنار شما هستند.",
+        image: "/design/sliders/sm-04.jpg",
+        buttonLabel: "دریافت مشاوره",
+        buttonHref: "/counseling",
+        enabled: true
+    }
+];
 async function Page(props) {
-    const [products = [], categories = [], comments = []] = await Promise.all([
+    const [products = [], categories = [], comments = [], homepageResponse] = await Promise.all([
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$utils$2f$api$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["backend"])("/public/products?_include=category,color,detail,material").then((e)=>e.data),
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$utils$2f$api$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["backend"])("/public/categories?count=products").then((e)=>e.data),
-        (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$utils$2f$api$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["backend"])('/public/products/comments').then((e)=>e.data)
+        (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$utils$2f$api$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["backend"])('/public/products/comments').then((e)=>e.data),
+        (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$utils$2f$api$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["backend"])('/public/homepage')
     ]);
+    const content = homepageResponse.ok && homepageResponse.data?.length ? homepageResponse.data : fallbackContent;
+    const byKey = (key)=>content.find((item)=>item.key === key && item.enabled) || fallbackContent.find((item)=>item.key === key);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: 'container mx-auto',
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$app$2f28$main$292f$HSticky$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                lineNumber: 28,
+                lineNumber: 51,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                 fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                lineNumber: 29,
+                lineNumber: 52,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: 'relative mt-2',
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                        src: '/design/sliders/lg-00.jpg',
+                        src: byKey("hero").image,
                         className: 'w-full rounded-2xl md:rounded-3xl min-h-[35vh] sm:min-h-[45vh] md:min-h-[55vh] lg:min-h-[60vh] object-cover',
                         alt: 'خانه'
                     }, void 0, false, {
                         fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                        lineNumber: 31,
+                        lineNumber: 54,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -825,7 +890,7 @@ async function Page(props) {
                                                 children: "Kabinoo"
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                                                lineNumber: 40,
+                                                lineNumber: 63,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
@@ -836,121 +901,206 @@ async function Page(props) {
                                                 className: "md:!w-[70px] md:!h-[70px]"
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                                                lineNumber: 41,
+                                                lineNumber: 64,
                                                 columnNumber: 33
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                                        lineNumber: 39,
+                                        lineNumber: 62,
                                         columnNumber: 29
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                                    lineNumber: 38,
+                                    lineNumber: 61,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                             className: "text-lg md:text-2xl",
-                                            children: "همراه شما هستیم"
+                                            children: byKey("hero").subtitle
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                                            lineNumber: 51,
+                                            lineNumber: 74,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: 'text-base md:text-xl',
-                                            children: "تا فضایی شیک و کاربردی خلق کنیم!"
+                                            children: byKey("hero").description
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                                            lineNumber: 52,
+                                            lineNumber: 75,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                                    lineNumber: 50,
+                                    lineNumber: 73,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                            lineNumber: 37,
+                            lineNumber: 60,
                             columnNumber: 21
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                        lineNumber: 36,
+                        lineNumber: 59,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                lineNumber: 30,
+                lineNumber: 53,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                 fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                lineNumber: 57,
+                lineNumber: 80,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$app$2f28$main$292f$TextCard$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                title: 'کابینو',
-                subtitle: 'فراتر از طراحی',
-                description: 'شرکت ما با سالها تجربه در زمینه طراحی و ساخت انواع کابینت، کمد و میز، خدمات منحصر به فردی را برای مشتریان عزیز ارائه می‌دهد. تیم ما با استفاده از متریال باکیفیت و طراحی‌های مدرن، به شما کمک می‌کند تا فضای داخلی منزل یا محل کار خود را به شکلی شیک و انواع کابینت و کمد دیواری ودکوراسیون منزل و مغازه با اقساط 36 ماهه',
+                title: byKey("about").title,
+                subtitle: byKey("about").subtitle,
+                description: byKey("about").description,
                 footer: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                     href: "/about",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Button$2f$Button$2e$mjs__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Button"], {
                         className: 'mt-5!',
-                        children: "باما بیشتر اشنا شوید"
+                        children: byKey("about").buttonLabel
                     }, void 0, false, {
                         fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                        lineNumber: 64,
+                        lineNumber: 87,
                         columnNumber: 25
                     }, void 0)
                 }, void 0, false, {
                     fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                    lineNumber: 63,
+                    lineNumber: 86,
                     columnNumber: 21
                 }, void 0),
                 reverse: true
             }, void 0, false, {
                 fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                lineNumber: 58,
+                lineNumber: 81,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$app$2f28$main$292f$TextCard$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                title: 'خودت طراحی کن!',
-                subtitle: 'قابلیت سفارشی سازی سفارش',
-                description: 'در مجموعه ما، شما می‌توانید دنیای طراحی خانه خود را به دست بگیرید؛ از ایده‌پردازی تا خلق یک فضای منحصر به فرد. همه چیز در اختیار شماست. میتونی نیاز و خواسته ات را با سلیقه خودت طراحی کنی.',
+                title: byKey("design").title,
+                subtitle: byKey("design").subtitle,
+                description: byKey("design").description,
                 footer: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                     href: "/design",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Button$2f$Button$2e$mjs__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Button"], {
                         className: 'mt-5!',
-                        children: "طراحی کن"
+                        children: byKey("design").buttonLabel
                     }, void 0, false, {
                         fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                        lineNumber: 77,
+                        lineNumber: 100,
                         columnNumber: 25
                     }, void 0)
                 }, void 0, false, {
                     fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                    lineNumber: 76,
+                    lineNumber: 99,
                     columnNumber: 21
                 }, void 0),
-                image: '/design/sliders/sm-02.jpg'
+                image: byKey("design").image
             }, void 0, false, {
                 fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                lineNumber: 71,
+                lineNumber: 94,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "mt-6 md:mt-10"
             }, void 0, false, {
                 fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                lineNumber: 84,
+                lineNumber: 107,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                className: "grid grid-cols-1 md:grid-cols-3 gap-4",
+                "aria-label": "خدمات کابینو",
+                children: [
+                    "calculator",
+                    "shop",
+                    "counseling"
+                ].map((key)=>{
+                    const item = byKey(key);
+                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                        href: item.buttonHref,
+                        className: "kabinoo-service-card group relative min-h-56 overflow-hidden rounded-3xl bg-primary text-white shadow-md transition-transform hover:-translate-y-1",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                src: item.image,
+                                alt: "",
+                                className: "absolute inset-0 h-full w-full object-cover opacity-40 transition-transform duration-500 group-hover:scale-105"
+                            }, void 0, false, {
+                                fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                                lineNumber: 117,
+                                columnNumber: 29
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "relative flex h-full min-h-56 flex-col justify-end gap-2 bg-black/35 p-5",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "text-sm text-white/85",
+                                        children: item.subtitle
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                                        lineNumber: 119,
+                                        columnNumber: 33
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                        className: "text-xl font-bold text-white",
+                                        children: item.title
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                                        lineNumber: 120,
+                                        columnNumber: 33
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-sm leading-6 text-white/90",
+                                        children: item.description
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                                        lineNumber: 121,
+                                        columnNumber: 33
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "mt-2 font-bold text-white kabinoo-service-arrow",
+                                        children: [
+                                            item.buttonLabel,
+                                            " ←"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                                        lineNumber: 122,
+                                        columnNumber: 33
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                                lineNumber: 118,
+                                columnNumber: 29
+                            }, this)
+                        ]
+                    }, key, true, {
+                        fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                        lineNumber: 112,
+                        columnNumber: 25
+                    }, this);
+                })
+            }, void 0, false, {
+                fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                lineNumber: 108,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "mt-6 md:mt-10"
+            }, void 0, false, {
+                fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                lineNumber: 128,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -958,139 +1108,13 @@ async function Page(props) {
                 children: "محبوب ترین محصولات"
             }, void 0, false, {
                 fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                lineNumber: 85,
+                lineNumber: 129,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$components$2f$Carousel$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                 children: products.map((p, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$carousel$2f$esm$2f$CarouselSlide$2f$CarouselSlide$2e$mjs__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["CarouselSlide"], {
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$components$2f$FullProductCard$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                             ...p
-                        }, void 0, false, {
-                            fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                            lineNumber: 89,
-                            columnNumber: 25
-                        }, this)
-                    }, i, false, {
-                        fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                        lineNumber: 88,
-                        columnNumber: 21
-                    }, this))
-            }, void 0, false, {
-                fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                lineNumber: 86,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "mt-6 md:mt-12"
-            }, void 0, false, {
-                fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                lineNumber: 93,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                className: 'text-center text-lg! md:text-2xl! lg:text-4xl! mb-3 md:mb-4',
-                children: "دسته بندی ها"
-            }, void 0, false, {
-                fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                lineNumber: 94,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$components$2f$Carousel$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                slidePerView: 4,
-                children: categories.map((o, i)=>{
-                    const image = o?.image || `/design/sliders/sm-0${i % 8}.jpg`;
-                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$carousel$2f$esm$2f$CarouselSlide$2f$CarouselSlide$2e$mjs__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["CarouselSlide"], {
-                        className: 'relative my-5 mb-10',
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                            href: `/shop?category=${o?.id}`,
-                            className: `relative ${i % 2 === 0 ? "bg-accent/50" : "bg-primary/50"} block rounded-2xl shadow overflow-hidden`,
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                    src: image,
-                                    alt: 'Image',
-                                    className: 'h-full w-full absolute left-0 -z-10'
-                                }, void 0, false, {
-                                    fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                                    lineNumber: 106,
-                                    columnNumber: 33
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: 'backdrop-blur w-full  center flex-col gap-5  p-3',
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "relative",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                src: image,
-                                                alt: 'Image',
-                                                className: 'object-cover w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 rounded-full mx-auto'
-                                            }, void 0, false, {
-                                                fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                                                lineNumber: 113,
-                                                columnNumber: 41
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                                            lineNumber: 112,
-                                            columnNumber: 37
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: '',
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                                                className: 'text-center text-white text-2xl!',
-                                                children: o?.name
-                                            }, void 0, false, {
-                                                fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                                                lineNumber: 120,
-                                                columnNumber: 41
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                                            lineNumber: 119,
-                                            columnNumber: 37
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                                    lineNumber: 111,
-                                    columnNumber: 33
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                            lineNumber: 103,
-                            columnNumber: 29
-                        }, this)
-                    }, o?.id, false, {
-                        fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                        lineNumber: 99,
-                        columnNumber: 25
-                    }, this);
-                })
-            }, void 0, false, {
-                fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                lineNumber: 95,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "mt-6 md:mt-12"
-            }, void 0, false, {
-                fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                lineNumber: 128,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                className: 'text-center text-lg! md:text-2xl! lg:text-4xl! mb-3 md:mb-5',
-                children: "نظرات کاربران"
-            }, void 0, false, {
-                fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                lineNumber: 129,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$components$2f$Carousel$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                children: comments.map((o, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$carousel$2f$esm$2f$CarouselSlide$2f$CarouselSlide$2e$mjs__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["CarouselSlide"], {
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$app$2f28$main$292f$Comment$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                            ...o,
-                            avatar: i % 2 === 0 ? "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-2.png" : "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-4.png"
                         }, void 0, false, {
                             fileName: "[project]/frontend/src/app/(main)/page.tsx",
                             lineNumber: 133,
@@ -1110,7 +1134,133 @@ async function Page(props) {
                 className: "mt-6 md:mt-12"
             }, void 0, false, {
                 fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                lineNumber: 137,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                className: 'text-center text-lg! md:text-2xl! lg:text-4xl! mb-3 md:mb-4',
+                children: "دسته بندی ها"
+            }, void 0, false, {
+                fileName: "[project]/frontend/src/app/(main)/page.tsx",
                 lineNumber: 138,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$components$2f$Carousel$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                slidePerView: 4,
+                children: categories.map((o, i)=>{
+                    const image = o?.image || `/design/sliders/sm-0${i % 8}.jpg`;
+                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$carousel$2f$esm$2f$CarouselSlide$2f$CarouselSlide$2e$mjs__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["CarouselSlide"], {
+                        className: 'relative my-5 mb-10',
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                            href: `/shop?category=${o?.id}`,
+                            className: `relative ${i % 2 === 0 ? "bg-accent/50" : "bg-primary/50"} block rounded-2xl shadow overflow-hidden`,
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                    src: image,
+                                    alt: 'Image',
+                                    className: 'h-full w-full absolute left-0 -z-10'
+                                }, void 0, false, {
+                                    fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                                    lineNumber: 150,
+                                    columnNumber: 33
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: 'backdrop-blur w-full  center flex-col gap-5  p-3',
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "relative",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                                src: image,
+                                                alt: 'Image',
+                                                className: 'object-cover w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 rounded-full mx-auto'
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                                                lineNumber: 157,
+                                                columnNumber: 41
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                                            lineNumber: 156,
+                                            columnNumber: 37
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: '',
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                className: 'text-center text-white text-2xl!',
+                                                children: o?.name
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                                                lineNumber: 164,
+                                                columnNumber: 41
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                                            lineNumber: 163,
+                                            columnNumber: 37
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                                    lineNumber: 155,
+                                    columnNumber: 33
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                            lineNumber: 147,
+                            columnNumber: 29
+                        }, this)
+                    }, o?.id, false, {
+                        fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                        lineNumber: 143,
+                        columnNumber: 25
+                    }, this);
+                })
+            }, void 0, false, {
+                fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                lineNumber: 139,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "mt-6 md:mt-12"
+            }, void 0, false, {
+                fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                lineNumber: 172,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                className: 'text-center text-lg! md:text-2xl! lg:text-4xl! mb-3 md:mb-5',
+                children: "نظرات کاربران"
+            }, void 0, false, {
+                fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                lineNumber: 173,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$components$2f$Carousel$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                children: comments.map((o, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$carousel$2f$esm$2f$CarouselSlide$2f$CarouselSlide$2e$mjs__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["CarouselSlide"], {
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$app$2f28$main$292f$Comment$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                            ...o,
+                            avatar: i % 2 === 0 ? "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-2.png" : "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-4.png"
+                        }, void 0, false, {
+                            fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                            lineNumber: 177,
+                            columnNumber: 25
+                        }, this)
+                    }, i, false, {
+                        fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                        lineNumber: 176,
+                        columnNumber: 21
+                    }, this))
+            }, void 0, false, {
+                fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                lineNumber: 174,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "mt-6 md:mt-12"
+            }, void 0, false, {
+                fileName: "[project]/frontend/src/app/(main)/page.tsx",
+                lineNumber: 182,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1118,7 +1268,7 @@ async function Page(props) {
                 children: "سوالات متداول"
             }, void 0, false, {
                 fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                lineNumber: 139,
+                lineNumber: 183,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Accordion$2f$Accordion$2e$mjs__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Accordion"], {
@@ -1130,7 +1280,7 @@ async function Page(props) {
                         className: 'hidden'
                     }, void 0, false, {
                         fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                        lineNumber: 142,
+                        lineNumber: 186,
                         columnNumber: 17
                     }, this),
                     __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$src$2f$hard$2d$code$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["questions"].map((q, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1144,12 +1294,12 @@ async function Page(props) {
                                             children: q.q
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                                            lineNumber: 147,
+                                            lineNumber: 191,
                                             columnNumber: 33
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                                        lineNumber: 146,
+                                        lineNumber: 190,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$mantine$2f$core$2f$esm$2f$components$2f$Accordion$2f$AccordionPanel$2f$AccordionPanel$2e$mjs__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["AccordionPanel"], {
@@ -1159,37 +1309,37 @@ async function Page(props) {
                                                 children: q.q
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                                                lineNumber: 150,
+                                                lineNumber: 194,
                                                 columnNumber: 33
                                             }, this),
                                             q.answer
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                                        lineNumber: 149,
+                                        lineNumber: 193,
                                         columnNumber: 29
                                     }, this)
                                 ]
                             }, i, true, {
                                 fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                                lineNumber: 145,
+                                lineNumber: 189,
                                 columnNumber: 25
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                            lineNumber: 144,
+                            lineNumber: 188,
                             columnNumber: 21
                         }, this))
                 ]
             }, void 0, true, {
                 fileName: "[project]/frontend/src/app/(main)/page.tsx",
-                lineNumber: 141,
+                lineNumber: 185,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/frontend/src/app/(main)/page.tsx",
-        lineNumber: 27,
+        lineNumber: 50,
         columnNumber: 9
     }, this);
 }

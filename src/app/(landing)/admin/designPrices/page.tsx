@@ -104,11 +104,6 @@ export default function DesignPriceSettingsPage() {
                                 max={field.key === 'baseMultiplier' ? 10 : field.key === 'defaultDiscount' ? 100 : undefined}
                                 decimalScale={field.key === 'baseMultiplier' ? 2 : 0}
                                 thousandSeparator=","
-                                parser={(value) => value?.replace(/[^\d.]/g, '') || ''}
-                                formatter={(value) => {
-                                    if (field.key === 'baseMultiplier') return value || '';
-                                    return Number(value).toLocaleString('en-US');
-                                }}
                             />
                         </div>
                     ))}

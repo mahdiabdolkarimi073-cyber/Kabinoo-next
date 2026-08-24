@@ -16,7 +16,7 @@ function Product({ product, similarProducts = [] }: {
     similarProducts: FullProduct[]
 }) {
     const user = useUser();
-    const { comments = [] } = product;
+    const comments = (product.comments || []).filter(comment => comment.accepted);
     const [mainImage, setMainImage] = useState(product.images[0] || "");
     const router = useRouter();
     const [loading, setLoading] = useState(false);

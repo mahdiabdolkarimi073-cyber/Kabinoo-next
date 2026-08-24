@@ -15,7 +15,8 @@ const menuItems = [
     { name: 'فروشگاه', link: '/shop' },
     { name: 'مشاوره', link: '/counseling' },
     { name: 'درخواست طراحی', link: '/design/request' },
-    { name: 'مقالات', link: '/articles' }
+    { name: 'مقالات', link: '/articles' },
+    { name: 'کاتالوگ', link: '/catalog' }
 ];
 
 function Header(props: any) {

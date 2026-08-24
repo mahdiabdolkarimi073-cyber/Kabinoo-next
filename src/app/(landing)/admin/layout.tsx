@@ -2,7 +2,7 @@
 import Dashboard from "@/components/Dashboard";
 import useUser from "@/utils/hooks/useUser";
 import useBackend from "@/utils/hooks/useBackend";
-import { IconCategory, IconColorFilter, IconCube, IconCash, IconDashboard, IconDiscount, IconList, IconListCheck, IconListDetails, IconListLetters, IconListNumbers, IconMessage, IconUserHeart, IconUsers, IconUserShield, IconVariable, IconNotebook, IconSettings, IconHome, IconFileContract } from "@tabler/icons-react";
+import { IconCategory, IconColorFilter, IconCube, IconCash, IconDashboard, IconDiscount, IconList, IconListCheck, IconListDetails, IconListLetters, IconListNumbers, IconMessage, IconUserHeart, IconUsers, IconUserShield, IconVariable, IconNotebook, IconSettings, IconHome, IconContract, IconBook } from "@tabler/icons-react";
 import { Badge } from "@mantine/core";
 import { redirect } from "next/navigation";
 import { useInterval } from "@/utils/hooks/useEffects";
@@ -67,6 +67,7 @@ function Layout(props: any) {
                         { label: "تیکت‌ها", href: "ticket", icon: IconUserShield },
                         { label: "مشاوره‌ها", href: "advice", icon: IconUserHeart },
                         { label: "چت آنلاین", href: "chat", icon: IconMessage, badge: chatBadge },
+                        { label: "نظرات کاربران", href: "comment", icon: IconMessage },
                     ]
                 },
                 {
@@ -77,7 +78,7 @@ function Layout(props: any) {
                 {
                     label: "قراردادها",
                     href: "contract",
-                    icon: IconFileContract
+                    icon: IconContract
                 },
                 {
                     label: "تنظیمات و قیمت‌ها",
@@ -85,6 +86,7 @@ function Layout(props: any) {
                     icon: IconSettings,
                     children: [
                         { label: "محتوای صفحه اصلی", href: "homepage", icon: IconHome },
+                        { label: "کاتالوگ دیجیتال", href: "catalog", icon: IconBook },
                         { label: "قیمت‌های محاسبه‌گر", href: "prices", icon: IconCash },
                         { label: "قیمت‌های طراحی", href: "design-prices", icon: IconCash },
                         { label: "کدهای تخفیف", href: "offCodes", icon: IconDiscount },

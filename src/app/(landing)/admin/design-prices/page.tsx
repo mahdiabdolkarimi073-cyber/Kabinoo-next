@@ -103,8 +103,6 @@ export default function DesignPriceSettingsPage() {
                                 min={0}
                                 step={field.key === 'baseMultiplier' || field.key === 'defaultDiscount' ? 0.1 : 50000}
                                 thousandSeparator=","
-                                parser={(value) => value?.replace(/[^\d.]/g, '') || ''}
-                                formatter={(value) => Number(value).toLocaleString('en-US')}
                             />
                         </div>
                     ))}
