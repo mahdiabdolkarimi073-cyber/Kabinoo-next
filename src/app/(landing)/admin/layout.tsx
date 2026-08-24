@@ -65,9 +65,10 @@ function Layout(props: any) {
                         { label: "کاربران", href: "user", icon: IconUsers },
                         { label: "نویسندگان", href: "author", icon: IconNotebook },
                         { label: "تیکت‌ها", href: "ticket", icon: IconUserShield },
-                        { label: "مشاوره‌ها", href: "advice", icon: IconUserHeart },
+                        { label: "درخواست‌های تماس تلفنی", href: "advice", icon: IconUserHeart },
                         { label: "چت آنلاین", href: "chat", icon: IconMessage, badge: chatBadge },
                         { label: "نظرات کاربران", href: "comment", icon: IconMessage },
+                        { label: "سوالات متداول", href: "faq", icon: IconMessage },
                     ]
                 },
                 {

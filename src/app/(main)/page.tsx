@@ -12,7 +12,9 @@ import { backend } from "@/utils/api";
 import { FullProduct } from "../(landing)/admin/products/type";
 import FullProductCard from "@/components/FullProductCard";
 import Link from "next/link";
-import { questions } from "@/hard-code";
+import { questions as fallbackQuestions } from "@/hard-code";
+
+type Faq = { id: string; question: string; answer: string; sortOrder: number; enabled: boolean };
 
 type HomepageContent = {
     key: string;
@@ -33,18 +35,21 @@ const fallbackContent: HomepageContent[] = [
     { key: "calculator", title: "قبل از تصمیم، حسابش کن", subtitle: "برآورد هوشمند هزینه", description: "با چند انتخاب ساده، دید اولیه‌ای از هزینه پروژه‌تان به دست آورید.", image: "/design/calc-bg.png", buttonLabel: "محاسبه قیمت", buttonHref: "/calc", enabled: true },
     { key: "shop", title: "برای خانه‌ات انتخاب کن", subtitle: "فروشگاه محصولات چوبی", description: "مدل‌های آماده را ببینید و برای فضای خودتان سفارش دهید.", image: "/design/image2.png", buttonLabel: "ورود به فروشگاه", buttonHref: "/shop", enabled: true },
     { key: "counseling", title: "شروع یک فضای خوب با یک گفت‌وگو", subtitle: "مشاوره رایگان طراحی", description: "کارشناسان کابینو برای انتخاب بهتر کنار شما هستند.", image: "/design/sliders/sm-04.jpg", buttonLabel: "دریافت مشاوره", buttonHref: "/counseling", enabled: true },
+    { key: "contact", title: "با کابینو در ارتباط باشید", subtitle: "پاسخ‌گوی شما هستیم", description: "برای دریافت راهنمایی، پیگیری سفارش یا مطرح کردن درخواست خود، با ما در ارتباط باشید.", image: "/design/home_banner.jpg", buttonLabel: "ارتباط با ما", buttonHref: "/contact", enabled: true },
 ];
 
 async function Page(props: any) {
 
-    const [products = [], categories = [], comments = [], homepageResponse] = await Promise.all([
+    const [products = [], categories = [], comments = [], homepageResponse, faqResponse] = await Promise.all([
         backend<FullProduct[]>("/public/products?_include=category,color,detail,material").then(e => e.data),
         backend<FullProduct['category'][]>("/public/categories?count=products").then(e => e.data),
         backend<FullProduct['comments']>('/public/products/comments').then(e => e.data),
-        backend<HomepageContent[]>('/public/homepage')
+        backend<HomepageContent[]>('/public/homepage'),
+        backend<Faq[]>('/public/faq')
     ]);
     const content = homepageResponse.ok && homepageResponse.data?.length ? homepageResponse.data : fallbackContent;
     const byKey = (key: string) => content.find(item => item.key === key && item.enabled) || fallbackContent.find(item => item.key === key)!;
+    const faqs = faqResponse.ok && faqResponse.data?.length ? faqResponse.data.map(f => ({ q: f.question, answer: f.answer })) : fallbackQuestions;
     
 
     return (
@@ -93,6 +98,20 @@ async function Page(props: any) {
                     <Link href='/about'>
                         <Button className={'mt-5!'}>
                             {byKey("about").buttonLabel}
+                        </Button>
+                    </Link>
+                )}
+                reverse
+            />
+            <TextCard
+                title={byKey("contact").title}
+                subtitle={byKey("contact").subtitle}
+                description={byKey("contact").description}
+                image={byKey("contact").image}
+                footer={(
+                    <Link href={byKey("contact").buttonHref}>
+                        <Button className={'mt-5!'}>
+                            {byKey("contact").buttonLabel}
                         </Button>
                     </Link>
                 )}
@@ -191,7 +210,7 @@ async function Page(props: any) {
 
             <Accordion variant="separated" className={'grid grid-cols-1 lg:grid-cols-2 gap-5'}>
                 <AccordionItem value={`q-`} className={'hidden'}></AccordionItem>
-                {questions.map((q, i) => (
+                {faqs.map((q, i) => (
                     <div>
                         <AccordionItem className={'bg-accent! text-white!'} value={`q-${i}`} key={i}>
                             <AccordionControl >

@@ -13,7 +13,9 @@ const menuItems = [
     { name: 'محاسبه‌گر', link: '/calc' },
     { name: 'نمونه کارها', link: '/portfolio' },
     { name: 'فروشگاه', link: '/shop' },
-    { name: 'مشاوره', link: '/counseling' },
+    { name: 'درخواست تماس تلفنی', link: '/counseling' },
+    { name: 'ارتباط با ما', link: '/contact' },
+    { name: 'جستجو', link: '/search' },
     { name: 'درخواست طراحی', link: '/design/request' },
     { name: 'مقالات', link: '/articles' },
     { name: 'کاتالوگ', link: '/catalog' }

@@ -43,7 +43,7 @@ export default function Page() {
             <Modal
                 opened={opened}
                 onClose={() => setOpened(false)}
-                title="جزئیات درخواست مشاوره"
+                title="جزئیات درخواست تماس تلفنی"
                 centered
             >
                 {selected && (
