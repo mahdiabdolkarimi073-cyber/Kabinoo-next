@@ -73,6 +73,8 @@ type SingleOrder = {
     checkId: string
     image: string
     orderId: string
+    status: string
+    adminNote?: string | null
   }>
   payment: {
     id: string
@@ -91,7 +93,7 @@ import Loading from "@/no-side/Loading";
 import { backend } from "@/utils/api";
 import useBackend from "@/utils/hooks/useBackend";
 import { useState } from "react";
-import { Select, Button, Table, Badge } from "@mantine/core";
+import { Select, Button, Table, Badge, Card, Group, Text } from "@mantine/core";
 import Link from "next/link";
 import { OrderStatsList } from "../page";
 import OrderInstallment from "@/app/(landing)/user/order/[id]/OrderInstallment";
@@ -103,7 +105,8 @@ function formatToman(n: number) {
 
 export default function Page(props: any) {
   const { id } = props.params;
-  const { data: order, loading, refetch } = useBackend<SingleOrder>("/admin/order/" + id + "?_include=products.product,products.custom,user,offCode");
+  const { data: order, loading, refetch } = useBackend<SingleOrder>("/admin/order/" + id + "?_include=products.product,products.custom,user,offCode,checks");
+  const [checkUpdating, setCheckUpdating] = useState<number | null>(null);
   const [status, setStatus] = useState<string | null>(null);
   const [updating, setUpdating] = useState(false);
 
@@ -268,6 +271,48 @@ export default function Page(props: any) {
     </div>
   );
 
+  const updateCheck = async (checkId: number, status: "APPROVED" | "REJECTED") => {
+    setCheckUpdating(checkId);
+    const res = await backend("/admin/order/check", "PUT", { id: checkId, status });
+    if (res.ok) {
+      refetch();
+    } else {
+      window.alert(res.message || "خطا در تغییر وضعیت چک");
+    }
+    setCheckUpdating(null);
+  };
+
+  const checksSection = order.checks?.length ? (
+    <section>
+      <h3 className="font-bold mb-3">مدیریت چک‌های پرداختی</h3>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        {order.checks.map((check) => (
+          <Card key={check.id} withBorder shadow="sm" padding="md">
+            <Group justify="space-between" mb="sm">
+              <div>
+                <Text size="sm" c="dimmed">شناسه چک</Text>
+                <Text fw={700} dir="ltr">{check.checkId}</Text>
+              </div>
+              <Badge color={check.status === "APPROVED" ? "green" : check.status === "REJECTED" ? "red" : "yellow"}>
+                {check.status === "APPROVED" ? "تایید شده" : check.status === "REJECTED" ? "رد شده" : "در انتظار تایید"}
+              </Badge>
+            </Group>
+            <div className="grid grid-cols-2 gap-2 text-sm mb-3">
+              <span>مبلغ: <b>{formatToman(check.amount)}</b></span>
+              <span>تاریخ: <b>{new Date(check.expire_at).toLocaleDateString("fa-IR")}</b></span>
+            </div>
+            <img src={check.image} alt={`تصویر چک ${check.checkId}`} className="w-full max-h-64 object-contain rounded border bg-slate-50 mb-3" />
+            {check.adminNote && <Text size="sm" c="dimmed" mb="sm">یادداشت ادمین: {check.adminNote}</Text>}
+            <Group justify="flex-end">
+              <Button color="red" variant="light" loading={checkUpdating === check.id} onClick={() => updateCheck(check.id, "REJECTED")}>رد چک</Button>
+              <Button color="green" loading={checkUpdating === check.id} onClick={() => updateCheck(check.id, "APPROVED")}>تایید چک</Button>
+            </Group>
+          </Card>
+        ))}
+      </div>
+    </section>
+  ) : null;
+
   const address = order.address || {};
 
   return (
@@ -276,6 +321,7 @@ export default function Page(props: any) {
       <h2 className="text-xl font-bold mb-2">جزئیات سفارش</h2>
       {orderTable}
       {statusControl}
+      {checksSection}
       <h3 className="font-bold mb-2">اطلاعات کاربر</h3>
       {userTable}
       <h3 className="font-bold mb-2">اطلاعات آدرس</h3>

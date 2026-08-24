@@ -3,7 +3,7 @@ import useBackend from "@/utils/hooks/useBackend";
 import { useParams } from "next/navigation";
 import { FullProduct } from "../type";
 import { useEffect, useState } from "react";
-import { ActionIcon, Button, Select, Skeleton, Textarea, TextInput } from "@mantine/core";
+import { ActionIcon, Button, MultiSelect, Select, Skeleton, Textarea, TextInput } from "@mantine/core";
 import { backend, uploadFile } from "@/utils/api";
 import generateRandomString from "@/utils/string";
 import { IconPlus, IconX } from "@tabler/icons-react";
@@ -25,7 +25,10 @@ export default function Page(props: any) {
     const router = useRouter();
 
     useEffect(() => {
-        if (!loading && !isN) setProduct(data);
+        if (!loading && !isN && data) setProduct({
+            ...data,
+            detailIds: data.detailIds?.length ? data.detailIds : data.detailId ? [data.detailId] : []
+        });
     }, [data, l5])
 
     if (l5 || l1 || l2 || l3 || l4 || l0) return <Loading />;
@@ -68,7 +71,18 @@ export default function Page(props: any) {
                 </div>
                 {select("categoryId", "دسته بندی", categories)}
                 {select("colorId", "رنگ محصول", colors)}
-                {select("detailId", "جزئیات محصول", details)}
+                <MultiSelect
+                    label="جزئیات محصول"
+                    searchable
+                    clearable
+                    data={details.map((o) => ({ value: o!.id.toString(), label: o!.name }))}
+                    value={(product?.detailIds?.length ? product.detailIds : product?.detailId ? [product.detailId] : []).map(String)}
+                    onChange={(values) => setProduct({
+                        ...product,
+                        detailIds: values.map(Number),
+                        detailId: Number(values[0]) || product?.detailId
+                    } as any)}
+                />
                 {select("materialId", "متریال محصول", materials)}
                 {select("designId", "دیزاین مربوطه", designs)}
                 {prop("x", "عدد عرض")}

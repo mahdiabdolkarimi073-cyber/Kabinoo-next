@@ -2,7 +2,7 @@
 import Dashboard from "@/components/Dashboard";
 import useUser from "@/utils/hooks/useUser";
 import useBackend from "@/utils/hooks/useBackend";
-import { IconCategory, IconColorFilter, IconCube, IconCash, IconDashboard, IconDiscount, IconList, IconListCheck, IconListDetails, IconListLetters, IconListNumbers, IconMenuOrder, IconMessage, IconUserHeart, IconUsers, IconUserShield, IconVariable, IconNotebook } from "@tabler/icons-react";
+import { IconCategory, IconColorFilter, IconCube, IconCash, IconDashboard, IconDiscount, IconList, IconListCheck, IconListDetails, IconListLetters, IconListNumbers, IconMessage, IconUserHeart, IconUsers, IconUserShield, IconVariable, IconNotebook, IconSettings, IconHome } from "@tabler/icons-react";
 import { Badge } from "@mantine/core";
 import { redirect } from "next/navigation";
 import { useInterval } from "@/utils/hooks/useEffects";
@@ -26,7 +26,7 @@ function Layout(props: any) {
     if (!user?.isAdmin) redirect("/");
     return (
         <Dashboard
-            title='پنل ادمین'
+            title='پنل مدیریت'
             children={props.children}
             navItems={[
                 {
@@ -36,15 +36,37 @@ function Layout(props: any) {
                     showList: true,
                 },
                 {
-                    label: "محصولات",
+                    label: "فروشگاه و محصولات",
                     href: "products",
                     icon: IconList,
                     children: [
                         { label: "لیست محصولات", href: "products", icon: IconList },
+                        { label: "دسته‌بندی محصولات", href: "products/category", icon: IconCategory },
                         { label: "متریال محصولات", href: "products/material", icon: IconCube },
                         { label: "جزئیات محصولات", href: "products/detail", icon: IconListDetails },
-                        { label: "رنگ های محصولات", href: "products/color", icon: IconColorFilter },
-                        { label: "دسته بندی محصولات", href: "products/category", icon: IconCategory },
+                        { label: "رنگ‌های محصولات", href: "products/color", icon: IconColorFilter },
+                    ]
+                },
+                {
+                    label: "سفارشات",
+                    href: "order",
+                    icon: IconListCheck,
+                    children: [
+                        { label: "لیست سفارشات", href: "order", icon: IconListCheck },
+                        { label: "درخواست‌های طراحی", href: "request", icon: IconListNumbers },
+                    ]
+                },
+                {
+                    label: "کاربران و پشتیبانی",
+                    href: "user",
+                    icon: IconUsers,
+                    badge: chatBadge,
+                    children: [
+                        { label: "کاربران", href: "user", icon: IconUsers },
+                        { label: "نویسندگان", href: "author", icon: IconNotebook },
+                        { label: "تیکت‌ها", href: "ticket", icon: IconUserShield },
+                        { label: "مشاوره‌ها", href: "advice", icon: IconUserHeart },
+                        { label: "چت آنلاین", href: "chat", icon: IconMessage, badge: chatBadge },
                     ]
                 },
                 {
@@ -53,36 +75,15 @@ function Layout(props: any) {
                     icon: IconListLetters
                 },
                 {
-                    label: "سفارشات و درخواست‌ها",
-                    href: "order",
-                    icon: IconListCheck,
-                    children: [
-                        { label: "سفارشات", href: "order", icon: IconListCheck },
-                        { label: "درخواست های طراحی", href: "request", icon: IconListNumbers },
-                    ]
-                },
-                {
-                    label: "کاربران و ارتباطات",
-                    href: "user",
-                    icon: IconUsers,
-                    badge: chatBadge,
-                    children: [
-                        { label: "کاربران", href: "user", icon: IconUsers },
-                        { label: "نویسندگان", href: "author", icon: IconNotebook },
-                        { label: "تیکت ها", href: "ticket", icon: IconUserShield },
-                        { label: "مشاوره ها", href: "advice", icon: IconUserHeart },
-                        { label: "چت آنلاین", href: "chat", icon: IconMessage, badge: chatBadge },
-                    ]
-                },
-                {
-                    label: "سایر تنظیمات",
+                    label: "تنظیمات و قیمت‌ها",
                     href: "variable",
-                    icon: IconVariable,
+                    icon: IconSettings,
                     children: [
-                        { label: "محتوای صفحه اصلی", href: "homepage", icon: IconDashboard },
-                        { label: "متغیر ها", href: "variable", icon: IconVariable },
-                        { label: "کد های تخفیف", href: "offCodes", icon: IconDiscount },
+                        { label: "محتوای صفحه اصلی", href: "homepage", icon: IconHome },
                         { label: "قیمت‌های محاسبه‌گر", href: "prices", icon: IconCash },
+                        { label: "قیمت‌های طراحی", href: "design-prices", icon: IconCash },
+                        { label: "کدهای تخفیف", href: "offCodes", icon: IconDiscount },
+                        { label: "متغیرها", href: "variable", icon: IconVariable },
                     ]
                 },
             ]}

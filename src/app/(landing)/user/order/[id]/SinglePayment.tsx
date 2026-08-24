@@ -60,23 +60,20 @@ export default function SinglePayment({ amount, ...order }: { amount: number }) 
     const finalChecks = Array.from({ length: Math.max(Math.min(months, maxMonth), 1) }).map((_, idx) => {
         const each = config?.['VAM_CH_MONTH'] || 2;
 
-        // Create moment-jalaali date from today
         const from = moment(today)
-            .jDate(1) // Set to 1st of the month
-            .add(Math.max(0, idx * each) + (idx === 0 ? 1 : 0), 'jMonth');
+            .jDate(1)
+            .add(idx * each, 'jMonth');
 
-        const to = moment(from)
-            .add(each, 'jMonth');
+        const to = moment(today)
+            .jDate(1)
+            .add((idx + 1) * each, 'jMonth');
 
-        const feeAt = new Date();
-        const feeMonth = config?.['VAM_NOFEE_MONTH'] || 6;
-        feeAt.setMonth(feeAt.getMonth() + feeMonth);
-        feeAt.setDate(0);
+        const noFeeMonths = Number(config?.['VAM_NOFEE_MONTH']) || 6;
 
         const fd = from.toDate();
         const td = to.toDate();
-        const includeFee = td.getTime() >= feeAt.getTime();
-        let fee = includeFee ? checkAmount / 100 * (config?.['VAM_FEE'] || 0) : 0;
+        const includeFee = idx + 1 > noFeeMonths;
+        const fee = includeFee ? checkAmount / 100 * (config?.['VAM_FEE'] || 0) : 0;
 
         return {
             amount: Math.ceil(checkAmount + fee),
@@ -133,7 +130,7 @@ export default function SinglePayment({ amount, ...order }: { amount: number }) 
                 <div>مبلغ کل: <span className="font-bold text-primary">{(amount + (amount / 100 * (config.PAY_FEE || 0))).toLocaleString('fa')}</span> تومان</div>
                 +
                 <div>
-                    {config?.PAY_FEE || 0}% مالیات
+                    {config?.PAY_FEE || 0}% کارمزد درگاه
                 </div>
             </div>
             <Divider my="md" />
@@ -210,7 +207,7 @@ export default function SinglePayment({ amount, ...order }: { amount: number }) 
                                         <div>مبلغ چک: <span className="font-bold text-primary">{amount.toLocaleString('fa')}</span> تومان</div>
                                         {amount !== checkAmount && (
                                             <div>
-                                                <p className='text-xs opacity-80'>+ {config?.['VAM_FEE']}% مالیات</p>
+                                                <p className='text-xs opacity-80'>+ {config?.['VAM_FEE']}% کارمزد</p>
                                             </div>
                                         )}
                                     </div>

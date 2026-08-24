@@ -12,6 +12,7 @@ export type FullProduct = {
     deliveryDays: number;
     materialId: number;
     detailId: number;
+    detailIds: number[];
     categoryId: string;
     color?: {
         id: number;

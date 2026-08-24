@@ -1,7 +1,7 @@
 import { Button, Badge } from "@mantine/core";
 
 export default function OrderInstallment({ order }: { order: any }) {
-    if (order.checks?.length === 0) {
+    if (!order.checks?.length) {
         return null;
     }
 
@@ -53,8 +53,10 @@ export default function OrderInstallment({ order }: { order: any }) {
                 {order.checks.map((check: any) => {
                     const now = new Date();
                     const isExpired = new Date(check.expire_at) < now;
-                    const isActive = new Date(check.start_at) <= now && !isExpired;
-                    const isPending = new Date(check.start_at) > now;
+                    const isApproved = check.status === 'APPROVED';
+                    const isRejected = check.status === 'REJECTED';
+                    const isActive = isApproved && new Date(check.start_at) <= now && !isExpired;
+                    const isPending = !isApproved && !isRejected;
 
                     // Calculate remaining days until expiry
                     const expiryDate = new Date(check.expire_at);
@@ -82,10 +84,10 @@ export default function OrderInstallment({ order }: { order: any }) {
                                         <div className="font-bold text-lg font-mono" dir="ltr">{check.checkId}</div>
                                     </div>
                                     <Badge
-                                        color={isExpired ? 'red' : isActive ? 'green' : 'blue'}
+                                        color={isRejected || isExpired ? 'red' : isActive ? 'green' : 'blue'}
                                         variant="light"
                                     >
-                                        {isExpired ? 'منقضی شده' : isActive ? 'فعال' : 'در انتظار'}
+                                        {isRejected ? 'رد شده' : isExpired ? 'منقضی شده' : isApproved ? (isActive ? 'تایید شده' : 'تایید شده و آینده') : 'در انتظار تایید'}
                                     </Badge>
                                 </div>
 
