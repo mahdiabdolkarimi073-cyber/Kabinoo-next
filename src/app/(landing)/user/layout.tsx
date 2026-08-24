@@ -10,6 +10,7 @@ import {
     IconShoppingCart,
     IconUser,
     IconUserShield,
+    IconFileContract,
 } from '@tabler/icons-react';
 import useUser from '@/utils/hooks/useUser';
 import Dashboard from '@/components/Dashboard';
@@ -52,6 +53,11 @@ const navigationItems = [
         label: 'اطلاعات کاربری',
         icon: IconUser,
         href: 'info'
+    },
+    {
+        label: 'قراردادهای من',
+        icon: IconFileContract,
+        href: 'contract',
     },
 ];
 

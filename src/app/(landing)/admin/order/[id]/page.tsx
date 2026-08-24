@@ -293,8 +293,8 @@ export default function Page(props: any) {
                 <Text size="sm" c="dimmed">شناسه چک</Text>
                 <Text fw={700} dir="ltr">{check.checkId}</Text>
               </div>
-              <Badge color={check.status === "APPROVED" ? "green" : check.status === "REJECTED" ? "red" : "yellow"}>
-                {check.status === "APPROVED" ? "تایید شده" : check.status === "REJECTED" ? "رد شده" : "در انتظار تایید"}
+              <Badge color={check.status === "APPROVED" ? "green" : check.status === "REJECTED" ? "red" : check.status === "PAID" ? "teal" : "yellow"}>
+                {check.status === "APPROVED" ? "تایید شده" : check.status === "REJECTED" ? "رد شده" : check.status === "PAID" ? "پرداخت شده" : "در انتظار تایید"}
               </Badge>
             </Group>
             <div className="grid grid-cols-2 gap-2 text-sm mb-3">

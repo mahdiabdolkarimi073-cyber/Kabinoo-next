@@ -2,7 +2,7 @@
 import Dashboard from "@/components/Dashboard";
 import useUser from "@/utils/hooks/useUser";
 import useBackend from "@/utils/hooks/useBackend";
-import { IconCategory, IconColorFilter, IconCube, IconCash, IconDashboard, IconDiscount, IconList, IconListCheck, IconListDetails, IconListLetters, IconListNumbers, IconMessage, IconUserHeart, IconUsers, IconUserShield, IconVariable, IconNotebook, IconSettings, IconHome } from "@tabler/icons-react";
+import { IconCategory, IconColorFilter, IconCube, IconCash, IconDashboard, IconDiscount, IconList, IconListCheck, IconListDetails, IconListLetters, IconListNumbers, IconMessage, IconUserHeart, IconUsers, IconUserShield, IconVariable, IconNotebook, IconSettings, IconHome, IconFileContract } from "@tabler/icons-react";
 import { Badge } from "@mantine/core";
 import { redirect } from "next/navigation";
 import { useInterval } from "@/utils/hooks/useEffects";
@@ -73,6 +73,11 @@ function Layout(props: any) {
                     label: "نمونه کارها",
                     href: "portfolio",
                     icon: IconListLetters
+                },
+                {
+                    label: "قراردادها",
+                    href: "contract",
+                    icon: IconFileContract
                 },
                 {
                     label: "تنظیمات و قیمت‌ها",

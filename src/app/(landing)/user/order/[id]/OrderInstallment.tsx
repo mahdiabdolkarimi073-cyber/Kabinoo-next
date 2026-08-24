@@ -1,9 +1,28 @@
+'use client';
+
+import { useState } from "react";
 import { Button, Badge } from "@mantine/core";
+import { backend } from "@/utils/api";
 
 export default function OrderInstallment({ order }: { order: any }) {
+    const [payingId, setPayingId] = useState<number | null>(null);
+
     if (!order.checks?.length) {
         return null;
     }
+
+    const handlePayCheck = async (checkId: number) => {
+        setPayingId(checkId);
+        const res = await backend("/user/check/pay", "POST", { id: checkId });
+        if (res.ok) {
+            const { link } = res.data || {};
+            if (link) {
+                window.alert("در حال انتقال به درگاه پرداخت...");
+                window.location.href = link;
+            }
+        }
+        setPayingId(null);
+    };
 
     return (
         <>
@@ -55,13 +74,22 @@ export default function OrderInstallment({ order }: { order: any }) {
                     const isExpired = new Date(check.expire_at) < now;
                     const isApproved = check.status === 'APPROVED';
                     const isRejected = check.status === 'REJECTED';
+                    const isPaid = check.status === 'PAID';
                     const isActive = isApproved && new Date(check.start_at) <= now && !isExpired;
-                    const isPending = !isApproved && !isRejected;
+                    const isPending = !isApproved && !isRejected && !isPaid;
+                    const canPay = isApproved && !isPaid && !isExpired;
 
                     // Calculate remaining days until expiry
                     const expiryDate = new Date(check.expire_at);
                     const diffTime = expiryDate.getTime() - now.getTime();
                     const remainingDays = Math.max(0, Math.ceil(diffTime / (1000 * 60 * 60 * 24)));
+
+                    let statusLabel = 'در انتظار تایید';
+                    let statusColor = 'blue';
+                    if (isPaid) { statusLabel = 'پرداخت شده'; statusColor = 'green'; }
+                    else if (isRejected) { statusLabel = 'رد شده'; statusColor = 'red'; }
+                    else if (isExpired) { statusLabel = 'منقضی شده'; statusColor = 'red'; }
+                    else if (isApproved) { statusLabel = isActive ? 'تایید شده' : 'تایید شده و آینده'; statusColor = 'green'; }
 
                     return (
                         <div key={check.id} className="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden">
@@ -83,11 +111,8 @@ export default function OrderInstallment({ order }: { order: any }) {
                                         <div className="text-sm text-slate-600 mb-1">شماره چک</div>
                                         <div className="font-bold text-lg font-mono" dir="ltr">{check.checkId}</div>
                                     </div>
-                                    <Badge
-                                        color={isRejected || isExpired ? 'red' : isActive ? 'green' : 'blue'}
-                                        variant="light"
-                                    >
-                                        {isRejected ? 'رد شده' : isExpired ? 'منقضی شده' : isApproved ? (isActive ? 'تایید شده' : 'تایید شده و آینده') : 'در انتظار تایید'}
+                                    <Badge color={statusColor} variant="light">
+                                        {statusLabel}
                                     </Badge>
                                 </div>
 
@@ -99,7 +124,7 @@ export default function OrderInstallment({ order }: { order: any }) {
                                         </span>
                                     </div>
 
-                                    {!isExpired && (
+                                    {!isExpired && !isPaid && (
                                         <div className="flex justify-between items-center">
                                             <span className="text-slate-600 text-sm">روز باقی‌مانده</span>
                                             <span className={`text-sm font-bold ${remainingDays <= 7 ? 'text-red-600' : remainingDays <= 30 ? 'text-orange-600' : 'text-green-600'}`}>
@@ -130,21 +155,33 @@ export default function OrderInstallment({ order }: { order: any }) {
                                     </div>
                                 </div>
 
-                                {/* Download Button */}
-                                {check.image && (
-                                    <Button
-                                        component="a"
-                                        href={check.image}
-                                        download={`check-${check.checkId}.png`}
-                                        target="_blank"
-                                        variant="light"
-                                        fullWidth
-                                        size="sm"
-                                        className="mt-3"
-                                    >
-                                        دانلود تصویر چک
-                                    </Button>
-                                )}
+                                {/* Action Buttons */}
+                                <div className="flex gap-2 mt-3">
+                                    {check.image && (
+                                        <Button
+                                            component="a"
+                                            href={check.image}
+                                            download={`check-${check.checkId}.png`}
+                                            target="_blank"
+                                            variant="light"
+                                            size="sm"
+                                            className="flex-1"
+                                        >
+                                            دانلود تصویر
+                                        </Button>
+                                    )}
+                                    {canPay && (
+                                        <Button
+                                            loading={payingId === check.id}
+                                            onClick={() => handlePayCheck(check.id)}
+                                            color="green"
+                                            size="sm"
+                                            className="flex-1"
+                                        >
+                                            پرداخت آنلاین چک
+                                        </Button>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     );
