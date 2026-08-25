@@ -8,6 +8,8 @@ export type UserType = {
     wallet: number
     joined_at: string
     isAdmin: boolean
+    isShopManager: boolean
+    isSupport: boolean
     isAuthor: boolean
     refId: any
     refCode: string

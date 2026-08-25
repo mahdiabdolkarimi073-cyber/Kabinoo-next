@@ -19,6 +19,7 @@ type FullUser = {
     joined_at: string
     isAdmin: boolean
     isShopManager: boolean
+    isSupport: boolean
     comments: Array<{
         id: string
         content: string
@@ -144,6 +145,26 @@ export default function Page({ params }: any) {
                             })
                     }}>
                         {user.isShopManager ? <IconMinus size={15} />:<IconPlus size={15} />}
+                    </ActionIcon>
+                </div>
+            )
+        },
+        {
+            label: "پشتیبان", value: (
+                <div className='flex items-center gap-2'>
+                    {user.isSupport ? <Badge color="cyan">بله</Badge> : <Badge color="secondary">خیر</Badge>}
+                    <ActionIcon size='sm' color={user.isSupport ? "red" : "cyan"} onClick={async () => {
+                        if (user.isSupport) await askConfirm("آیا میخواهید پشتیبانی این کاربر را بگیرید؟")
+                        else await askConfirm("آیا میخواهید این کاربر را پشتیبان کنید؟")
+
+                        await backend("/admin/users/"+id, "PUT", {
+                            isSupport: !user.isSupport
+                        })
+                            .finally(()=>{
+                                refetch();
+                            })
+                    }}>
+                        {user.isSupport ? <IconMinus size={15} />:<IconPlus size={15} />}
                     </ActionIcon>
                 </div>
             )
