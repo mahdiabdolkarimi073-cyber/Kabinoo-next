@@ -18,6 +18,7 @@ type FullUser = {
     email: string
     joined_at: string
     isAdmin: boolean
+    isShopManager: boolean
     comments: Array<{
         id: string
         content: string
@@ -123,6 +124,26 @@ export default function Page({ params }: any) {
                             })
                     }}>
                         {user.isAdmin ? <IconMinus size={15} />:<IconPlus size={15} />}
+                    </ActionIcon>
+                </div>
+            )
+        },
+        {
+            label: "مدیر فروشگاه", value: (
+                <div className='flex items-center gap-2'>
+                    {user.isShopManager ? <Badge color="teal">بله</Badge> : <Badge color="secondary">خیر</Badge>}
+                    <ActionIcon size='sm' color={user.isShopManager ? "red" : "teal"} onClick={async () => {
+                        if (user.isShopManager) await askConfirm("آیا میخواهید مدیریت فروشگاه این کاربر را بگیرید؟")
+                        else await askConfirm("آیا میخواهید این کاربر را مدیر فروشگاه کنید؟")
+
+                        await backend("/admin/users/"+id, "PUT", {
+                            isShopManager: !user.isShopManager
+                        })
+                            .finally(()=>{
+                                refetch();
+                            })
+                    }}>
+                        {user.isShopManager ? <IconMinus size={15} />:<IconPlus size={15} />}
                     </ActionIcon>
                 </div>
             )
