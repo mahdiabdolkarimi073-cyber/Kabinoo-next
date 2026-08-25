@@ -11,6 +11,7 @@ export type UserType = {
     isShopManager: boolean
     isSupport: boolean
     isAuthor: boolean
+    isContractManager: boolean
     refId: any
     refCode: string
 }

@@ -20,6 +20,7 @@ type FullUser = {
     isAdmin: boolean
     isShopManager: boolean
     isSupport: boolean
+    isContractManager: boolean
     comments: Array<{
         id: string
         content: string
@@ -165,6 +166,26 @@ export default function Page({ params }: any) {
                             })
                     }}>
                         {user.isSupport ? <IconMinus size={15} />:<IconPlus size={15} />}
+                    </ActionIcon>
+                </div>
+            )
+        },
+        {
+            label: "مدیر قراردادها", value: (
+                <div className='flex items-center gap-2'>
+                    {user.isContractManager ? <Badge color="violet">بله</Badge> : <Badge color="secondary">خیر</Badge>}
+                    <ActionIcon size='sm' color={user.isContractManager ? "red" : "violet"} onClick={async () => {
+                        if (user.isContractManager) await askConfirm("آیا میخواهید مدیریت قراردادهای این کاربر را بگیرید؟")
+                        else await askConfirm("آیا میخواهید این کاربر را مدیر قراردادها کنید؟")
+
+                        await backend("/admin/users/"+id, "PUT", {
+                            isContractManager: !user.isContractManager
+                        })
+                            .finally(()=>{
+                                refetch();
+                            })
+                    }}>
+                        {user.isContractManager ? <IconMinus size={15} />:<IconPlus size={15} />}
                     </ActionIcon>
                 </div>
             )
