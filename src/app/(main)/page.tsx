@@ -15,6 +15,7 @@ import Link from "next/link";
 import { questions as fallbackQuestions } from "@/hard-code";
 
 type Faq = { id: string; question: string; answer: string; sortOrder: number; enabled: boolean };
+type Announcement = { id: string; title: string; content: string; created_at: string };
 
 type HomepageContent = {
     key: string;
@@ -40,27 +41,41 @@ const fallbackContent: HomepageContent[] = [
 
 async function Page(props: any) {
 
-    const [products = [], categories = [], comments = [], homepageResponse, faqResponse] = await Promise.all([
+    const [products = [], categories = [], comments = [], homepageResponse, faqResponse, announcementsResponse] = await Promise.all([
         backend<FullProduct[]>("/public/products?_include=category,color,detail,material").then(e => e.data),
         backend<FullProduct['category'][]>("/public/categories?count=products").then(e => e.data),
         backend<FullProduct['comments']>('/public/products/comments').then(e => e.data),
         backend<HomepageContent[]>('/public/homepage'),
-        backend<Faq[]>('/public/faq')
+        backend<Faq[]>('/public/faq'),
+        backend<Announcement[]>('/public/announcement')
     ]);
     const content = homepageResponse.ok && homepageResponse.data?.length ? homepageResponse.data : fallbackContent;
     const byKey = (key: string) => content.find(item => item.key === key && item.enabled) || fallbackContent.find(item => item.key === key)!;
     const faqs = faqResponse.ok && faqResponse.data?.length ? faqResponse.data.map(f => ({ q: f.question, answer: f.answer })) : fallbackQuestions;
+    const announcements = announcementsResponse.ok ? (announcementsResponse.data || []) : [];
     
 
     return (
         <div className={'container mx-auto'}>
             <HSticky />
-            {byKey("announcement").title && (
-                <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-primary px-5 py-4 text-white shadow-md" dir="rtl">
-                    <div><p className="font-bold">{byKey("announcement").title}</p><p className="mt-1 text-sm text-white/85">{byKey("announcement").description}</p></div>
-                    {byKey("announcement").buttonLabel && <Link href={byKey("announcement").buttonHref} className="rounded-full bg-white px-4 py-2 text-sm font-bold text-primary transition hover:bg-white/90">{byKey("announcement").buttonLabel}</Link>}
-                </div>
-            )}
+            <div className="mt-4 rounded-2xl bg-primary px-5 py-4 text-white shadow-md" dir="rtl">
+                {announcements.length > 0 ? (
+                    <Link href="/announcements" className="block transition hover:opacity-90">
+                        <div className="flex flex-wrap items-center justify-between gap-3">
+                            <div>
+                                <p className="font-bold">{announcements[0].title}</p>
+                                <p className="mt-1 text-sm text-white/85 line-clamp-2">{announcements[0].content}</p>
+                            </div>
+                            <span className="rounded-full bg-white px-4 py-2 text-sm font-bold text-primary">مشاهده اطلاعیه‌ها</span>
+                        </div>
+                    </Link>
+                ) : byKey("announcement").title && (
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                        <div><p className="font-bold">{byKey("announcement").title}</p><p className="mt-1 text-sm text-white/85">{byKey("announcement").description}</p></div>
+                        {byKey("announcement").buttonLabel && <Link href={byKey("announcement").buttonHref} className="rounded-full bg-white px-4 py-2 text-sm font-bold text-primary transition hover:bg-white/90">{byKey("announcement").buttonLabel}</Link>}
+                    </div>
+                )}
+            </div>
             <br />
             <div className={'relative mt-2'}>
                 <img

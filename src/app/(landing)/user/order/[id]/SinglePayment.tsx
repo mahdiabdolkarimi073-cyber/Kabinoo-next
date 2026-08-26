@@ -16,9 +16,10 @@ const paymentGates = [
     { value: "meli", label: "ملی" }
 ];
 
-export default function SinglePayment({ amount, ...order }: { amount: number }) {
+export default function SinglePayment({ amount, offCode, ...order }: { amount: number, offCode?: any }) {
     const { data: config = {}, loading: l1 } = useBackend("/public/config");
     const [method, setMethod] = useState<"DIRECT" | "INSTALLMENT">("DIRECT");
+    const cashOnly = offCode?.cashOnly === true;
     const [gate, setGate] = useState<string | null>(null);
     const [months, setMonths] = useState<number>(2);
     const minPrepay = config?.['MIN_PREPAY_PERCENT'] || 30;
@@ -143,9 +144,19 @@ export default function SinglePayment({ amount, ...order }: { amount: number }) 
             >
                 <Group>
                     <Radio value="DIRECT" label="پرداخت نقدی" />
-                    <Radio value="INSTALLMENT" label="پرداخت قسطی" />
+                    <Radio value="INSTALLMENT" label="پرداخت قسطی" disabled={cashOnly} />
                 </Group>
             </Radio.Group>
+            {cashOnly && method === "INSTALLMENT" && (
+                <div className="mb-4 p-3 bg-red-50 border border-red-300 rounded-lg text-red-700 text-sm">
+                    کد تخفیف اعمال شده روی این سفارش فقط برای پرداخت نقدی (آنلاین) قابل استفاده است و امکان پرداخت قسطی وجود ندارد.
+                </div>
+            )}
+            {cashOnly && (
+                <div className="mb-4 p-3 bg-amber-50 border border-amber-300 rounded-lg text-amber-700 text-sm">
+                    این سفارش دارای کد تخفیف نقدی است - فقط پرداخت آنلاین قابل انجام است.
+                </div>
+            )}
             {method === "INSTALLMENT" && (
                 <>
                     <div className='max-w-lg flex items-center gap-5'>

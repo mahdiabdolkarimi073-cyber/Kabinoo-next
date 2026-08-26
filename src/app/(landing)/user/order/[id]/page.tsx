@@ -15,10 +15,14 @@ export default async function Page(props: any) {
     ]);
     if (!order) notFound();
 
-    const discount = order.offCode?.percent || 0;
-    const finalPrice = discount
-        ? Math.round(order.totalPrice * (1 - discount / 100))
-        : order.totalPrice;
+    const discount = order.offCode?.type === "FIXED"
+        ? (order.offCode?.amount || 0)
+        : (order.offCode?.percent || 0);
+    const finalPrice = order.finalPrice || (discount && order.offCode?.type === "FIXED"
+        ? order.totalPrice - discount
+        : discount
+            ? Math.round(order.totalPrice * (1 - discount / 100))
+            : order.totalPrice);
 
     return (
         <div className="container mx-auto my-10" dir="rtl">
@@ -36,7 +40,9 @@ export default async function Page(props: any) {
                     {discount > 0 && (
                         <>
                             <Badge color="red" variant="outline" mx={4}>
-                                {discount}%
+                                {order.offCode?.type === "FIXED"
+                                    ? `${discount.toLocaleString('fa')} تومان`
+                                    : `${discount}%`}
                             </Badge>
                             <span className="font-bold text-primary">
                                 {finalPrice.toLocaleString('fa')}

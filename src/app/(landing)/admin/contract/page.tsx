@@ -1,12 +1,13 @@
 'use client';
 
-import { useState } from "react";
-import { Table, Button, Select, TextInput, Textarea, FileInput, Badge, Group, Text, LoadingOverlay } from "@mantine/core";
+import { useState, useEffect } from "react";
+import { Table, Button, Select, TextInput, Textarea, FileInput, Badge, Group, Text, LoadingOverlay, Modal } from "@mantine/core";
 import { modals } from "@mantine/modals";
 import Loading from "@/no-side/Loading";
 import useBackend from "@/utils/hooks/useBackend";
 import { backend } from "@/utils/api";
 import { askConfirm } from "@/utils/ui/modalUtils/confirm";
+import { IconEdit } from "@tabler/icons-react";
 
 const ContractStatusList = [
     { value: "DRAFT", label: "پیش‌نویس", color: "gray" },
@@ -46,6 +47,8 @@ export default function Page() {
         });
     };
 
+    const [editTarget, setEditTarget] = useState<any | null>(null);
+
     const tableHead = ["عنوان", "کاربر", "وضعیت", "تاریخ ثبت", "تاریخ انقضا", "عملیات"];
     const tableBody = contracts.map((contract) => [
         contract.title,
@@ -57,6 +60,7 @@ export default function Page() {
         contract.expire_at ? new Date(contract.expire_at).toLocaleDateString("fa-IR") : "-",
         <Group key="actions" gap="xs">
             <Button size="xs" variant="light" component="a" href={contract.file} target="_blank">مشاهده فایل</Button>
+            <Button size="xs" variant="light" color="blue" leftSection={<IconEdit size={14} />} onClick={() => setEditTarget(contract)}>ویرایش</Button>
             <Select
                 size="xs"
                 w={120}
@@ -93,7 +97,68 @@ export default function Page() {
                     withColumnBorders
                 />
             )}
+
+            <EditContractModal
+                contract={editTarget}
+                onClose={() => setEditTarget(null)}
+                onSaved={() => { setEditTarget(null); refetch(); }}
+            />
         </div>
+    );
+}
+
+function EditContractModal({ contract, onClose, onSaved }: { contract: any | null; onClose: () => void; onSaved: () => void }) {
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const [status, setStatus] = useState("");
+    const [expireAt, setExpireAt] = useState("");
+    const [saving, setSaving] = useState(false);
+
+    useEffect(() => {
+        if (contract) {
+            setTitle(contract.title || "");
+            setDescription(contract.description || "");
+            setStatus(contract.status || "DRAFT");
+            setExpireAt(contract.expire_at ? new Date(contract.expire_at).toISOString().split("T")[0] : "");
+        }
+    }, [contract]);
+
+    if (!contract) return null;
+
+    const handleSave = async () => {
+        if (!title.trim()) { window.alert("عنوان قرارداد را وارد کنید"); return; }
+        setSaving(true);
+        const body: any = { title, description, status };
+        if (expireAt) body.expire_at = expireAt;
+        const res = await backend(`/admin/contract/${contract.id}`, "PUT", body);
+        setSaving(false);
+        if (res.ok) onSaved();
+    };
+
+    return (
+        <Modal opened={!!contract} onClose={onClose} title="ویرایش قرارداد" centered size="lg">
+            <div className="space-y-4" dir="rtl">
+                <TextInput label="عنوان قرارداد" value={title} onChange={(e) => setTitle(e.target.value)} required />
+                <Textarea
+                    label="توضیحات (تغییرات در طراحی)"
+                    description="توضیحات و تغییرات مورد نظر برای طراحی را اینجا وارد کنید"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    rows={5}
+                />
+                <Select
+                    label="وضعیت"
+                    data={ContractStatusList}
+                    value={status}
+                    onChange={(v) => setStatus(v || "DRAFT")}
+                />
+                <TextInput label="تاریخ انقضا (اختیاری)" type="date" value={expireAt} onChange={(e) => setExpireAt(e.target.value)} />
+                <Group justify="flex-end">
+                    <Button variant="light" onClick={onClose}>انصراف</Button>
+                    <Button loading={saving} onClick={handleSave}>ذخیره تغییرات</Button>
+                </Group>
+            </div>
+        </Modal>
     );
 }
 

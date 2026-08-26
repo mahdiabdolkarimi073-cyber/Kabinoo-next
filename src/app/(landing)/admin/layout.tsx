@@ -2,7 +2,7 @@
 import Dashboard from "@/components/Dashboard";
 import useUser from "@/utils/hooks/useUser";
 import useBackend from "@/utils/hooks/useBackend";
-import { IconCategory, IconColorFilter, IconCube, IconCash, IconDashboard, IconDiscount, IconList, IconListCheck, IconListDetails, IconListLetters, IconListNumbers, IconMessage, IconUserHeart, IconUsers, IconUserShield, IconVariable, IconNotebook, IconSettings, IconHome, IconContract, IconBook } from "@tabler/icons-react";
+import { IconCategory, IconColorFilter, IconCube, IconCash, IconDashboard, IconDiscount, IconList, IconListCheck, IconListDetails, IconListLetters, IconListNumbers, IconMessage, IconUserHeart, IconUsers, IconUserShield, IconVariable, IconNotebook, IconSettings, IconHome, IconContract, IconBook, IconChartBar, IconCheck, IconMegaphone, IconCreditCard, IconShoppingBag, IconReceipt, IconBell } from "@tabler/icons-react";
 import { Badge } from "@mantine/core";
 import { redirect } from "next/navigation";
 import { useInterval } from "@/utils/hooks/useEffects";
@@ -36,6 +36,11 @@ function Layout(props: any) {
                     showList: true,
                 },
                 {
+                    label: "آمار سایت",
+                    href: "stats",
+                    icon: IconChartBar,
+                },
+                {
                     label: "فروشگاه و محصولات",
                     href: "products",
                     icon: IconList,
@@ -48,11 +53,13 @@ function Layout(props: any) {
                     ]
                 },
                 {
-                    label: "سفارشات",
+                    label: "سفارشات و فروش",
                     href: "order",
                     icon: IconListCheck,
                     children: [
                         { label: "لیست سفارشات", href: "order", icon: IconListCheck },
+                        { label: "خریدهای فروشگاه", href: "purchases", icon: IconShoppingBag },
+                        { label: "تراکنش‌های سایت", href: "payments", icon: IconReceipt },
                         { label: "درخواست‌های طراحی", href: "request", icon: IconListNumbers },
                     ]
                 },
@@ -77,9 +84,24 @@ function Layout(props: any) {
                     icon: IconListLetters
                 },
                 {
-                    label: "قراردادها",
+                    label: "قراردادها و اقساط",
                     href: "contract",
-                    icon: IconContract
+                    icon: IconContract,
+                    children: [
+                        { label: "لیست قراردادها", href: "contract", icon: IconContract },
+                        { label: "قراردادهای مشتریان", href: "user-contracts", icon: IconContract },
+                        { label: "لیست اقساط", href: "installments", icon: IconCreditCard },
+                        { label: "بررسی چک‌ها", href: "check", icon: IconCheck },
+                    ]
+                },
+                {
+                    label: "ارتباط با مشتریان",
+                    href: "announcement",
+                    icon: IconMegaphone,
+                    children: [
+                        { label: "اطلاعیه‌های سایت", href: "announcement", icon: IconMegaphone },
+                        { label: "ارسال اطلاعیه پیامکی", href: "sms", icon: IconMessage },
+                    ]
                 },
                 {
                     label: "تنظیمات و قیمت‌ها",

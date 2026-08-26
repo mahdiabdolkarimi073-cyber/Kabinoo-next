@@ -14,6 +14,9 @@ type SingleOrder = {
     id: string
     userId: string
     percent: number
+    amount: number
+    type: string
+    cashOnly: boolean
     used: number
     maxUsage: number
   },
@@ -239,7 +242,7 @@ export default function Page(props: any) {
           order.offCodeId ? (
             <Badge color="teal" variant="light">
               {order.offCodeId}
-              {order.offCode && ` (${order.offCode.percent}% - ${order.offCode.used}/${order.offCode.maxUsage})`}
+              {order.offCode && ` (${order.offCode.type === "FIXED" ? (order.offCode.amount || 0).toLocaleString('fa') + ' تومان' : order.offCode.percent + '%'} - ${order.offCode.used}/${order.offCode.maxUsage || '∞'})`}
             </Badge>
           ) : "-"
         ]]

@@ -1,6 +1,6 @@
-'use client';;
+'use client';
 import { useEffect, useState } from "react";
-import { TextInput, NumberInput, Button, Select, Group, Box, Table } from "@mantine/core";
+import { TextInput, NumberInput, Button, Select, Group, Box, Table, Text, SegmentedControl, Checkbox, Badge } from "@mantine/core";
 import useBackend from "@/utils/hooks/useBackend";
 import { backend } from "@/utils/api";
 import { UserType } from "@/utils/type";
@@ -15,21 +15,17 @@ type OffCode = {
     id: string;
     userId?: string;
     percent: number;
-    max?: number;
+    amount: number;
+    type: "PERCENT" | "FIXED";
+    cashOnly: boolean;
     used: number;
     maxUsage?: number;
 };
 
-
-const exampleOffCodes: OffCode[] = [
-    { id: "off1", userId: "u1", percent: 10, max: 100, used: 2, maxUsage: 5 },
-    { id: "off2", userId: "u2", percent: 20, used: 0 },
-];
-
 export default function OffCodeHandler() {
     const { data: users = [] } = useBackend<UserType[]>("/admin/users");
-    const { data: offCodes = [], refetch } = useBackend<typeof exampleOffCodes>("/admin/order/offCodes");
-    const [form, setForm] = useState<Partial<OffCode>>({});
+    const { data: offCodes = [], refetch } = useBackend<OffCode[]>("/admin/order/offCodes");
+    const [form, setForm] = useState<Partial<OffCode>>({ type: "PERCENT", cashOnly: false });
     const [editId, setEditId] = useState<string | null>(null);
     const [isAdding, setIsAdding] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -39,19 +35,20 @@ export default function OffCodeHandler() {
     }, [loading])
 
     function handleAdd() {
-        if (!form.percent) return;
         const newOffCode: OffCode = {
             id: form.id || generateRandomString(10),
-            userId: form.userId,
-            percent: form.percent,
-            max: form.max,
+            userId: form.userId || undefined,
+            percent: form.type === "PERCENT" ? (form.percent || 0) : 0,
+            amount: form.type === "FIXED" ? (form.amount || 0) : 0,
+            type: form.type || "PERCENT",
+            cashOnly: form.cashOnly || false,
             used: 0,
             maxUsage: form.maxUsage,
         };
         setLoading(true);
         backend("/admin/order/offCodes", "POST", newOffCode)
             .finally(() => {
-                setForm({});
+                setForm({ type: "PERCENT", cashOnly: false });
                 setIsAdding(false);
                 setLoading(false);
             })
@@ -70,7 +67,7 @@ export default function OffCodeHandler() {
         setLoading(true);
         backend("/admin/order/offCodes/" + editId, "PUT", form)
             .finally(() => {
-                setForm({});
+                setForm({ type: "PERCENT", cashOnly: false });
                 setEditId(null);
                 setLoading(false);
             })
@@ -80,7 +77,7 @@ export default function OffCodeHandler() {
         setLoading(true);
         backend("/admin/order/offCodes/" + id, "DELETE")
             .finally(() => {
-                setForm({});
+                setForm({ type: "PERCENT", cashOnly: false });
                 setLoading(false);
             })
     }
@@ -95,8 +92,9 @@ export default function OffCodeHandler() {
                         data={{
                             head: [
                                 "کد تخفیف",
-                                "درصد تخفیف",
-                                "سقف مبلغ",
+                                "نوع",
+                                "مقدار تخفیف",
+                                "نقدی فقط",
                                 "تعداد مجاز",
                                 "استفاده شده",
                                 "کاربر",
@@ -104,11 +102,18 @@ export default function OffCodeHandler() {
                             ],
                             body: offCodes.map((code) => [
                                 code.id,
-                                `${code.percent}%`,
-                                code.max ?? "-",
+                                <Badge key="type" color={code.type === "FIXED" ? "teal" : "blue"} variant="light">
+                                    {code.type === "FIXED" ? "نقدی" : "درصدی"}
+                                </Badge>,
+                                code.type === "FIXED"
+                                    ? `${(code.amount || 0).toLocaleString('fa')} تومان`
+                                    : `${code.percent}%`,
+                                <Badge key="cash" color={code.cashOnly ? "green" : "gray"} variant="light">
+                                    {code.cashOnly ? "بله" : "خیر"}
+                                </Badge>,
                                 code.maxUsage ?? "-",
                                 code.used,
-                                users.find(u => u.id === code.userId)?.name || "بدون کاربر",
+                                code.userId ? (users.find(u => u.id === code.userId)?.name || "-") : "برای همه کاربران",
                                 <Group gap="xs" key={code.id}>
                                     <Button size="xs" onClick={() => handleEdit(code.id)}>ویرایش</Button>
                                     <Button size="xs" color="red" loading={loading} onClick={() => handleDelete(code.id)}>حذف</Button>
@@ -136,17 +141,37 @@ export default function OffCodeHandler() {
                             onChange={val => setForm({ ...form, id: val.target.value })}
                             required
                         />
-                        <NumberInput
-                            label="درصد تخفیف"
-                            value={form.percent ?? ""}
-                            onChange={val => setForm({ ...form, percent: Number(val) })}
-                            required
-                        />
-                        <NumberInput
-                            label="سقف مبلغ"
-                            value={form.max ?? ""}
-                            onChange={val => setForm({ ...form, max: Number(val) })}
-                        />
+                        <div className="mt-4">
+                            <Text size="sm" fw={500} mb={4}>نوع تخفیف</Text>
+                            <SegmentedControl
+                                value={form.type || "PERCENT"}
+                                onChange={(val) => setForm({ ...form, type: val as "PERCENT" | "FIXED" })}
+                                data={[
+                                    { label: "درصدی", value: "PERCENT" },
+                                    { label: "نقدی (مبلغ ثابت)", value: "FIXED" },
+                                ]}
+                            />
+                        </div>
+                        {form.type === "PERCENT" ? (
+                            <NumberInput
+                                label="درصد تخفیف"
+                                value={form.percent ?? ""}
+                                onChange={val => setForm({ ...form, percent: Number(val) })}
+                                required
+                                min={0}
+                                max={100}
+                                suffix="%"
+                            />
+                        ) : (
+                            <NumberInput
+                                label="مبلغ تخفیف (تومان)"
+                                value={form.amount ?? ""}
+                                onChange={val => setForm({ ...form, amount: Number(val) })}
+                                required
+                                min={0}
+                                suffix=" تومان"
+                            />
+                        )}
                         <NumberInput
                             label="تعداد مجاز استفاده"
                             value={form.maxUsage ?? ""}
@@ -156,16 +181,28 @@ export default function OffCodeHandler() {
                             label="کاربر"
                             data={users.map(u => ({ value: u.id, label: u.name }))}
                             value={form.userId ?? ""}
-                            onChange={val => setForm({ ...form, userId: val! })}
-                            placeholder="انتخاب کاربر"
+                            onChange={val => setForm({ ...form, userId: val ?? "" })}
+                            placeholder="انتخاب کاربر (خالی بگذارید = برای همه)"
+                            clearable
+                            searchable
                         />
+                        <Text size="sm" c="dimmed">
+                            اگر کاربری انتخاب نشود، این کد تخفیف برای همه کاربران قابل استفاده خواهد بود.
+                        </Text>
+                        <div className="mt-4">
+                            <Checkbox
+                                label="فقط برای پرداخت نقدی (آنلاین) - قابل استفاده برای پرداخت اقساطی نیست"
+                                checked={form.cashOnly || false}
+                                onChange={(e) => setForm({ ...form, cashOnly: e.currentTarget.checked })}
+                            />
+                        </div>
                         <Group mt="md">
                             <Button type="submit" loading={loading}>{editId ? "ذخیره" : "افزودن"}</Button>
                             <Button
                                 variant="outline"
                                 onClick={() => {
                                     setEditId(null);
-                                    setForm({});
+                                    setForm({ type: "PERCENT", cashOnly: false });
                                     setIsAdding(false);
                                 }}
                             >

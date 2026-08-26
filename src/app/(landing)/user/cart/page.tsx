@@ -14,7 +14,7 @@ export default function Page() {
     const { data: cartItems = [], loading: l1, refetch } = useBackend<{ id: string, product: FullProduct, custom: any }[]>("/user/cart?_include=product,customDesign,design,custom");
     // For demo: local state for discount code and deleted items
     const [discountCode, setDiscountCode] = useState("");
-    const [offCode, setOffCode] = useState<{ id: string, percent: number }>();
+    const [offCode, setOffCode] = useState<{ id: string, percent: number, amount: number, type: string }>();
     const router = useRouter();
     const [loading, setLoading] = useState(false);
 
@@ -116,11 +116,15 @@ export default function Page() {
                                         {totalPrice.toLocaleString('fa')} تومان
                                     </span>
                                     <Badge color="red" variant="outline" size="lg">
-                                        تخفیف: {offCode.percent}%
+                                        {offCode.type === "FIXED"
+                                            ? `تخفیف: ${(offCode.amount || 0).toLocaleString('fa')} تومان`
+                                            : `تخفیف: ${offCode.percent}%`}
                                     </Badge>
                                 </div>
                                 <div className="text-2xl text-primary font-bold">
-                                    {(totalPrice * (1 - offCode.percent / 100)).toLocaleString('fa')} تومان
+                                    {offCode.type === "FIXED"
+                                        ? Math.max(0, totalPrice - (offCode.amount || 0)).toLocaleString('fa')
+                                        : (totalPrice * (1 - offCode.percent / 100)).toLocaleString('fa')} تومان
                                 </div>
                             </div>
                         ) : (
