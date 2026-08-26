@@ -1,5 +1,6 @@
 {
-  "/(main)/auth/page": "app/(main)/auth/page.js",
+  "/(main)/design/page": "app/(main)/design/page.js",
   "/(main)/page": "app/(main)/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/other/ruler/route": "app/other/ruler/route.js"
 }
