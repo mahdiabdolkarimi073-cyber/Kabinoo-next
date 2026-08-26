@@ -1,7 +1,7 @@
 'use client';
 import useBackend from "@/utils/hooks/useBackend";
 import { Card, Text, Group, ThemeIcon, SimpleGrid, Badge } from "@mantine/core";
-import { IconFileContract, IconClipboardList, IconUsers, IconAlertTriangle } from "@tabler/icons-react";
+import { IconContract, IconClipboardList, IconUsers, IconAlertTriangle } from "@tabler/icons-react";
 import Link from "next/link";
 
 type Stat = {
@@ -26,7 +26,7 @@ export default function Page() {
     }).length;
 
     const stats: Stat[] = [
-        { label: "قراردادهای فعال", value: activeContracts, icon: IconFileContract, color: "green", href: "/contract-manager/contract" },
+        { label: "قراردادهای فعال", value: activeContracts, icon: IconContract, color: "green", href: "/contract-manager/contract" },
         { label: "درخواست‌های طراحی", value: pendingRequests, icon: IconClipboardList, color: "orange", href: "/contract-manager/request" },
         { label: "مشتریان", value: users.length, icon: IconUsers, color: "blue", href: "/contract-manager/users" },
         { label: "اقساط معوق", value: lateChecks, icon: IconAlertTriangle, color: "red", href: "/contract-manager/installments/late" },

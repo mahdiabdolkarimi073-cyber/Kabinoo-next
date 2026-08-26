@@ -1,34 +1,34 @@
 {
   "node": {
-    "00765d2dd7f0bf57a7b85d268c3b5c7028e855a0e2": {
+    "009229b39ed315979cb0119c1e6a778efe6a15c0d3": {
       "workers": {
         "app/(main)/calc/page": {
-          "moduleId": "[project]/frontend/.next-internal/server/app/(main)/calc/page/actions.js { ACTIONS_MODULE0 => \"[project]/frontend/src/ssr/actions/user.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/frontend/src/app/(main)/calc/action.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "moduleId": "[project]/.next-internal/server/app/(main)/calc/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ssr/actions/user.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(main)/calc/action.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "exportedName": "logout",
-          "filename": "frontend/src/ssr/actions/user.ts"
+          "filename": "src/ssr/actions/user.ts"
         }
       },
       "layer": {
         "app/(main)/calc/page": "action-browser"
       },
       "exportedName": "logout",
-      "filename": "frontend/src/ssr/actions/user.ts"
+      "filename": "src/ssr/actions/user.ts"
     },
-    "40cc0d28c3852e87071e6901b4bb299a2ed731a9ea": {
+    "40eaef65d965b1dce35fe3c50d16dc2d7c6bfa1220": {
       "workers": {
         "app/(main)/calc/page": {
-          "moduleId": "[project]/frontend/.next-internal/server/app/(main)/calc/page/actions.js { ACTIONS_MODULE0 => \"[project]/frontend/src/ssr/actions/user.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/frontend/src/app/(main)/calc/action.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "moduleId": "[project]/.next-internal/server/app/(main)/calc/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ssr/actions/user.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(main)/calc/action.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "exportedName": "getCalculateResult",
-          "filename": "frontend/src/app/(main)/calc/action.ts"
+          "filename": "src/app/(main)/calc/action.ts"
         }
       },
       "layer": {
         "app/(main)/calc/page": "action-browser"
       },
       "exportedName": "getCalculateResult",
-      "filename": "frontend/src/app/(main)/calc/action.ts"
+      "filename": "src/app/(main)/calc/action.ts"
     }
   },
   "edge": {}

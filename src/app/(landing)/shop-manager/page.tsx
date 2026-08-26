@@ -1,7 +1,7 @@
 'use client';
 import useBackend from "@/utils/hooks/useBackend";
 import { Card, Text, Group, ThemeIcon, SimpleGrid, Badge } from "@mantine/core";
-import { IconListCheck, IconShoppingBag, IconMegaphone } from "@tabler/icons-react";
+import { IconListCheck, IconShoppingBag, IconSpeakerphone } from "@tabler/icons-react";
 import Link from "next/link";
 
 type Stat = {
@@ -23,7 +23,7 @@ export default function Page() {
         { label: "تعداد سفارشات", value: orders.length, icon: IconListCheck, color: "blue", href: "/shop-manager/order" },
         { label: "سفارشات در انتظار", value: pendingOrders, icon: IconListCheck, color: "orange", href: "/shop-manager/order" },
         { label: "محصولات", value: products.length, icon: IconShoppingBag, color: "green", href: "/shop-manager/products" },
-        { label: "اعلان‌ها", value: announcements.length, icon: IconMegaphone, color: "teal", href: "/shop-manager/announcement" },
+        { label: "اعلان‌ها", value: announcements.length, icon: IconSpeakerphone, color: "teal", href: "/shop-manager/announcement" },
     ];
 
     return (

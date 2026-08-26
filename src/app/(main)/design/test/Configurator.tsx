@@ -377,6 +377,17 @@ const Configurator = (props: {
                             </div>
                         </Help>
                     )}
+                    <div className="flex flex-col gap-3 px-1" dir="rtl">
+                        <Help id={'price_display'}>
+                            <Badge color='secondary' size='xl' fullWidth>{price.toLocaleString("fa")} تومان</Badge>
+                        </Help>
+                        <Help id={'save_design'}>
+                            <Button fullWidth onClick={() => sendCommand('Save', {})}>
+                                ذخیره
+                            </Button>
+                        </Help>
+                        <p className='text-center text-xs opacity-70'>زمان تحویل 3 الی 6 هفته</p>
+                    </div>
                 </div>
                 <div className="px-3 bg-white relative -top-10" dir="rtl">
                     <div className="prose prose-lg max-w-none">

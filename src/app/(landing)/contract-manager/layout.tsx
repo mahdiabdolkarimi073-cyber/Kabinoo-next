@@ -1,7 +1,7 @@
 'use client';
 import Dashboard from "@/components/Dashboard";
 import useUser from "@/utils/hooks/useUser";
-import { IconDashboard, IconFileContract, IconListCheck, IconUsers, IconCalendarTime, IconAlertTriangle, IconUserEdit, IconMegaphone, IconClipboardList } from "@tabler/icons-react";
+import { IconDashboard, IconContract, IconListCheck, IconUsers, IconCalendarTime, IconAlertTriangle, IconUserEdit, IconSpeakerphone, IconClipboardList } from "@tabler/icons-react";
 import { redirect } from "next/navigation";
 
 function Layout(props: any) {
@@ -29,7 +29,7 @@ function Layout(props: any) {
                 {
                     label: "قراردادها",
                     href: "contract",
-                    icon: IconFileContract,
+                    icon: IconContract,
                 },
                 {
                     label: "اقساط",
@@ -48,7 +48,7 @@ function Layout(props: any) {
                 {
                     label: "اعلان به مشتریان",
                     href: "announcement",
-                    icon: IconMegaphone,
+                    icon: IconSpeakerphone,
                 },
                 {
                     label: "ویرایش اطلاعات",

@@ -1,7 +1,7 @@
 'use client';
 import Dashboard from "@/components/Dashboard";
 import useUser from "@/utils/hooks/useUser";
-import { IconCategory, IconList, IconListCheck, IconDashboard, IconShoppingBag, IconMegaphone, IconUserEdit } from "@tabler/icons-react";
+import { IconCategory, IconList, IconListCheck, IconDashboard, IconShoppingBag, IconSpeakerphone, IconUserEdit } from "@tabler/icons-react";
 import { redirect } from "next/navigation";
 
 function Layout(props: any) {
@@ -38,7 +38,7 @@ function Layout(props: any) {
                 {
                     label: "اعلان به مشتریان",
                     href: "announcement",
-                    icon: IconMegaphone,
+                    icon: IconSpeakerphone,
                 },
                 {
                     label: "ویرایش اطلاعات",

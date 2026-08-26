@@ -1,8 +1,17 @@
 'use client';
 
-import { Slider, Button, Group, SegmentedControl, Card, NumberInput } from "@mantine/core";
+import { Slider, Button, Group, SegmentedControl, Card, NumberInput, Modal, Text } from "@mantine/core";
 import { useState } from "react";
 import { getCalculateResult } from "./action";
+import { backend } from "@/utils/api";
+import generateRandomString from "@/utils/string";
+
+const materialOptions = [
+    { value: "Mdf", label: "ام دی اف" },
+    { value: "HighGlass", label: "هایگلاس" },
+    { value: "Vacuum", label: "وکیوم (ممبران)" },
+    { value: "Color", label: "رنگ پلی اورتان" }
+];
 
 function getCabinetBgPosition(index: number) {
     const cols = 3;
@@ -357,6 +366,9 @@ export default function Page() {
     const [params, setParams] = useState<Record<string, number | boolean>>({});
     const [presetIndex, setPresetIndex] = useState(0);
     const [selectedPreset, setSelectedPreset] = useState<typeof defaultPresets[0] | null>(null);
+    const [selectedMaterial, setSelectedMaterial] = useState<string>("Mdf");
+    const [saving, setSaving] = useState(false);
+    const [savedCalc, setSavedCalc] = useState<{ id: string; price: number; name: string; material: string } | null>(null);
 
     // تابع برای اعمال یک پریست خاص
     const applyPreset = (preset: typeof defaultPresets[0]) => {
@@ -662,43 +674,122 @@ export default function Page() {
                     </div>
                     
                     {result && (
-                        <Card shadow="sm" padding="md" radius="md" withBorder className="my-6 md:my-8">
-                            <Group grow className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-                                <div className="text-center">
-                                    <label className="block text-gray-700 mb-2">قیمت ام دی اف</label>
-                                    <p className="text-lg md:text-xl font-bold text-primary">
-                                        {result.Mdf.toLocaleString('fa')} <span className="text-xs md:text-sm font-normal">تومان</span>
-                                    </p>
+                        <>
+                            <Card shadow="sm" padding="md" radius="md" withBorder className="my-6 md:my-8">
+                                <Group grow className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+                                    <div className="text-center">
+                                        <label className="block text-gray-700 mb-2">قیمت ام دی اف</label>
+                                        <p className="text-lg md:text-xl font-bold text-primary">
+                                            {result.Mdf.toLocaleString('fa')} <span className="text-xs md:text-sm font-normal">تومان</span>
+                                        </p>
+                                    </div>
+                                    <div className="text-center">
+                                        <label className="block text-gray-700 mb-2">قیمت هایگلاس</label>
+                                        <p className="text-lg md:text-xl font-bold text-primary">
+                                            {result.HighGlass.toLocaleString('fa')} <span className="text-xs md:text-sm font-normal">تومان</span>
+                                        </p>
+                                    </div>
+                                    <div className="text-center">
+                                        <label className="block text-gray-700 mb-2">قیمت وکیوم (ممبران)</label>
+                                        <p className="text-lg md:text-xl font-bold text-primary">
+                                            {result.Vacuum.toLocaleString('fa')} <span className="text-xs md:text-sm font-normal">تومان</span>
+                                        </p>
+                                    </div>
+                                    <div className="text-center">
+                                        <label className="block text-gray-700 mb-2">قیمت رنگ پلی اورتان</label>
+                                        <p className="text-lg md:text-xl font-bold text-primary">
+                                            {result.Color.toLocaleString('fa')} <span className="text-xs md:text-sm font-normal">تومان</span>
+                                        </p>
+                                    </div>
+                                </Group>
+                            </Card>
+
+                            <div className="my-6 md:my-8">
+                                <label className="font-bold mb-2 block">انتخاب جنس کابینت</label>
+                                <SegmentedControl
+                                    value={selectedMaterial}
+                                    onChange={(val) => setSelectedMaterial(val)}
+                                    data={materialOptions}
+                                    fullWidth
+                                    size="md"
+                                />
+                                <div className="text-center mt-4">
+                                    <Text size="lg" fw={700} c="primary">
+                                        قیمت نهایی: {(result as any)[selectedMaterial]?.toLocaleString('fa') || 0} تومان
+                                    </Text>
                                 </div>
-                                <div className="text-center">
-                                    <label className="block text-gray-700 mb-2">قیمت هایگلاس</label>
-                                    <p className="text-lg md:text-xl font-bold text-primary">
-                                        {result.HighGlass.toLocaleString('fa')} <span className="text-xs md:text-sm font-normal">تومان</span>
-                                    </p>
-                                </div>
-                                <div className="text-center">
-                                    <label className="block text-gray-700 mb-2">قیمت وکیوم (ممبران)</label>
-                                    <p className="text-lg md:text-xl font-bold text-primary">
-                                        {result.Vacuum.toLocaleString('fa')} <span className="text-xs md:text-sm font-normal">تومان</span>
-                                    </p>
-                                </div>
-                                <div className="text-center">
-                                    <label className="block text-gray-700 mb-2">قیمت رنگ پلی اورتان</label>
-                                    <p className="text-lg md:text-xl font-bold text-primary">
-                                        {result.Color.toLocaleString('fa')} <span className="text-xs md:text-sm font-normal">تومان</span>
-                                    </p>
-                                </div>
-                            </Group>
-                        </Card>
+                            </div>
+                        </>
                     )}
                     
-                    <div className="center flex gap-4">
+                    <div className="center flex flex-wrap gap-4">
                         <Button size="md" loading={loading} onClick={calculatePrice}>
                             محاسبه قیمت آنلاین
                         </Button>
+                        {result && (
+                            <Button size="md" variant="light" loading={saving} onClick={async () => {
+                                const finalPrice = (result as any)[selectedMaterial] || 0;
+                                const materialLabel = materialOptions.find(o => o.value === selectedMaterial)?.label || selectedMaterial;
+                                setSaving(true);
+                                try {
+                                    const res = await backend("/user/design", "POST", {
+                                        slug: "calc",
+                                        price: finalPrice,
+                                        data: { ...params, material: selectedMaterial, prices: result },
+                                        image: "",
+                                        name: `کابینت ${materialLabel} ${generateRandomString()}`
+                                    });
+                                    if (res.ok && res.data) {
+                                        setSavedCalc({ id: res.data.id, price: finalPrice, name: res.data.name, material: materialLabel });
+                                    }
+                                } finally {
+                                    setSaving(false);
+                                }
+                            }}>
+                                ذخیره
+                            </Button>
+                        )}
                     </div>
                 </div>
             )}
+
+            <Modal
+                opened={!!savedCalc}
+                onClose={() => setSavedCalc(null)}
+                title="طرح ذخیره شد"
+                centered
+                size="md"
+            >
+                {savedCalc && (
+                    <div className="space-y-4">
+                        <h3 className="text-lg font-bold">{savedCalc.name}</h3>
+                        <div className="bg-gray-50 rounded-lg p-4 space-y-2">
+                            <div className="flex justify-between">
+                                <span className="text-gray-600">جنس:</span>
+                                <span className="font-bold">{savedCalc.material}</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span className="text-gray-600">قیمت نهایی:</span>
+                                <span className="text-lg font-bold text-primary">{savedCalc.price.toLocaleString("fa")} تومان</span>
+                            </div>
+                        </div>
+                        <div className="flex gap-3 justify-end pt-2">
+                            <Button variant="light" onClick={() => setSavedCalc(null)}>
+                                ادامه طراحی
+                            </Button>
+                            <Button
+                                onClick={() => {
+                                    backend("/user/cart", "POST", { customDesignId: savedCalc.id }).finally(() => {
+                                        window.location.href = "/user/cart";
+                                    });
+                                }}
+                            >
+                                تایید و افزودن به سبد خرید
+                            </Button>
+                        </div>
+                    </div>
+                )}
+            </Modal>
         </div>
     );
 }
