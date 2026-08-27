@@ -21,6 +21,10 @@ type FullUser = {
     isShopManager: boolean
     isSupport: boolean
     isContractManager: boolean
+    isAuthor: boolean
+    wallet: number
+    refCode: string
+    refId: string | null
     comments: Array<{
         id: string
         content: string
@@ -45,6 +49,8 @@ type FullUser = {
         id: string
         userId: string
         percent: number
+        amount: number
+        type: string
         used: number
         maxUsage: number
     }>
@@ -59,7 +65,12 @@ type FullUser = {
         phone2: string,
         postal?: string
     }>
-    cartItems: Array<any>
+    cartItems: Array<{
+        id: string
+        productId: string | null
+        customDesignId: string | null
+        quantity: number
+    }>
     designs: Array<{
         id: string
         created_at: string
@@ -81,6 +92,19 @@ type FullUser = {
         description: string
         answer: string
     }>
+    tickets: Array<{
+        id: string
+        title: string
+        status: string
+        created_at: string
+    }>
+    contracts: Array<{
+        id: string
+        title: string
+        status: string
+        finalPrice: number
+        created_at: string
+    }>
 }
 
 const STATUS_BADGE: Record<string, { color: string; label: string }> = {
@@ -91,6 +115,28 @@ const STATUS_BADGE: Record<string, { color: string; label: string }> = {
     ACCEPTED: { color: "primary", label: "تایید شده" },
     REJECTED: { color: "red", label: "رد شده" },
     WAITING: { color: "yellow", label: "در انتظار بررسی" },
+    OPEN: { color: "yellow", label: "باز" },
+    ANSWERED: { color: "primary", label: "پاسخ داده شده" },
+    CLOSED: { color: "secondary", label: "بسته شده" },
+    DRAFT: { color: "yellow", label: "پیش‌نویس" },
+    ACTIVE: { color: "primary", label: "فعال" },
+    EXPIRED: { color: "red", label: "منقضی شده" },
+    PAUSED: { color: "yellow", label: "تعلیق" },
+    PAY_CHECK: { color: "yellow", label: "بررسی پرداخت" },
+    SENT: { color: "primary", label: "ارسال شده" },
+};
+
+const CONTRACT_STATUS_BADGE: Record<string, { color: string; label: string }> = {
+    DRAFT: { color: "yellow", label: "پیش‌نویس" },
+    ACTIVE: { color: "primary", label: "فعال" },
+    EXPIRED: { color: "red", label: "منقضی شده" },
+    CANCELED: { color: "red", label: "لغو شده" },
+};
+
+const TICKET_STATUS_BADGE: Record<string, { color: string; label: string }> = {
+    OPEN: { color: "yellow", label: "باز" },
+    ANSWERED: { color: "primary", label: "پاسخ داده شده" },
+    CLOSED: { color: "secondary", label: "بسته شده" },
 };
 
 function toman(n: number) {
@@ -110,6 +156,29 @@ export default function Page({ params }: any) {
         { label: "شماره تماس", value: user.phone },
         { label: "کد ملی", value: user.nationalCode },
         { label: "تاریخ عضویت", value: new Date(user.joined_at).toLocaleDateString("fa-IR") },
+        { label: "کیف پول", value: <span className="font-bold text-green-700">{toman(user.wallet)}</span> },
+        { label: "کد معرف", value: <code className="bg-gray-100 px-2 py-1 rounded text-sm">{user.refCode}</code> },
+        { label: "معرفی‌شده توسط", value: user.refId ? <code className="bg-gray-100 px-2 py-1 rounded text-sm">{user.refId}</code> : "-" },
+        {
+            label: "نویسنده", value: (
+                <div className='flex items-center gap-2'>
+                    {user.isAuthor ? <Badge color="primary">بله</Badge> : <Badge color="secondary">خیر</Badge>}
+                    <ActionIcon size='sm' color={user.isAuthor ? "red" : undefined} onClick={async () => {
+                        if (user.isAuthor) await askConfirm("آیا میخواهید نویسندگی این کاربر را بگیرید؟")
+                        else await askConfirm("آیا میخواهید این کاربر را نویسنده کنید؟")
+
+                        await backend("/admin/users/"+id, "PUT", {
+                            isAuthor: !user.isAuthor
+                        })
+                            .finally(()=>{
+                                refetch();
+                            })
+                    }}>
+                        {user.isAuthor ? <IconMinus size={15} />:<IconPlus size={15} />}
+                    </ActionIcon>
+                </div>
+            )
+        },
         {
             label: "ادمین", value: (
                 <div className='flex items-center gap-2'>
@@ -258,9 +327,44 @@ export default function Page({ params }: any) {
     // OffCodes Table
     const offCodesBody = user.offCodes.map(o => [
         o.id,
-        <Badge color="primary">{o.percent}%</Badge>,
+        o.type === "PERCENT" ? <Badge color="primary">{o.percent}%</Badge> : <Badge color="teal">{toman(o.amount)}</Badge>,
         `${o.used} / ${o.maxUsage}`,
     ]);
+
+    // Cart Items Table
+    const cartItemsBody = user.cartItems.map(c => [
+        c.quantity,
+        c.productId ? <Link href={`/product/${c.productId}`}><Button size="xs" color="secondary">محصول</Button></Link> : c.customDesignId ? <Link href={`/design?id=${c.customDesignId}`}><Button size="xs" color="primary">طراحی</Button></Link> : "-",
+    ]);
+
+    // Tickets Table
+    const ticketsBody = user.tickets.map(t => [
+        <Badge color={TICKET_STATUS_BADGE[t.status]?.color || "gray"}>
+            {TICKET_STATUS_BADGE[t.status]?.label || t.status}
+        </Badge>,
+        t.title,
+        new Date(t.created_at).toLocaleString("fa-IR"),
+        <Link href={`/admin/ticket/${t.id}`}>
+            <Button size="xs" color="primary">مشاهده</Button>
+        </Link>
+    ]);
+
+    // Contracts Table
+    const contractsBody = user.contracts.map(c => [
+        <Badge color={CONTRACT_STATUS_BADGE[c.status]?.color || "gray"}>
+            {CONTRACT_STATUS_BADGE[c.status]?.label || c.status}
+        </Badge>,
+        c.title,
+        toman(c.finalPrice),
+        new Date(c.created_at).toLocaleString("fa-IR"),
+        <Link href={`/admin/contract/${c.id}`}>
+            <Button size="xs" color="primary">مشاهده</Button>
+        </Link>
+    ]);
+
+    const EmptyRow = ({ colSpan }: { colSpan: number }) => (
+        <tr><td colSpan={colSpan} className="text-center text-gray-400 py-4">موردی یافت نشد</td></tr>
+    );
 
     return (
         <div className="w-full p-4 space-y-10">
@@ -279,7 +383,7 @@ export default function Page({ params }: any) {
             <Table
                 data={{
                     head: ["وضعیت", "کد سفارش", "تاریخ", "مبلغ کل", "مبلغ نهایی", "کد تخفیف", "جزئیات"],
-                    body: ordersBody,
+                    body: ordersBody.length ? ordersBody : [[<EmptyRow colSpan={7} />]],
                 }}
                 striped
                 withColumnBorders
@@ -290,7 +394,7 @@ export default function Page({ params }: any) {
             <Table
                 data={{
                     head: ["وضعیت", "امتیاز", "متن", "تاریخ", "محصول"],
-                    body: commentsBody,
+                    body: commentsBody.length ? commentsBody : [[<EmptyRow colSpan={5} />]],
                 }}
                 striped
                 withColumnBorders
@@ -301,7 +405,7 @@ export default function Page({ params }: any) {
             <Table
                 data={{
                     head: ["تصویر", "نام", "قیمت", "تاریخ", "جزئیات"],
-                    body: designsBody,
+                    body: designsBody.length ? designsBody : [[<EmptyRow colSpan={5} />]],
                 }}
                 striped
                 withColumnBorders
@@ -312,7 +416,7 @@ export default function Page({ params }: any) {
             <Table
                 data={{
                     head: ["وضعیت", "عنوان", "تاریخ", "نوع", "جزئیات"],
-                    body: designReqBody,
+                    body: designReqBody.length ? designReqBody : [[<EmptyRow colSpan={5} />]],
                 }}
                 striped
                 withColumnBorders
@@ -323,7 +427,7 @@ export default function Page({ params }: any) {
             <Table
                 data={{
                     head: ["گیرنده", "تلفن", "استان", "شهر", "آدرس", "تلفن دوم","کدپستی"],
-                    body: addressesBody,
+                    body: addressesBody.length ? addressesBody : [[<EmptyRow colSpan={7} />]],
                 }}
                 striped
                 withColumnBorders
@@ -333,8 +437,41 @@ export default function Page({ params }: any) {
             <h3 className="text-lg font-bold mb-2">کدهای تخفیف</h3>
             <Table
                 data={{
-                    head: ["کد", "درصد", "تعداد استفاده / سقف"],
-                    body: offCodesBody,
+                    head: ["کد", "مقدار", "تعداد استفاده / سقف"],
+                    body: offCodesBody.length ? offCodesBody : [[<EmptyRow colSpan={3} />]],
+                }}
+                striped
+                withColumnBorders
+                className="mb-8"
+            />
+
+            <h3 className="text-lg font-bold mb-2">سبد خرید</h3>
+            <Table
+                data={{
+                    head: ["تعداد", "نوع"],
+                    body: cartItemsBody.length ? cartItemsBody : [[<EmptyRow colSpan={2} />]],
+                }}
+                striped
+                withColumnBorders
+                className="mb-8"
+            />
+
+            <h3 className="text-lg font-bold mb-2">تیکت‌ها</h3>
+            <Table
+                data={{
+                    head: ["وضعیت", "عنوان", "تاریخ", "جزئیات"],
+                    body: ticketsBody.length ? ticketsBody : [[<EmptyRow colSpan={4} />]],
+                }}
+                striped
+                withColumnBorders
+                className="mb-8"
+            />
+
+            <h3 className="text-lg font-bold mb-2">قراردادها</h3>
+            <Table
+                data={{
+                    head: ["وضعیت", "عنوان", "مبلغ", "تاریخ", "جزئیات"],
+                    body: contractsBody.length ? contractsBody : [[<EmptyRow colSpan={5} />]],
                 }}
                 striped
                 withColumnBorders

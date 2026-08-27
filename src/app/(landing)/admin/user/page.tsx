@@ -2,8 +2,7 @@
 
 import Loading from "@/no-side/Loading";
 import useBackend from "@/utils/hooks/useBackend";
-import { useState } from "react";
-import { Table, TextInput, Button } from "@mantine/core";
+import { Table, TextInput, Button, Badge } from "@mantine/core";
 import Link from "next/link";
 import { useDebouncedState } from "@mantine/hooks";
 
@@ -15,7 +14,30 @@ const example = {
     email: "undefined",
     joined_at: "2025-06-26T20:22:44.576Z",
     isAdmin: true,
+    isShopManager: false,
+    isSupport: false,
+    isContractManager: false,
+    isAuthor: false,
 };
+
+function RoleBadges(user: typeof example) {
+    const roles: { active: boolean; label: string; color: string }[] = [
+        { active: user.isAdmin, label: "ادمین", color: "primary" },
+        { active: user.isShopManager, label: "فروشگاه", color: "teal" },
+        { active: user.isSupport, label: "پشتیبان", color: "cyan" },
+        { active: user.isContractManager, label: "قرارداد", color: "violet" },
+        { active: user.isAuthor, label: "نویسنده", color: "primary" },
+    ];
+    const active = roles.filter(r => r.active);
+    if (!active.length) return <span className="text-gray-400">-</span>;
+    return (
+        <div className="flex flex-wrap gap-1">
+            {active.map(r => (
+                <Badge key={r.label} color={r.color} size="sm">{r.label}</Badge>
+            ))}
+        </div>
+    );
+}
 
 export default function Page() {
     const [filters, setFilters] = useDebouncedState<Record<string, string>>({
@@ -42,6 +64,7 @@ export default function Page() {
         "ایمیل",
         "کد ملی",
         "تاریخ عضویت",
+        "نقش‌ها",
         "عملیات",
     ];
 
@@ -51,6 +74,7 @@ export default function Page() {
         user.email || "-",
         user.nationalCode || "-",
         user.joined_at ? new Date(user.joined_at).toLocaleDateString("fa-IR") : "-",
+        <RoleBadges {...user} />,
         <Link href={`./user/${user.id}`}>
             <Button size="xs" variant="light">مشاهده</Button>
         </Link>,
