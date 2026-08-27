@@ -11,6 +11,7 @@ import {
     IconUser,
     IconUserShield,
     IconContract,
+    IconFile,
 } from '@tabler/icons-react';
 import useUser from '@/utils/hooks/useUser';
 import Dashboard from '@/components/Dashboard';
@@ -58,6 +59,11 @@ const navigationItems = [
         label: 'قراردادهای من',
         icon: IconContract,
         href: 'contract',
+    },
+    {
+        label: 'فایل‌های قرارداد',
+        icon: IconFile,
+        href: 'contract-file',
     },
 ];
 

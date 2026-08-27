@@ -5,6 +5,7 @@ import { useDisclosure } from '@mantine/hooks';
 import { IconLogout, IconHome, Icon } from '@tabler/icons-react';
 import useUser, { handleUserLogout } from '@/utils/hooks/useUser';
 import { usePathname, useRouter } from 'next/navigation';
+import NotificationBell from '@/components/theme/elements/NotificationBell';
 
 
 interface DashboardLayoutProps {
@@ -191,6 +192,7 @@ export default function Dashboard({ children, navItems: navigationItems, title =
             </Group>
 
             <Group>
+              {prefix === "user" && <NotificationBell />}
               <p>{user?.name}</p>
               <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
                 <Text size="sm" fw={600} className="text-blue-600">

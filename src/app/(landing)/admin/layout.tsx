@@ -2,7 +2,7 @@
 import Dashboard from "@/components/Dashboard";
 import useUser from "@/utils/hooks/useUser";
 import useBackend from "@/utils/hooks/useBackend";
-import { IconCategory, IconColorFilter, IconCube, IconCash, IconDashboard, IconDiscount, IconList, IconListCheck, IconListDetails, IconListLetters, IconListNumbers, IconMessage, IconUserHeart, IconUsers, IconUserShield, IconVariable, IconNotebook, IconSettings, IconHome, IconContract, IconBook, IconChartBar, IconCheck, IconSpeakerphone, IconCreditCard, IconShoppingBag, IconReceipt, IconBell } from "@tabler/icons-react";
+import { IconCategory, IconColorFilter, IconCube, IconCash, IconDashboard, IconDiscount, IconList, IconListCheck, IconListDetails, IconListLetters, IconListNumbers, IconMessage, IconUserHeart, IconUsers, IconUserShield, IconVariable, IconNotebook, IconSettings, IconHome, IconContract, IconBook, IconChartBar, IconCheck, IconSpeakerphone, IconCreditCard, IconShoppingBag, IconReceipt, IconBell, IconFile } from "@tabler/icons-react";
 import { Badge } from "@mantine/core";
 import { redirect } from "next/navigation";
 import { useInterval } from "@/utils/hooks/useEffects";
@@ -90,6 +90,7 @@ function Layout(props: any) {
                     children: [
                         { label: "لیست قراردادها", href: "contract", icon: IconContract },
                         { label: "قراردادهای مشتریان", href: "user-contracts", icon: IconContract },
+                        { label: "فایل‌های قرارداد", href: "contract-file", icon: IconFile },
                         { label: "لیست اقساط", href: "installments", icon: IconCreditCard },
                         { label: "بررسی چک‌ها", href: "check", icon: IconCheck },
                     ]
@@ -100,8 +101,14 @@ function Layout(props: any) {
                     icon: IconSpeakerphone,
                     children: [
                         { label: "اطلاعیه‌های سایت", href: "announcement", icon: IconSpeakerphone },
+                        { label: "اطلاعیه‌های مشتریان", href: "notification", icon: IconBell },
                         { label: "ارسال اطلاعیه پیامکی", href: "sms", icon: IconMessage },
                     ]
+                },
+                {
+                    label: "مقالات",
+                    href: "article",
+                    icon: IconBook,
                 },
                 {
                     label: "تنظیمات و قیمت‌ها",

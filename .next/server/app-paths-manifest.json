@@ -1,7 +1,13 @@
 {
+  "/(landing)/admin/article/[id]/page": "app/(landing)/admin/article/[id]/page.js",
+  "/(landing)/admin/article/page": "app/(landing)/admin/article/page.js",
+  "/(landing)/admin/contract-file/page": "app/(landing)/admin/contract-file/page.js",
+  "/(landing)/admin/notification/page": "app/(landing)/admin/notification/page.js",
   "/(landing)/admin/page": "app/(landing)/admin/page.js",
   "/(landing)/admin/user/page": "app/(landing)/admin/user/page.js",
+  "/(landing)/user/contract-file/page": "app/(landing)/user/contract-file/page.js",
   "/(landing)/user/page": "app/(landing)/user/page.js",
-  "/(main)/auth/page": "app/(main)/auth/page.js",
-  "/(main)/page": "app/(main)/page.js"
+  "/(main)/articles/page": "app/(main)/articles/page.js",
+  "/(main)/page": "app/(main)/page.js",
+  "/_not-found/page": "app/_not-found/page.js"
 }
