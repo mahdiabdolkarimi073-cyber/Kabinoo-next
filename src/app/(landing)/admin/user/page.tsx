@@ -48,15 +48,15 @@ export default function Page() {
         _contains: "name"
     }, 500);
 
-    const { data: users = null, loading } = useBackend<typeof example[]>(
-        "/admin/users?" + new URLSearchParams(
+    const { data: users = [], loading } = useBackend<typeof example[]>(
+        "/admin/user?" + new URLSearchParams(
             Object.fromEntries(
                 Object.entries(filters).filter(([_, v]) => v)
             )
         ).toString()
     );
 
-    if (users === null) return <Loading />;
+    if (loading && !users) return <Loading />;
 
     const tableHead = [
         "نام",
@@ -68,7 +68,7 @@ export default function Page() {
         "عملیات",
     ];
 
-    const tableBody = users.map((user: typeof example) => [
+    const tableBody = (users || []).map((user: typeof example) => [
         user.name || "-",
         user.phone || "-",
         user.email || "-",

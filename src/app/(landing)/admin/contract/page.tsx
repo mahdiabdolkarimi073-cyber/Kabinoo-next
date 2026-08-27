@@ -21,6 +21,7 @@ export default function Page() {
     const apiUrl = "/admin/contract?_include=user" + (status !== "ALL" ? `&status=${status}` : "");
     const { data: contracts = [], loading, refetch } = useBackend<any[]>(apiUrl);
     const [uploading, setUploading] = useState(false);
+    const [editTarget, setEditTarget] = useState<any | null>(null);
 
     if (loading) return <Loading />;
 
@@ -46,8 +47,6 @@ export default function Page() {
             children: <UploadModal onDone={() => { refetch(); modals.closeAll(); }} />,
         });
     };
-
-    const [editTarget, setEditTarget] = useState<any | null>(null);
 
     const tableHead = ["عنوان", "کاربر", "وضعیت", "تاریخ ثبت", "تاریخ انقضا", "عملیات"];
     const tableBody = contracts.map((contract) => [
@@ -169,7 +168,7 @@ function UploadModal({ onDone }: { onDone: () => void }) {
     const [expireAt, setExpireAt] = useState("");
     const [file, setFile] = useState<File | null>(null);
     const [loading, setLoading] = useState(false);
-    const { data: users = [] } = useBackend<any[]>("/admin/user");
+    const { data: users = [] } = useBackend<any[]>("/admin/users");
 
     const handleSubmit = async () => {
         if (!title) { window.alert("عنوان قرارداد را وارد کنید"); return; }
@@ -211,7 +210,7 @@ function UploadModal({ onDone }: { onDone: () => void }) {
             />
             <Select
                 label="کاربر (اختیاری)"
-                data={users.map((u: any) => ({ value: u.id, label: u.name + " - " + (u.phone?.() || u.phone || "") }))}
+                data={users.map((u: any) => ({ value: u.id, label: u.name + " - " + (u.phone || "") }))}
                 value={userId}
                 onChange={(value) => setUserId(value || "")}
                 searchable

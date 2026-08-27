@@ -129,7 +129,7 @@ function CreateContractModal({ onDone }: { onDone: () => void }) {
             <Textarea label="توضیحات" value={description} onChange={(e) => setDescription(e.target.value)} rows={3} />
             <Select
                 label="کاربر (اختیاری)"
-                data={users.map((u: any) => ({ value: u.id, label: u.name + " - " + (u.phone?.() || u.phone || "") }))}
+                data={users.map((u: any) => ({ value: u.id, label: u.name + " - " + (u.phone || "") }))}
                 value={userId}
                 onChange={(value) => setUserId(value || "")}
                 searchable

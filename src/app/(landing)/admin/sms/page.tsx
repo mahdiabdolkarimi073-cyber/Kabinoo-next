@@ -48,7 +48,7 @@ export default function Page() {
                         placeholder="کاربر مورد نظر را جستجو و انتخاب کنید"
                         data={users.map((u: any) => ({
                             value: u.id,
-                            label: `${u.name} - ${u.phone?.() ?? u.phone ?? ""}`,
+                            label: `${u.name} - ${u.phone ?? ""}`,
                         }))}
                         value={userId}
                         onChange={setUserId}
@@ -61,7 +61,7 @@ export default function Page() {
                             <Group gap="sm">
                                 <Text size="sm">گیرنده:</Text>
                                 <Text size="sm" fw={600}>{selectedUser.name}</Text>
-                                <Badge variant="light" color="blue">{selectedUser.phone?.() ?? selectedUser.phone}</Badge>
+                                <Badge variant="light" color="blue">{selectedUser.phone}</Badge>
                             </Group>
                         </Alert>
                     )}
