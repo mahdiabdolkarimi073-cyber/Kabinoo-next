@@ -1,34 +1,34 @@
 {
   "node": {
-    "00765d2dd7f0bf57a7b85d268c3b5c7028e855a0e2": {
+    "009229b39ed315979cb0119c1e6a778efe6a15c0d3": {
       "workers": {
         "app/(landing)/admin/variable/page": {
-          "moduleId": "[project]/frontend/.next-internal/server/app/(landing)/admin/variable/page/actions.js { ACTIONS_MODULE0 => \"[project]/frontend/src/ssr/actions/user.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/frontend/src/app/(landing)/admin/variable/page.tsx [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "moduleId": "[project]/.next-internal/server/app/(landing)/admin/variable/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ssr/actions/user.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(landing)/admin/variable/page.tsx [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "exportedName": "logout",
-          "filename": "frontend/src/ssr/actions/user.ts"
+          "filename": "src/ssr/actions/user.ts"
         }
       },
       "layer": {
         "app/(landing)/admin/variable/page": "action-browser"
       },
       "exportedName": "logout",
-      "filename": "frontend/src/ssr/actions/user.ts"
+      "filename": "src/ssr/actions/user.ts"
     },
-    "605a05bde50344f715c5a208e54836d0a05f6d8992": {
+    "605925ec035a9fef5a80caace73c034b8d53954fea": {
       "workers": {
         "app/(landing)/admin/variable/page": {
-          "moduleId": "[project]/frontend/.next-internal/server/app/(landing)/admin/variable/page/actions.js { ACTIONS_MODULE0 => \"[project]/frontend/src/ssr/actions/user.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/frontend/src/app/(landing)/admin/variable/page.tsx [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "moduleId": "[project]/.next-internal/server/app/(landing)/admin/variable/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ssr/actions/user.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(landing)/admin/variable/page.tsx [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "exportedName": "$$RSC_SERVER_ACTION_0",
-          "filename": "frontend/src/app/(landing)/admin/variable/page.tsx"
+          "filename": "src/app/(landing)/admin/variable/page.tsx"
         }
       },
       "layer": {
         "app/(landing)/admin/variable/page": "rsc"
       },
       "exportedName": "$$RSC_SERVER_ACTION_0",
-      "filename": "frontend/src/app/(landing)/admin/variable/page.tsx"
+      "filename": "src/app/(landing)/admin/variable/page.tsx"
     }
   },
   "edge": {}

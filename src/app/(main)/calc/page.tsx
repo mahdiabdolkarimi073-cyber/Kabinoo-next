@@ -606,7 +606,7 @@ export default function Page() {
                             </div>
                         )}
                         <div>
-                            <label className="font-bold mb-2 block">عمق کمد دیواری</label>
+                            <label className="font-bold mb-2 block">عمق کابینت دیواری</label>
                             <small className="block mb-2 text-gray-400">عمق کابینت دیواری را انتخاب کنید</small>
                             <SegmentedControl
                                 value={params.tallWidth?.toString() || "35"}

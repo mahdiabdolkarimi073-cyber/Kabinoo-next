@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "NODE_OPTIONS='--max-old-space-size=8192' next dev --turbopack",
+    "dev:fast": "NODE_OPTIONS='--max-old-space-size=8192' next dev --turbopack --no-typescript --no-eslint",
     "dev:domain": "next dev -H kabinoo.ir -p 80 --turbopack",
     "build": "next build",
     "start": "next start",
