@@ -7,7 +7,8 @@ import Loading from "@/no-side/Loading";
 import useBackend from "@/utils/hooks/useBackend";
 import { backend } from "@/utils/api";
 import { askConfirm } from "@/utils/ui/modalUtils/confirm";
-import { IconEdit } from "@tabler/icons-react";
+import { IconEdit, IconEye } from "@tabler/icons-react";
+import Link from "next/link";
 
 const ContractStatusList = [
     { value: "DRAFT", label: "پیش‌نویس", color: "gray" },
@@ -48,17 +49,24 @@ export default function Page() {
         });
     };
 
-    const tableHead = ["عنوان", "کاربر", "وضعیت", "تاریخ ثبت", "تاریخ انقضا", "عملیات"];
+    const tableHead = ["عنوان", "کاربر", "مبلغ نهایی", "وضعیت", "تاریخ ثبت", "تاریخ انقضا", "عملیات"];
     const tableBody = contracts.map((contract) => [
-        contract.title,
+        <Text key="title" fw={600}>{contract.title}</Text>,
         contract.user?.name || "-",
+        contract.finalPrice ? (+contract.finalPrice).toLocaleString("fa-IR") + " تومان" : "-",
         <Badge key="status" color={ContractStatusList.find(s => s.value === contract.status)?.color || "gray"} variant="light">
             {ContractStatusList.find(s => s.value === contract.status)?.label || contract.status}
         </Badge>,
         new Date(contract.created_at).toLocaleDateString("fa-IR"),
         contract.expire_at ? new Date(contract.expire_at).toLocaleDateString("fa-IR") : "-",
         <Group key="actions" gap="xs">
-            <Button size="xs" variant="light" component="a" href={contract.file} target="_blank">مشاهده فایل</Button>
+            <Link href={`/admin/contract/${contract.id}`}>
+                <Button size="xs" variant="light" leftSection={<IconEye size={14} />}>جزئیات</Button>
+            </Link>
+            <Button size="xs" variant="light" component="a" href={contract.file} target="_blank">فایل</Button>
+            {contract.designFile && (
+                <Button size="xs" variant="light" color="teal" component="a" href={contract.designFile} target="_blank">طراحی</Button>
+            )}
             <Button size="xs" variant="light" color="blue" leftSection={<IconEdit size={14} />} onClick={() => setEditTarget(contract)}>ویرایش</Button>
             <Select
                 size="xs"
@@ -111,6 +119,7 @@ function EditContractModal({ contract, onClose, onSaved }: { contract: any | nul
     const [description, setDescription] = useState("");
     const [status, setStatus] = useState("");
     const [expireAt, setExpireAt] = useState("");
+    const [finalPrice, setFinalPrice] = useState("");
     const [saving, setSaving] = useState(false);
 
     useEffect(() => {
@@ -119,6 +128,7 @@ function EditContractModal({ contract, onClose, onSaved }: { contract: any | nul
             setDescription(contract.description || "");
             setStatus(contract.status || "DRAFT");
             setExpireAt(contract.expire_at ? new Date(contract.expire_at).toISOString().split("T")[0] : "");
+            setFinalPrice(contract.finalPrice ? String(contract.finalPrice) : "");
         }
     }, [contract]);
 
@@ -129,6 +139,7 @@ function EditContractModal({ contract, onClose, onSaved }: { contract: any | nul
         setSaving(true);
         const body: any = { title, description, status };
         if (expireAt) body.expire_at = expireAt;
+        if (finalPrice) body.finalPrice = +finalPrice;
         const res = await backend(`/admin/contract/${contract.id}`, "PUT", body);
         setSaving(false);
         if (res.ok) onSaved();
@@ -151,6 +162,7 @@ function EditContractModal({ contract, onClose, onSaved }: { contract: any | nul
                     value={status}
                     onChange={(v) => setStatus(v || "DRAFT")}
                 />
+                <TextInput label="مبلغ نهایی (تومان)" type="number" value={finalPrice} onChange={(e) => setFinalPrice(e.target.value)} />
                 <TextInput label="تاریخ انقضا (اختیاری)" type="date" value={expireAt} onChange={(e) => setExpireAt(e.target.value)} />
                 <Group justify="flex-end">
                     <Button variant="light" onClick={onClose}>انصراف</Button>
@@ -166,7 +178,9 @@ function UploadModal({ onDone }: { onDone: () => void }) {
     const [description, setDescription] = useState("");
     const [userId, setUserId] = useState("");
     const [expireAt, setExpireAt] = useState("");
+    const [finalPrice, setFinalPrice] = useState("");
     const [file, setFile] = useState<File | null>(null);
+    const [designFile, setDesignFile] = useState<File | null>(null);
     const [loading, setLoading] = useState(false);
     const { data: users = [] } = useBackend<any[]>("/admin/users");
 
@@ -177,10 +191,12 @@ function UploadModal({ onDone }: { onDone: () => void }) {
         try {
             const formData = new FormData();
             formData.append("file", file);
+            if (designFile) formData.append("designFile", designFile);
             formData.append("title", title);
             formData.append("description", description);
             if (userId) formData.append("userId", userId);
             if (expireAt) formData.append("expire_at", expireAt);
+            if (finalPrice) formData.append("finalPrice", finalPrice);
 
             const res = await backend("/admin/contract/upload", "POST", formData);
             if (!res.ok) {
@@ -217,6 +233,12 @@ function UploadModal({ onDone }: { onDone: () => void }) {
                 clearable
             />
             <TextInput
+                label="مبلغ نهایی (تومان)"
+                type="number"
+                value={finalPrice}
+                onChange={(e) => setFinalPrice(e.target.value)}
+            />
+            <TextInput
                 label="تاریخ انقضا (اختیاری)"
                 type="date"
                 value={expireAt}
@@ -228,6 +250,12 @@ function UploadModal({ onDone }: { onDone: () => void }) {
                 onChange={(f) => setFile(f)}
                 accept=".pdf,.doc,.docx,.jpg,.png"
                 required
+            />
+            <FileInput
+                label="فایل طراحی (اختیاری)"
+                placeholder="فایل طراحی را انتخاب کنید"
+                onChange={(f) => setDesignFile(f)}
+                accept=".pdf,.jpg,.png,.zip,.rar"
             />
             <Button loading={loading} onClick={handleSubmit} fullWidth>
                 ثبت قرارداد

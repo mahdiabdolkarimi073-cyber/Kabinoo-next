@@ -29,13 +29,13 @@ export default function Page() {
     const [loading, setLoading] = useState(false);
     const router = useRouter();
 
-    const { data, loading: l5 } = !isN ? useBackend<Article>(`/author/article/${id}`) : { data: undefined, loading: false };
+    const { data, loading: l5 } = useBackend<Article>(!isN ? `/author/article/${id}` : `/author/article/__none__`);
 
     useEffect(() => {
         if (!loading && !isN) setArticle(data);
     }, [data, l5]);
 
-    if (l5) return <Loading />;
+    if (l5 && !isN) return <Loading />;
 
     const addKeyword = () => {
         const kw = keywordInput.trim();

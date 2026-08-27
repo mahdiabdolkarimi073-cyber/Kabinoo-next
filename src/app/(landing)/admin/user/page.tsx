@@ -49,7 +49,7 @@ export default function Page() {
     }, 500);
 
     const { data: users = [], loading } = useBackend<typeof example[]>(
-        "/admin/user?" + new URLSearchParams(
+        "/admin/users?" + new URLSearchParams(
             Object.fromEntries(
                 Object.entries(filters).filter(([_, v]) => v)
             )

@@ -43,12 +43,12 @@ export default function Page() {
     const maxInstallmentAmount = Math.max(...stats.installmentsByMonth.map(m => m.amount), 1);
 
     const userCards = [
-        { label: "کل کاربران", value: stats.users.total, icon: IconUsers, color: "blue", href: "/admin/user" },
+        { label: "کل کاربران", value: stats.users.total, icon: IconUsers, color: "blue", href: "/admin/users" },
         { label: "نویسندگان", value: stats.users.authors, icon: IconNotebook, color: "orange", href: "/admin/author" },
-        { label: "مدیران فروشگاه", value: stats.users.shopManagers, icon: IconShoppingBag, color: "teal", href: "/admin/user" },
-        { label: "مدیران قرارداد", value: stats.users.contractManagers, icon: IconContract, color: "indigo", href: "/admin/user" },
-        { label: "پشتیبانان", value: stats.users.support, icon: IconHeadset, color: "cyan", href: "/admin/user" },
-        { label: "مدیران سیستم", value: stats.users.admins, icon: IconUserShield, color: "red", href: "/admin/user" },
+        { label: "مدیران فروشگاه", value: stats.users.shopManagers, icon: IconShoppingBag, color: "teal", href: "/admin/users" },
+        { label: "مدیران قرارداد", value: stats.users.contractManagers, icon: IconContract, color: "indigo", href: "/admin/users" },
+        { label: "پشتیبانان", value: stats.users.support, icon: IconHeadset, color: "cyan", href: "/admin/users" },
+        { label: "مدیران سیستم", value: stats.users.admins, icon: IconUserShield, color: "red", href: "/admin/users" },
     ];
 
     const orderCards = [

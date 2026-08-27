@@ -2,7 +2,7 @@
 import Dashboard from "@/components/Dashboard";
 import useUser from "@/utils/hooks/useUser";
 import useBackend from "@/utils/hooks/useBackend";
-import { IconCategory, IconColorFilter, IconCube, IconCash, IconDashboard, IconDiscount, IconList, IconListCheck, IconListDetails, IconListLetters, IconListNumbers, IconMessage, IconUserHeart, IconUsers, IconUserShield, IconVariable, IconNotebook, IconSettings, IconHome, IconContract, IconBook, IconChartBar, IconCheck, IconSpeakerphone, IconCreditCard, IconShoppingBag, IconReceipt, IconBell, IconFile } from "@tabler/icons-react";
+import { IconCategory, IconColorFilter, IconCube, IconCash, IconDashboard, IconDiscount, IconList, IconListCheck, IconListDetails, IconListLetters, IconListNumbers, IconMessage, IconUserHeart, IconUsers, IconUserShield, IconVariable, IconNotebook, IconSettings, IconHome, IconContract, IconBook, IconChartBar, IconCheck, IconSpeakerphone, IconCreditCard, IconShoppingBag, IconReceipt, IconBell, IconFile, IconHeadphones } from "@tabler/icons-react";
 import { Badge } from "@mantine/core";
 import { redirect } from "next/navigation";
 import { useInterval } from "@/utils/hooks/useEffects";
@@ -73,6 +73,7 @@ function Layout(props: any) {
                         { label: "نویسندگان", href: "author", icon: IconNotebook },
                         { label: "تیکت‌ها", href: "ticket", icon: IconUserShield },
                         { label: "درخواست‌های تماس تلفنی", href: "advice", icon: IconUserHeart },
+                        { label: "درخواست‌های مشاوره", href: "counseling", icon: IconHeadphones },
                         { label: "چت آنلاین", href: "chat", icon: IconMessage, badge: chatBadge },
                         { label: "نظرات کاربران", href: "comment", icon: IconMessage },
                         { label: "سوالات متداول", href: "faq", icon: IconMessage },

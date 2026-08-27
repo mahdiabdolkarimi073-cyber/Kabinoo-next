@@ -1,7 +1,7 @@
 'use client';
 import useBackend from "@/utils/hooks/useBackend";
 import { Card, Text, Group, ThemeIcon, SimpleGrid, Badge } from "@mantine/core";
-import { IconNotebook, IconUsers, IconListCheck, IconMessage, IconShoppingBag, IconListLetters } from "@tabler/icons-react";
+import { IconNotebook, IconUsers, IconListCheck, IconMessage, IconShoppingBag, IconListLetters, IconHeadphones } from "@tabler/icons-react";
 import Link from "next/link";
 
 type Stat = {
@@ -15,20 +15,23 @@ type Stat = {
 export default function Page() {
     const { data: authors = [] } = useBackend<any[]>("/admin/author");
     const { data: orders = [] } = useBackend<any[]>("/admin/order");
-    const { data: users = [] } = useBackend<any[]>("/admin/user");
+    const { data: users = [] } = useBackend<any[]>("/admin/users");
     const { data: chats = [] } = useBackend<any[]>("/admin/chat?_include=user");
     const { data: products = [] } = useBackend<any[]>("/admin/product");
     const { data: portfolio = [] } = useBackend<any[]>("/admin/portfolio");
+    const { data: counselings = [] } = useBackend<any[]>("/admin/counseling");
 
     const unansweredChats = chats.filter((c: any) => !c.answered).length;
+    const pendingCounselings = counselings.filter((c: any) => c.status === "PENDING").length;
 
     const stats: Stat[] = [
         { label: "سفارشات", value: orders.length, icon: IconListCheck, color: "blue", href: "/admin/order" },
         { label: "محصولات", value: products.length, icon: IconShoppingBag, color: "green", href: "/admin/products" },
-        { label: "کاربران", value: users.length, icon: IconUsers, color: "violet", href: "/admin/user" },
+        { label: "کاربران", value: users.length, icon: IconUsers, color: "violet", href: "/admin/users" },
         { label: "نویسندگان", value: authors.length, icon: IconNotebook, color: "orange", href: "/admin/author" },
         { label: "نمونه کارها", value: portfolio.length, icon: IconListLetters, color: "teal", href: "/admin/portfolio" },
         { label: "چت‌های پاسخ‌نشده", value: unansweredChats, icon: IconMessage, color: "red", href: "/admin/chat" },
+        { label: "درخواست‌های مشاوره", value: pendingCounselings, icon: IconHeadphones, color: "grape", href: "/admin/counseling" },
     ];
 
     return (
