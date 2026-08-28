@@ -10,7 +10,7 @@ import StyledDiv from '@/style-stuff/StyledDiv';
 import { parseDesignData, DesignSpecsTable } from '@/utils/designSpecs';
 import { Button, Modal } from '@mantine/core';
 
-const Categories = { Library: 1, TvStand: 2, Console: 3, Closet: 4, ShoesBox: 5, Drawer: 6, Open: 7, BedSideTable: 9 }
+const Categories = { Library: 1, TvStand: 2, Console: 3, Closet: 4, ShoesBox: 5, Drawer: 6, BedSideTable: 9 }
 export const CategoriesReverse = Object.fromEntries(
     Object.entries(Categories).map(([key, value]) => [value, key])
 );
@@ -46,11 +46,6 @@ export const CategoriesLabels = [
         "image": "//cdn.idero.ir/file/product/2/2IEFVA5F_icon.jpg",
         "id": "Drawer"
     },
-    {
-        "name": "اپن",
-        "image": "https://images.pexels.com/photos/6580395/pexels-photo-6580395.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-        "id": "Open"
-    }
 ] as const;
 
 const CategoryCard = ({ name, image }: any) => {

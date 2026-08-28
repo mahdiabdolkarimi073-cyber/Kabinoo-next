@@ -1,15 +1,16 @@
 'use client';
 
 import React, { useMemo, useState } from 'react';
-import { Button, Rating, Textarea, TextInput } from "@mantine/core";
+import { Button, Rating, Textarea, TextInput, NumberInput, Group, Modal } from "@mantine/core";
 import { products } from "@/hard-code";
 import ProductCard from "@/app/(main)/ProductCard";
 import { FullProduct } from '@/app/(landing)/admin/products/type';
 import useUser from '@/utils/hooks/useUser';
 import { backend } from '@/utils/api';
 import { useRouter } from 'next/navigation';
-import FullProductCard, { GlobalAddToCard } from '@/components/FullProductCard';
+import FullProductCard from '@/components/FullProductCard';
 import Link from 'next/link';
+import { IconShoppingCart } from "@tabler/icons-react";
 
 function Product({ product, similarProducts = [] }: {
     product: FullProduct,
@@ -20,6 +21,9 @@ function Product({ product, similarProducts = [] }: {
     const [mainImage, setMainImage] = useState(product.images[0] || "");
     const router = useRouter();
     const [loading, setLoading] = useState(false);
+    const [cartModalOpen, setCartModalOpen] = useState(false);
+    const [cartQuantity, setCartQuantity] = useState(1);
+    const [cartLoading, setCartLoading] = useState(false);
     const finalOthers = useMemo(() => ({
         "رنگ": product?.color?.name,
         "متریال": product?.material?.name,
@@ -133,7 +137,7 @@ function Product({ product, similarProducts = [] }: {
                     </div>
                     <div className='flex gap-3 justify-center lg:justify-start items-center flex-wrap'>
                         {/* دکمه افزودن به سبد خرید */}
-                        <Button size={'lg'} onClick={e => GlobalAddToCard(product, e)}>
+                        <Button size={'lg'} onClick={() => { setCartModalOpen(true); setCartQuantity(1); }}>
                             <svg className="w-6 h-6 inline-block ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                             افزودن به سبد خرید
                         </Button>
@@ -273,6 +277,59 @@ function Product({ product, similarProducts = [] }: {
                     ))}
                 </div>
             </div>
+
+            <Modal opened={cartModalOpen} onClose={() => setCartModalOpen(false)} title="افزودن به سبد خرید" centered size="sm" dir="rtl">
+                <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                        {product.images?.[0] && (
+                            <img
+                                src={product.images[0]}
+                                alt={product.name}
+                                className="w-16 h-16 object-cover rounded-lg"
+                            />
+                        )}
+                        <div>
+                            <p className="font-bold text-gray-800">{product.name}</p>
+                            <p className="text-secondary font-semibold">
+                                {product.finalPrice.toLocaleString('fa')} تومان
+                            </p>
+                        </div>
+                    </div>
+                    <NumberInput
+                        label="تعداد"
+                        value={cartQuantity}
+                        onChange={(val) => setCartQuantity(typeof val === 'number' ? val : 1)}
+                        min={1}
+                        max={99}
+                        size="md"
+                    />
+                    <Group justify="flex-end" mt="md">
+                        <Button variant="outline" onClick={() => setCartModalOpen(false)}>انصراف</Button>
+                        <Button
+                            loading={cartLoading}
+                            onClick={async () => {
+                                if (!window.user) {
+                                    window.throw("لطفا ابتدا وارد حساب کاربری خود شوید!");
+                                    return;
+                                }
+                                setCartLoading(true);
+                                const res = await backend("/user/cart", "POST", {
+                                    productId: product.id,
+                                    quantity: cartQuantity
+                                });
+                                setCartLoading(false);
+                                if (res.ok) {
+                                    setCartModalOpen(false);
+                                    window.location.href = "/user/cart";
+                                }
+                            }}
+                            leftSection={<IconShoppingCart size={18} />}
+                        >
+                            افزودن به سبد
+                        </Button>
+                    </Group>
+                </div>
+            </Modal>
         </div>
     );
 }

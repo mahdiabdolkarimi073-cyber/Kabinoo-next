@@ -22,6 +22,7 @@ import {
     IconHeadphones,
     IconContract,
     IconArticle,
+    IconWallet,
 } from "@tabler/icons-react";
 import Link from "next/link";
 
@@ -68,6 +69,9 @@ function DashboardButton() {
                     )}
                     <MenuItem component={Link} href='/user' leftSection={<IconUser size={20} />}>
                         حساب کاربری
+                    </MenuItem>
+                    <MenuItem component={Link} href='/user/wallet' leftSection={<IconWallet size={20} />}>
+                        کیف پول
                     </MenuItem>
                     <MenuItem component={Link} href='/user/password' leftSection={<IconKey size={20} />}>
                         تغییر رمزعبور
