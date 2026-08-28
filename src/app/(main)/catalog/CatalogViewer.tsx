@@ -1,16 +1,52 @@
 'use client';
 
 import { ActionIcon, Button } from "@mantine/core";
-import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
+import { IconChevronLeft, IconChevronRight, IconExternalLink } from "@tabler/icons-react";
 import { useState } from "react";
 
 type CatalogViewerProps = {
     title: string;
     pages: string[];
+    zipPath?: string;
+    entryFile?: string;
 };
 
-export default function CatalogViewer({ title, pages }: CatalogViewerProps) {
+export default function CatalogViewer({ title, pages, zipPath, entryFile }: CatalogViewerProps) {
     const [page, setPage] = useState(0);
+
+    if (zipPath && entryFile) {
+        const backendUrl = typeof window !== 'undefined' ? window.backendUrl : '';
+        const iframeSrc = `${backendUrl}${zipPath}/${entryFile}`.replace('/uploaded', '/public/file');
+
+        return (
+            <section dir="rtl" className="mx-auto max-w-5xl">
+                <div className="overflow-hidden rounded-2xl bg-[#eee9df] p-3 shadow-xl md:p-6">
+                    <div className="overflow-hidden rounded-xl bg-white shadow-inner">
+                        <iframe
+                            src={iframeSrc}
+                            title={title}
+                            className="h-[80vh] w-full border-0"
+                            allow="fullscreen"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div className="mt-4 flex items-center justify-center gap-3">
+                        <Button
+                            variant="subtle"
+                            component="a"
+                            href={iframeSrc}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            leftSection={<IconExternalLink size={18} />}
+                        >
+                            مشاهده در تب جدید
+                        </Button>
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
     const currentPage = pages[page];
     const nextPage = () => setPage(value => Math.min(value + 1, pages.length - 1));
     const previousPage = () => setPage(value => Math.max(value - 1, 0));

@@ -8,6 +8,8 @@ export type PublicCatalog = {
     description: string;
     coverImage: string;
     pages: string[];
+    zipPath: string;
+    entryFile: string;
 };
 
 export default async function CatalogPage() {
