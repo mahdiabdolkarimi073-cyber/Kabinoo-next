@@ -2,8 +2,38 @@
   "node": {
     "009229b39ed315979cb0119c1e6a778efe6a15c0d3": {
       "workers": {
-        "app/(landing)/shop-manager/page": {
-          "moduleId": "[project]/.next-internal/server/app/(landing)/shop-manager/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ssr/actions/user.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+        "app/(landing)/admin/chat/[id]/page": {
+          "moduleId": "[project]/.next-internal/server/app/(landing)/admin/chat/[id]/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ssr/actions/user.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "logout",
+          "filename": "src/ssr/actions/user.ts"
+        },
+        "app/(landing)/admin/chat/page": {
+          "moduleId": "[project]/.next-internal/server/app/(landing)/admin/chat/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ssr/actions/user.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "logout",
+          "filename": "src/ssr/actions/user.ts"
+        },
+        "app/(landing)/admin/page": {
+          "moduleId": "[project]/.next-internal/server/app/(landing)/admin/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ssr/actions/user.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "logout",
+          "filename": "src/ssr/actions/user.ts"
+        },
+        "app/(landing)/admin/request-type/page": {
+          "moduleId": "[project]/.next-internal/server/app/(landing)/admin/request-type/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ssr/actions/user.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "logout",
+          "filename": "src/ssr/actions/user.ts"
+        },
+        "app/(landing)/user/order/[id]/page": {
+          "moduleId": "[project]/.next-internal/server/app/(landing)/user/order/[id]/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ssr/actions/user.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "logout",
+          "filename": "src/ssr/actions/user.ts"
+        },
+        "app/(landing)/user/order/page": {
+          "moduleId": "[project]/.next-internal/server/app/(landing)/user/order/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ssr/actions/user.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "exportedName": "logout",
           "filename": "src/ssr/actions/user.ts"
@@ -28,7 +58,12 @@
         }
       },
       "layer": {
-        "app/(landing)/shop-manager/page": "action-browser",
+        "app/(landing)/admin/chat/[id]/page": "action-browser",
+        "app/(landing)/admin/chat/page": "action-browser",
+        "app/(landing)/admin/page": "action-browser",
+        "app/(landing)/admin/request-type/page": "action-browser",
+        "app/(landing)/user/order/[id]/page": "action-browser",
+        "app/(landing)/user/order/page": "action-browser",
         "app/(landing)/user/page": "action-browser",
         "app/(main)/auth/page": "action-browser",
         "app/(main)/page": "action-browser"

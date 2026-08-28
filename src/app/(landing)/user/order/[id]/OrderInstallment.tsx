@@ -56,14 +56,24 @@ export default function OrderInstallment({ order }: { order: any }) {
 
             <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 mb-5 text-amber-950">
                 <div className="font-bold mb-1">راهنمای ارسال اطلاعات چک</div>
-                <p className="text-sm leading-6">تصویر چک باید کاملاً خوانا، کامل و بدون خط‌خوردگی باشد. اطلاعات چک، مبلغ و تاریخ‌ها را پیش از ارسال بررسی کنید.</p>
+                <p className="text-sm leading-6">چک خوانا بدون خط خوردگی باشد. تصویر چک باید کاملاً خوانا، کامل و بدون خط‌خوردگی باشد. اطلاعات چک، مبلغ و تاریخ‌ها را پیش از ارسال بررسی کنید.</p>
             </div>
             {(order.address?.receiver || order.user?.nationalCode) && (
                 <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 mb-5">
                     <div className="text-sm text-slate-500 mb-2">هویت گیرنده سفارش</div>
-                    <div className="flex flex-wrap gap-x-8 gap-y-2 font-medium">
-                        {order.address?.receiver && <span>گیرنده: {order.address.receiver}</span>}
-                        {order.user?.nationalCode && <span>شناسه ملی گیرنده: {order.user.nationalCode}</span>}
+                    <div className="flex flex-col gap-y-2 font-medium">
+                        {order.address?.receiver && (
+                            <div className="flex gap-x-8">
+                                <span className="text-slate-500 text-sm">نام گیرنده:</span>
+                                <span>{order.address.receiver}</span>
+                            </div>
+                        )}
+                        {order.user?.nationalCode && (
+                            <div className="flex gap-x-8">
+                                <span className="text-slate-500 text-sm">کد ملی گیرنده:</span>
+                                <span dir="ltr">{order.user.nationalCode}</span>
+                            </div>
+                        )}
                     </div>
                 </div>
             )}

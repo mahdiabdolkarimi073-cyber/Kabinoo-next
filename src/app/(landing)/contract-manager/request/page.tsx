@@ -7,10 +7,19 @@ import Loading from "@/no-side/Loading";
 import useBackend from "@/utils/hooks/useBackend";
 import { backend } from "@/utils/api";
 
+const defaultTypeLabels: Record<string, string> = {
+    PRICE: "قیمت بده",
+    MODEL: "مدل سه بعدی"
+};
+
 export default function Page() {
     const [status, setStatus] = useState("ALL");
     const apiUrl = "/contract-manager/request?_include=user" + (status !== "ALL" ? `&status=${status}` : "");
     const { data: requests = [], loading, refetch } = useBackend<any[]>(apiUrl);
+    const { data: typeList = [] } = useBackend<any[]>("/public/requestType?enabled=true");
+
+    const typeLabels: Record<string, string> = { ...defaultTypeLabels };
+    typeList.forEach((t: any) => { typeLabels[t.key] = t.label; });
 
     if (loading) return <Loading />;
 
@@ -26,7 +35,7 @@ export default function Page() {
     const tableBody = requests.map((req) => [
         req.title,
         req.user?.name || "-",
-        req.type === "PRICE" ? "قیمت بده" : "مدل سه بعدی",
+        typeLabels[req.type] || req.type,
         <Badge key="status" color={req.status === "ACCEPTED" ? "green" : req.status === "REJECTED" ? "red" : "yellow"}>
             {req.status}
         </Badge>,

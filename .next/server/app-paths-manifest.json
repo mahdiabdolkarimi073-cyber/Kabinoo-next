@@ -1,7 +1,11 @@
 {
-  "/(landing)/shop-manager/page": "app/(landing)/shop-manager/page.js",
+  "/(landing)/admin/chat/[id]/page": "app/(landing)/admin/chat/[id]/page.js",
+  "/(landing)/admin/chat/page": "app/(landing)/admin/chat/page.js",
+  "/(landing)/admin/page": "app/(landing)/admin/page.js",
+  "/(landing)/admin/request-type/page": "app/(landing)/admin/request-type/page.js",
+  "/(landing)/user/order/[id]/page": "app/(landing)/user/order/[id]/page.js",
+  "/(landing)/user/order/page": "app/(landing)/user/order/page.js",
   "/(landing)/user/page": "app/(landing)/user/page.js",
   "/(main)/auth/page": "app/(main)/auth/page.js",
-  "/(main)/page": "app/(main)/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/(main)/page": "app/(main)/page.js"
 }

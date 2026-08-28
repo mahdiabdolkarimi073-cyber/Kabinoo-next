@@ -371,6 +371,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../src/app/(landing)/admin/request-type/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/admin/request-type">> = Specific
+  const handler = {} as typeof import("../../src/app/(landing)/admin/request-type/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../src/app/(landing)/admin/request/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/admin/request">> = Specific
@@ -888,6 +897,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends AppPageConfig<"/user/ticket">> = Specific
   const handler = {} as typeof import("../../src/app/(landing)/user/ticket/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/(landing)/user/wallet/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/user/wallet">> = Specific
+  const handler = {} as typeof import("../../src/app/(landing)/user/wallet/page.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

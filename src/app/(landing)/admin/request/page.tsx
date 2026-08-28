@@ -7,40 +7,23 @@ import Loading from "@/no-side/Loading";
 import { backend } from "@/utils/api";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const typeLabels: Record<string, string> = {
+const defaultTypeLabels: Record<string, string> = {
     PRICE: "برآورد هزینه و مشاوره",
     MODEL: "مدل سه‌بعدی"
 };
 
-const requests = [
-    {
-        id: "req1",
-        title: "کابینت آشپزخانه",
-        created_at: "2025-08-17T10:00:00.000Z",
-        type: "PRICE",
-        description: "نیاز به مشاوره و قیمت‌گذاری",
-        files: ["file1.jpg", "file2.pdf"],
-        status: "در انتظار بررسی"
-    },
-    {
-        id: "req2",
-        title: "مدل سه‌بعدی میز",
-        created_at: "2025-08-16T15:30:00.000Z",
-        type: "MODEL",
-        description: "طراحی مدل سه‌بعدی میز اداری",
-        files: [],
-        status: "انجام شده"
-    }
-];
-
 export default function Page() {
     const params = useSearchParams();
     const { data: requests = [], loading, refetch } = useBackend<any[]>("/admin/request");
+    const { data: typeList = [] } = useBackend<any[]>("/public/requestType?enabled=true");
     const [selected, setSelected] = useState<string | null>(null);
     const [status, setStatus] = useState<string>("");
     const [answer, setAnswer] = useState("");
     const router = useRouter();
     const selectedRequest = requests.find(r => r.id === selected);
+
+    const typeLabels: Record<string, string> = { ...defaultTypeLabels };
+    typeList.forEach((t: any) => { typeLabels[t.key] = t.label; });
 
     useEffect(() => {
         const id = params.get("id");
@@ -107,7 +90,7 @@ export default function Page() {
                     <Divider mb="md" />
                     <div className="mb-2"><b>عنوان:</b> {selectedRequest.title}</div>
                     <div className="mb-2"><b>تاریخ ثبت:</b> {new Date(selectedRequest.created_at).toLocaleDateString('fa-IR')}</div>
-                    <div className="mb-2"><b>نوع درخواست:</b> {typeLabels[selectedRequest.type]}</div>
+                    <div className="mb-2"><b>نوع درخواست:</b> {typeLabels[selectedRequest.type] || selectedRequest.type}</div>
                     <div className="mb-2"><b>وضعیت فعلی:</b> <Badge color={selectedRequest.status === "انجام شده" ? "green" : selectedRequest.status === "رد شده" ? "red" : "yellow"}>
                         {selectedRequest.status}
                     </Badge></div>

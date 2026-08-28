@@ -147,8 +147,10 @@ export default function HelpComponent({ checkAmount, onDone, onCancel, check }: 
                                 <ul className="list-disc list-inside mt-2 space-y-1 text-gray-700">
                                     <li>مبلغ به عدد و حروف نوشته شود</li>
                                     <li>نام گیرنده چک را به درستی بنویسید</li>
+                                    <li>کد ملی گیرنده را در قسمت مربوطه وارد کنید</li>
                                     <li>تاریخ را به صورت شمسی وارد کنید</li>
                                     <li>چک را امضا کنید</li>
+                                    <li>چک خوانا و بدون خط خوردگی باشد</li>
                                 </ul>
                             </div>
                         </div>
@@ -177,7 +179,15 @@ export default function HelpComponent({ checkAmount, onDone, onCancel, check }: 
                         <h4 className="font-bold text-lg mb-4 text-center">نام گیرنده چک</h4>
                         <div className="text-center">
                             <p className="text-2xl font-bold text-primary mb-2">
-                                مرتضی عسکری 2993963971
+                                مرتضی عسکری
+                            </p>
+                        </div>
+                    </div>
+                    <div className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-lg border-2 border-primary/20">
+                        <h4 className="font-bold text-lg mb-4 text-center">کد ملی گیرنده چک</h4>
+                        <div className="text-center">
+                            <p className="text-2xl font-bold text-primary mb-2" dir="ltr">
+                                2993963971
                             </p>
                         </div>
                     </div>

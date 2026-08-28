@@ -74,16 +74,6 @@ export default function Page() {
                 </form>
             </div>
             <UserPassword />
-            <div className="w-full max-w-md mx-auto p-4">
-                <h2 className="text-xl font-bold mb-6">کیف پول</h2>
-                <div className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-lg border-2 border-primary/20 text-center">
-                    <p className="text-gray-600 mb-2">موجودی کیف پول شما</p>
-                    <p className="text-3xl font-bold text-primary mb-1">
-                        {new Intl.NumberFormat('fa-IR').format(user.wallet || 0)}
-                    </p>
-                    <p className="text-gray-600">تومان</p>
-                </div>
-            </div>
             <div className={'w-full'}>
                 <UserAddresses />
             </div>

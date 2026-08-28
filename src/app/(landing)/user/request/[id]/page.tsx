@@ -1,23 +1,36 @@
 import { backend } from "@/utils/api";
 import { Badge, Group, Textarea, Button } from "@mantine/core";
 
-const typeLabels: Record<string, string> = {
+const defaultTypeLabels: Record<string, string> = {
     PRICE: "برآورد هزینه و مشاوره",
     MODEL: "مدل سه‌بعدی"
 };
 
-// Example request data (replace with actual data from backend)
-
+async function getTypeLabels(): Promise<Record<string, string>> {
+    try {
+        const res = await backend<any>("/public/requestType?enabled=true");
+        const list = Array.isArray(res) ? res : (res as any)?.data || [];
+        if (list.length > 0) {
+            const map: Record<string, string> = {};
+            list.forEach((t: any) => { map[t.key] = t.label; });
+            return { ...defaultTypeLabels, ...map };
+        }
+    } catch {}
+    return defaultTypeLabels;
+}
 
 export default async function Page(props: any) {
     const {id} = await props.params;
-    const request = await backend("/user/request/"+id).then(e=>e.data);
+    const [request, typeLabels] = await Promise.all([
+        backend("/user/request/"+id).then(e=>e.data),
+        getTypeLabels(),
+    ]);
     return (
         <div className="container mx-auto my-10" dir="rtl">
             <h2 className="text-2xl font-bold mb-6">جزئیات درخواست شما</h2>
             <div className="mb-2"><b>عنوان:</b> {request.title}</div>
             <div className="mb-2"><b>تاریخ ثبت:</b> {new Date(request.created_at).toLocaleDateString('fa-IR')}</div>
-            <div className="mb-2"><b>نوع درخواست:</b> {typeLabels[request.type]}</div>
+            <div className="mb-2"><b>نوع درخواست:</b> {typeLabels[request.type] || request.type}</div>
             <div className="mb-2"><b>وضعیت:</b> <Badge color={request.status === "انجام شده" ? "green" : request.status === "رد شده" ? "red" : "yellow"}>{request.status}</Badge></div>
             <div className="mb-2"><b>توضیحات شما:</b></div>
             <Textarea value={request.description} readOnly mb="md" />

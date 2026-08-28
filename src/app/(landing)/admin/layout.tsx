@@ -72,6 +72,7 @@ function Layout(props: any) {
                         { label: "خریدهای فروشگاه", href: "purchases", icon: IconShoppingBag },
                         { label: "تراکنش‌های سایت", href: "payments", icon: IconReceipt },
                         { label: "درخواست‌های طراحی", href: "request", icon: IconListNumbers },
+                        { label: "انواع درخواست طراحی", href: "request-type", icon: IconListLetters },
                     ]
                 },
                 {
