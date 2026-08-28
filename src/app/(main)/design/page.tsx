@@ -99,7 +99,7 @@ function Page(props: any) {
     if (loading && !params.has('id')) return <Loading />
 
     return category ? (
-        <div className='container mx-auto'>
+        <div className='container mx-auto px-2 sm:px-4'>
             <Configurator
                 category={Categories[category as keyof typeof Categories] || window.throw("خطا در بررسی اطلاعات")}
                 data={design?.data}
@@ -165,9 +165,9 @@ function Page(props: any) {
             </Modal>
         </div>
     ) : (
-        <div className={'flex flex-col gap-3 my-10 container mx-auto'}>
+        <div className={'flex flex-col gap-3 my-6 md:my-10 container mx-auto px-2 sm:px-4'}>
             <h2 className={'text-center mb-3'}>دسته بندی ها</h2>
-            <div className={'grid-items gap-3 gap-y-10'}>
+            <div className={'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 gap-y-8'}>
                 {CategoriesLabels.map((l, i) => (
                     <div onClick={() => {
                         window.localStorage.removeItem("InitObject");

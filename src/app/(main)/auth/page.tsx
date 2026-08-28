@@ -51,14 +51,14 @@ const LoginSignupForm = () => {
     };
 
     return (
-        <div className="min-h-[80vh] flex items-center justify-center p-4 container mx-auto">
+        <div className="min-h-[80vh] flex items-center justify-center p-2 sm:p-4 container mx-auto">
             <div
-                className="bg-white shadow-lg flex! flex-col lg:flex-row flex-nowrap gap-5 rounded-lg overflow-hidden"
+                className="bg-white shadow-lg flex! flex-col lg:flex-row flex-nowrap gap-5 rounded-lg overflow-hidden w-full"
                 style={{
                     maxWidth: "1000px"
                 }}
             >
-                <div className={'w-full min-w-76 md:w-md p-5 flex-grow mx-auto'}>
+                <div className={'w-full p-4 sm:p-5 flex-grow mx-auto lg:max-w-md'}>
                     <h2 className="text-center mb-6" style={{ color: 'var(--primary-color)' }}>
                         {isLogin ? 'ورود' : 'ثبت نام'}
                     </h2>

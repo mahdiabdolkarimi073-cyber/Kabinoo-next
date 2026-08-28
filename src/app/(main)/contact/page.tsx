@@ -10,7 +10,7 @@ const contactOptions = [
 
 export default function ContactPage() {
     return (
-        <main className="container mx-auto py-8 md:py-14" dir="rtl">
+        <main className="container mx-auto py-6 md:py-14 px-2 sm:px-4" dir="rtl">
             <section className="overflow-hidden rounded-3xl bg-white shadow-lg">
                 <div className="grid items-center gap-8 md:grid-cols-2">
                     <div className="p-6 md:p-12">

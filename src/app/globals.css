@@ -13,39 +13,16 @@
     --default-font-family: var(--yekan-bakh);
 }
 
-@media (max-width: 1023px) {
-    .header .mobile-menu-toggle {
-        position: absolute !important;
-        top: 50% !important;
-        right: 16px !important;
-        left: auto !important;
-        z-index: 2;
-        transform: translateY(-50%);
-    }
-
-    .header .mobile-logo {
-        position: absolute !important;
-        top: 50% !important;
-        left: 16px !important;
-        right: auto !important;
-        z-index: 2;
-        width: auto !important;
-        transform: translateY(-50%);
-    }
-
-    .header .mobile-logo img {
-        display: block;
-    }
-
-    .mobile-drawer-content {
-        right: 0 !important;
-        left: auto !important;
-        transform: translateX(0) !important;
-    }
-}
-
 .bg-gradient-primary {
     @apply bg-gradient-to-bl from-primary to-primary/70
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 :root {
@@ -88,6 +65,17 @@
 
 .kabinoo-service-card:hover .kabinoo-service-arrow {
     transform: translateX(-8px);
+}
+
+@media (max-width: 640px) {
+    .mantine-Modal-content {
+        max-width: calc(100vw - 24px);
+        margin-inline: 12px;
+    }
+
+    .mantine-Table-table {
+        min-width: 620px;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -19,8 +19,8 @@ export default async function Page() {
     const articles = (await backend<Article[]>("/public/article").then(e => e.data)) || [];
 
     return (
-        <div className="container mx-auto my-10 px-4">
-            <div className="text-center mb-10">
+        <div className="container mx-auto my-6 md:my-10 px-2 sm:px-4" dir="rtl">
+            <div className="text-center mb-6 md:mb-10">
                 <h1 className="text-2xl md:text-4xl font-bold mb-2">مقالات</h1>
                 <p className="text-gray-500">جدیدترین مقالات و مطالب آموزشی</p>
             </div>
@@ -44,7 +44,7 @@ export default async function Page() {
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
                             </AspectRatio>
-                            <div className="p-5">
+                            <div className="p-4 sm:p-5">
                                 <Text fw={700} size="lg" lineClamp={2} className="mb-2">
                                     {article.title}
                                 </Text>

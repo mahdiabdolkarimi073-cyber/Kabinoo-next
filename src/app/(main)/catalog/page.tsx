@@ -15,7 +15,7 @@ export default async function CatalogPage() {
     const catalogs = response.ok && response.data ? response.data : [];
 
     return (
-        <main dir="rtl" className="container mx-auto min-h-screen px-4 py-12">
+        <main dir="rtl" className="container mx-auto min-h-screen px-2 sm:px-4 py-6 md:py-12">
             <div className="mb-8 text-center">
                 <p className="mb-2 text-sm font-bold text-accent">کاتالوگ دیجیتال کابینو</p>
                 <h1 className="text-3xl font-bold md:text-4xl">محصولات و ایده‌های ما</h1>
@@ -28,7 +28,7 @@ export default async function CatalogPage() {
                             <div className="aspect-[3/4] overflow-hidden bg-gray-100">
                                 {catalog.coverImage ? <img src={catalog.coverImage} alt={catalog.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" /> : <div className="flex h-full items-center justify-center text-gray-400">تصویر جلد</div>}
                             </div>
-                            <div className="p-5">
+                            <div className="p-4 sm:p-5">
                                 <h2 className="text-xl font-bold">{catalog.title}</h2>
                                 <p className="mt-2 line-clamp-2 text-sm leading-6 text-gray-600">{catalog.description}</p>
                                 <span className="mt-4 inline-block font-bold text-accent">مشاهده کاتالوگ ←</span>

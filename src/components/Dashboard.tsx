@@ -95,21 +95,19 @@ export default function Dashboard({ children, navItems: navigationItems, title =
 
       {/* Sidebar */}
       <div className={`
-        fixed lg:static inset-y-0 left-0 z-50 w-72 bg-white border-r border-gray-200 
+        fixed lg:static inset-y-0 right-0 z-50 w-72 max-w-[85vw] bg-white border-l border-gray-200 
         transform transition-transform duration-300 ease-in-out lg:translate-x-0
         flex justify-between flex-col
-        ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
+        ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'}
       `}>
         {/* Sidebar Header */}
-        <div className="flex items-center justify-start p-6 border-b border-gray-100">
-          <div>
-            <img
-              src="/logo.png"
-              alt="Company Logo"
-              className="h-10 ml-4"
-            />
-          </div>
-          <Text size="lg" fw={700} className="text-gray-800">
+        <div className="flex items-center justify-start p-4 border-b border-gray-100">
+          <img
+            src="/logo.png"
+            alt="Company Logo"
+            className="h-8 sm:h-10 ml-2"
+          />
+          <Text size="sm sm:text-lg" fw={700} className="text-gray-800 flex-1 truncate">
             {title}
           </Text>
           <Burger
@@ -175,10 +173,10 @@ export default function Dashboard({ children, navItems: navigationItems, title =
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col lg:ml-0 p-3  container">
+      <div className="flex-1 flex flex-col p-2 sm:p-3 min-w-0">
         {/* Top Header */}
-        <Paper className="h-16 border-b border-gray-200 bg-white shadow-sm">
-          <Group h="100%" px="lg" className="justify-between!">
+        <Paper className="h-14 sm:h-16 border-b border-gray-200 bg-white shadow-sm">
+          <Group h="100%" px="sm md:lg" className="justify-between!">
             <Group>
               <Burger
                 opened={sidebarOpen}
@@ -191,10 +189,10 @@ export default function Dashboard({ children, navItems: navigationItems, title =
               </Text>
             </Group>
 
-            <Group>
+            <Group gap="xs sm:md">
               {prefix === "user" && <NotificationBell />}
-              <p>{user?.name}</p>
-              <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+              <p className="hidden sm:block text-sm">{user?.name}</p>
+              <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center shrink-0">
                 <Text size="sm" fw={600} className="text-blue-600">
                   {user?.name?.slice(0, 1)}
                 </Text>
@@ -205,11 +203,11 @@ export default function Dashboard({ children, navItems: navigationItems, title =
 
         {/* Page Content */}
         <main className="flex-1 overflow-auto bg-gray-50">
-          <div className="h-full p-2">
+          <div className="h-full p-1 sm:p-2">
             {(active?.showList && pathname.endsWith(prefix)) ? (
               <div className='my-3'>
                 <h2>به {title} خوش آمدید</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 py-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 py-4 sm:py-8">
                   {navigationItems.map((item) => (
                     <NavLink
                       key={item.href}

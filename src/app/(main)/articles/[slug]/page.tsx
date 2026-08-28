@@ -39,7 +39,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     });
 
     return (
-        <article className="container mx-auto my-10 px-4 max-w-3xl">
+        <article className="container mx-auto my-6 md:my-10 px-2 sm:px-4 max-w-3xl" dir="rtl">
             <Link href="/articles" className="text-primary text-sm mb-4 inline-block">
                 بازگشت به مقالات
             </Link>
@@ -48,7 +48,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
             <p className="text-gray-500 text-lg mb-6 leading-relaxed">{article.summary}</p>
 
-            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-6">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500 mb-5 md:mb-6">
                 <Group gap="xs">
                     <IconEye size={16} />
                     <span>{article.views.toLocaleString("fa-IR")} بازدید</span>
@@ -80,10 +80,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                 </div>
             )}
 
-            <Divider mb={8} />
+            <Divider mb={{ base: 24, sm: 32 }} />
 
             <div
-                className="prose prose-lg max-w-none leading-loose text-gray-800"
+                className="prose prose-sm sm:prose-lg max-w-none leading-loose text-gray-800"
                 dangerouslySetInnerHTML={{ __html: article.content }}
             />
         </article>

@@ -36,7 +36,7 @@ export default async function Page(props: any) {
     const parent = categories.find(o => o.id === category?.parentId) || category;
 
     return (
-        <div className='container mx-auto my-10'>
+        <div className='container mx-auto my-6 md:my-10 px-2 sm:px-4'>
             <div className='center flex-col! gap-3'>
                 <p>دسته بندی ها</p>
                 <div className='center gap-3 flex-wrap'>
@@ -66,12 +66,10 @@ export default async function Page(props: any) {
                     ))}
                 </div>
             </div>
-            <br/>
-            <br/>
+            <div className="h-4 md:h-6" />
 
             {/* Beautiful Masonry Grid */}
-            <div
-                className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 auto-rows-max'>
+            <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6 gap-3 sm:gap-4 auto-rows-max'>
                 {portfolio.map((o, index) => {
                     const dimensions = getRandomDimensions(index);
                     return (

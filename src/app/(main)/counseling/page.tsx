@@ -15,7 +15,7 @@ export default function Page() {
     const [loading, setLoading] = useState(false);
 
     return (
-        <div className="max-w-md mx-auto my-16 p-6 rounded-xl bg-white shadow border border-gray-300" dir="rtl">
+        <div className="max-w-md mx-auto my-8 md:my-16 p-4 sm:p-6 rounded-xl bg-white shadow border border-gray-300" dir="rtl">
             <div className="flex flex-col items-center mb-4">
                 <IconHeadphones size={64} stroke={1.5} color="#D1987B" />
                 <h2 className="text-xl font-bold mt-2 text-gray-700">درخواست مشاوره</h2>

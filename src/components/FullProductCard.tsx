@@ -39,9 +39,6 @@ export function AddToCartModal({ product, opened, onClose }: {
             return;
         }
         setLoading(true);
-        try {
-            e?.preventDefault?.();
-        } catch {}
         const res = await backend("/user/cart", "POST", {
             productId: product.id,
             quantity
@@ -125,22 +122,22 @@ function FullProductCard(props: FullProduct & { onAddToCart?: () => void, link?:
         <>
             <Link href={props.link || `/product/${props.id}`}>
                 <div
-                    className="flex flex-col bg-white rounded-xl shadow-lg overflow-hidden w-full max-w-sm md:max-w-md mx-auto my-4 md:my-8 font-inter text-right"
+                    className="flex flex-col bg-white rounded-xl shadow-lg overflow-hidden w-full max-w-sm mx-auto my-3 md:my-4 font-inter text-right"
                     dir="rtl">
                     {/* Product Image Section */}
                     <div className="w-full">
                         <img
                             src={images[0] || "https://placehold.co/300x300/D1987B/637570?text=PRODUCT"}
                             alt={name}
-                            className="w-full h-52 object-cover rounded-t-lg"
+                            className="w-full h-40 sm:h-48 object-cover rounded-t-lg"
                         />
                     </div>
-                    <div className="p-6 w-full flex flex-col justify-between">
+                    <div className="p-4 sm:p-5 w-full flex flex-col justify-between">
                         <div>
                             <p className="text-gray-500 uppercase text-xs tracking-widest mb-2">
                                 {category?.name}
                             </p>
-                            <h2 className="text-2xl font-bold text-gray-800 mb-3 line-clamp-1">{name}</h2>
+                            <h2 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 line-clamp-1">{name}</h2>
 
                             <div className="space-y-2 mb-4">
                                 <div className="flex items-center gap-2">
@@ -175,9 +172,8 @@ function FullProductCard(props: FullProduct & { onAddToCart?: () => void, link?:
                                 </div>
                             </div>
                         </div>
-                        <br />
                         {/* Price and Button Section */}
-                        <div className="flex items-center justify-between mt-4">
+                        <div className="flex items-center justify-between mt-3 gap-2">
                             <div className="flex items-start flex-col">
                                 {!!props.offPercent && (
                                     <span className="text-gray-400 line-through ml-2">

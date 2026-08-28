@@ -42,11 +42,11 @@ function Product({ product, similarProducts = [] }: {
     };
 
     return (
-        <div className="container mx-auto px-4 py-8 max-w-7xl  min-h-screen" dir="rtl"> {/* dir="rtl" for right-to-left */}
+        <div className="container mx-auto px-2 sm:px-4 py-6 md:py-8 max-w-7xl min-h-screen" dir="rtl"> {/* dir="rtl" for right-to-left */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* گالری تصاویر محصول */}
                 <div className="lg:col-span-1 flex flex-col items-center">
-                    <div className="w-full max-w-lg mb-4 p-4 bg-white rounded-lg flex justify-center items-center">
+                    <div className="w-full max-w-lg mb-4 p-2 sm:p-4 bg-white rounded-lg flex justify-center items-center">
                         <img
                             src={mainImage}
                             alt={product.name}
@@ -54,7 +54,7 @@ function Product({ product, similarProducts = [] }: {
                             onError={(e: any) => { e.target.onerror = null; e.target.src = 'https://placehold.co/600x600/F8F8F8/000000?text=PRODUCT'; }}
                         />
                     </div>
-                    <div className="flex space-x-2 space-x-reverse overflow-x-auto pb-2 px-2 lg:px-0 w-full justify-center"> {/* space-x-reverse for RTL thumbnails */}
+                    <div className="flex space-x-2 space-x-reverse overflow-x-auto pb-2 px-2 lg:px-0 w-full justify-start lg:justify-center"> {/* space-x-reverse for RTL thumbnails */}
                         {product.images?.map((image, index) => (
                             <img
                                 key={index}
@@ -71,7 +71,7 @@ function Product({ product, similarProducts = [] }: {
 
                 {/* جزئیات و اقدامات محصول */}
                 <div className="lg:col-span-2 flex flex-col p-4 bg-white rounded-lg shadow-9-md">
-                    <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 leading-tight">{product.name}</h1>
+                    <h1 className="text-xl sm:text-2xl md:text-4xl font-extrabold text-gray-900 mb-2 leading-tight">{product.name}</h1>
                     <p className="text-gray-600 text-lg mb-4">{product.category?.name}</p>
 
                     {/* امتیاز و نظرات */}
@@ -153,7 +153,7 @@ function Product({ product, similarProducts = [] }: {
             </div>
 
             {/* بخش توضیحات */}
-            <div className="mt-12 bg-white p-6 rounded-lg shadow-9-md">
+            <div className="mt-8 md:mt-12 bg-white p-4 sm:p-6 rounded-lg shadow-9-md">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b pb-3">توضیحات محصول</h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
                     {product.description}
@@ -161,9 +161,9 @@ function Product({ product, similarProducts = [] }: {
             </div>
 
             {/* بخش مشخصات */}
-            <div className="mt-8 bg-white p-6 rounded-lg shadow-9-md">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b pb-3">مشخصات فنی</h2>
-                <div className="overflow-x-auto max-w-sm ">
+            <div className="mt-6 md:mt-8 bg-white p-4 sm:p-6 rounded-lg shadow-9-md">
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 border-b pb-3">مشخصات فنی</h2>
+                <div className="overflow-x-auto">
                     <table className="min-w-full divide-y divide-gray-200 rounded-lg overflow-hidden">
                         <thead className="bg-gray-50">
                             <tr>
@@ -198,8 +198,8 @@ function Product({ product, similarProducts = [] }: {
             </div>
 
             {/* بخش نظرات */}
-            <div className="mt-8 bg-white p-6 rounded-lg shadow-9-md">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b pb-3">نظرات مشتریان ({comments.length})</h2>
+            <div className="mt-6 md:mt-8 bg-white p-4 sm:p-6 rounded-lg shadow-9-md">
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6 border-b pb-3">نظرات مشتریان ({comments.length})</h2>
 
                 {/* فرم نظر جدید */}
                 <form action={handleAddComment} className="mb-8 p-4 border border-gray-200 rounded-lg bg-gray-50">
@@ -266,9 +266,9 @@ function Product({ product, similarProducts = [] }: {
             </div>
 
             {/* بخش محصولات مشابه */}
-            <div className="mt-8 bg-white p-6 rounded-lg shadow-9-md">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b pb-3">محصولات مشابه</h2>
-                <div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 2xl:grid-cols-3'}>
+            <div className="mt-6 md:mt-8 bg-white p-4 sm:p-6 rounded-lg shadow-9-md">
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6 border-b pb-3">محصولات مشابه</h2>
+                <div className={'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4'}>
                     {similarProducts.slice(0, 6).map((o, i) => (
                         <FullProductCard
                             key={i}

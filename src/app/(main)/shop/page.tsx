@@ -59,9 +59,9 @@ function Page(props: any) {
     }, [selectedDetail, selectedMaterial, selectedColor, selectedCategory, priceRange, widthRange], 300)
 
     return (
-        <div className={'container mx-auto my-10'}>
+        <div className={'container mx-auto my-6 md:my-10 px-2 sm:px-4'}>
             <h2>دسته بندی ها</h2>
-            <Carousel slidePerView={7} className={'my-3'}>
+            <Carousel slidePerView={6} className={'my-3'}>
                 {categories.map((o, i) => (
                     <CarouselSlide>
                         <Link href={`/shop?category=${o.id}`}
@@ -86,12 +86,11 @@ function Page(props: any) {
                     </CarouselSlide>
                 ))}
             </Carousel>
-            <br/>
-            <br/>
-            <div className={'flex flex-col lg:flex-row gap-3'}>
+            <div className="h-4 md:h-6" />
+            <div className={'flex flex-col lg:flex-row gap-4'}>
 
                 <div
-                    className={'lg:max-w-72 lg:w-72 flex flex-wrap lg:flex-col justify-between! md:justify-start! relative! min-w-[300px]  pl-5'}>
+                    className={'lg:max-w-64 lg:w-64 flex flex-wrap lg:flex-col justify-between! md:justify-start! relative! w-full lg:min-w-[256px] pl-0 lg:pl-5'}>
                     <div className="items-center flex gap-3 border-b pb-4 border-gray-300">
                         <div className={'bg-primary/30 p-2 rounded-xl text-primary'}>
                             <IconFilter size={20}/>
@@ -226,7 +225,7 @@ function Page(props: any) {
                     </div>
                 </div>
                 {loading ? <Loading/> : (
-                    <div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 2xl:grid-cols-4 px-3'}>
+                    <div className={'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 2xl:grid-cols-4 w-full'}>
                         {products.map((o, i) => (
                             <FullProductCard
                                 key={o.id ?? i}

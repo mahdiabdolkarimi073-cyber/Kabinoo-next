@@ -56,55 +56,55 @@ async function Page(props: any) {
     
 
     return (
-        <div className={'container mx-auto'}>
+        <div className={'container mx-auto px-2 sm:px-4 lg:px-6'}>
             <HSticky />
-            <div className="mt-4 rounded-2xl bg-primary px-5 py-4 text-white shadow-md" dir="rtl">
+            <div className="mt-3 sm:mt-4 rounded-xl sm:rounded-2xl bg-primary px-4 sm:px-5 py-3 sm:py-4 text-white shadow-md" dir="rtl">
                 {announcements.length > 0 ? (
                     <Link href="/announcements" className="block transition hover:opacity-90">
-                        <div className="flex flex-wrap items-center justify-between gap-3">
-                            <div>
-                                <p className="font-bold">{announcements[0].title}</p>
-                                <p className="mt-1 text-sm text-white/85 line-clamp-2">{announcements[0].content}</p>
+                        <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3">
+                            <div className="min-w-0 flex-1">
+                                <p className="font-bold text-sm sm:text-base">{announcements[0].title}</p>
+                                <p className="mt-1 text-xs sm:text-sm text-white/85 line-clamp-2">{announcements[0].content}</p>
                             </div>
-                            <span className="rounded-full bg-white px-4 py-2 text-sm font-bold text-primary">مشاهده اطلاعیه‌ها</span>
+                            <span className="rounded-full bg-white px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-bold text-primary whitespace-nowrap">مشاهده اطلاعیه‌ها</span>
                         </div>
                     </Link>
                 ) : byKey("announcement").title && (
-                    <div className="flex flex-wrap items-center justify-between gap-3">
-                        <div><p className="font-bold">{byKey("announcement").title}</p><p className="mt-1 text-sm text-white/85">{byKey("announcement").description}</p></div>
-                        {byKey("announcement").buttonLabel && <Link href={byKey("announcement").buttonHref} className="rounded-full bg-white px-4 py-2 text-sm font-bold text-primary transition hover:bg-white/90">{byKey("announcement").buttonLabel}</Link>}
+                    <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3">
+                        <div className="min-w-0 flex-1"><p className="font-bold text-sm sm:text-base">{byKey("announcement").title}</p><p className="mt-1 text-xs sm:text-sm text-white/85">{byKey("announcement").description}</p></div>
+                        {byKey("announcement").buttonLabel && <Link href={byKey("announcement").buttonHref} className="rounded-full bg-white px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-bold text-primary transition hover:bg-white/90 whitespace-nowrap">{byKey("announcement").buttonLabel}</Link>}
                     </div>
                 )}
             </div>
-            <br />
+            <div className="h-3 sm:h-4" />
             <div className={'relative mt-2'}>
                 <img
                     src={byKey("hero").image}
-                    className={'w-full rounded-2xl md:rounded-3xl min-h-[35vh] sm:min-h-[45vh] md:min-h-[55vh] lg:min-h-[60vh] object-cover'}
+                    className={'w-full rounded-xl sm:rounded-2xl md:rounded-3xl min-h-[30vh] sm:min-h-[40vh] md:min-h-[50vh] lg:min-h-[58vh] object-cover'}
                     alt={'خانه'}
                 />
-                <div className={'overlay center lg:justify-start! p-2 md:p-0'}>
-                    <div className={'bg-secondary/70 backdrop-blur-lg rounded-2xl md:rounded-4xl lg:rounded-r-none! p-3 md:p-6 w-full md:min-w-md'}>
-                        <div className={' flex items-end flex-col mb-2 md:mb-4'}>
+                <div className={'overlay center lg:justify-start! p-2 sm:p-3 md:p-0'}>
+                    <div className={'bg-secondary/70 backdrop-blur-lg rounded-xl sm:rounded-2xl md:rounded-4xl lg:rounded-r-none! p-3 sm:p-4 md:p-6 w-full md:min-w-md max-w-md'}>
+                        <div className={'flex items-end flex-col mb-2 md:mb-4'}>
                             <div className="center items-end! gap-2 md:gap-4">
-                                <h1 className="text-xl md:text-4xl">Kabinoo</h1>
+                                <h1 className="text-lg sm:text-xl md:text-4xl">Kabinoo</h1>
                                 <Image
                                     alt={AppConfig.title}
-                                    width={50}
-                                    height={50}
+                                    width={40}
+                                    height={40}
                                     src={'/logo.png'}
                                     className="md:!w-[70px] md:!h-[70px]"
                                 />
                             </div>
                         </div>
                         <div>
-                            <h2 className="text-lg md:text-2xl">{byKey("hero").subtitle}</h2>
-                            <p className={'text-base md:text-xl'}>{byKey("hero").description}</p>
+                            <h2 className="text-base sm:text-lg md:text-2xl">{byKey("hero").subtitle}</h2>
+                            <p className={'text-sm sm:text-base md:text-xl'}>{byKey("hero").description}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <br />
+            <div className="h-4 sm:h-6 md:h-8" />
             <TextCard
                 title={byKey("about").title}
                 subtitle={byKey("about").subtitle}
@@ -145,38 +145,38 @@ async function Page(props: any) {
                 )}
                 image={byKey("design").image}
             />
-            <div className="mt-6 md:mt-10" />
-            <section className="grid grid-cols-1 md:grid-cols-3 gap-4" aria-label="خدمات کابینو">
+            <div className="h-6 md:h-10" />
+            <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5" aria-label="خدمات کابینو">
                 {(["calculator", "shop", "counseling"] as const).map((key) => {
                     const item = byKey(key);
                     return (
                         <Link
                             href={item.buttonHref}
                             key={key}
-                            className="kabinoo-service-card group relative min-h-56 overflow-hidden rounded-3xl bg-primary text-white shadow-md transition-transform hover:-translate-y-1"
+                            className="kabinoo-service-card group relative min-h-48 sm:min-h-56 overflow-hidden rounded-2xl sm:rounded-3xl bg-primary text-white shadow-md transition-transform hover:-translate-y-1"
                         >
                             <img src={item.image} alt="" className="absolute inset-0 h-full w-full object-cover opacity-40 transition-transform duration-500 group-hover:scale-105" />
-                            <div className="relative flex h-full min-h-56 flex-col justify-end gap-2 bg-black/35 p-5">
-                                <span className="text-sm text-white/85">{item.subtitle}</span>
-                                <h3 className="text-xl font-bold text-white">{item.title}</h3>
-                                <p className="text-sm leading-6 text-white/90">{item.description}</p>
-                                <span className="mt-2 font-bold text-white kabinoo-service-arrow">{item.buttonLabel} ←</span>
+                            <div className="relative flex h-full min-h-48 sm:min-h-56 flex-col justify-end gap-2 bg-black/35 p-4 sm:p-5">
+                                <span className="text-xs sm:text-sm text-white/85">{item.subtitle}</span>
+                                <h3 className="text-lg sm:text-xl font-bold text-white">{item.title}</h3>
+                                <p className="text-xs sm:text-sm leading-6 text-white/90">{item.description}</p>
+                                <span className="mt-2 font-bold text-white text-sm sm:text-base kabinoo-service-arrow">{item.buttonLabel} ←</span>
                             </div>
                         </Link>
                     );
                 })}
             </section>
-            <div className="mt-6 md:mt-10" />
-            <h2 className={'text-center text-lg! md:text-2xl! lg:text-4xl! mb-3 md:mb-4'}>محبوب ترین محصولات</h2>
-            <Carousel>
+            <div className="h-6 md:h-10" />
+            <h2 className={'text-center text-lg! sm:text-xl! md:text-2xl! lg:text-4xl! mb-3 md:mb-4'}>محبوب ترین محصولات</h2>
+            <Carousel slidePerView={3}>
                 {products.map((p, i) => (
                     <CarouselSlide key={i}>
                         <FullProductCard  {...p} />
                     </CarouselSlide>
                 ))}
             </Carousel>
-            <div className="mt-6 md:mt-12" />
-            <h2 className={'text-center text-lg! md:text-2xl! lg:text-4xl! mb-3 md:mb-4'}>دسته بندی ها</h2>
+            <div className="h-6 md:h-12" />
+            <h2 className={'text-center text-lg! sm:text-xl! md:text-2xl! lg:text-4xl! mb-3 md:mb-4'}>دسته بندی ها</h2>
             <Carousel slidePerView={4}>
                 {categories.map((o, i) => {
                     const image = o?.image || `/design/sliders/sm-0${i % 8}.jpg`;
@@ -193,16 +193,16 @@ async function Page(props: any) {
                                     alt={'Image'}
                                     className={'h-full w-full absolute left-0 -z-10'}
                                 />
-                                <div className={'backdrop-blur w-full  center flex-col gap-5  p-3'}>
+                                <div className={'backdrop-blur w-full center flex-col gap-3 sm:gap-5 p-3'}>
                                     <div className='relative'>
                                         <img
                                             src={image}
                                             alt={'Image'}
-                                            className={'object-cover w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 rounded-full mx-auto'}
+                                            className={'object-cover w-28 h-28 sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full mx-auto'}
                                         />
                                     </div>
                                     <div className={''}>
-                                        <h4 className={'text-center text-white text-2xl!'}>{o?.name}</h4>
+                                        <h4 className={'text-center text-white text-lg! sm:text-xl! md:text-2xl!'}>{o?.name}</h4>
                                     </div>
                                 </div>
                             </Link>
@@ -210,25 +210,26 @@ async function Page(props: any) {
                     );
                 })}
             </Carousel>
-            <div className="mt-6 md:mt-12" />
-            <h2 className={'text-center text-lg! md:text-2xl! lg:text-4xl! mb-3 md:mb-5'}>نظرات کاربران</h2>
-            <Carousel>
+            <div className="h-6 md:h-12" />
+            <h2 className={'text-center text-lg! sm:text-xl! md:text-2xl! lg:text-4xl! mb-3 md:mb-5'}>نظرات کاربران</h2>
+            <Carousel slidePerView={3}>
                 {comments.map((o, i) => (
                     <CarouselSlide key={i}>
                         <Comment {...o}
-                            avatar={i % 2 === 0 ? "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-2.png" : "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-4.png"} />
+                            avatar={i % 2 === 0 ? "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-2.png" : "https://raw.githubusercontent.com/mantineddev/mantine/master/.demo/avatars/avatar-4.png"}
+                        />
                     </CarouselSlide>
                 ))}
             </Carousel>
-            <div className="mt-6 md:mt-12" />
-            <h2 className={'text-center text-lg! md:text-2xl! lg:text-4xl! mb-3 md:mb-5'}>سوالات متداول</h2>
+            <div className="h-6 md:h-12" />
+            <h2 className={'text-center text-lg! sm:text-xl! md:text-2xl! lg:text-4xl! mb-3 md:mb-5'}>سوالات متداول</h2>
 
-            <Accordion variant="separated" className={'grid grid-cols-1 lg:grid-cols-2 gap-5'}>
+            <Accordion variant="separated" className={'grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-5'}>
                 <AccordionItem value={`q-`} className={'hidden'}></AccordionItem>
                 {faqs.map((q, i) => (
-                    <div>
-                        <AccordionItem className={'bg-accent! text-white!'} value={`q-${i}`} key={i}>
-                            <AccordionControl >
+                    <div key={i}>
+                        <AccordionItem className={'bg-accent! text-white!'} value={`q-${i}`}>
+                            <AccordionControl>
                                 <p className={'line-clamp-1 truncate text-white!'}>{q.q}</p>
                             </AccordionControl>
                             <AccordionPanel>

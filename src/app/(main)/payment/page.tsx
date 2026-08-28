@@ -52,11 +52,11 @@ export default async function PaymentResult(props: PaymentResultProps) {
     const traceNo = info.TraceNo;
 
     return (
-        <div className="min-h-screen flex items-center justify-center p-4" dir="rtl">
+        <div className="min-h-screen flex items-center justify-center p-2 sm:p-4" dir="rtl">
             <div className="w-full max-w-md">
-                <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div className="bg-white rounded-2xl shadow-xl overflow-hidden w-full">
                     {/* Header Section */}
-                    <div className={`${isSuccess ? 'bg-gradient-to-r from-green-500 to-emerald-500' : 'bg-gradient-to-r from-red-500 to-rose-500'} p-8 text-center`}>
+                    <div className={`${isSuccess ? 'bg-gradient-to-r from-green-500 to-emerald-500' : 'bg-gradient-to-r from-red-500 to-rose-500'} p-5 sm:p-8 text-center`}>
                         <div className="w-20 h-20 mx-auto mb-4 bg-white rounded-full flex items-center justify-center">
                             {isSuccess ? (
                                 <svg className="w-12 h-12 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -77,7 +77,7 @@ export default async function PaymentResult(props: PaymentResultProps) {
                     </div>
 
                     {/* Details Section */}
-                    <div className="p-8 space-y-6">
+                    <div className="p-4 sm:p-8 space-y-5 sm:space-y-6">
                         {/* Amount */}
                         <div className="bg-slate-50 rounded-xl p-5">
                             <div className="flex justify-between items-center">

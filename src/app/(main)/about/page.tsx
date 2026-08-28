@@ -2,7 +2,7 @@ import StyledDiv from "@/style-stuff/StyledDiv"
 
 export default function Page() {
     return (
-        <div className="p-2 max-w-2xl mx-auto my-6 md:my-10 px-2">
+        <div className="p-2 max-w-2xl mx-auto my-4 md:my-10 px-2 sm:px-4">
             <StyledDiv
                 style={{
                     "*": {

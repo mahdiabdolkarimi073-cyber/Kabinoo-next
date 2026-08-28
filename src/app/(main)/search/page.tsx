@@ -17,7 +17,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
         ? faqResponse.data.filter(faq => faq.enabled).sort((a, b) => a.sortOrder - b.sortOrder).map(faq => ({ q: faq.question, answer: faq.answer }))
         : fallbackQuestions;
     return (
-        <main className="container mx-auto py-8 md:py-14">
+        <main className="container mx-auto py-6 md:py-14 px-2 sm:px-4">
             <div className="mb-8 text-center" dir="rtl">
                 <h1 className="text-3xl font-bold text-gray-800 md:text-4xl">جستجو در کابینو</h1>
                 <p className="mt-3 text-gray-600">محصول یا پاسخ موردنظرتان را سریع پیدا کنید.</p>

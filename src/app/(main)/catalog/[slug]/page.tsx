@@ -9,8 +9,8 @@ export default async function CatalogDetailPage(props: { params: Promise<{ slug:
     if (!response.ok || !response.data) notFound();
 
     return (
-        <main dir="rtl" className="container mx-auto min-h-screen px-4 py-10">
-            <div className="mb-6 text-center">
+        <main dir="rtl" className="container mx-auto min-h-screen px-2 sm:px-4 py-6 md:py-10">
+            <div className="mb-5 md:mb-6 text-center">
                 <h1 className="text-3xl font-bold">{response.data.title}</h1>
                 {response.data.description && <p className="mx-auto mt-2 max-w-2xl text-gray-600">{response.data.description}</p>}
             </div>

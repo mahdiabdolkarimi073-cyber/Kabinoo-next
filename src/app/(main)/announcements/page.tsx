@@ -13,7 +13,7 @@ export default function Page() {
     if (loading) return <Loading />;
 
     return (
-        <Container size="md" className="py-8" dir="rtl">
+        <Container size="md" className="px-3 py-6 md:py-8" dir="rtl">
             <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                     <IconBell size={24} className="text-primary" />
@@ -27,7 +27,7 @@ export default function Page() {
             <Divider mb="lg" />
 
             {announcements.length === 0 ? (
-                <Card withBorder radius="lg" className="text-center py-12">
+                <Card withBorder radius="lg" className="text-center py-8 md:py-12 px-3">
                     <Text c="dimmed" size="lg">در حال حاضر اطلاعیه‌ای وجود ندارد.</Text>
                 </Card>
             ) : (
@@ -38,7 +38,7 @@ export default function Page() {
                             withBorder
                             radius="lg"
                             shadow="sm"
-                            padding="lg"
+                            padding={{ base: 'sm', sm: 'lg' }}
                             className="transition-all hover:shadow-md cursor-pointer"
                             onClick={() => setExpanded(expanded === ann.id ? null : ann.id)}
                         >

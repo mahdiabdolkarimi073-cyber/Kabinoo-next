@@ -498,7 +498,7 @@ export default function Page() {
     };
 
     return (
-        <div className='container mx-auto my-4 md:my-10 max-w-4xl px-3 md:px-4'>
+        <div className='container mx-auto my-4 md:my-10 max-w-4xl px-3 sm:px-4'>
             {/* دکمه‌های انتخاب پریست */}
             <div className="mb-6">
                 <div className="flex flex-wrap gap-2 justify-center">
@@ -532,13 +532,13 @@ export default function Page() {
                 )}
             </div>
 
-            <div className='grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-5'>
+            <div className='grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-3 md:gap-5'>
                 {fields.map((field, i) => {
                     const selected = item?.id === field.id;
                     return (
                         <div className='center' key={field.id} onClick={() => handleSelect(field)}>
                             <div className={"border rounded-lg border-gray-300 p-1.5 md:p-2 hover:bg-primary/50 cursor-pointer " + (selected && "bg-primary")}>
-                                <div className='h-20 w-20 md:h-26 md:w-26' style={{
+                                <div className='h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24' style={{
                                     background: getCabinetBgPosition(i + 1),
                                     backgroundSize: "300% 400%"
                                 }} />

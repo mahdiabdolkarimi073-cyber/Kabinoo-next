@@ -10,17 +10,8 @@ export default function HSticky() {
             important
             base={'body > header.header'}
             style={{
-                ...(
-                    y < 50 ? {
-                        borderTopRightRadius: 0,
-                        borderTopLeftRadius: 0,
-                        top: 0,
-                        marginTop: 0
-                    } : {}
-                ),
-                position: "absolute",
-                left: 0,
-                right: 0
+                boxShadow: y > 50 ? '0 4px 20px rgba(0,0,0,0.15)' : '0 1px 8px rgba(0,0,0,0.08)',
+                transition: 'box-shadow 0.3s ease',
             }}
         />
     );
