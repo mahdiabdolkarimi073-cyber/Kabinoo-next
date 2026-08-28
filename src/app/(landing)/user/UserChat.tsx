@@ -28,7 +28,8 @@ export default function UserChatComponent(props: { userId?: string }) {
 
     const init = () => {
         const url = new URL(window.backendUrl);
-        const websocket = new WebSocket(`${url.protocol === "https:" ? "wss" : "ws"}://${url.host}/user/chat`);
+        const wsUrl = `${url.protocol === "https:" ? "wss" : "ws"}://${url.host}/user/chat${props.userId ? "?userId=" + props.userId : ""}`;
+        const websocket = new WebSocket(wsUrl);
         websocket.onclose = () => init();
         websocket.onmessage = (event) => {
             if (ws.current !== websocket) return;

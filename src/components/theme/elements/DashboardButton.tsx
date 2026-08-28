@@ -20,7 +20,7 @@ import {
     IconShield,
     IconShoppingBag,
     IconHeadphones,
-    IconFileContract,
+    IconContract,
     IconArticle,
 } from "@tabler/icons-react";
 import Link from "next/link";
@@ -31,7 +31,7 @@ function DashboardButton() {
     const panelLinks: { label: string; href: string; icon: typeof IconShield }[] = [];
     if (user?.isAdmin) panelLinks.push({ label: "پنل مدیریت", href: "/admin", icon: IconShield });
     if (user?.isShopManager) panelLinks.push({ label: "پنل مدیر فروشگاه", href: "/shop-manager", icon: IconShoppingBag });
-    if (user?.isContractManager) panelLinks.push({ label: "پنل مدیریت قراردادها", href: "/contract-manager", icon: IconFileContract });
+    if (user?.isContractManager) panelLinks.push({ label: "پنل مدیریت قراردادها", href: "/contract-manager", icon: IconContract });
     if (user?.isSupport) panelLinks.push({ label: "پنل پشتیبانی", href: "/support", icon: IconHeadphones });
     if (user?.isAuthor) panelLinks.push({ label: "پنل نویسنده", href: "/author", icon: IconArticle });
 

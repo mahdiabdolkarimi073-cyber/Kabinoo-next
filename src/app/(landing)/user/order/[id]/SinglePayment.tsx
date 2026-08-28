@@ -70,10 +70,11 @@ export default function SinglePayment({ amount, offCode, ...order }: { amount: n
             .add((idx + 1) * each, 'jMonth');
 
         const noFeeMonths = Number(config?.['VAM_NOFEE_MONTH']) || 6;
+        const feeMonths = months > noFeeMonths;
 
         const fd = from.toDate();
         const td = to.toDate();
-        const includeFee = idx + 1 > noFeeMonths;
+        const includeFee = feeMonths;
         const fee = includeFee ? checkAmount / 100 * (config?.['VAM_FEE'] || 0) : 0;
 
         return {
@@ -131,7 +132,7 @@ export default function SinglePayment({ amount, offCode, ...order }: { amount: n
                 <div>مبلغ کل: <span className="font-bold text-primary">{(amount + (amount / 100 * (config.PAY_FEE || 0))).toLocaleString('fa')}</span> تومان</div>
                 +
                 <div>
-                    {config?.PAY_FEE || 0}% کارمزد درگاه
+                    {config?.PAY_FEE || 0}% کرمزد درگاه
                 </div>
             </div>
             <Divider my="md" />
@@ -218,7 +219,7 @@ export default function SinglePayment({ amount, offCode, ...order }: { amount: n
                                         <div>مبلغ چک: <span className="font-bold text-primary">{amount.toLocaleString('fa')}</span> تومان</div>
                                         {amount !== checkAmount && (
                                             <div>
-                                                <p className='text-xs opacity-80'>+ {config?.['VAM_FEE']}% کارمزد</p>
+                                                <p className='text-xs opacity-80'>+ {config?.['VAM_FEE']}% کرمزد</p>
                                             </div>
                                         )}
                                     </div>

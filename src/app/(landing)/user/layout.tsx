@@ -13,7 +13,6 @@ import {
     IconContract,
     IconFile,
     IconHeadphones,
-    IconFileContract,
 } from '@tabler/icons-react';
 import useUser from '@/utils/hooks/useUser';
 import Dashboard from '@/components/Dashboard';
@@ -100,7 +99,7 @@ export default function DashboardLayout({children}: DashboardLayoutProps) {
             } : undefined,
             user?.isContractManager ? {
                 label: "پنل مدیریت قراردادها",
-                icon: IconFileContract,
+                icon: IconContract,
                 href: '../contract-manager'
             } : undefined
         ].filter(o => !!o)}

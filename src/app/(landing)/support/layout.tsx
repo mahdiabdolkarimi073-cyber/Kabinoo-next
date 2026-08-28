@@ -6,16 +6,28 @@ import { IconMessage, IconPhoneCall, IconStar, IconUserEdit, IconTicket, IconDas
 import { Badge } from "@mantine/core";
 import { redirect } from "next/navigation";
 import { useInterval } from "@/utils/hooks/useEffects";
+import { useRef, useEffect } from "react";
 
 function Layout(props: any) {
     const user = useUser();
     const { data: chats = [], refetch } = useBackend<any[]>("/support/chat?_include=user");
+    const prevUnansweredCount = useRef(0);
 
     useInterval(() => {
         refetch();
     }, 5000);
 
     const unansweredCount = chats.filter((c: any) => !c.answered).length;
+
+    useEffect(() => {
+        if (unansweredCount > prevUnansweredCount.current && prevUnansweredCount.current !== 0) {
+            try {
+                new Audio('data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=').play().catch(() => {});
+            } catch {}
+        }
+        prevUnansweredCount.current = unansweredCount;
+    }, [unansweredCount]);
+
     const chatBadge = unansweredCount > 0 ? (
         <Badge color="red" size="sm" variant="filled" className="animate-pulse">
             {unansweredCount.toLocaleString("fa")}
