@@ -33,7 +33,6 @@ function Layout(props: any) {
                     label: "داشبورد",
                     href: "",
                     icon: IconDashboard,
-                    showList: true,
                 },
                 {
                     label: "آمار سایت",

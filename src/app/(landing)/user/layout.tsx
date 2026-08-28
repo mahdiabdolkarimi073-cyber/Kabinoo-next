@@ -12,6 +12,8 @@ import {
     IconUserShield,
     IconContract,
     IconFile,
+    IconHeadphones,
+    IconFileContract,
 } from '@tabler/icons-react';
 import useUser from '@/utils/hooks/useUser';
 import Dashboard from '@/components/Dashboard';
@@ -85,6 +87,21 @@ export default function DashboardLayout({children}: DashboardLayoutProps) {
                 label: "پنل ادمین",
                 icon: IconKey,
                 href: '../admin'
+            } : undefined,
+            user?.isShopManager ? {
+                label: "پنل مدیر فروشگاه",
+                icon: IconShoppingBag,
+                href: '../shop-manager'
+            } : undefined,
+            user?.isSupport ? {
+                label: "پنل پشتیبانی",
+                icon: IconHeadphones,
+                href: '../support'
+            } : undefined,
+            user?.isContractManager ? {
+                label: "پنل مدیریت قراردادها",
+                icon: IconFileContract,
+                href: '../contract-manager'
             } : undefined
         ].filter(o => !!o)}
         prefix="user"
