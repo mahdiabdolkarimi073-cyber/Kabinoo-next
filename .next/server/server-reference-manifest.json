@@ -1,5 +1,57 @@
 {
-  "node": {},
+  "node": {
+    "009229b39ed315979cb0119c1e6a778efe6a15c0d3": {
+      "workers": {
+        "app/(landing)/admin/catalog/page": {
+          "moduleId": "[project]/.next-internal/server/app/(landing)/admin/catalog/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ssr/actions/user.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "logout",
+          "filename": "src/ssr/actions/user.ts"
+        },
+        "app/(landing)/admin/page": {
+          "moduleId": "[project]/.next-internal/server/app/(landing)/admin/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ssr/actions/user.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "logout",
+          "filename": "src/ssr/actions/user.ts"
+        },
+        "app/(landing)/user/page": {
+          "moduleId": "[project]/.next-internal/server/app/(landing)/user/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ssr/actions/user.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "logout",
+          "filename": "src/ssr/actions/user.ts"
+        },
+        "app/(main)/auth/page": {
+          "moduleId": "[project]/.next-internal/server/app/(main)/auth/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ssr/actions/user.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(main)/auth/action.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "logout",
+          "filename": "src/ssr/actions/user.ts"
+        }
+      },
+      "layer": {
+        "app/(landing)/admin/catalog/page": "action-browser",
+        "app/(landing)/admin/page": "action-browser",
+        "app/(landing)/user/page": "action-browser",
+        "app/(main)/auth/page": "action-browser"
+      },
+      "filename": "src/ssr/actions/user.ts",
+      "exportedName": "logout"
+    },
+    "40e0f92fa5feb360598edd45025f72e1143c82c5fa": {
+      "workers": {
+        "app/(main)/auth/page": {
+          "moduleId": "[project]/.next-internal/server/app/(main)/auth/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ssr/actions/user.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/app/(main)/auth/action.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "setUserCookie",
+          "filename": "src/app/(main)/auth/action.ts"
+        }
+      },
+      "layer": {
+        "app/(main)/auth/page": "action-browser"
+      },
+      "filename": "src/app/(main)/auth/action.ts",
+      "exportedName": "setUserCookie"
+    }
+  },
   "edge": {},
   "encryptionKey": "s7TUJqSCZTdoTvx5yor4a1f44Spzcv+HZl/6uC6d6vE="
 }
