@@ -1,0 +1,146 @@
+[
+  {
+    "id": "overalWidthRange",
+    "title": "انتخاب عرض",
+    "description": "عرض کلی %type% خود را با استفاده از کشیدن نوار یا دکمه‌های جهت‌نما تعیین کنید",
+    "related": "overalWidthRange"
+  },
+  {
+    "id": "overalHeightRange",
+    "title": "انتخاب ارتفاع",
+    "description": "ارتفاع %type% را بدون در نظر گیری پایه با کشیدن نوار یا دکمه‌های کیبورد تنظیم کنید",
+    "related": "overalHeightRange"
+  },
+  {
+    "id": "overalDepthRange",
+    "title": "انتخاب عمق",
+    "description": "عمق %type% را از میان گزینه‌های موجود انتخاب کنید تا متناسب با فضای شما باشد",
+    "related": "overalDepthRange"
+  },
+  {
+    "id": "sectionCountDropDown",
+    "title": "تعداد ستون",
+    "description": "تعداد ستون‌های %type% را انتخاب کنید. سیستم بر اساس عرض کلی گزینه‌های مناسب را نمایش می‌دهد",
+    "related": "sectionCountDropDown"
+  },
+  {
+    "id": "color",
+    "title": "انتخاب رنگ",
+    "description": "از میان رنگ‌های متنوع شامل طرح‌های چوبی، رنگ‌های ساده و جذاب، رنگ مورد نظر %type% را انتخاب کنید",
+    "related": "color"
+  },
+  {
+    "id": "column_click",
+    "title": "تنظیمات ستون",
+    "description": "برای تغییر عرض، ارتفاع و تعداد طبقات هر ستون به صورت جداگانه، روی قسمت زیرین ستون کلیک کنید",
+    "related": "sectionCountDropDown"
+  },
+  {
+    "id": "shelf_click",
+    "title": "تنظیمات طبقه",
+    "description": "برای اضافه کردن درب، کشو یا فلپ به طبقه، تغییر ارتفاع طبقه یا تنظیم یراق آلات داخلی، روی طبقه مورد نظر کلیک کنید",
+    "related": "overalHeightRange"
+  },
+  {
+    "id": "multi_select",
+    "title": "انتخاب چندگانه",
+    "description": "برای ایجاد درب مشترک و یکپارچه روی چند طبقه، کلیک چپ را نگه دارید و روی طبقات مورد نظر بکشید تا همزمان انتخاب شوند",
+    "related": "overalHeightRange"
+  },
+  {
+    "id": "fpInput",
+    "title": "موقعیت درب/کشو",
+    "description": "تعیین کنید که درب یا کشوها درون چارچوب طبقه قرار بگیرند یا روی چارچوب نصب شوند",
+    "related": "fpInput"
+  },
+  {
+    "id": "handleInput",
+    "title": "تنظیمات دستگیره",
+    "description": "مشخص کنید که آیا تمام درب و کشوهای %type% مجهز به دستگیره باشند یا بدون دستگیره طراحی شوند",
+    "related": "handleInput"
+  },
+  {
+    "id": "handleModeInput",
+    "title": "نوع دستگیره",
+    "description": "در صورت داشتن دستگیره، نوع آن را روکار (ظاهر) یا مخفی (فشاری) انتخاب کنید",
+    "related": "handleModeInput"
+  },
+  {
+    "id": "closetModeInput",
+    "title": "نوع کمد",
+    "description": "نوع کمد را ساده یا پله‌ای انتخاب کنید. کمد پله‌ای دارای طبقات با عمق متفاوت است",
+    "related": "closetModeInput"
+  },
+  {
+    "id": "bptInput",
+    "title": "ضخامت پشت محصول",
+    "description": "انتخاب کنید که پشت %type% از ورق 3 میلی‌متری استاندارد یا ورق 16 میلی‌متری مقاوم‌تر ساخته شود",
+    "related": "bptInput"
+  },
+  {
+    "id": "feetInput",
+    "title": "تنظیمات پایه",
+    "description": "تعیین کنید که آیا %type% مجهز به پایه تراز کننده باشد یا مستقیماً روی زمین قرار گیرد. پایه به ارتفاع کلی اضافه می‌شود",
+    "related": "feetInput"
+  },
+  {
+    "id": "price_display",
+    "title": "قیمت",
+    "description": "قیمت نهایی %type% بر اساس تمام تنظیمات و ویژگی‌های انتخابی محاسبه و نمایش داده می‌شود",
+    "related": "color"
+  },
+  {
+    "id": "reset_button",
+    "title": "شروع مجدد",
+    "description": "تمام تنظیمات و طراحی انجام شده را پاک کرده و فرآیند طراحی %type% را از ابتدا شروع کنید",
+    "related": "overalWidthRange"
+  },
+  {
+    "id": "undo_button",
+    "title": "بازگشت",
+    "description": "آخرین تغییر اعمال شده در طراحی را لغو کرده و به حالت قبلی بازگردید",
+    "related": "overalWidthRange"
+  },
+  {
+    "id": "dimension_display",
+    "title": "نمایش ابعاد",
+    "description": "ابعاد دقیق و کامل %type% طراحی شده را مشاهده کنید. برای بازگشت به حالت عادی مجدداً کلیک کنید",
+    "related": "overalWidthRange"
+  },
+  {
+    "id": "save_design",
+    "title": "ذخیره طراحی",
+    "description": "طراحی کامل %type% خود را ذخیره کنید تا در آینده بتوانید به آن دسترسی داشته باشید و تغییرات اعمال کنید",
+    "related": "color"
+  },
+  {
+    "id": "add_to_cart",
+    "title": "افزودن به سبد",
+    "description": "پس از تکمیل طراحی، %type% سفارشی خود را با تمام ویژگی‌های انتخابی به سبد خرید اضافه کنید",
+    "related": "color"
+  },
+  {
+    "id": "hoodInput",
+    "title": "هود",
+    "description": "تعیین کنید که آیا %type% مجهز به هود باشد یا خیر",
+    "related": "hoodInput"
+  },
+  {
+    "id": "hoodModeInput",
+    "title": "نوع هود",
+    "description": "در صورت داشتن هود، نوع آن را مخفی (درون کار) یا روکار انتخاب کنید",
+    "related": "hoodInput"
+  },
+  {
+    "id": "microwaveInput",
+    "title": "فر/ماکروفر",
+    "description": "تعیین کنید که آیا %type% مجهز به فر یا ماکروفر باشد یا خیر",
+    "related": "microwaveInput"
+  },
+  {
+    "id": "microwaveModeInput",
+    "title": "نوع فر/ماکروفر",
+    "description": "در صورت داشتن فر یا ماکروفر، نوع آن را توکار (درون کار) یا روکار انتخاب کنید",
+    "related": "microwaveInput"
+  }
+]

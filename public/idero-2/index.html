@@ -1,0 +1,940 @@
+<html>
+
+<head>
+    <style>
+        @font-face {
+            font-family: 'Yekan Bakh Fat';
+            src: url('/assets/fonts/yekanBakh/YekanBakh-Fat.eot');
+            src: local('/assets/fonts/yekanBakh/YekanBakh-Fat'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Fat.eot?#iefix') format('embedded-opentype'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Fat.woff2') format('woff2'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Fat.woff') format('woff'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Fat.ttf') format('truetype');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Yekan Bakh';
+            src: url('/assets/fonts/yekanBakh/YekanBakh-Medium.eot');
+            src: local('/assets/fonts/yekanBakh/YekanBakh-Medium'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Medium.eot?#iefix') format('embedded-opentype'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Medium.woff2') format('woff2'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Medium.woff') format('woff'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Medium.ttf') format('truetype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Yekan Bakh';
+            src: url('/assets/fonts/yekanBakh/YekanBakh-Bold.eot');
+            src: local('/assets/fonts/yekanBakh/YekanBakh-Bold'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Bold.eot?#iefix') format('embedded-opentype'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Bold.woff2') format('woff2'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Bold.woff') format('woff'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Yekan Bakh';
+            src: url('/assets/fonts/yekanBakh/YekanBakh-Light.eot');
+            src: local('/assets/fonts/yekanBakh/YekanBakh-Light'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Light.eot?#iefix') format('embedded-opentype'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Light.woff2') format('woff2'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Light.woff') format('woff'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Light.ttf') format('truetype');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Yekan Bakh';
+            src: url('/assets/fonts/yekanBakh/YekanBakh-Heavy.eot');
+            src: local('/assets/fonts/yekanBakh/YekanBakh-Heavy'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Heavy.eot?#iefix') format('embedded-opentype'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Heavy.woff2') format('woff2'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Heavy.woff') format('woff'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Heavy.ttf') format('truetype');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Yekan Bakh';
+            src: url('/assets/fonts/yekanBakh/YekanBakh-Thin.eot');
+            src: local('/assets/fonts/yekanBakh/YekanBakh-Thin'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Thin.eot?#iefix') format('embedded-opentype'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Thin.woff2') format('woff2'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Thin.woff') format('woff'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Thin.ttf') format('truetype');
+            font-weight: 100;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Yekan Bakh';
+            src: url('/assets/fonts/yekanBakh/YekanBakh-Regular.eot');
+            src: local('/assets/fonts/yekanBakh/YekanBakh-Regular'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Regular.eot?#iefix') format('embedded-opentype'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Regular.woff2') format('woff2'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Regular.woff') format('woff'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Yekan Bakh';
+            src: url('/assets/fonts/yekanBakh/YekanBakh-Hairline.eot');
+            src: local('/assets/fonts/yekanBakh/YekanBakh-Hairline'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Hairline.eot?#iefix') format('embedded-opentype'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Hairline.woff2') format('woff2'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Hairline.woff') format('woff'),
+                url('/assets/fonts/yekanBakh/YekanBakh-Hairline.ttf') format('truetype');
+            font-weight: 100;
+            font-style: normal;
+            font-display: swap;
+        }
+        body,html {
+            overflow: hidden;
+        }
+        * {
+            font-family: "Yekan Bakh", serif !important;
+        }
+
+        .cr *:not(#configuratorView, .cr-main, #configuratorView *, .config-panel, .config-panel *, #rotator) {
+            display: none !important;
+        }
+    </style>
+    <script>
+        window.isLoggedIn = true;
+    </script>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+    <link href="bootstrap.min.css" rel="stylesheet" />
+    <link href="bootstrap-rtl.min.css" rel="stylesheet" />
+    <link href="site.min.css" rel="stylesheet" />
+    <link href="configurator-new.min.css?v=3.2.1" rel="stylesheet" />
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="hidden" id="hashHdn" />
+
+    <a name="beginOfConfigurator"></a>
+    <input type="hidden" id="baseUrlHash" />
+
+    <div class="cr" style="position:relative">
+
+        <div id="pageLoader">
+            <span>لطفا منتظر بمانید...</span>
+        </div>
+        <ul>
+
+
+        </ul>
+
+        <div class="row cr-head">
+            <div class="col-md-3">
+                <button type="button" id="btnTour" class="btn btn-brick btn-circle" onclick="btnTourClick()">
+                    <h2>چه جوری میز
+                        تلویزیون درست کنم؟</h2>
+                </button>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <span id="speedTestLoader" class="speedTestLoader">در حال انجام تست سرعت ...</span>
+                    <span id="goodTestResult" class="goodTestResult" style="display:none">نتیجه تست سرعت موفقیت آمیز
+                        است</span>
+                    <span id="badTestResult" class="badTestResult" style="display:none">امکان انجام تست سرعت در این لحظه
+                        مقدور نیست. در صورت مشاهده ی کندی در استفاده از این ابزار، برای رفع این مشکل بر روی لینک زیر
+                        کلیک کنید <a href="https://idero.ir/page/افزایش-سرعت-نمایش-سه-بعدی-در-مرورگر">راه حل برطرف کردن
+                            کندی سرعت</a></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="icon-list">
+                    <button type="button" onclick="reset()"><i class="mi mi-reset" data-tour-id="14"></i></button>
+                    <button type="button" onclick="undo()"><i class="mi mi-undo" data-tour-id="15"></i></button>
+                    <button type="button" onclick="changeView()"><i class="mi mi-change-view" data-tour-id="16"></i>
+                    </button>
+                    <button type="button" onclick="save()"><i class="mi mi-save" data-tour-id="17"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 cr-right" id="rightConfig">
+            <div class="item col-md-12" data-tour-id="1" data-container="width">
+                <b class="title">عرض</b>
+                <div class="range-wrap" data-config="width">
+                    <div class="range-value"></div>
+                    <input id="overalWidthRange" type="range" min="25" max="300" value="180" step="1" />
+                </div>
+            </div>
+            <div class="item col-md-12" data-tour-id="2" data-container="height">
+                <b>ارتفاع<span data-feet-hint> (بدون پایه) </span></b>
+                <div class="range-wrap" data-config="height">
+                    <div class="range-value"></div>
+                    <input id="overalHeightRange" type="range" min="25" max="300" value="150" step="1" />
+                </div>
+            </div>
+            <div class="item col-md-12 mb20" data-tour-id="3" data-container="depth">
+                <b>عمق</b>
+                <div class="split-range-wrap" data-config="depth">
+                    <div class="range-value"></div>
+                    <input id="overalDepthRange" type="range" min="1" max="5" value="1" step="1"
+                        data-val="25,36,45,60,70" />
+                    <p id="depthNote" class="text-xs opacity-70 mt-1" style="display:none"></p>
+                </div>
+            </div>
+            <div class="item col-md-12 mb20" data-tour-id="4" data-container="columnCount">
+                <p class="form-control-static col-md-6 bold pr0">تعداد ستون</p>
+                <select class="form-control col-md-6 brick pl0" id="sectionCountDropDown"
+                    data-config="columnCount"></select>
+            </div>
+            <div class="item  col-md-12 " data-tour-id="5" data-container="color">
+                <b>رنگ</b>
+                <input id="color" hidden data-type="button-list"
+                    onchange="document.getElementById(this.value).click()" />
+                <div class="color-list" id="materialList" data-config="color">
+                </div>
+            </div>
+
+        </div>
+        <div class="col-12 cr-main">
+            <div id="rotator"></div>
+            <div class="cr-panel" id="configuratorView">
+
+            </div>
+            <div>
+                <div id="mobileButtonContainer" style="display:none">
+                    <button type="button" data-mobile-button-name="width">عرض</button>
+                    <button type="button" data-mobile-button-name="height">ارتفاع</button>
+                    <button type="button" data-mobile-button-name="depth">عمق</button>
+                    <button type="button" data-mobile-button-name="columnCount">تعداد ستون</button>
+                    <button type="button" data-mobile-button-name="color">رنگ</button>
+                    <button type="button" data-mobile-button-name="fpInput">در/کشو</button>
+                    <button type="button" data-mobile-button-name="handleInput">دستگیره</button>
+                    <button type="button" data-mobile-button-name="handleModeInput">نوع دستگیره</button>
+                    <button type="button" data-mobile-button-name="bpInput">پشت محصول</button>
+                    <button type="button" data-mobile-button-name="feetInput">پایه</button>
+                    <button type="button" data-mobile-button-name="hoodInput" id="hoodMobileBtn" style="display:none">هود</button>
+                    <button type="button" data-mobile-button-name="microwaveInput" id="microwaveMobileBtn" style="display:none">فر/ماکروفر</button>
+                    <button type="button" data-mobile-button-name="closetModeInput" id="closetModeMobileBtn" style="display:none">نوع کمد</button>
+                </div>
+                <div id="mobileContainer">
+
+                </div>
+            </div>
+
+            <div class="cr-setting" id="bottomConfig">
+                <div class="col-sm-6" data-tour-id="9" id="closetModeContainer" style="display:none">
+                    <div class="option" data-container="closetModeInput">
+                        <span>نوع کمد</span>
+                        <div class="switch-wrapper" data-config="closetModeInput">
+                            <input id="closetModeInput" type="checkbox" class="switch">
+                            <label for="closetModeInput">ساده</label>
+                            <label for="closetModeInput">پله‌ای</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6" data-tour-id="9">
+                    <div class="option" data-container="fpInput">
+                        <span>در/کشو</span>
+                        <div class="switch-wrapper" data-config="fpInput">
+                            <input id="fpInput" type="checkbox" class="switch" checked>
+                            <label for="fpInput">درون</label>
+                            <label for="fpInput">بیرون</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6" data-tour-id="10">
+                    <div data-container="handleInput">
+                        <span>دستگیره</span>
+                        <div class="option" data-config="handleInput">
+                            <div class="switch-wrapper">
+                                <input id="handleInput" type="checkbox" class="switch">
+                                <label for="handleInput">دارد</label>
+                                <label for="handleInput">ندارد</label>
+                            </div>
+                            <div id="handleList">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6" id="handleModeWrapper" style="display:none">
+                    <div data-container="handleModeInput">
+                        <span>نوع دستگیره</span>
+                        <div class="option" data-config="handleModeInput">
+                            <div class="switch-wrapper">
+                                <input id="handleModeInput" type="checkbox" class="switch">
+                                <label for="handleModeInput">روکار</label>
+                                <label for="handleModeInput">مخفی</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6" data-tour-id="11">
+                    <div class="option" data-container="bpInput">
+                        <span>پشت محصول</span>
+                        <div class="switch-wrapper" data-config="bpInput">
+                            <input id="bptInput" type="checkbox" class="switch">
+                            <label for="bptInput">16mm</label>
+                            <label for="bptInput">3mm</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6" data-tour-id="12">
+                    <div data-container="feetInput">
+                        <span>پایه</span>
+                        <div class="option" data-config="feetInput">
+                            <div class="switch-wrapper">
+                                <input id="feetInput" type="checkbox" class="switch" checked>
+                                <label for="feetInput">دارد</label>
+                                <label for="feetInput">ندارد</label>
+                            </div>
+                            <span class="cro1" data-feet-hint>(به ارتفاع کلی محصول اضافه می شود)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6" id="hoodContainer" style="display:none">
+                    <div data-container="hoodInput">
+                        <span>هود</span>
+                        <div class="option" data-config="hoodInput">
+                            <div class="switch-wrapper">
+                                <input id="hoodInput" type="checkbox" class="switch">
+                                <label for="hoodInput">دارد</label>
+                                <label for="hoodInput">ندارد</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" id="hoodModeWrapper" style="display:none;margin-top:8px" data-container="hoodModeInput">
+                        <span>نوع هود</span>
+                        <div class="switch-wrapper" data-config="hoodModeInput">
+                            <input id="hoodModeInput" type="checkbox" class="switch">
+                            <label for="hoodModeInput">مخفی</label>
+                            <label for="hoodModeInput">روکار</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6" id="microwaveContainer" style="display:none">
+                    <div data-container="microwaveInput">
+                        <span>فر/ماکروفر</span>
+                        <div class="option" data-config="microwaveInput">
+                            <div class="switch-wrapper">
+                                <input id="microwaveInput" type="checkbox" class="switch">
+                                <label for="microwaveInput">دارد</label>
+                                <label for="microwaveInput">ندارد</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" id="microwaveModeWrapper" style="display:none;margin-top:8px" data-container="microwaveModeInput">
+                        <span>نوع فر/ماکروفر</span>
+                        <div class="switch-wrapper" data-config="microwaveModeInput">
+                            <input id="microwaveModeInput" type="checkbox" class="switch">
+                            <label for="microwaveModeInput">توکار</label>
+                            <label for="microwaveModeInput">روکار</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 cr-bot">
+            <div class="col-lg-3 col-md-4" data-tour-id="13">
+                <div style="display:flex">
+                    <span class="price" id="FinalPrice" style="flex:4">??? تومان</span>
+                </div>
+                <div class="text-center mt20">
+                    <span>زمان تحویل 3 الی 6 هفته</span>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 ">
+            </div>
+            <div class="col-lg-3 col-md-2">
+                <div>
+                    <button type="button" class="btn btn-brick btn-circle btn-block" id="btnCompletedDesign"
+                        data-tour-id="18">ذخیره
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="bg-light-gray mb40 mt40">
+        <div class="container" style="display: none">
+            <h2 class="cf-right">مشخصات محصول</h2>
+            <div class="cf-help">
+                <div class="item">
+                    <content>
+                        <div class="col-md-2 col-xs-6">
+                            <p class="text-center">ارتفاع</p>
+                            <span id="shelf-param-height">100 سانتی متر</span>
+                        </div>
+                        <div class="col-md-2 col-xs-6">
+                            <p class="text-center">عرض</p>
+                            <span id="shelf-param-width">200 سانتی متر</span>
+                        </div>
+                        <div class="col-md-2 col-xs-6">
+                            <p class="text-center">عمق</p>
+                            <span id="shelf-param-depth">300 سانتی متر</span>
+                        </div>
+                        <div class="col-md-2 col-xs-6">
+                            <p class="text-center">وزن تقریبی قابل تحمل</p>
+                            <span id="shelf-param-load">50 کیلوگرم</span>
+                        </div>
+                        <div class="col-md-2 col-xs-6">
+                            <p class="text-center">وزن تقریبی قفسه</p>
+                            <span id="shelf-param-weight">300 کیلوگرم</span>
+                        </div>
+                    </content>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            $('[data-left]').click(function () {
+                var divWidth = $('.cf-other').width();
+                var itemWidth = $('.cf-other .item').width() + 50;
+                var moveWidth = Math.floor(divWidth / itemWidth) * itemWidth;
+
+                var leftPos = $('.cf-other').scrollLeft();
+                $(".cf-other").animate({
+                    scrollLeft: leftPos - moveWidth
+                }, 200);
+            });
+            $('[data-right]').click(function () {
+                var divWidth = $('.cf-other').width();
+                var itemWidth = $('.cf-other .item').width() + 50;
+                var moveWidth = Math.floor(divWidth / itemWidth) * itemWidth;
+
+                var leftPos = $('.cf-other').scrollLeft();
+                $(".cf-other").animate({
+                    scrollLeft: leftPos + moveWidth
+                }, 200);
+            });
+        });
+    </script>
+
+
+    <div class="modal fade" id="saveDiv" tabindex="-1" role="dialog" aria-labelledby="saveDiv-label">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="saveDiv-label">ذخیره طرح</span>
+                </div>
+                <div class="modal-body">
+                    <label id="saveResultMessage"></label>
+                    <br />
+
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn btn-success" type="button" onclick="copy('saveResultUrl')">کپی</button>
+                        </span>
+                        <input type="text" readonly id="saveResultUrl" class="form-control ltr" />
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white btn-width pull-left" style="margin-left:20px;"
+                        data-dismiss="modal"> بستن
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container config-panel" id="compartmentConfigPanel" data-hideable hidden data-tour-id="14">
+        <div class="filter-list">
+            <ul class="items" id="furnitureItems" data-tour-id="11">
+                <li data-furniture-item='1'><img src="/design/configure/empty.png" alt="خالی" /><span>خالی</span>
+                </li>
+                <li data-furniture-item='2'><img src="/design/configure/door.png" alt="در" /><span>در</span>
+                </li>
+                <li data-furniture-item='3'><img src="/design/configure/double-door.png" alt="دو درب" /><span>دو
+                        درب</span>
+                </li>
+                <li data-furniture-item='4'><img src="/design/configure/drawer.png" alt="کشو" /><span>کشو</span>
+                </li>
+                <li data-furniture-item='5'><img src="/design/configure/flap.png" alt="فلپ" /><span>فلپ</span>
+                </li>
+            </ul>
+            <div class="left" data-tour-id="12">
+                <label>ارتفاع طبقه</label>
+                <input type="number" id="txtCompartmentHeight" value="" class="form-control" />
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="container config-panel" id="sectionConfigPanel" data-hideable hidden>
+        <div class="filter-list">
+            <div class="left" data-tour-id="7">
+                <input type="number" id="txtSectionHeight" value="" class="form-control" />
+                <label>ارتفاع ستون</label>
+            </div>
+            <div class="left" data-tour-id="8">
+                <input type="number" id="txtSectionWidth" value="" class="form-control" />
+                <label>عرض ستون</label>
+            </div>
+            <div class="left" data-tour-id="9">
+                <input type="number" id="txtCompartmentCount" value="" class="form-control" />
+                <label>تعداد طبقات</label>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="container config-panel" id="tooltipPanel" data-hideable hidden>
+        <div class="filter-list">
+            <div>
+                <img src="" style="width:150px;height:150px;" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container config-panel" id="tourPanel" style="display:none">
+        <div class="filter-list">
+            <div>
+                <span class="message"></span>
+                <span class="notice"></span>
+            </div>
+            <div>
+                <button type="button" class="btn btn-brick btn-width" data-dismiss="modal" id="exitTour"> خروج از محیط
+                    راهنما
+                </button>
+                <button class="btn btn-pale pull-left" id="nextTour">بعدی</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="resultDiv" tabindex="-1" role="dialog" aria-labelledby="resultDiv-label">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="resultDiv-header">
+                    </span>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <label id="resultDiv--message"></label>
+                        <br />
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button class="btn btn-success" type="button"
+                                    onclick="copy('resultDiv-url')">کپی</button>
+                            </span>
+                            <input type="text" readonly id="resultDiv-url" class="form-control ltr" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white btn-width pull-left" style="margin-left:20px;"
+                        data-dismiss="modal"> بستن
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+    <div class="clearfix mb40"></div>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JMH6MKZ657"></script>
+    <script> window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-JMH6MKZ657'); </script>
+    <script async type="text/javascript"> (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () {
+                (c[a].q = c[a].q || []).push(arguments)
+            };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "m42fyetts0"); </script>
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="site.min.js?v=5.1.0"></script>
+    <script>
+        var Category = { Library: 1, TvStand: 2, Console: 3, Closet: 4, ShoesBox: 5, Drawer: 6, Open: 7, BedSideTable: 9 }
+    </script>
+    <script src="three.js"></script>
+    <script src="OrbitControls.js"></script>
+    <script src="common-new.js?v=4.10.4"></script>
+    <script src="inject.js"></script>
+    <script src="configurator-new.js?v=4.13.4"></script>
+
+
+    <script>
+        //if (!isLoggedIn) {
+        //    //$('#btnCompletedDesign').attr("disabled", "disabled");
+        //    $('#btnCompletedDesign').addClass("disabled");
+        //    $('#btnCompletedDesign').click(function (e) {
+        //        alert('جهت افزودن به سبد خرید، به حساب کاربری خود وارد شوید');
+        //        e.preventDefault();
+        //    });
+        //    //$('#btn_3DRequest').attr("disabled", "disabled");
+        //}
+        const params = new URLSearchParams(window.location.search);
+        window.TargetCategory = +params.get("category") || Category.Closet;
+
+        InitObject.CategoryId = window.TargetCategory;
+        InitObject.SavedConfiguratorMaterialPrice = '[]';
+        if (loadInitObject()) {
+            InitObject.ConfiguratorSavedId = 1;
+            InitObject.Hash = '1';
+        } else {
+            InitObject.Configurator = '';
+            InitObject.ConfiguratorSavedId = 0;
+            InitObject.Hash = '';
+        }
+
+        /*
+         InitObject.Configurator = '{"CategoryId":2,"Dimension":{"OveralWidth":158,"OveralHeight":48,"OveralDepth":36},"Property":{"BackPanelThicknessId":2,"FeetId":1,"FurniturePositionId":2,"HandleItemId":0,"MaterialItemId":1547},"SectionList":[{"Id":1,"Width":50,"Height":48,"ComaprtmentList":[{"Id":1,"Height":21,"InteriorId":1,"FurnitureUniqueCode":0,"FurnitureId":1},{"Id":2,"Height":21,"InteriorId":1,"FurnitureUniqueCode":0,"FurnitureId":1}]},{"Id":2,"Width":50,"Height":48,"ComaprtmentList":[{"Id":1,"Height":44,"InteriorId":1,"FurnitureUniqueCode":0,"FurnitureId":1}]},{"Id":3,"Width":50,"Height":48,"ComaprtmentList":[{"Id":1,"Height":44,"InteriorId":1,"FurnitureUniqueCode":0,"FurnitureId":1}]}]}';
+         InitObject.SetRequirement('{"MaterialList":[{"GroupId":17,"GroupTitle":"ام دی اف -طرح","GroupHash":"2qdoqdfv","GroupCode":"MDF_PATTERN","ItemId":1559,"Price":6200000,"Color":"583104","ItemTitle":"IPFS-Branco","ItemName":"طرح چوب تیره","ItemHash":"8hfx9158dger8618","Pattern":"8hfx9158dger8618","UseImage":true},{"GroupId":17,"GroupTitle":"ام دی اف -طرح","GroupHash":"2qdoqdfv","GroupCode":"MDF_PATTERN","ItemId":1556,"Price":6200000,"Color":"df884e","ItemTitle":"IPFS-Walnut","ItemName":"گردویی","ItemHash":"1hu14w51kuz5064c","Pattern":"1hu14w51kuz5064c","UseImage":true},{"GroupId":17,"GroupTitle":"ام دی اف -طرح","GroupHash":"2qdoqdfv","GroupCode":"MDF_PATTERN","ItemId":1554,"Price":6200000,"Color":"9e825d","ItemTitle":"IPFV-751","ItemName":"طرح چوب روشن","ItemHash":"allvw00z9f5b5dfy","Pattern":"allvw00z9f5b5dfy","UseImage":true},{"GroupId":17,"GroupTitle":"ام دی اف -طرح","GroupHash":"2qdoqdfv","GroupCode":"MDF_PATTERN","ItemId":1550,"Price":6000000,"Color":"526c61","ItemTitle":"IPFV-203","ItemName":"سبز تیره","ItemHash":"jkl51kqnixv3vimq","Pattern":"jkl51kqnixv3vimq","UseImage":false},{"GroupId":17,"GroupTitle":"ام دی اف -طرح","GroupHash":"2qdoqdfv","GroupCode":"MDF_PATTERN","ItemId":1549,"Price":6000000,"Color":"a39c94","ItemTitle":"IPFV-210","ItemName":"طوسی روشن","ItemHash":"0pasm6cm9r4lgdtd","Pattern":"0pasm6cm9r4lgdtd","UseImage":false},{"GroupId":17,"GroupTitle":"ام دی اف -طرح","GroupHash":"2qdoqdfv","GroupCode":"MDF_PATTERN","ItemId":1548,"Price":6000000,"Color":"585858","ItemTitle":"IPFV-208","ItemName":"طوسی تیره","ItemHash":"27vaijaxmtj3q3zi","Pattern":"27vaijaxmtj3q3zi","UseImage":false},{"GroupId":17,"GroupTitle":"ام دی اف -طرح","GroupHash":"2qdoqdfv","GroupCode":"MDF_PATTERN","ItemId":1547,"Price":7800000,"Color":"37526d","ItemTitle":"IPFV-205","ItemName":"آبی اقیانوس","ItemHash":"wjl8m5c2kj3jykkm","Pattern":"wjl8m5c2kj3jykkm","UseImage":false},{"GroupId":17,"GroupTitle":"ام دی اف -طرح","GroupHash":"2qdoqdfv","GroupCode":"MDF_PATTERN","ItemId":1546,"Price":4199999,"Color":"ffffff","ItemTitle":"IPFV-102","ItemName":"سفید برفی","ItemHash":"ibjeuanintwe2nkz","Pattern":"ibjeuanintwe2nkz","UseImage":false},{"GroupId":17,"GroupTitle":"ام دی اف -طرح","GroupHash":"2qdoqdfv","GroupCode":"MDF_PATTERN","ItemId":1544,"Price":6000000,"Color":"efbd64","ItemTitle":"IPFV-212","ItemName":"زرد جذاب","ItemHash":"6j0pl48caxm4bsnu","Pattern":"6j0pl48caxm4bsnu","UseImage":false},{"GroupId":17,"GroupTitle":"ام دی اف -طرح","GroupHash":"2qdoqdfv","GroupCode":"MDF_PATTERN","ItemId":1543,"Price":6000000,"Color":"a4544f","ItemTitle":"IPFV-215","ItemName":"قرمز شیک","ItemHash":"cmwx2fhmia48yetp","Pattern":"cmwx2fhmia48yetp","UseImage":false},{"GroupId":17,"GroupTitle":"ام دی اف -طرح","GroupHash":"2qdoqdfv","GroupCode":"MDF_PATTERN","ItemId":1541,"Price":6000000,"Color":"111111","ItemTitle":"IPFV-108","ItemName":"مشکی","ItemHash":"9wvkpv5u7yztgl3q","Pattern":"9wvkpv5u7yztgl3q","UseImage":false},{"GroupId":17,"GroupTitle":"ام دی اف -طرح","GroupHash":"2qdoqdfv","GroupCode":"MDF_PATTERN","ItemId":1540,"Price":6000000,"Color":"c2b5a4","ItemTitle":"IPFV-105","ItemName":"کاپوچینو","ItemHash":"5oue62al5u65mllm","Pattern":"5oue62al5u65mllm","UseImage":false},{"GroupId":17,"GroupTitle":"ام دی اف -طرح","GroupHash":"2qdoqdfv","GroupCode":"MDF_PATTERN","ItemId":1539,"Price":7500000,"Color":"b5bea3","ItemTitle":"IPFV-202","ItemName":"سبز سیب","ItemHash":"5xdp5ekkm3kxa5kq","Pattern":"5xdp5ekkm3kxa5kq","UseImage":false}],"HandleList":[{"GroupId":20,"GroupTitle":"دستگیره","GroupHash":"g06d1y0l","GroupCode":"HANDLE","ItemId":1555,"Price":240000,"ItemTitle":"IPDI-001","ItemHash":"yl72qsebr1agu5gv","ItemCode":"Tookar"},{"GroupId":20,"GroupTitle":"دستگیره","GroupHash":"g06d1y0l","GroupCode":"HANDLE","ItemId":1552,"Price":350000,"ItemTitle":"IPDI-002","ItemHash":"p3vc0dle89dd50bv","ItemCode":"DoPich"}],"Setting":{"MdfArea":5.88,"NeopanArea":0.00,"VeneerArea":0.00,"HighGlassArea":0.00,"MultiplexArea":0.00,"Mdf3MilArea":4.47,"SmallMdfPatternA":1.44,"SmallMdfPatternB":2200000,"MediumMdfPatternA":2.20,"MediumMdfPatternB":540000,"LargeMdfPatternA":2.52,"LargeMdfPatternB":300000,"SmallMdfColorA":0.00,"SmallMdfColorB":0,"MediumMdfColorA":0.00,"MediumMdfColorB":0,"LargeMdfColorA":0.00,"LargeMdfColorB":0,"SmallHighGlassPatternA":0.00,"SmallHighGlassPatternB":0,"MediumHighGlassPatternA":0.00,"MediumHighGlassPatternB":0,"LargeHighGlassPatternA":0.00,"LargeHighGlassPatternB":0,"SmallNeopanPatternA":0.00,"SmallNeopanPatternB":0,"MediumNeopanPatternA":0.00,"MediumNeopanPatternB":0,"LargeNeopanPatternA":0.00,"LargeNeopanPatternB":0,"SmallNeopanColorA":0.00,"SmallNeopanColorB":0,"MediumNeopanColorA":0.00,"MediumNeopanColorB":0,"LargeNeopanColorA":0.00,"LargeNeopanColorB":0,"SmallVeneerA":0.00,"SmallVeneerB":0,"MediumVeneerA":0.00,"MediumVeneerB":0,"LargeVeneerA":0.00,"LargeVeneerB":0,"SmallMultiplexA":0.00,"SmallMultiplexB":0,"MediumMultiplexA":0.00,"MediumMultiplexB":0,"LargeMultiplexA":0.00,"LargeMultiplexB":0,"SmallSolidA":0.00,"SmallSolidB":0,"MediumSolidA":0.00,"MediumSolidB":0,"LargeSolidA":0.00,"LargeSolidB":0,"SmallMdfPatternMax":0,"MediumMdfPatternMin":3.35,"MediumMdfPatternMax":67.00,"LargeMdfPatternMin":0,"SmallMdfColorMax":0,"MediumMdfColorMin":0.00,"MediumMdfColorMax":0.00,"LargeMdfColorMin":0,"SmallHighGlassPatternMax":0,"MediumHighGlassPatternMin":0.00,"MediumHighGlassPatternMax":0.00,"LargeHighGlassPatternMin":0,"SmallNeopanPatternMax":0,"MediumNeopanPatternMin":0.00,"MediumNeopanPatternMax":0.00,"LargeNeopanPatternMin":0,"SmallNeopanColorMax":0,"MediumNeopanColorMin":0.00,"MediumNeopanColorMax":0.00,"LargeNeopanColorMin":0,"SmallVeneerMax":0,"MediumVeneerMin":0.00,"MediumVeneerMax":0.00,"LargeVeneerMin":0,"SmallMultiplexMax":0,"MediumMultiplexMin":0.00,"MediumMultiplexMax":0.00,"LargeMultiplexMin":0,"SmallSolidMax":0,"MediumSolidMin":0.00,"MediumSolidMax":0.00,"LargeSolidMin":0,"HingePrice":100000,"MagnetPrice":60000,"SteelpipePrice":125000,"BastPrice":70000,"DrawerRail20Price":90000,"DrawerRail25Price":80000,"DrawerRail30Price":100000,"DrawerRail35Price":115000,"DrawerRail40Price":130000,"DrawerRail45Price":144000,"DrawerRail50Price":160000,"DrawerRail55Price":176000,"DrawerRail60Price":192000,"FlapJack":50000,"Feet":15000,"ClothesHangerPrice":235000,"DiscountForje":23,"Mdf3MilPrice":350000}}');
+         */
+        InitObject.SetRequirement(`{
+            "MaterialList": [
+                {
+                    "GroupId": 17,
+                    "GroupTitle": "ام دی اف -طرح",
+                    "GroupHash": "2qdoqdfv",
+                    "GroupCode": "MDF_PATTERN",
+                    "ItemId": 1559,
+                    "Price": 6200000,
+                    "Color": "583104",
+                    "ItemTitle": "IPFS-Branco",
+                    "ItemName": "طرح چوب تیره",
+                    "ItemHash": "8hfx9158dger8618",
+                    "Pattern": "8hfx9158dger8618",
+                    "UseImage": true
+                },
+                {
+                    "GroupId": 17,
+                    "GroupTitle": "ام دی اف -طرح",
+                    "GroupHash": "2qdoqdfv",
+                    "GroupCode": "MDF_PATTERN",
+                    "ItemId": 1556,
+                    "Price": 6200000,
+                    "Color": "df884e",
+                    "ItemTitle": "IPFS-Walnut",
+                    "ItemName": "گردویی",
+                    "ItemHash": "1hu14w51kuz5064c",
+                    "Pattern": "1hu14w51kuz5064c",
+                    "UseImage": true
+                },
+                {
+                    "GroupId": 17,
+                    "GroupTitle": "ام دی اف -طرح",
+                    "GroupHash": "2qdoqdfv",
+                    "GroupCode": "MDF_PATTERN",
+                    "ItemId": 1554,
+                    "Price": 6200000,
+                    "Color": "9e825d",
+                    "ItemTitle": "IPFV-751",
+                    "ItemName": "طرح چوب روشن",
+                    "ItemHash": "allvw00z9f5b5dfy",
+                    "Pattern": "allvw00z9f5b5dfy",
+                    "UseImage": true
+                },
+                {
+                    "GroupId": 17,
+                    "GroupTitle": "ام دی اف -طرح",
+                    "GroupHash": "2qdoqdfv",
+                    "GroupCode": "MDF_PATTERN",
+                    "ItemId": 1550,
+                    "Price": 6000000,
+                    "Color": "526c61",
+                    "ItemTitle": "IPFV-203",
+                    "ItemName": "سبز تیره",
+                    "ItemHash": "jkl51kqnixv3vimq",
+                    "Pattern": "jkl51kqnixv3vimq",
+                    "UseImage": false
+                },
+                {
+                    "GroupId": 17,
+                    "GroupTitle": "ام دی اف -طرح",
+                    "GroupHash": "2qdoqdfv",
+                    "GroupCode": "MDF_PATTERN",
+                    "ItemId": 1549,
+                    "Price": 6000000,
+                    "Color": "a39c94",
+                    "ItemTitle": "IPFV-210",
+                    "ItemName": "طوسی روشن",
+                    "ItemHash": "0pasm6cm9r4lgdtd",
+                    "Pattern": "0pasm6cm9r4lgdtd",
+                    "UseImage": false
+                },
+                {
+                    "GroupId": 17,
+                    "GroupTitle": "ام دی اف -طرح",
+                    "GroupHash": "2qdoqdfv",
+                    "GroupCode": "MDF_PATTERN",
+                    "ItemId": 1548,
+                    "Price": 6000000,
+                    "Color": "585858",
+                    "ItemTitle": "IPFV-208",
+                    "ItemName": "طوسی تیره",
+                    "ItemHash": "27vaijaxmtj3q3zi",
+                    "Pattern": "27vaijaxmtj3q3zi",
+                    "UseImage": false
+                },
+                {
+                    "GroupId": 17,
+                    "GroupTitle": "ام دی اف -طرح",
+                    "GroupHash": "2qdoqdfv",
+                    "GroupCode": "MDF_PATTERN",
+                    "ItemId": 1547,
+                    "Price": 7800000,
+                    "Color": "37526d",
+                    "ItemTitle": "IPFV-205",
+                    "ItemName": "آبی اقیانوس",
+                    "ItemHash": "wjl8m5c2kj3jykkm",
+                    "Pattern": "wjl8m5c2kj3jykkm",
+                    "UseImage": false
+                },
+                {
+                    "GroupId": 17,
+                    "GroupTitle": "ام دی اف -طرح",
+                    "GroupHash": "2qdoqdfv",
+                    "GroupCode": "MDF_PATTERN",
+                    "ItemId": 1546,
+                    "Price": 4199999,
+                    "Color": "ffffff",
+                    "ItemTitle": "IPFV-102",
+                    "ItemName": "سفید برفی",
+                    "ItemHash": "ibjeuanintwe2nkz",
+                    "Pattern": "ibjeuanintwe2nkz",
+                    "UseImage": false
+                },
+                {
+                    "GroupId": 17,
+                    "GroupTitle": "ام دی اف -طرح",
+                    "GroupHash": "2qdoqdfv",
+                    "GroupCode": "MDF_PATTERN",
+                    "ItemId": 1544,
+                    "Price": 6000000,
+                    "Color": "efbd64",
+                    "ItemTitle": "IPFV-212",
+                    "ItemName": "زرد جذاب",
+                    "ItemHash": "6j0pl48caxm4bsnu",
+                    "Pattern": "6j0pl48caxm4bsnu",
+                    "UseImage": false
+                },
+                {
+                    "GroupId": 17,
+                    "GroupTitle": "ام دی اف -طرح",
+                    "GroupHash": "2qdoqdfv",
+                    "GroupCode": "MDF_PATTERN",
+                    "ItemId": 1543,
+                    "Price": 6000000,
+                    "Color": "a4544f",
+                    "ItemTitle": "IPFV-215",
+                    "ItemName": "قرمز شیک",
+                    "ItemHash": "cmwx2fhmia48yetp",
+                    "Pattern": "cmwx2fhmia48yetp",
+                    "UseImage": false
+                },
+                {
+                    "GroupId": 17,
+                    "GroupTitle": "ام دی اف -طرح",
+                    "GroupHash": "2qdoqdfv",
+                    "GroupCode": "MDF_PATTERN",
+                    "ItemId": 1541,
+                    "Price": 6000000,
+                    "Color": "111111",
+                    "ItemTitle": "IPFV-108",
+                    "ItemName": "مشکی",
+                    "ItemHash": "9wvkpv5u7yztgl3q",
+                    "Pattern": "9wvkpv5u7yztgl3q",
+                    "UseImage": false
+                },
+                {
+                    "GroupId": 17,
+                    "GroupTitle": "ام دی اف -طرح",
+                    "GroupHash": "2qdoqdfv",
+                    "GroupCode": "MDF_PATTERN",
+                    "ItemId": 1540,
+                    "Price": 6000000,
+                    "Color": "c2b5a4",
+                    "ItemTitle": "IPFV-105",
+                    "ItemName": "کاپوچینو",
+                    "ItemHash": "5oue62al5u65mllm",
+                    "Pattern": "5oue62al5u65mllm",
+                    "UseImage": false
+                },
+                {
+                    "GroupId": 17,
+                    "GroupTitle": "ام دی اف -طرح",
+                    "GroupHash": "2qdoqdfv",
+                    "GroupCode": "MDF_PATTERN",
+                    "ItemId": 1539,
+                    "Price": 7500000,
+                    "Color": "b5bea3",
+                    "ItemTitle": "IPFV-202",
+                    "ItemName": "سبز سیب",
+                    "ItemHash": "5xdp5ekkm3kxa5kq",
+                    "Pattern": "5xdp5ekkm3kxa5kq",
+                    "UseImage": false
+                }
+            ],
+            "HandleList": [
+                {
+                    "GroupId": 20,
+                    "GroupTitle": "دستگیره",
+                    "GroupHash": "g06d1y0l",
+                    "GroupCode": "HANDLE",
+                    "ItemId": 1555,
+                    "Price": 240000,
+                    "ItemTitle": "IPDI-001",
+                    "ItemHash": "yl72qsebr1agu5gv",
+                    "ItemCode": "Tookar"
+                },
+                {
+                    "GroupId": 20,
+                    "GroupTitle": "دستگیره",
+                    "GroupHash": "g06d1y0l",
+                    "GroupCode": "HANDLE",
+                    "ItemId": 1552,
+                    "Price": 350000,
+                    "ItemTitle": "IPDI-002",
+                    "ItemHash": "p3vc0dle89dd50bv",
+                    "ItemCode": "DoPich"
+                }
+            ],
+            "Setting": {
+                "MdfArea": 5.88,
+                "NeopanArea": 0,
+                "VeneerArea": 0,
+                "HighGlassArea": 0,
+                "MultiplexArea": 0,
+                "Mdf3MilArea": 4.47,
+                "SmallMdfPatternA": 1.44,
+                "SmallMdfPatternB": 2200000,
+                "MediumMdfPatternA": 2.2,
+                "MediumMdfPatternB": 540000,
+                "LargeMdfPatternA": 2.52,
+                "LargeMdfPatternB": 300000,
+                "SmallMdfColorA": 0,
+                "SmallMdfColorB": 0,
+                "MediumMdfColorA": 0,
+                "MediumMdfColorB": 0,
+                "LargeMdfColorA": 0,
+                "LargeMdfColorB": 0,
+                "SmallHighGlassPatternA": 0,
+                "SmallHighGlassPatternB": 0,
+                "MediumHighGlassPatternA": 0,
+                "MediumHighGlassPatternB": 0,
+                "LargeHighGlassPatternA": 0,
+                "LargeHighGlassPatternB": 0,
+                "SmallNeopanPatternA": 0,
+                "SmallNeopanPatternB": 0,
+                "MediumNeopanPatternA": 0,
+                "MediumNeopanPatternB": 0,
+                "LargeNeopanPatternA": 0,
+                "LargeNeopanPatternB": 0,
+                "SmallNeopanColorA": 0,
+                "SmallNeopanColorB": 0,
+                "MediumNeopanColorA": 0,
+                "MediumNeopanColorB": 0,
+                "LargeNeopanColorA": 0,
+                "LargeNeopanColorB": 0,
+                "SmallVeneerA": 0,
+                "SmallVeneerB": 0,
+                "MediumVeneerA": 0,
+                "MediumVeneerB": 0,
+                "LargeVeneerA": 0,
+                "LargeVeneerB": 0,
+                "SmallMultiplexA": 0,
+                "SmallMultiplexB": 0,
+                "MediumMultiplexA": 0,
+                "MediumMultiplexB": 0,
+                "LargeMultiplexA": 0,
+                "LargeMultiplexB": 0,
+                "SmallSolidA": 0,
+                "SmallSolidB": 0,
+                "MediumSolidA": 0,
+                "MediumSolidB": 0,
+                "LargeSolidA": 0,
+                "LargeSolidB": 0,
+                "SmallMdfPatternMax": 0,
+                "MediumMdfPatternMin": 3.35,
+                "MediumMdfPatternMax": 67,
+                "LargeMdfPatternMin": 0,
+                "SmallMdfColorMax": 0,
+                "MediumMdfColorMin": 0,
+                "MediumMdfColorMax": 0,
+                "LargeMdfColorMin": 0,
+                "SmallHighGlassPatternMax": 0,
+                "MediumHighGlassPatternMin": 0,
+                "MediumHighGlassPatternMax": 0,
+                "LargeHighGlassPatternMin": 0,
+                "SmallNeopanPatternMax": 0,
+                "MediumNeopanPatternMin": 0,
+                "MediumNeopanPatternMax": 0,
+                "LargeNeopanPatternMin": 0,
+                "SmallNeopanColorMax": 0,
+                "MediumNeopanColorMin": 0,
+                "MediumNeopanColorMax": 0,
+                "LargeNeopanColorMin": 0,
+                "SmallVeneerMax": 0,
+                "MediumVeneerMin": 0,
+                "MediumVeneerMax": 0,
+                "LargeVeneerMin": 0,
+                "SmallMultiplexMax": 0,
+                "MediumMultiplexMin": 0,
+                "MediumMultiplexMax": 0,
+                "LargeMultiplexMin": 0,
+                "SmallSolidMax": 0,
+                "MediumSolidMin": 0,
+                "MediumSolidMax": 0,
+                "LargeSolidMin": 0,
+                "HingePrice": 100000,
+                "MagnetPrice": 60000,
+                "SteelpipePrice": 125000,
+                "BastPrice": 70000,
+                "DrawerRail20Price": 90000,
+                "DrawerRail25Price": 80000,
+                "DrawerRail30Price": 100000,
+                "DrawerRail35Price": 115000,
+                "DrawerRail40Price": 130000,
+                "DrawerRail45Price": 144000,
+                "DrawerRail50Price": 160000,
+                "DrawerRail55Price": 176000,
+                "DrawerRail60Price": 192000,
+                "FlapJack": 50000,
+                "Feet": 15000,
+                "ClothesHangerPrice": 235000,
+                "DiscountForje": 23,
+                "Mdf3MilPrice": 350000
+            }
+        }`);
+    </script>
+
+</body>
+
+</html>

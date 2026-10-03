@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520" font-family="Tahoma, Vazirmatn, sans-serif" dir="rtl">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#D1987B"/>
+    </marker>
+    <style>
+      .check-bg { fill: #f7f3ee; stroke: #b9a89a; stroke-width: 2; }
+      .field { fill: #fffefb; stroke: #c9b8aa; stroke-width: 1; }
+      .label { fill: #282828; font-size: 15px; font-weight: bold; }
+      .hint { fill: #637570; font-size: 12px; }
+      .annot { fill: #D1987B; font-size: 14px; font-weight: bold; }
+      .annot-line { stroke: #D1987B; stroke-width: 2; fill: none; }
+      .title { fill: #282828; font-size: 20px; font-weight: bold; }
+      .watermark { fill: #e9ded4; font-size: 42px; font-weight: bold; opacity: 0.5; }
+      .micr { fill: #282828; font-family: monospace; font-size: 16px; letter-spacing: 3px; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="check-bg" x="40" y="70" width="820" height="380" rx="10"/>
+
+  <!-- Watermark -->
+  <text class="watermark" x="450" y="270" text-anchor="middle" transform="rotate(-18 450 270)">نمونه چک</text>
+
+  <!-- Bank header -->
+  <text class="label" x="80" y="105">بانک نمونه</text>
+  <text class="hint" x="80" y="125">شعبه: مرکزی - کد: ۱۲۳۴</text>
+
+  <!-- Sayadi ID field (top) -->
+  <rect class="field" x="500" y="85" width="320" height="40" rx="4"/>
+  <text class="label" x="510" y="111">شناسه صیادی: ۱۲۳۴ ۱۲۳۴ ۱۲۳۴ ۱۲۳۴</text>
+
+  <!-- Payee line -->
+  <text class="hint" x="80" y="165">بهر/order:</text>
+  <rect class="field" x="150" y="150" width="300" height="30" rx="4"/>
+  <text class="label" x="160" y="172">کابینو (شرکت)</text>
+
+  <!-- Amount in words -->
+  <text class="hint" x="80" y="215">مبلغ به حروف:</text>
+  <rect class="field" x="180" y="200" width="500" height="30" rx="4"/>
+  <text class="label" x="190" y="222">پانصد هزار تومان فقط</text>
+
+  <!-- Amount numeric -->
+  <text class="hint" x="700" y="215">مبلغ رقم:</text>
+  <rect class="field" x="780" y="200" width="60" height="30" rx="4"/>
+  <text class="label" x="788" y="222">۵۰۰٬۰۰۰</text>
+
+  <!-- Date -->
+  <text class="hint" x="80" y="265">تاریخ:</text>
+  <rect class="field" x="130" y="250" width="160" height="30" rx="4"/>
+  <text class="label" x="140" y="272">۱۴۰۳/۰۹/۰۱</text>
+
+  <!-- Signature line -->
+  <text class="hint" x="620" y="265">امضا:</text>
+  <line x1="670" y1="280" x2="820" y2="280" stroke="#282828" stroke-width="1.5"/>
+
+  <!-- MICR line bottom -->
+  <text class="micr" x="80" y="420">|: 123456 |: 789012 |: ۳۴۵۶۷۸ |:</text>
+
+  <!-- Annotations -->
+  <!-- Sayadi ID annotation -->
+  <path class="annot-line" d="M 660 50 L 660 80" marker-end="url(#arrow)"/>
+  <text class="annot" x="500" y="40">شناسه صیادی (۱۶ رقم)</text>
+
+  <!-- Amount annotation -->
+  <path class="annot-line" d="M 840 240 Q 880 260 860 200" marker-end="url(#arrow)"/>
+  <text class="annot" x="760" y="185">مبلغ عدد</text>
+
+  <!-- Amount words annotation -->
+  <path class="annot-line" d="M 420 195 Q 420 175 430 195" marker-end="url(#arrow)"/>
+  <text class="annot" x="320" y="185">مبلغ حروف</text>
+
+  <!-- Signature annotation -->
+  <path class="annot-line" d="M 740 300 L 740 285" marker-end="url(#arrow)"/>
+  <text class="annot" x="700" y="320">امضا</text>
+
+  <!-- Date annotation -->
+  <path class="annot-line" d="M 210 300 L 210 285" marker-end="url(#arrow)"/>
+  <text class="annot" x="170" y="320">تاریخ شمسی</text>
+
+  <!-- Title -->
+  <text class="title" x="450" y="30" text-anchor="middle">راهنمای بخش‌های مهم چک</text>
+
+  <!-- Footer hint -->
+  <text class="hint" x="450" y="490" text-anchor="middle">تصویر واضح بگیرید: شناسه صیادی، مبلغ و امضا کاملاً خوانا باشند</text>
+</svg>

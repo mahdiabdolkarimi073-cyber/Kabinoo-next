@@ -1,0 +1,40 @@
+
+@font-face {
+    font-family: 'Moraba';
+    src: url('/assets/fonts/moraba/Morabba-Heavy.ttf');
+    src: local('/assets/fonts/moraba/Morabba-Heavy'),
+        url('/assets/fonts/moraba/Morabba-Heavy.ttf?#iefix') format('embedded-opentype'),
+        url('/assets/fonts/moraba/Morabba-Heavy.woff2') format('woff2'),
+        url('/assets/fonts/moraba/Morabba-Heavy.woff') format('woff'),
+        url('/assets/fonts/moraba/Morabba-Heavy.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Moraba';
+    src: url('/assets/fonts/moraba/Morabba-Heavy.ttf');
+    src: local('/assets/fonts/moraba/Morabba-Heavy'),
+        url('/assets/fonts/moraba/Morabba-Heavy.ttf?#iefix') format('embedded-opentype'),
+        url('/assets/fonts/moraba/Morabba-Heavy.woff2') format('woff2'),
+        url('/assets/fonts/moraba/Morabba-Heavy.woff') format('woff'),
+        url('/assets/fonts/moraba/Morabba-Heavy.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'Moraba';
+    src: url('/assets/fonts/moraba/Morabba-Regular.ttf');
+    src: local('/assets/fonts/moraba/Morabba-Regular'),
+        url('/assets/fonts/moraba/Morabba-Regular.ttf?#iefix') format('embedded-opentype'),
+        url('/assets/fonts/moraba/Morabba-Regular.woff2') format('woff2'),
+        url('/assets/fonts/moraba/Morabba-Regular.woff') format('woff'),
+        url('/assets/fonts/moraba/Morabba-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
