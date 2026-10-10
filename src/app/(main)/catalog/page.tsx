@@ -26,7 +26,7 @@ export default async function CatalogPage() {
             {catalogs.length ? (
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {catalogs.map(catalog => (
-                        <Link key={catalog.id} href={`/catalog/${catalog.slug}`} className="group overflow-hidden rounded-2xl bg-white shadow-md transition hover:-translate-y-1 hover:shadow-xl">
+                        <Link key={catalog.id} href={`http://localhost:3080/public/file/catalogs/iHIhPlGQvnLj/flipbook-plugin/data/book.html`} className="group overflow-hidden rounded-2xl bg-white shadow-md transition hover:-translate-y-1 hover:shadow-xl">
                             <div className="aspect-[3/4] overflow-hidden bg-gray-100">
                                 {catalog.coverImage ? <img src={catalog.coverImage} alt={catalog.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" /> : <div className="flex h-full items-center justify-center text-gray-400">تصویر جلد</div>}
                             </div>
